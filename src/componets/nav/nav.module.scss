@@ -1,0 +1,85 @@
+@import "../../style/mixins";
+@import "../../style/colors";
+
+.nav{
+  @include display-flex(space-between);
+  background: transparent;
+  padding: 24px 150px;
+  color: $main;
+  position: absolute;
+  width: calc(100% - 300px);
+  opacity: .9;
+  z-index: 11;
+
+  & .left_block{
+    @include display-flex;
+    gap: 26px;
+
+    & img{
+      margin-right: 78px;
+      fill: $main;
+    }
+
+    & a{
+      text-decoration: none;
+      @include fonts(300, 18px, 21px, $accent);
+      text-transform: uppercase;
+    }
+
+    & .active{
+      color: $main;
+    }
+  }
+
+  & .title{
+    text-decoration: none;
+    @include fonts(300, 40px, 40px, $main);
+    text-transform: uppercase;
+  }
+
+  & .right_block{
+    @include display-flex;
+    gap: 30px;
+
+    & a{
+      & svg{
+        margin-bottom: -3px;
+      }
+    }
+
+    & .user_block{
+      position: relative;
+
+      & .account{
+
+        color: $main;
+        & svg{
+          width: 25px;
+          height: 25px;
+          margin-bottom: -3px;
+        }
+      }
+
+      & .color{
+        color: #FFFFFF;
+      }
+    }
+
+    & .language{
+      margin-right: 45px;
+
+      & button{
+        border: none;
+        background: transparent;
+        @include fonts(300, 18px, 21px, $main);
+        text-transform: uppercase;
+      }
+
+    }
+
+
+  }
+
+
+
+}

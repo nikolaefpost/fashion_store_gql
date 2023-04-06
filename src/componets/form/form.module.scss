@@ -1,0 +1,52 @@
+@import "../../style/mixins";
+@import "../../style/colors";
+
+.user_form{
+
+  & h3{
+    @include fonts(300, 20px, 23px, $accent);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  & .submit{
+    margin-top: 20px;
+    border: none;
+    background: $main;
+    width: 100%;
+    height: 50px;
+    @include fonts(300, 16px, 19px, #FFFFFF);
+    text-transform: uppercase;
+    @include display-flex;
+
+    &:hover{
+      filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
+    }
+  }
+
+  & .help_block{
+    margin-top: 20px;
+    @include display-flex(space-between);
+
+    & .help_button{
+      text-decoration: underline;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      @include fonts(300, 16px, 19px, $accent);
+    }
+  }
+
+  & .error{
+    font-family: "Gill Sans", sans-serif;
+    position: absolute;
+    @include fonts(300, 16px, 19px,  $error);
+    bottom: 20px;
+    left: 100px;
+  }
+
+  & .info{
+    margin: 20px 0 10px;
+    @include fonts(300, 16px, 19px, $accent);
+  }
+}

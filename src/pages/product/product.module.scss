@@ -1,0 +1,29 @@
+@import "../../style/mixins";
+@import "../../style/colors";
+
+.content{
+  padding: 95px 150px 100px;
+  width: 1440px;
+  margin: 0 auto;
+
+  & .nav_block{
+    @include display-flex(flex-start);
+
+    & span{
+      @include fonts(300, 16px, 19px, $accent);
+      cursor: pointer;
+      display: block;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    & svg{
+      width: 14px;
+      height: 14px;
+      color: $main;
+      margin: 0 5px;
+    }
+  }
+}

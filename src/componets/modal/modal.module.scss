@@ -1,0 +1,48 @@
+@import "../../style/mixins";
+@import "../../style/colors";
+
+.modal{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  @include display-flex;
+
+  & .wrapper{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background: #000;
+    opacity: .7;
+    z-index: 101;
+  }
+
+
+  & .content{
+    position: relative;
+    width: 600px;
+    //height: 343px;
+    background: #FFFFFF;
+    z-index: 102;
+    padding: 50px 100px;
+
+    & .cross{
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: $main;
+
+      & svg{
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+
+}
+
+
+
+.is_open{
+  display: none;
+}

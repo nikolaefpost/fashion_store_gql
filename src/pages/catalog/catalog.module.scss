@@ -1,0 +1,227 @@
+@import "../../style/mixins";
+@import "../../style/colors";
+
+.content{
+  padding: 95px 150px 100px;
+
+  & .nav_block{
+
+    & span{
+      @include fonts(300, 16px, 19px, $accent);
+      cursor: pointer;
+    }
+
+    & .nav_category{
+      color: $main;
+
+      &::first-letter {
+        text-transform: uppercase;
+        color: red;
+      }
+    }
+
+    & svg{
+      width: 14px;
+      height: 14px;
+      color: $main;
+      margin: 0 5px;
+    }
+  }
+
+  & .product_grid{
+    margin-top: 30px;
+    width: 100%;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 150px auto;
+    grid-template-rows: 24px auto;
+    grid-template-areas:
+    ' title header '
+    ' sidebar body ';
+
+    & .title{
+      grid-area: title;
+      @include fonts(300, 20px, 23px, $accent);
+    }
+
+    & .sidebar{
+      grid-area: sidebar;
+      @include display-flex(flex-start, flex-start);
+      flex-direction: column;
+      gap: 20px;
+      @include fonts(300, 16px, 19px, $accent);
+
+      & span{
+        @include fonts(300, 16px, 19px, $accent);
+        cursor: pointer;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    & .header{
+      grid-area: header;
+      @include display-flex(flex-start);
+      gap: 30px;
+
+      & .circle{
+        width: 14px;
+        height: 14px;
+        border-radius: 7px;
+        margin-bottom: 5px;
+
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+
+      & .white{
+        background: #FFFFFF;
+        border: 0.3px solid $accent;
+      }
+
+      & .grey{
+        background: #6F83A4;
+      }
+
+      & .beige{
+        background: #F1DDAA;
+      }
+
+      & .info{
+        @include display-flex;
+
+        & .selected{
+          margin-left: 5px;
+          border: .3px solid $accent;
+          border-radius: 6px;
+          padding: 4px;
+          cursor: pointer;
+        }
+
+        & .selected_color{
+          margin-left: 5px;
+          border: .3px solid $accent;
+          border-radius: 6px;
+          padding: 9px;
+          display: inline;
+        }
+      }
+
+      & .header_block{
+        position: relative;
+
+        & .header_title{
+          cursor: pointer;
+          @include fonts(300, 16px, 19px, $accent);
+          transition: all .3s ease-out;
+
+          &:hover{
+            color: $main;
+          }
+        }
+
+        & .modal_size{
+          //width: 100%;
+          position: absolute;
+          @include display-flex;
+          flex-direction: column;
+          top: 34px;
+          left: 0;
+          background: $main;
+          color: #FFFFFF;
+          border-radius: 6px;
+          padding: 8px 12px;
+          opacity: .9;
+
+          & span{
+            cursor: pointer;
+          }
+        }
+
+        & .sort_field{
+          width: 200px;
+          align-items: flex-start;
+        }
+
+        & svg{
+          width: 14px;
+          height: 14px;
+          color: $main;
+          margin-left: 5px;
+          margin-bottom: -3px;
+        }
+      }
+    }
+
+    & .body{
+      grid-area: body;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      grid-template-rows: repeat(360px);
+      gap: 30px 15px;
+
+
+    }
+  }
+}
+
+.card_img{
+  object-fit: cover;
+  width: 100%;
+  height: calc(100% - 139px);
+  padding: 12px;
+  cursor: pointer;
+}
+
+.card_text{
+  margin-top: 10px;
+  @include display-flex(flex-end, center);
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+
+  & .card_title{
+    @include fonts(300, 16px, 19px, $accent);
+    height: 57px;
+    @include display-flex;
+    padding: 0 16px;
+    text-align: center;
+
+  }
+
+  & .card_price{
+    @include fonts(700, 16px, 19px, $accent);
+  }
+
+  & .card_size{
+    text-transform: uppercase;
+    @include fonts(300, 16px, 19px, $accent);
+  }
+
+  & .card_color{
+    @include display-flex;
+    gap: 5px;
+
+    & div{
+      width: 14px;
+      height: 14px;
+      border-radius: 7px;
+    }
+
+    & .white{
+      background: #FFFFFF;
+      border: 0.3px solid $accent;
+    }
+
+    & .grey{
+      background: #6F83A4;
+    }
+
+    & .beige{
+      background: #F1DDAA;
+    }
+  }
+}

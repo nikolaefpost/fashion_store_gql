@@ -1,0 +1,261 @@
+@import "../../style/mixins";
+@import "../../style/colors";
+
+.content {
+  margin-top: 30px;
+
+  & .product_card {
+    @include display-flex(center, flex-start);
+    gap: 50px;
+
+    & .img_block {
+      width: 560px;
+      height: 540px;
+      @include display-flex(flex-start);
+      gap: 10px;
+
+      & .list_img {
+        width: 100px;
+        height: 100%;
+        position: relative;
+        overflow-y: auto;
+
+        & .shift_block {
+          position: absolute;
+          gap: 10px;
+          @include display-flex(flex-start);
+          flex-direction: column;
+          width: 100%;
+          top: 0;
+          left: 0;
+          //color: rgba(66, 67, 72, 0.8);
+
+          & img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+          }
+        }
+      }
+
+      & .main_img {
+        width: 450px;
+        height: 100%;
+
+        & img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+    }
+
+    & .text_block {
+      width: 530px;
+
+      & h3 {
+        @include fonts(300, 20px, 23px, $accent);
+      }
+
+      & .price {
+        margin-top: 20px;
+        @include fonts(700, 14px, 16px, $accent);
+      }
+
+      & .color_block {
+        margin-top: 23px;
+        @include display-flex(flex-start);
+        gap: 7.5px;
+        cursor: pointer;
+
+        & .color_el {
+          width: 21px;
+          height: 21px;
+          border-radius: 10.5px;
+        }
+
+        & .white {
+          border: 0.3px solid #252525;
+          background: #FFFFFF;
+        }
+
+        & .grey {
+          background: #6F83A4;
+          border: 0.3px solid #6F83A4;
+        }
+
+        & .beige {
+          background: #F1DDAA;
+          border: 0.3px solid #F1DDAA;
+
+        }
+
+        & .selected_color{
+          position: relative;
+          width: 24px;
+          height: 24px;
+
+          &:before {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            border: 0.3px solid $accent;
+            top: -5px;
+            left: -5px;
+          }
+        }
+      }
+
+      & .color_text {
+        margin-top: 10px;
+        @include fonts(300, 16px, 19px, $main);
+      }
+
+      & .select {
+        position: relative;
+        margin-top: 20px;
+        width: 100%;
+        padding: 16px 19px;
+        border: 0.5px solid #252525;
+        @include fonts(200, 16px, 19px, $accent);
+        cursor: pointer;
+
+        & .error{
+          font-family: "Gill Sans", sans-serif;
+          position: absolute;
+          top: -15px;
+          right: 0;
+          @include fonts(400, 10px, 10px,  $error)
+        }
+
+        & ul {
+          padding: 0;
+
+          & li {
+            list-style-type: none;
+          }
+        }
+
+        & .svg {
+          width: 18px;
+          height: 18px;
+          color: $main;
+          position: absolute;
+          transform: rotate(90deg);
+          top: 16px;
+          right: 20px;
+          transition: all .3s ease-out
+        }
+
+        & .active_svg {
+          transform: rotate(180deg);
+          transition: all .3s ease-out
+        }
+      }
+
+      & .error_select{
+        border: 0.5px solid $error;
+      }
+
+      & .button_block {
+        margin-top: 20px;
+        @include display-flex;
+        gap: 20px;
+
+        & button {
+          width: 50%;
+          height: 50px;
+          @include display-flex;
+          border: none;
+          cursor: pointer;
+
+          &:hover {
+            filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
+          }
+
+          &:first-child {
+            background: $main;
+            @include fonts(300, 16px, 19px, #FFFFFF);
+          }
+
+          &:last-child {
+            background: #FFFFFF;
+            @include fonts(300, 16px, 19px, accent);
+            border: 0.5px solid #252525;
+
+            & svg {
+              width: 20px;
+              height: 20px;
+              margin-right: 11px;
+              color: $main;
+            }
+          }
+        }
+      }
+
+      & .description {
+        margin-top: 20px;
+
+        & h4 {
+          @include fonts(200, 16px, 19px, $accent);
+        }
+
+        & .description_element {
+          margin-top: 20px;
+
+          & .desc_content {
+            @include display-flex(space-between);
+
+            & h4 {
+              @include fonts(200, 16px, 19px, $accent);
+            }
+
+            & .svg {
+              transform: rotate(90deg);
+              margin-right: 4px;
+              color: $main;
+              transition: all .3s ease-out;
+            }
+
+            & .rotate_svg {
+              transform: rotate(270deg);
+              transition: all .3s ease-out;
+            }
+          }
+
+          & .hidden_text {
+            margin-top: 10px;
+            @include fonts(200, 14px, 16px, $accent);
+
+            & ul {
+              padding: 0;
+
+              & li {
+                list-style-type: none;
+              }
+            }
+
+
+          }
+        }
+      }
+    }
+  }
+}
+
+.whole_image{
+  margin-top: 100px;
+
+  & h3{
+    @include fonts(300, 20px, 23px, $accent);
+  }
+
+  & .whole_image_block{
+    margin-top: 30px;
+    @include display-flex(flex-start);
+    gap: 16px;
+  }
+}

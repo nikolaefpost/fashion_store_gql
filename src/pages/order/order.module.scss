@@ -1,0 +1,184 @@
+@import "../../style/mixins";
+@import "../../style/colors";
+
+.order {
+  padding: 95px 150px 100px;
+  width: 1440px;
+  margin: 0 auto;
+
+  & .nav_block {
+    @include display-flex(flex-start);
+
+    & span {
+      @include fonts(300, 16px, 19px, $accent);
+      cursor: pointer;
+      display: block;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    & svg {
+      width: 14px;
+      height: 14px;
+      color: $main;
+      margin: 0 5px;
+    }
+  }
+
+  & .order_list {
+    margin-top: 30px;
+
+    & h3 {
+      @include fonts(300, 20px, 23px, $accent);
+    }
+
+    & .list {
+      margin-top: 30px;
+      @include display-flex(flex-start);
+      flex-direction: column;
+      gap: 10px;
+
+      & .list_item {
+        width: 100%;
+        height: 120px;
+        padding-bottom: 10px;
+        border-bottom: 0.3px solid $accent;
+        @include display-flex(space-between);
+        gap: 20px;
+
+
+        & .title_block {
+          @include display-flex(flex-start);
+          flex: 0 1 calc(100% - 462px);
+          gap: 10px;
+          height: 100%;
+
+          & .image {
+            width: 95px;
+            height: 100%;
+
+            & img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+
+          & .title {
+            position: relative;
+            height: 100%;
+            @include fonts(300, 16px, 19px, $accent);
+            @include display-flex;
+
+            & span {
+              position: absolute;
+              top: 0;
+              left: 0;
+              @include fonts(300, 14px, 16px, $main);
+            }
+          }
+        }
+
+        & .color_block {
+          flex: 0 0 32px;
+          @include display-flex;
+
+          & .color_el {
+            border-radius: 10.5px;
+            position: relative;
+            width: 24px;
+            height: 24px;
+
+            &:before {
+              content: "";
+              position: absolute;
+              width: 30px;
+              height: 30px;
+              border-radius: 15px;
+              border: 0.3px solid $accent;
+              top: -5px;
+              left: -5px;
+            }
+          }
+
+          & .white {
+            border: 0.3px solid #252525;
+            background: #FFFFFF;
+          }
+
+          & .grey {
+            background: #6F83A4;
+            border: 0.3px solid #6F83A4;
+          }
+
+          & .beige {
+            background: #F1DDAA;
+            border: 0.3px solid #F1DDAA;
+
+          }
+        }
+
+        & .size_block {
+          flex: 0 0 100px;
+          @include fonts(300, 16px, 19px, $accent);
+        }
+
+        & .quantity_block {
+          flex: 0 0 100px;
+          height: 50px;
+          border: 0.5px solid #252525;
+          @include display-flex;
+          gap: 14px;
+
+          & .sign {
+            cursor: pointer;
+            & svg{
+              color: $main;
+              width: 18px;
+              height: 18px;
+              margin-bottom: -3px;
+            }
+
+          }
+        }
+
+        & .price_block {
+          flex: 0 0 150px;
+          @include display-flex;
+          @include fonts(300, 16px, 19px, $accent);
+          gap: 30px;
+
+          & .price {
+            @include fonts(700, 16px, 19px, $accent);
+          }
+
+          & .delete {
+            cursor: pointer;
+
+            & svg {
+              color: $main;
+              width: 25px;
+              height: 25px;
+            }
+          }
+
+
+        }
+      }
+    }
+
+    & .total{
+      margin-top: 30px;
+      text-align: right;
+      @include fonts(300, 16px, 19px, $accent);
+      font-feature-settings: 'pnum' on, 'lnum' on;
+
+      & span{
+        @include fonts(700, 16px, 19px, $accent);
+      }
+
+    }
+  }
+}

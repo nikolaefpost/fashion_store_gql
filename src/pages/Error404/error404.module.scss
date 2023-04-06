@@ -1,0 +1,19 @@
+@import "../../style/mixins";
+@import "../../style/colors";
+
+.text{
+  width: 100vw;
+  height: 100vh;
+  @include display-flex;
+  flex-direction: column;
+  gap: 16px;
+  color: $main;
+
+  & a, span{
+    color: $main;
+  }
+
+  & span{
+    @include fonts(300, 20px, 23px, $main);
+  }
+}

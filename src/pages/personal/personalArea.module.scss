@@ -1,0 +1,84 @@
+@import "../../style/mixins";
+@import "../../style/colors";
+
+.personal {
+  padding: 95px 150px 100px;
+  width: 1440px;
+  margin: 0 auto;
+
+  & .nav_block {
+    @include display-flex(flex-start);
+
+    & span {
+      @include fonts(300, 16px, 19px, $accent);
+      cursor: pointer;
+      display: block;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    & svg {
+      width: 14px;
+      height: 14px;
+      color: $main;
+      margin: 0 5px;
+    }
+  }
+
+  & .personal_nav {
+    margin-top: 30px;
+    height: 50px;
+    border-top: 1px solid $accent;
+    border-bottom: 1px solid $accent;
+    @include display-flex;
+
+    & .personal_element {
+      @include display-flex;
+      padding: 0 50px;
+      height: 100%;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      @include fonts(300, 16px, 19px, $accent);
+      font-family: inherit;
+    }
+
+    & .active {
+      color: #FFFFFF;
+      background: $main;
+    }
+
+  }
+  & .all_data {
+    margin-bottom: 125px;
+
+    & h4 {
+      margin-top: 20px;
+      @include fonts(300, 16px, 19px, $accent);
+    }
+
+    & .formPersonalInfo {
+      @include display-flex;
+      gap: 20px;
+    }
+
+    & button[type=submit] {
+      margin-top: 15px;
+      width: 100%;
+      height: 50px;
+      @include display-flex;
+      border: none;
+      cursor: pointer;
+      background: $main;
+      @include fonts(300, 16px, 19px, #FFFFFF);
+
+      &:hover {
+        filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
+      }
+    }
+
+
+  }
+}

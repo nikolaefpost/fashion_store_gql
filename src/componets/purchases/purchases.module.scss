@@ -1,0 +1,180 @@
+@import "../../style/mixins";
+@import "../../style/colors";
+
+.history_purchase {
+  margin-top: 20px;
+  border-bottom: 1px solid $accent;
+
+
+  & .purchase {
+    position: relative;
+    @include display-flex(space-between);
+    padding-bottom: 15px;
+
+    & .element_block {
+      position: relative;
+      padding-right: 56px;
+      display: inline-flex;
+      flex-direction: column;
+
+      & span:last-child {
+        @include fonts(700, 16px, 19px, $accent);
+      }
+    }
+
+    & .down_svg {
+      width: 18px;
+      height: 18px;
+      color: $main;
+      position: absolute;
+      transform: rotate(90deg);
+      top: 16px;
+      right: 0;
+      transition: all .3s ease-out
+    }
+
+    & .active_down_svg {
+      transform: rotate(270deg);
+      transition: all .3s ease-out
+    }
+
+
+  }
+
+  & .purchase_card {
+    margin-top: 5px;
+
+    & .product_position {
+      width: 100%;
+      height: 120px;
+      padding-bottom: 20px;
+      @include display-flex(space-between);
+      gap: 20px;
+
+
+      & .title_block {
+        @include display-flex(flex-start);
+        flex: 0 1 calc(100% - 502px);
+        gap: 10px;
+        height: 100%;
+
+        & .image {
+          width: 95px;
+          height: 100%;
+
+          & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+
+        & .title {
+          position: relative;
+          height: 100%;
+          @include fonts(300, 16px, 19px, $accent);
+          @include display-flex;
+
+          & span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include fonts(300, 14px, 16px, $main);
+          }
+        }
+      }
+
+      & .color_block {
+        flex: 0 0 32px;
+        @include display-flex;
+
+        & .color_el {
+          border-radius: 10.5px;
+          position: relative;
+          width: 24px;
+          height: 24px;
+
+          &:before {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            border: 0.3px solid $accent;
+            top: -5px;
+            left: -5px;
+          }
+        }
+
+        & .white {
+          border: 0.3px solid #252525;
+          background: #FFFFFF;
+        }
+
+        & .grey {
+          background: #6F83A4;
+          border: 0.3px solid #6F83A4;
+        }
+
+        & .beige {
+          background: #F1DDAA;
+          border: 0.3px solid #F1DDAA;
+
+        }
+      }
+
+      & .size_block {
+        flex: 0 0 100px;
+        @include fonts(300, 16px, 19px, $accent);
+      }
+
+      & .quantity_block {
+        flex: 0 0 140px;
+        height: 50px;
+        @include display-flex;
+        gap: 14px;
+
+        & .sign {
+          cursor: pointer;
+
+          & svg {
+            color: $main;
+            width: 18px;
+            height: 18px;
+            margin-bottom: -3px;
+          }
+
+        }
+      }
+
+      & .price_block {
+        flex: 0 0 150px;
+        @include display-flex;
+        @include fonts(300, 16px, 19px, $accent);
+        gap: 30px;
+
+        & .price {
+          @include fonts(700, 16px, 19px, $accent);
+        }
+
+        & .delete {
+          cursor: pointer;
+
+          & svg {
+            color: $main;
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+    }
+
+    & .info_block{
+      @include display-flex(space-between);
+      margin-bottom: 20px;
+    }
+
+  }
+
+
+}

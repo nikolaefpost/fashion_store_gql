@@ -1,0 +1,27 @@
+@import "../../style/mixins";
+@import "../../style/colors";
+
+.min_max{
+  width: 100%;
+  @include display-flex;
+  gap: 10px;
+
+  & input{
+    width: 50%;
+  }
+
+  & button{
+    //width: 25%;
+    background: $jazzy_jade;
+    color: $fresh_guacamole;
+    border: 1px solid $jazzy_jade;
+    padding: 4px 9px;
+    border-radius: 4px;
+
+    &:hover{
+      background: $fresh_guacamole;
+      color: $jazzy_jade;
+      //border: 1px solid $jazzy_jade;
+    }
+  }
+}
