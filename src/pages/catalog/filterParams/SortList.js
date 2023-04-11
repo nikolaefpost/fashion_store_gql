@@ -1,28 +1,28 @@
 import React, {useRef, useState} from 'react';
 import {AiOutlineDown} from "react-icons/ai";
 import {useOnClickOutside} from "../../../hooks/useOnclickOutside";
-import rootStore from "../../../store/rootStore";
 import {observer} from "mobx-react-lite";
 import cn from "classnames";
 
 import styles from "../catalog.module.scss";
+import {setSortingOption, sortListByOption} from "../../../appolo/operations/poducts/productMutations";
 
 const sortOption = [
-    {id: 0, name: "по рейтингу"},
-    {id: 1, name: "по возрастанию цены"},
-    {id: 2, name: "по убыванию цены"}
+
+    {id: 0, name: "по возрастанию цены"},
+    {id: 1, name: "по убыванию цены"}
+    // {id: 2, name: "по рейтингу"},
 ]
 
 const SortList = () => {
-    const {productStore} = rootStore;
     const [openSort, setOpenSort] = useState(false);
     const sortRef = useRef(null);
     useOnClickOutside(sortRef, ()=>setOpenSort(false));
 
     const closeModal = (e,param) => {
         e.stopPropagation()
-        productStore.setSortingOption(param);
-        productStore.sortListByOption();
+        setSortingOption(param);
+        sortListByOption();
         setOpenSort(false)
     }
     return (

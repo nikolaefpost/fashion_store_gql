@@ -10,7 +10,6 @@ const ProductList = ({products}) => {
 
     const navigate = useNavigate();
     const handleTransition = (id) => {
-        console.log(`${id}`)
         recentlyWatchedSave(id)
          navigate(`${id}`)
     }

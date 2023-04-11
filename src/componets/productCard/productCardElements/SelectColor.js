@@ -3,17 +3,12 @@ import cn from "classnames";
 
 import styles from "../productCard.module.scss";
 
-const color = [
-    {id: "white", name: "Белый снег"},
-    {id: "grey", name: "Мокрый асфальт"},
-    {id: "beige", name: "Кофе с молоком меланж"}
-]
 
-const SelectColor = ({colorProduct, setColorProduct}) => {
+const SelectColor = ({colorProduct, setColorProduct, color}) => {
     return (
         <>
             <div className={styles.color_block}>
-                {color.map(el=>(
+                {color?.map(el=>(
                     <div
                         key={el.id}
                         className={cn(styles.color_el, styles[el.id], {[styles.selected_color]:el.id === colorProduct.id})}
@@ -22,7 +17,7 @@ const SelectColor = ({colorProduct, setColorProduct}) => {
                 ))}
             </div>
             <div className={styles.color_text}>
-                Цвет: {colorProduct.name}
+                Color: {colorProduct.color}
             </div>
 
         </>

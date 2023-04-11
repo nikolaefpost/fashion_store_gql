@@ -1,25 +1,32 @@
 import React  from 'react';
-import {useLanguage} from "../../context/setting";
+// import {useLanguage} from "../../context/setting";
 import {AiOutlineRight} from "react-icons/ai"
-import rootStore from "../../store/rootStore";
-import {observer} from "mobx-react-lite";
 import Sidebar from "./Sidebar";
 import HeaderCatalog from "./HeaderCatalog";
 import ProductList from "./ProductList";
 import {useNavigate} from "react-router-dom";
 
 import styles from "./catalog.module.scss";
+import {categoryCurrentVar} from "../../appolo/cashe/productVar";
+import {useQuery, useReactiveVar} from "@apollo/client";
+import {GET_CATEGORY_LOCAL, GET_PRODUCT_LOCAL} from "../../appolo/operations/poducts/productQuery";
+import {filterCategory} from "../../appolo/operations/poducts/productMutations";
+
 
 
 
 const Catalog = () => {
-    const {text} = useLanguage();
+    // const {text} = useLanguage();
     const navigate = useNavigate();
-    const {productStore} = rootStore;
+    // const {productStore} = rootStore;
 
     const handleHome = () => {
        navigate("/")
     }
+    const { data: category } = useQuery(GET_CATEGORY_LOCAL);
+    const { data: product } = useQuery(GET_PRODUCT_LOCAL);
+
+    const currentCategory = useReactiveVar(categoryCurrentVar);
 
     return (
         <div className={styles.content}>
@@ -27,19 +34,19 @@ const Catalog = () => {
                 <span onClick={handleHome}>Главная</span>
                 <AiOutlineRight/>
                 <span
-                    onClick={()=>productStore.filterCategory("")}
+                    onClick={()=>filterCategory("")}
                 >Каталог</span>
-                {productStore.currentCategory && <>
+                {currentCategory && <>
                     <AiOutlineRight/>
-                    <span className={styles.nav_category}>{productStore.currentCategory}</span>
+                    <span className={styles.nav_category}>{currentCategory}</span>
                 </>}
             </div>
             <div className={styles.product_grid}>
 
                 <div className={styles.title}>Каталог </div>
-                <HeaderCatalog length={productStore.list.length}/>
-                <ProductList products={productStore.list}/>
-                <Sidebar category={productStore.category} sort={productStore.filterCategory}/>
+                <HeaderCatalog length={product?.productList.length}/>
+                <ProductList products={product?.productList? product?.productList: []}/>
+                <Sidebar category={category?.categoryLocal} sort={filterCategory}/>
 
             </div>
             {/*<ProductListMobx/>*/}
@@ -47,4 +54,4 @@ const Catalog = () => {
     );
 };
 
-export default observer(Catalog);
+export default Catalog;

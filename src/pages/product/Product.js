@@ -6,10 +6,12 @@ import {observer} from "mobx-react-lite";
 import ProductCard from "../../componets/productCard/ProductCard";
 import {getRecentlyWatched, recentlyWatchedSave} from "../../helpers/recentlyWatchedSave";
 import {handlerScrollUp} from "../../helpers/handlerScrollUp";
-import {Error404} from "../index";
+import OtherImage from "./OtherImage";
+import {filterCategory, getProduct} from "../../appolo/operations/poducts/productMutations";
+import {useQuery} from "@apollo/client";
+import {GET_PRODUCT_LOCAL} from "../../appolo/operations/poducts/productQuery";
 
 import styles from "./product.module.scss";
-import OtherImage from "./OtherImage";
 
 const styleX = {width: "370px", height: "501px"}
 const styleL = {width: "274px", height: "401px"}
@@ -17,13 +19,15 @@ const styleL = {width: "274px", height: "401px"}
 
 const Product = () => {
     let {cardId} = useParams();
-    const {productStore, orderStore} = rootStore;
+    const { orderStore} = rootStore;
+    const {data: product} = useQuery(GET_PRODUCT_LOCAL);
     const saved = getRecentlyWatched();
-    const dataWhile = productStore.product.slice(5,7);
-    const dataAdditional = productStore.product.slice(11,15);
-    const dataLike = productStore.product.slice(1,5);
-    const dataRecentlyWatched = saved.map(id => productStore.product.find(el => el.id === id));
-    const currentProduct = productStore.getProduct(parseInt(cardId));
+    const dataWhile = product?.productList.slice(1, 3);
+    const dataAdditional = product?.productList.slice(0, 4);
+    const dataLike = product?.productList.slice(0, 4);
+    const dataRecentlyWatched = saved.map(id => product?.productList.find(el => el.id === id));
+    const currentProduct = getProduct(cardId);
+    console.log(currentProduct)
 
     const navigate = useNavigate();
     const handleTransition = (id) => {
@@ -33,22 +37,22 @@ const Product = () => {
 
     const handleTransitionCategory = () => {
         navigate("/card");
-        productStore.filterCategory(currentProduct.category)
+        filterCategory(currentProduct?.category?.category)
     }
 
-    if(!/^[1-9]+\d*$/.test(cardId) || currentProduct === undefined) return <Error404/>;
+    // if(!/^[1-9]+\d*$/.test(cardId) || currentProduct === undefined) return <Error404/>;
 
     handlerScrollUp();
     return (
         <div className={styles.content}>
             <div className={styles.nav_block}>
-                <span onClick={()=>navigate("/")}>Главная</span>
+                <span onClick={() => navigate("/")}>Главная</span>
                 <AiOutlineRight/>
-                <span onClick={()=>navigate("/card")}>Каталог</span>
+                <span onClick={() => navigate("/card")}>Каталог</span>
                 <AiOutlineRight/>
-                <span onClick={handleTransitionCategory}>{currentProduct?.category}</span>
+                <span onClick={handleTransitionCategory}>{currentProduct?.category?.category}</span>
                 <AiOutlineRight/>
-                <span>{currentProduct?.title}</span>
+                <span>{currentProduct?.name}</span>
             </div>
             <ProductCard
                 product={currentProduct}
@@ -56,17 +60,20 @@ const Product = () => {
                 dataAdditional={dataAdditional}
                 dataLike={dataLike}
                 dataRecentlyWatched={dataRecentlyWatched}
-                handleTransition={handleTransition}
+                // handleTransition={handleTransition}
                 setProduct={orderStore.setProducts}
                 cardId={cardId}
             />
-            <OtherImage title="Весь образ" handleTransition={handleTransition} style={styleX} data={dataWhile}/>
-            <OtherImage title="Дополните образ" handleTransition={handleTransition} style={styleL}
-                        data={dataAdditional}/>
-            <OtherImage title="Вам может понравиться" handleTransition={handleTransition} style={styleL}
-                        data={dataLike}/>
-            <OtherImage title="Вы недавно смотрели" handleTransition={handleTransition} style={styleL}
-                        data={dataRecentlyWatched}/>
+            {product?.productList.length &&
+                <>
+                    <OtherImage title="Весь образ" handleTransition={handleTransition} style={styleX} data={dataWhile}/>
+                    <OtherImage title="Дополните образ" handleTransition={handleTransition} style={styleL}
+                                data={dataAdditional}/>
+                    <OtherImage title="Вам может понравиться" handleTransition={handleTransition} style={styleL}
+                                data={dataLike}/>
+                    <OtherImage title="Вы недавно смотрели" handleTransition={handleTransition} style={styleL}
+                                data={dataRecentlyWatched}/>
+                </>}
         </div>
     );
 };

@@ -1,19 +1,18 @@
 import React, {useState} from 'react';
 import {AiOutlineRight, AiOutlineLeft} from "react-icons/ai"
-import {category1, category2, category3, category4} from "../../assets/img";
 import cn from "classnames";
+import HomeSliderCard from "./HomeSliderCard";
+import {useQuery} from "@apollo/client";
+import {GET_CATEGORY_LOCAL} from "../../appolo/operations/poducts/productQuery";
 
 import styles from "./home.module.scss";
 
-const category = {
-    electronics: category1,
-    jewelery: category2,
-    ["men's clothing"]: category3,
-    ["women's clothing"]: category4
-}
 
-const HomeSlider = ({data}) => {
-    let doubleData = [...data].concat(...data);
+
+const HomeSlider = () => {
+    const { data } = useQuery(GET_CATEGORY_LOCAL);
+
+    let doubleData = data? [...data.categoryLocal].concat(...data.categoryLocal): [];
     const shiftStep = 290;
     const fullWidth = doubleData.length * shiftStep - 15;
     const screenWidth = window.screen.width;
@@ -28,19 +27,13 @@ const HomeSlider = ({data}) => {
         if (shift<0) setShift(prev => prev + shiftStep)
     }
 
-
-
     return (
         <div className={styles.slider}>
             <div className={styles.shift_elements} style={{left: shift, transition: "all 1s ease-out"}}>
                 {doubleData.map((item, i)=>(
-                    <div key={i} className={styles.element}>
-                        <img src={category[item]} alt="category" />
-                        <div className={styles.name}>{item}</div>
-                    </div>
+                    <HomeSliderCard card={item} key={i} />
                 ))}
             </div>
-
             <div className={cn(styles.control, styles.right)} onClick={next}><AiOutlineRight/></div>
             {shift !==0 && <div className={cn(styles.control, styles.left)} onClick={prev}><AiOutlineLeft/></div>}
         </div>

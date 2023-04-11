@@ -1,22 +1,22 @@
 import React, {useRef, useState} from 'react';
 import {AiOutlineDown} from "react-icons/ai";
 import {observer} from "mobx-react-lite";
-import rootStore from "../../../store/rootStore";
 import {useOnClickOutside} from "../../../hooks/useOnclickOutside";
 
 import styles from "../catalog.module.scss";
+import {applyFilter, setSize} from "../../../appolo/operations/poducts/productMutations";
 
-const sizeList = ["XXS", "XS", "S", "L"]
+const sizeList = ["XXL", "XXS", "XS", "S", "L"]
 
 const SetSize = () => {
-    const {productStore} = rootStore;
     const [openSize, setOpenSize] = useState(false);
     const sizeRef = useRef(null);
     useOnClickOutside(sizeRef, ()=>setOpenSize(false));
 
     const closeModal = (e,param) => {
         e.stopPropagation()
-        productStore.setCurrentSize(param);
+        setSize(param);
+        applyFilter()
         setOpenSize(false)
     }
     return (

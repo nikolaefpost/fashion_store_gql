@@ -20,11 +20,11 @@ export const data = {
 const SettingContext = createContext({});
 
 export const LanguageProvider = ({children}) => {
-    const [lang, setLang] = useState("Рус");
+    const [lang, setLang] = useState("Укр");
     const [text, setText] = useState({});
 
     const onChangeLang = () => setLang(prev => {
-        return (prev === "Eng")? "Рус" : "Eng"
+        return (prev === "Eng")? "Укр" : "Eng"
     });
 
     const getLanguage = () => {

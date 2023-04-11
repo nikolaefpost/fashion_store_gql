@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import { AiOutlineHeart} from "react-icons/ai";
-import {product1, product2, product3, product4} from "../../assets/img";
 import Description from "./Description";
 import SelectSize from "./productCardElements/SelectSize";
 import SelectColor from "./productCardElements/SelectColor";
@@ -9,27 +8,29 @@ import styles from "./productCard.module.scss";
 
 
 const ProductCard = ({product, setProduct, cardId}) => {
-    const productImg = [product?.image, product1, product2, product3, product4];
     const [openSelect, setOpenSelect] = useState(false);
     const [sizeProduct, setSizeProduct] = useState("Выберите размер");
     const [sizeError, setSizeError] = useState(false);
 
-    const [colorProduct, setColorProduct] = useState({id: "white", name: "Белый снег"});
+    const [colorProduct, setColorProduct] = useState({});
 
     const [currentImg, setCurrentImg] = useState("");
 
+    useEffect(()=>{
+        if (product?.image_src?.length) {
+            setCurrentImg(product?.image_src[0])
+        }
 
+        if (product?.color) setColorProduct(product?.color[0])
+    },[product])
 
-    useEffect(() => {
-        setCurrentImg(product?.image)
-    }, [product])
 
     useEffect(()=>{
-        setSizeProduct("Выберите размер")
+        setSizeProduct("Choose a size")
     },[cardId])
 
     const setOrder = (id) => {
-        if (sizeProduct === "Выберите размер") {
+        if (sizeProduct === "Choose a size") {
             setSizeError(true);
             return;
         }
@@ -42,19 +43,19 @@ const ProductCard = ({product, setProduct, cardId}) => {
                 <div className={styles.img_block}>
                     <div className={styles.list_img}>
                         <div className={styles.shift_block}>
-                            {productImg.map((src, i) => (
-                                <img key={i} src={src} alt="product" onClick={() => setCurrentImg(src)}/>
+                            {product?.image_src?.map((src) => (
+                                <img key={src} src={`/assets/image/${src}`} alt="product" onClick={() => setCurrentImg(src)}/>
                             ))}
                         </div>
                     </div>
                     <div className={styles.main_img}>
-                        <img src={currentImg} alt="product"/>
+                        {currentImg && <img src={`/assets/image/${currentImg}`} alt="product"/>}
                     </div>
                 </div>
                 <div className={styles.text_block}>
-                    <h3>{product?.title}</h3>
-                    <div className={styles.price}>{product?.price} грн.</div>
-                    <SelectColor colorProduct={colorProduct} setColorProduct={setColorProduct} />
+                    <h3>{product?.name}</h3>
+                    <div className={styles.price}>{product?.price} gr.</div>
+                    <SelectColor colorProduct={colorProduct} setColorProduct={setColorProduct} color={product?.color}  />
                     <SelectSize
                         openSelect={openSelect}
                         setOpenSelect={setOpenSelect}
@@ -62,6 +63,7 @@ const ProductCard = ({product, setProduct, cardId}) => {
                         setSizeProduct={setSizeProduct}
                         sizeError={sizeError}
                         setSizeError={setSizeError}
+                        size={product?.size}
                     />
                     <div className={styles.button_block}>
                         <button onClick={()=>setOrder(product?.id)}>В КОРЗИНУ</button>

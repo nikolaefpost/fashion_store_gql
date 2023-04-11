@@ -56,6 +56,10 @@
 
       & h3 {
         @include fonts(300, 20px, 23px, $accent);
+
+        &:first-letter{
+          text-transform: uppercase;
+        }
       }
 
       & .price {

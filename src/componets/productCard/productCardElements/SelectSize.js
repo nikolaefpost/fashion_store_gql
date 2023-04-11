@@ -4,9 +4,9 @@ import {AiOutlineRight} from "react-icons/ai";
 
 import styles from "../productCard.module.scss";
 
-const size = ["XXS", "XS", "S", "M", "L"];
+// const size = ["XXS", "XS", "S", "M", "L"];
 
-const SelectSize = ({openSelect, setOpenSelect, sizeProduct, setSizeProduct, sizeError, setSizeError}) => {
+const SelectSize = ({openSelect, setOpenSelect, sizeProduct, setSizeProduct, sizeError, setSizeError, size}) => {
 
     const handleSetSizeProduct = (el) => {
         setSizeProduct(el);
@@ -22,7 +22,7 @@ const SelectSize = ({openSelect, setOpenSelect, sizeProduct, setSizeProduct, siz
                     <li key={el} onClick={() => handleSetSizeProduct(el)}>{el}</li>
                 ))}
             </ul>}
-            {sizeError && <div className={styles.error}>Выберите размер!</div>}
+            {sizeError && <div className={styles.error}>Choose a size!</div>}
         </div>
     );
 };

@@ -5,8 +5,11 @@ import styles from "./catalog.module.scss";
 const Sidebar = ({category, sort}) => {
     return (
         <div className={styles.sidebar}>
-            {category.map(item=>(
-                <span key={item} onClick={()=>sort(item)}>{item}</span>
+            {category && category.map(item=>(
+                <span
+                    key={item.category}
+                    onClick={()=>sort(item.category)}
+                >{item.category}</span>
             ))}
         </div>
     );

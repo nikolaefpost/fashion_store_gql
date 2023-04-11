@@ -3,8 +3,7 @@ import {
     configure
 } from "mobx";
 
-import { useQuery } from '@apollo/client';
-import {GET_PRODUCTS} from "../appolo/gql/query";
+
 
 configure({enforceActions: 'observed'})
 
@@ -49,7 +48,6 @@ export class ProductData {
         makeAutoObservable(this, {rootStore: false})
         this.rootStore = rootStore
         this.employeeService = new EmployeeService()
-        this.queryProduct();
         // this.getProductsFlow()
         // this.getProducts()
 
@@ -207,9 +205,4 @@ export class ProductData {
     //     this.isLoading = false;
     // }
 
-
-    queryProduct = (data) =>{
-
-        console.log(data)
-    }
 }

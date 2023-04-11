@@ -1,7 +1,7 @@
 import {gql} from '@apollo/client';
 
 export const GET_PRODUCTS = gql`
-    query MyQuery {
+    query MyProduct {
         queryProduct {
             availability
             brand {
@@ -34,3 +34,34 @@ export const GET_PRODUCTS = gql`
         }
     }
 `
+
+export const GET_PRODUCT_LOCAL = gql`
+  query GetProductLocal {
+    productList @client
+  }
+`;
+
+export const GET_CATEGORY = gql`
+    query MyCategory {
+  queryCategory {
+    category
+    category_ua
+  }
+}
+`
+
+export const GET_CATEGORY_LOCAL = gql`
+  query GetCategoryLocal {
+    categoryLocal @client
+  }
+`;
+
+export const GET_COLOR = gql`
+  query MyColor {
+    queryColor {
+        color
+        color_ua
+        id
+    }
+}
+`;

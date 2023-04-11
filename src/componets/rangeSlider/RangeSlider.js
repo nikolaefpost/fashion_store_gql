@@ -1,12 +1,20 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {observer} from "mobx-react-lite";
-import rootStore from "../../store/rootStore";
 
 import styles from "./rangeSlider.module.scss"
+import {
+    setInputMaxPrice,
+    setInputMinPrice,
+    setMaxPrice,
+    setMinPrice
+} from "../../appolo/operations/poducts/productMutations";
+import {useReactiveVar} from "@apollo/client";
+import { productInputMinMax, productMinMax } from "../../appolo/cashe/productVar";
 
 
 const RangeSlider = () => {
-    const {productStore} = rootStore;
+
+    const minMax = useReactiveVar(productMinMax);
+    const inputMinMax = useReactiveVar(productInputMinMax);
     const [onStartMinMove, setOnStartMinMove] = useState(false);
     const [onStartMaxMove, setOnStartMaxMove] = useState(false);
     const lineRange = useRef(null);
@@ -17,7 +25,7 @@ const RangeSlider = () => {
         const pos = lineRange.current.getBoundingClientRect()
         if ((event.clientX - pos.x) > 8
             && event.clientX - pos.x < parseInt(rightMarker.current.style.left, 10) - 8
-        ) productStore.setMinPrice(event.clientX - pos.x - 8)
+        ) setMinPrice(event.clientX - pos.x - 8)
     }
 
     const maxMove = (event) => {
@@ -25,7 +33,7 @@ const RangeSlider = () => {
         if (
             (event.clientX - pos.x) < 192 &&
             event.clientX - pos.x > parseInt(leftMarker.current.style.left, 10) + 24
-        ) productStore.setMaxPrice(event.clientX - pos.x - 8)
+        ) setMaxPrice(event.clientX - pos.x - 8)
     }
 
     useEffect(() => {
@@ -49,14 +57,14 @@ const RangeSlider = () => {
 
     const handleChangeMin = (e) => {
       let value = (e.target.value && (typeof parseInt(e.target.value, 10) === "number")) ? parseInt(e.target.value, 10) : 0;
-        productStore.setInputMinPrice(value)
+        setInputMinPrice(value)
 
     }
 
     const handleChangeMax = (e) => {
         let value = parseInt(e.target.value, 10);
-        if (typeof value === "number") productStore.setInputMaxPrice(value)
-        else productStore.setInputMaxPrice(0)
+        if (typeof value === "number") setInputMaxPrice(value)
+        else setInputMaxPrice(0)
     }
 
 
@@ -65,13 +73,13 @@ const RangeSlider = () => {
             <div className={styles.input_block}>
                 <span>Мин</span>
                 <input
-                    value={productStore.sortInputMinMax.min}
+                    value={inputMinMax.min}
                     onChange={handleChangeMin}
                     type="text"/>
                 <input
-                    value={productStore.sortInputMinMax.max}
+                    value={inputMinMax.max}
                     onChange={handleChangeMax}
-                    type="text"
+                    type="number"
                 />
                 <span>Мах</span>
             </div>
@@ -81,18 +89,18 @@ const RangeSlider = () => {
                     onMouseDown={()=>setOnStartMinMove(true)}
                     ref={leftMarker}
                     className={styles.marker_range}
-                    style={{left: productStore.sortMinMax.min}}
+                    style={{left: minMax.min}}
                 />
                 <div
                     onMouseUp={()=>setOnStartMaxMove(false)}
                     onMouseDown={()=>setOnStartMaxMove(true)}
                     ref={rightMarker}
                     className={styles.marker_range}
-                    style={{left: productStore.sortMinMax.max}}
+                    style={{left: minMax.max}}
                 />
             </div>
         </div>
     );
 };
 
-export default observer(RangeSlider);
+export default RangeSlider;

@@ -1,13 +1,12 @@
 import React, {useRef, useState} from 'react';
 import {AiOutlineDown} from "react-icons/ai";
 import RangeSlider from "../../../componets/rangeSlider/RangeSlider";
-import rootStore from "../../../store/rootStore";
 import {useOnClickOutside} from "../../../hooks/useOnclickOutside";
 
 import styles from "../catalog.module.scss";
+import {applyFilter} from "../../../appolo/operations/poducts/productMutations";
 
 const SetPrice = () => {
-    const {productStore} = rootStore;
     const [openPrice, setOpenPrice] = useState(false);
     const priceRef = useRef(null);
     useOnClickOutside(priceRef, ()=>setOpenPrice(false));
@@ -15,7 +14,7 @@ const SetPrice = () => {
     const closeModal = (e) => {
         e.stopPropagation()
         setOpenPrice(false)
-        productStore.sortPriceMinMax()
+        applyFilter()
     }
     return (
         <div className={styles.header_block} onClick={()=>setOpenPrice(true)}>

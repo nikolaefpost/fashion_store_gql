@@ -3,24 +3,40 @@ import cn from "classnames";
 import SetSize from "./filterParams/SetSize";
 import SetColor from "./filterParams/SetColor";
 import {observer} from "mobx-react-lite";
-import rootStore from "../../store/rootStore";
 import SetPrice from "./filterParams/SetPrice";
 import SortList from "./filterParams/SortList";
+import {useReactiveVar} from "@apollo/client";
+import {
+    productChangePriseRange,
+    productCurrentColorVar,
+    productCurrentSizeVar,
+    productInputMinMax,
+    productSortingOption
+} from "../../appolo/cashe/productVar";
+import {resetFilter} from "../../appolo/operations/poducts/productMutations";
 
 import styles from "./catalog.module.scss";
 
 
 const HeaderCatalog = ({length}) => {
-    const {productStore} = rootStore;
+    // setMinMaxPrice();
+    // const {productStore} = rootStore;
     const [openInfo, setOpenInfo] = useState(false)
+    const currentSize = useReactiveVar(productCurrentSizeVar);
+    const currentColor = useReactiveVar(productCurrentColorVar);
+    const changePriseRange = useReactiveVar(productChangePriseRange);
+    const inputMinMax = useReactiveVar(productInputMinMax);
+    const sortingOption = useReactiveVar(productSortingOption);
+
+
     useEffect(() => {
-        if (productStore.currentSize || productStore.currentColor || productStore.changePriseRange || productStore.sortingOption) setOpenInfo(true);
-        if (!productStore.currentSize && !productStore.currentColor && !productStore.changePriseRange && !productStore.sortingOption) setOpenInfo(false);
-    }, [productStore.currentSize, productStore.currentColor, productStore.changePriseRange || productStore.sortingOption])
+        if (currentSize || currentColor || changePriseRange || sortingOption) setOpenInfo(true);
+        if (!currentSize && !currentColor && !changePriseRange && !sortingOption) setOpenInfo(false);
+    }, [currentSize, currentColor, changePriseRange || sortingOption])
 
     const reset = () => {
         setOpenInfo(false);
-        productStore.reset();
+        resetFilter();
     }
 
     return (
@@ -32,15 +48,19 @@ const HeaderCatalog = ({length}) => {
             {openInfo && <div className={styles.info}>
                 Выбрано {length} товаров
                 <span className={styles.selected} onClick={reset}>Cбросить</span>
-                {productStore.currentSize && <span className={styles.selected}>{productStore.currentSize}</span>}
-                {productStore.currentColor && <div className={styles.selected_color}>
-                    <div className={cn(styles.circle, styles[productStore.currentColor])}/>
+                {currentSize && <span className={styles.selected}>{currentSize}</span>}
+                {currentColor && <div className={styles.selected_color}>
+                    <div className={cn(styles.circle, styles[currentColor])}/>
                 </div>}
-                {productStore.changePriseRange && <> <div className={styles.selected}>от:
-                    <span>{productStore.sortInputMinMax.min}</span> гр.</div><div className={styles.selected}> до:
-                    <span>{productStore.sortInputMinMax.max}</span> гр.</div>
+                {changePriseRange && <>
+                    <div className={styles.selected}>от:
+                        <span>{inputMinMax.min}</span> гр.
+                    </div>
+                    <div className={styles.selected}> до:
+                        <span>{inputMinMax.max}</span> гр.
+                    </div>
                 </>}
-                {productStore.sortingOption && <span className={styles.selected}>{productStore.sortingOption.name}</span>}
+                {sortingOption && <span className={styles.selected}>{sortingOption.name}</span>}
             </div>}
         </div>
     );
