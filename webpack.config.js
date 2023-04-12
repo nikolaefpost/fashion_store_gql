@@ -23,7 +23,7 @@ let conf = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "index.html")
+            template: path.resolve(__dirname, "src/index.html")
         }),
         new MiniCssExtractPlugin({
             filename: "main.css"

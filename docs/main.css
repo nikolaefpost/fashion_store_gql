@@ -1189,6 +1189,9 @@ span {
   line-height: 23px;
   color: #252525;
 }
+.productCard-module__content--fJ44M .productCard-module__product_card--NZTBd .productCard-module__text_block--eknnl h3:first-letter {
+  text-transform: uppercase;
+}
 .productCard-module__content--fJ44M .productCard-module__product_card--NZTBd .productCard-module__text_block--eknnl .productCard-module__price--zm3Aa {
   margin-top: 20px;
   font-weight: 700;

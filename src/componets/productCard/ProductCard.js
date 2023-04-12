@@ -66,25 +66,21 @@ const ProductCard = ({product, setProduct, cardId}) => {
                         size={product?.size}
                     />
                     <div className={styles.button_block}>
-                        <button onClick={()=>setOrder(product?.id)}>В КОРЗИНУ</button>
-                        <button><AiOutlineHeart/>В ИЗБРАННОЕ</button>
+                        <button onClick={()=>setOrder(product?.id)}>ADD TO CART</button>
+                        <button><AiOutlineHeart/>TO FAVORITES</button>
                     </div>
                     <div className={styles.description}>
-                        <h4>Подробности</h4>
-                        <Description title="Обмеры и описание">{product?.description}</Description>
-                        <Description title="Состав и уход">
-                            <ul>
-                                <li>Состав: 50% Шерсть, 50% Полиэстер</li>
-                                <li>Подкладка: 100% Полиэстер</li>
-                                <li>Утеплитель: 90% Пух, 10% Перо</li>
-                            </ul>
-                            <ul>
-                                <li>- Не стирать</li>
-                                <li>- Гладить при температуре утюга до 110°C</li>
-                                <li>- Не отбеливать</li>
-                                <li>- Барабанная сушка запрещена</li>
-                                <li>- Сухая чистка (химчистка)</li>
-                            </ul>
+                        <h4>Details</h4>
+                        <Description title="About">{product?.description_details}</Description>
+                        <Description title="Measurements and description">
+                            {product?.description_composition && <ul>
+                                {product?.description_composition.map(item => <li key={item}>{item}</li>)}
+                            </ul>}
+                        </Description>
+                        <Description title="Composition and care">
+                            {product?.description_care && <ul>
+                                {product?.description_care.map(item => <li key={item}>- {item}</li>)}
+                            </ul>}
                         </Description>
                     </div>
                 </div>
