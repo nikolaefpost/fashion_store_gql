@@ -28,13 +28,8 @@ const schema = yup
         "Поля не заполнены или введены неверно. Исправьте или введите заново, пожалуйста.",
     );
 
-const FirstStep = ({setUser, form, handleTransition}) => {
-
-    const currentUser = useReactiveVar(currentUserVar);
+const FirstStep = ({ form, handleTransition}) => {
     const errorMessage = useReactiveVar(authErrorVar);
-    console.log(errorMessage)
-    const [addUser, { data, loading, error }] = useMutation(ADD_USER);
-
 
     const {
         register,
@@ -48,20 +43,9 @@ const FirstStep = ({setUser, form, handleTransition}) => {
 
     });
 
-
     const onSubmit = handleSubmit(data => {
-        createUserFireBase(data.email, data.password, addUser);
-        // setUser(data)
+        createUserFireBase(data.email, data.password);
     });
-    
-    // const zeroError = () => {
-    //     console.log("EEE")
-    // }
-
-
-
-    if (loading) return 'Submitting...';
-    if (error) return `Submission error! ${error.message}`;
 
     return (<>
         <form onSubmit={onSubmit} className={styles.user_form} >

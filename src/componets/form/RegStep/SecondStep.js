@@ -23,7 +23,7 @@ import {
 //             .required("Код не введен")
 //     })
 
-const SecondStep = ({ secondForm, setIsCheckEmail, setModal}) => {
+const SecondStep = ({ setModal}) => {
     const [addUser, { data, loading, error }] = useMutation(ADD_USER)
     const currentUser = useReactiveVar(currentUserVar)
     console.log("SecondStep-currentUser" ,currentUser)
@@ -69,8 +69,11 @@ const SecondStep = ({ secondForm, setIsCheckEmail, setModal}) => {
            isAuthUserVar(true)
            setModal(false);
        }
-       else deleteUser();
+       // else deleteUser();
     },[data])
+
+    if (loading) return 'Submitting...';
+    if (error) return `Submission error! ${error?.message}`;
 
     return (
         <div  className={styles.user_form}>

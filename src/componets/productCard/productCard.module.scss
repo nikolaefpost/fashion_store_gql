@@ -187,8 +187,8 @@
 
           &:last-child {
             background: #FFFFFF;
-            @include fonts(300, 16px, 19px, accent);
-            border: 0.5px solid #252525;
+            @include fonts(300, 16px, 19px, $accent);
+            border: 0.5px solid $accent;
 
             & svg {
               width: 20px;

@@ -5,7 +5,7 @@ import {getAuth, GoogleAuthProvider} from 'firebase/auth';
 
 const firebaseConfig = {
     // apiKey: API_KEY,
-    apiKey: "AIzaSyAniiLFi7MWCmDpI2IsLvnXGY46hPi_w3I",
+
     authDomain: "fashion-store-auth-9ff12.firebaseapp.com",
     projectId: "fashion-store-auth-9ff12",
     storageBucket: "fashion-store-auth-9ff12.appspot.com",
