@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {observer} from "mobx-react-lite";
 import rootStore from "../../store/rootStore";
 import {AiOutlineRight} from "react-icons/ai";
@@ -7,12 +7,21 @@ import OrderList from "./OrderList";
 import Checkout from "./checkout/Checkout";
 
 import styles from "./order.module.scss";
+import {getOrderStorage, getTotal} from "../../appolo/operations/order/orderMutations";
+import {orderItemsVar} from "../../appolo/cashe/productVar";
+import {useQuery, useReactiveVar} from "@apollo/client";
+import {GET_PRODUCT_LOCAL} from "../../appolo/operations/poducts/productQuery";
 
 
 const Order = () => {
+    const {data} = useQuery(GET_PRODUCT_LOCAL);
+
+    getOrderStorage()
+
     const navigate = useNavigate();
     const { orderStore, userStore } = rootStore;
-    const  sum  = orderStore.getTotal();
+    const  sum  = getTotal();
+    const orderItems = useReactiveVar(orderItemsVar);
 
     return (
         <div className={styles.order}>
@@ -21,7 +30,7 @@ const Order = () => {
                 <AiOutlineRight/>
                 <span>Корзина</span>
             </div>
-            <OrderList order={orderStore.order} total={sum} />
+            <OrderList order={orderItems} total={sum} products={data} />
             <Checkout
                 formPersonalInfo={userStore.formPersonalInfo}
                 formDeliveryRadio={userStore.formDeliveryRadio}

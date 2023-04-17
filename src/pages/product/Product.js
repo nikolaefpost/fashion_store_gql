@@ -10,8 +10,10 @@ import OtherImage from "./OtherImage";
 import {filterCategory, getProduct} from "../../appolo/operations/poducts/productMutations";
 import {useQuery} from "@apollo/client";
 import {GET_PRODUCT_LOCAL} from "../../appolo/operations/poducts/productQuery";
+import {setProducts} from "../../appolo/operations/order/orderMutations";
 
 import styles from "./product.module.scss";
+
 
 const styleX = {width: "370px", height: "501px"}
 const styleL = {width: "274px", height: "401px"}
@@ -61,7 +63,7 @@ const Product = () => {
                 dataLike={dataLike}
                 dataRecentlyWatched={dataRecentlyWatched}
                 // handleTransition={handleTransition}
-                setProduct={orderStore.setProducts}
+                setProduct={setProducts}
                 cardId={cardId}
             />
             {product?.productList.length &&

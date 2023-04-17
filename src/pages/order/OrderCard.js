@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import cn from "classnames";
 import {RiDeleteBinLine} from "react-icons/ri"
 import {AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
@@ -6,32 +6,31 @@ import rootStore from "../../store/rootStore";
 import {observer} from "mobx-react-lite";
 
 import styles from "./order.module.scss";
+import {decQuantityItem, deleteProduct, incQuantityItem} from "../../appolo/operations/order/orderMutations";
 
-const OrderCard = ({orderElement}) => {
+const OrderCard = ({orderElement, currentProduct}) => {
     const { productStore, orderStore } = rootStore;
 
    const decQuantity = () => {
-     if(orderElement.quantity>1)  orderStore.decQuantity(orderElement.id)
+     if(orderElement.quantity>1)  decQuantityItem(orderElement.id)
    }
 
     const incQuantity = () => {
-        orderStore.incQuantity(orderElement.id)
+        incQuantityItem(orderElement.id)
     }
-
-    const currentProduct = productStore.getProduct(orderElement.id);
 
     const handleDeleteOrderElement = () => {
-        orderStore.deleteProduct(orderElement.id)
+        deleteProduct(orderElement.id)
     }
-    return (
+    return (currentProduct.id?
         <div  className={styles.list_item}>
             <div className={styles.title_block}>
                 <div className={styles.image}>
-                    <img src={currentProduct.image} alt="product image" />
+                    <img  src={`/assets/image/${currentProduct?.image_src[0]}`} alt="product image" />
                 </div>
                 <div className={styles.title}>
                     {currentProduct.title}
-                    <span>art {currentProduct.id}</span>
+                    <span>art {parseInt(currentProduct.id)}</span>
                 </div>
             </div>
             <div className={styles.color_block}>
@@ -47,7 +46,8 @@ const OrderCard = ({orderElement}) => {
                 <div className={styles.price}>{currentProduct.price} грн</div>
                 <span className={styles.delete} onClick={handleDeleteOrderElement}><RiDeleteBinLine/></span>
             </div>
-        </div>
+        </div>:
+            <div>Loading...</div>
     );
 };
 

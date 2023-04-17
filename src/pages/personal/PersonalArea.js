@@ -5,15 +5,19 @@ import {AiOutlineRight} from "react-icons/ai";
 import rootStore from "../../store/rootStore";
 import HistoryOrders from "./HistoryOrders";
 import AllData from "./AllData";
+import {signOut} from "firebase/auth"
 
 import styles from "./personalArea.module.scss";
+import {auth} from "../../firebase";
+import {deleteUser} from "../../appolo/operations/user/userStore";
 
 const PersonalArea = () => {
     const { orderStore, userStore } = rootStore;
     const [personal, setPersonal] = useState(false);
     const navigate = useNavigate();
     const handleExit = () => {
-        userStore.deleteUser();
+        // signOut(auth).catch(e=>console.log(e))
+        deleteUser();
         navigate("/");
     }
 

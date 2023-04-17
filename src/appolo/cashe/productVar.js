@@ -4,6 +4,7 @@ import {makeVar} from "@apollo/client";
 export const productItemsVar = makeVar([]);
 export const productChangeItemsVar = makeVar([]);
 
+
 export const productCurrentSizeVar = makeVar("");
 export const productCurrentColorVar = makeVar("");
 
@@ -15,8 +16,18 @@ export const productMaxPrice = makeVar(0);
 
 export const productSortingOption = makeVar(null);
 
-
-
-
 export const categoryItemsVar = makeVar([]);
 export const categoryCurrentVar = makeVar("");
+
+
+
+export const orderItemsVar = makeVar([]);
+
+
+export const currentUserVar = makeVar({});
+export const isAuthUserVar = makeVar(false);
+export const authErrorVar = makeVar('');
+export const secondStepVar = makeVar(false);
+export const userPasswordVar = makeVar("");
+export const userEmailVar = makeVar("");
+export const userTokenVar = makeVar("");

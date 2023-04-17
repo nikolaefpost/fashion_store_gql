@@ -14,11 +14,11 @@ import { LanguageProvider } from "./context/setting"
  productStore.getProducts();
 
 createRoot(document.getElementById("app")).render(
-    <React.StrictMode>
+    // <React.StrictMode>
         <ApolloProvider client={client}>
             <LanguageProvider>
                 <RouterProvider router={router}/>
             </LanguageProvider>
         </ApolloProvider>
-    </React.StrictMode>
+    // </React.StrictMode>
 );

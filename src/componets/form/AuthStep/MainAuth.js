@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
@@ -6,6 +6,10 @@ import InputForm from "../../inputForm/InputForm";
 import rootStore from "../../../store/rootStore";
 
 import styles from "../form.module.scss";
+import {authCreateUserDgraph, authUserFireBase, deleteUser} from "../../../appolo/operations/user/userStore";
+import {useLazyQuery, useMutation, useReactiveVar} from "@apollo/client";
+import {ADD_USER, AUTH_USER} from "../../../appolo/operations/user/userGrapfQgl";
+import {authErrorVar, currentUserVar, isAuthUserVar, userEmailVar} from "../../../appolo/cashe/productVar";
 
 const schema = yup
     .object({
@@ -22,9 +26,11 @@ const schema = yup
         "Поля не заполнены или введены неверно. Исправьте или введите заново, пожалуйста.",
     );
 
-const MainAuth = ({handleTransition, form, authUser, setModal, setIsNewPassword}) => {
+const MainAuth = ({handleTransition, form, setModal, setIsNewPassword}) => {
+    const [authUser, { data: checkUser, loading: loadingCheck, error: errorCheck }] = useLazyQuery(AUTH_USER);
+    const [addUser, { data: createUser, loading: loadingUser, error:  errorUser}] = useMutation(ADD_USER);
+    const errorMessage = useReactiveVar(authErrorVar);
     const { userStore } = rootStore;
-    const [isNoAuth, setIsNoAuth] = useState({message: "", flag: true});
 
     const {
         register,
@@ -39,15 +45,39 @@ const MainAuth = ({handleTransition, form, authUser, setModal, setIsNewPassword}
     });
 
     const onSubmit = handleSubmit(data => {
-        const auth = authUser(data);
-        if (auth.flag) setModal(false);
-        else setIsNoAuth(auth)
+        authUserFireBase(data.email, data.password, authUser)
     });
+    // const zeroError = () => {
+    //     console.log("EEE")
+    // }
+
+
+    useEffect(()=>{
+        console.log(checkUser)
+        if (!checkUser) return;
+        if (checkUser.checkUserPassword) {
+            isAuthUserVar(true)
+            setModal(false);
+        }
+        else {
+            authCreateUserDgraph(addUser)
+        };
+    },[checkUser])
+
+    useEffect(()=>{
+        if (createUser?.addUser) {
+            currentUserVar(createUser?.addUser)
+            isAuthUserVar(true)
+            setModal(false);
+        }
+    },[createUser])
+
+    if (loadingCheck || loadingUser) return 'Submitting...';
+    if (errorCheck || errorUser) return `Submission error! ${errorUser?.message} ${errorCheck?.message}`;
     return (
         <form
             onSubmit={onSubmit}
             className={styles.user_form}
-            onClick={()=>setIsNoAuth({message: "", flag: true})}
         >
             <h3>Авторизация</h3>
             {form.map(item => <InputForm
@@ -68,7 +98,7 @@ const MainAuth = ({handleTransition, form, authUser, setModal, setIsNewPassword}
                     onClick={handleTransition}
                 >Нет аккаунта?</button>
             </div>
-            {!isNoAuth.flag && <div className={styles.error}>{isNoAuth.message}</div>}
+            {errorMessage !== "" && <div className={styles.error}>{errorMessage}</div>}
             <button  type="submit" className={styles.submit}>Войти</button>
         </form>
     );

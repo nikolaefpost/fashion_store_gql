@@ -49,7 +49,6 @@ const Catalog = () => {
                 <Sidebar category={category?.categoryLocal} sort={filterCategory}/>
 
             </div>
-            {/*<ProductListMobx/>*/}
         </div>
     );
 };

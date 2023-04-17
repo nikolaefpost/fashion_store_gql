@@ -148,5 +148,6 @@ export const resetFilter = () => {
 }
 
 export const getProduct = (id) => {
+    console.log(productItemsVar())
     return productItemsVar()? productItemsVar().find(item=>item.id === id) : {}
 }
