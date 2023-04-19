@@ -25,9 +25,7 @@ export const orderItemsVar = makeVar([]);
 
 
 export const currentUserVar = makeVar({});
+export const userDataVar = makeVar({});
 export const isAuthUserVar = makeVar(false);
 export const authErrorVar = makeVar('');
 export const secondStepVar = makeVar(false);
-export const userPasswordVar = makeVar("");
-export const userEmailVar = makeVar("");
-export const userTokenVar = makeVar("");

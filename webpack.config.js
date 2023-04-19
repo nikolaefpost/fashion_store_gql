@@ -1,6 +1,8 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+// const { EnvironmentPlugin } = require("webpack")
 
 let conf = {
     entry: './src/index.js',
@@ -28,6 +30,11 @@ let conf = {
         new MiniCssExtractPlugin({
             filename: "main.css"
         }),
+        new Dotenv(),
+        // new EnvironmentPlugin({
+        //     API_KEY: "AIzaSyAniiLFi7MWCmDpI2IsLvnXGY46hPi_w3I",
+        //     // 'process.env.MY_ENV': JSON.stringify(process.env.MY_ENV),
+        // })
     ],
     module: {
         rules: [

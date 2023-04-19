@@ -5,13 +5,18 @@ import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
 import InputForm from "../../inputForm/InputForm";
 
 import styles from "../form.module.scss";
-import {authUserFireBase, deleteUser, sendEmailVerificationFireBase} from "../../../appolo/operations/user/userStore";
+import {
+    authUserFireBase,
+    deleteUser,
+    sendEmailVerificationFireBase,
+    setUserLocal
+} from "../../../appolo/operations/user/userStore";
 import {useMutation, useReactiveVar} from "@apollo/client";
 import {ADD_USER} from "../../../appolo/operations/user/userGrapfQgl";
 import {
     currentUserVar,
     isAuthUserVar,
-    secondStepVar,
+    secondStepVar, userDataVar,
     userEmailVar,
     userPasswordVar
 } from "../../../appolo/cashe/productVar";
@@ -25,51 +30,25 @@ import {
 
 const SecondStep = ({ setModal}) => {
     const [addUser, { data, loading, error }] = useMutation(ADD_USER)
-    const currentUser = useReactiveVar(currentUserVar)
-    console.log("SecondStep-currentUser" ,currentUser)
-    const password = useReactiveVar(userPasswordVar)
-    const email = useReactiveVar(userEmailVar)
+    const currentData = useReactiveVar(userDataVar)
+    const { email } = userDataVar();
 
-
-    // const {
-    //     register,
-    //     formState: {errors},
-    //     handleSubmit,
-    // } = useForm({
-    //     mode: "onTouched",
-    //     resolver: yupResolver(schema),
-    //     shouldFocusError: true,
-    //
-    // });
-
-    // const onSubmit = handleSubmit(data => {
-    //     if (data.code.length>1) {
-    //         //тут проверка кода из почты
-    //         setIsCheckEmail(true);
-    //         setTimeout(()=>setModal(false),0);
-    //     }
-    // });
-
-    const createUserFinality = (currentUser) => {
-        // const { email } = currentUserVar();
-        console.log(email)
-        authUserFireBase(email, password, addUser)
+    const createUserFinality = () => {
+        authUserFireBase(addUser)
     }
 
     useEffect(()=>{
-        if (currentUser.email) {
-            console.log("SEND")
+        console.log(currentData)
+        if (currentData.email) {
             sendEmailVerificationFireBase()
         }
-    },[currentUserVar])
+    },[currentData])
 
     useEffect(()=>{
-        console.log(data)
        if (data?.addUser) {
-           isAuthUserVar(true)
+           setUserLocal()
            setModal(false);
        }
-       // else deleteUser();
     },[data])
 
     if (loading) return 'Submitting...';
@@ -85,7 +64,7 @@ const SecondStep = ({ setModal}) => {
             <button
                 type="button"
                 className={styles.submit}
-                onClick={()=>createUserFinality(currentUser)}
+                onClick={createUserFinality}
             >ЗАРЕГИСТРИРОВАТЬСЯ</button>
         </div>
     );

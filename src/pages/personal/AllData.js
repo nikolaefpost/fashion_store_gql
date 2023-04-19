@@ -4,6 +4,9 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
 import InputForm from "../../componets/inputForm/InputForm";
 import {observer} from "mobx-react-lite";
+import {useMutation, useReactiveVar} from "@apollo/client";
+import {currentUserVar} from "../../appolo/cashe/productVar";
+import {UPDATE_USER} from "../../appolo/operations/user/userGrapfQgl";
 
 import styles from "./personalArea.module.scss";
 
@@ -12,13 +15,11 @@ const phoneRegExp = /^[+]?3?[\s]?8?[\s]?\(?0\d{2}?\)?[\s]?\d{3}[\s|-]?\d{2}[\s|-
 const schema = yup
     .object({
         name: yup
-            .string()
-            .min(2, "Имя должно содержать минимум 2 символов")
-            .required("Имя не введено"),
+            .string(),
+            // .min(2, "Имя должно содержать минимум 2 символов"),
         surname: yup
-            .string()
-            .required("Фамилия не введена")
-            .min(2, "Фамилия должна содержать минимум 2 символов"),
+            .string(),
+            // .min(2, "Фамилия должна содержать минимум 2 символов"),
         email: yup
             .string()
             .email("Неверный адрес электронной почты")
@@ -28,14 +29,18 @@ const schema = yup
             .required("Телефон не введен")
             .matches(phoneRegExp, 'Не правильный номер телефона'),
         city: yup
-            .string()
-            .required("Город доставки не введен"),
+            .string(),
+            // .required("Город доставки не введен"),
         postOffice: yup
-            .string()
-            .required("Отделение почты не введено"),
+            .string(),
+            // .required("Отделение почты не введено"),
     })
 
-const AllData = ({user, formPersonalInfo, formDeliveryAddress, handleSetUser}) => {
+const AllData = ({ formPersonalInfo, formDeliveryAddress, handleSetUser}) => {
+
+    const currentUser = useReactiveVar(currentUserVar);
+    const [updateUser] = useMutation(UPDATE_USER);
+    console.log(currentUser)
 
     const {
         register,
@@ -44,13 +49,31 @@ const AllData = ({user, formPersonalInfo, formDeliveryAddress, handleSetUser}) =
     } = useForm({
         mode: "onTouched",
         resolver: yupResolver(schema),
-        values: user,
+        values: currentUser,
         shouldFocusError: true,
 
     });
 
     const onSubmit = handleSubmit(data => {
-        handleSetUser(data)
+        updateUser({
+            variables: {
+                patch:
+                    {
+                        filter: {
+                            email: {
+                                eq: data.email
+                            }
+                        },
+                        set: {
+                            name: data.name,
+                            surname: data.surname,
+                            telephone: data.telephone,
+                            city: data.city,
+                            postOffice: data.postOffice,
+                        }
+                    }
+            }
+        }).catch(e=>console.log(e))
     });
 
     return (

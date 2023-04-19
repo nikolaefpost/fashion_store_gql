@@ -4,10 +4,8 @@ import {
     currentUserVar,
     isAuthUserVar,
     secondStepVar,
-    userEmailVar,
-    userPasswordVar, userTokenVar
+    userDataVar,
 } from "../../cashe/productVar";
-import catalog from "../../../pages/catalog/Catalog";
 const errorM = {
     "auth/wrong-password": "Wrong password",
     "auth/email-already-in-use": "This email address is already taken",
@@ -24,17 +22,11 @@ export const createUserFireBase = (email, password )=>{
         .then((userCredential) => {
             const user = userCredential.user;
             authErrorVar("")
-            userPasswordVar(password)
-            userEmailVar(email)
-            console.log(user)
-
-            currentUserVar({email: user.email, token: user.accessToken})
-            storage.setItem("currentUser", JSON.stringify(user));
+            userDataVar({email: user.email, token: user.accessToken, password})
             secondStepVar(true)
         })
         .catch((error) => {
             const errorCode = error.code;
-            const errorMessage = error.message;
             authErrorVar(errorM[errorCode])
             console.log(errorCode)
         });
@@ -46,25 +38,19 @@ export const sendEmailVerificationFireBase = () => {
         .then(() => {
             console.log(auth.currentUser)
             // Email verification sent!
-            // ...
-            // setDgraph({ variables: {email: auth.currentUser.email, token: auth.currentUser.accessToken} })
         });
 }
 
-export const authUserFireBase = (email, password, mutationDgraph) =>{
+export const authUserFireBase = ( mutationDgraph) =>{
     const auth = getAuth();
+    const {email, password} = userDataVar()
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            userTokenVar(user.accessToken)
-            userEmailVar(email)
             console.log(user)
             authErrorVar("")
             if (user.emailVerified){
                 mutationDgraph({ variables: {email: user.email, token: user.accessToken} })
-                console.log(user)
-                if (!currentUserVar().email) currentUserVar({email: user.email, token: user.accessToken})
-                storage.setItem("currentUser", JSON.stringify(user));
             }else{
                 authErrorVar(`${email} Follow this link to verify your email address`)
             }
@@ -72,10 +58,14 @@ export const authUserFireBase = (email, password, mutationDgraph) =>{
         })
         .catch((error) => {
             const errorCode = error.code;
-            // const errorMessage = error.message;
             console.log(errorCode)
             authErrorVar(errorM[errorCode])
         });
+}
+
+export const setUserLocal = () => {
+    storage.setItem("currentUser", JSON.stringify(userDataVar()));
+    isAuthUserVar(true)
 }
 
 export const authCreateUserFireBase = (email, password, checkDgraph) =>{
@@ -86,36 +76,38 @@ export const authCreateUserFireBase = (email, password, checkDgraph) =>{
             authErrorVar("")
             if (user.emailVerified){
                 checkDgraph({ variables: {email: user.email, token: user.accessToken} })
-                console.log(user)
-                storage.setItem("currentUser", JSON.stringify(user));
+                userDataVar({email: user.email, token: user.accessToken, password})
+                console.log("authCreateUserFireBase", user)
+            }else{
+                authErrorVar(`${email} Follow this link to verify your email address`)
             }
 
         })
         .catch((error) => {
             const errorCode = error.code;
-            const errorMessage = error.message;
             console.log(errorCode)
             authErrorVar(errorM[errorCode])
         });
 }
 
 export const authCreateUserDgraph = (addDgraph) => {
-    addDgraph({ variables: {email: userEmailVar(), token: userTokenVar()} })
+    const {email, token} = userDataVar()
+    addDgraph({ variables: {email, token} })
 }
 
 export const getUserDgraph = () =>{
     if (storage.getItem("currentUser") ) {
         const current = JSON.parse(storage.getItem("currentUser"));
         if(current.email){
-            currentUserVar(current);
             isAuthUserVar(true);
         }
+        return current.email
     }
 }
 
 export const  deleteUser = () => {
+    userDataVar({});
     currentUserVar({});
     storage.setItem("currentUser", JSON.stringify({}));
     isAuthUserVar(false);
-    // signOut(auth).catch(e=>console.log(e))
 }

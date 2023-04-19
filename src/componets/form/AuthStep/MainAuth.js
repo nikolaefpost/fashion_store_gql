@@ -1,15 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
 import InputForm from "../../inputForm/InputForm";
-import rootStore from "../../../store/rootStore";
-
-import styles from "../form.module.scss";
-import {authCreateUserDgraph, authUserFireBase, deleteUser} from "../../../appolo/operations/user/userStore";
+// import rootStore from "../../../store/rootStore";
+import {authCreateUserDgraph, authCreateUserFireBase, setUserLocal} from "../../../appolo/operations/user/userStore";
 import {useLazyQuery, useMutation, useReactiveVar} from "@apollo/client";
 import {ADD_USER, AUTH_USER} from "../../../appolo/operations/user/userGrapfQgl";
-import {authErrorVar, currentUserVar, isAuthUserVar, userEmailVar} from "../../../appolo/cashe/productVar";
+import {authErrorVar, userDataVar} from "../../../appolo/cashe/productVar";
+
+import styles from "../form.module.scss";
 
 const schema = yup
     .object({
@@ -30,7 +30,8 @@ const MainAuth = ({handleTransition, form, setModal, setIsNewPassword}) => {
     const [authUser, { data: checkUser, loading: loadingCheck, error: errorCheck }] = useLazyQuery(AUTH_USER);
     const [addUser, { data: createUser, loading: loadingUser, error:  errorUser}] = useMutation(ADD_USER);
     const errorMessage = useReactiveVar(authErrorVar);
-    const { userStore } = rootStore;
+    // const { userStore } = rootStore;
+    const currentUser = userDataVar()
 
     const {
         register,
@@ -39,24 +40,20 @@ const MainAuth = ({handleTransition, form, setModal, setIsNewPassword}) => {
     } = useForm({
         mode: "onTouched",
         resolver: yupResolver(schema),
-        values: userStore.user,
+        values: currentUser,
         shouldFocusError: true,
 
     });
 
     const onSubmit = handleSubmit(data => {
-        authUserFireBase(data.email, data.password, authUser)
+        authCreateUserFireBase(data.email, data.password, authUser)
     });
-    // const zeroError = () => {
-    //     console.log("EEE")
-    // }
 
 
     useEffect(()=>{
-        console.log(checkUser)
         if (!checkUser) return;
         if (checkUser.checkUserPassword) {
-            isAuthUserVar(true)
+            setUserLocal()
             setModal(false);
         }
         else {
@@ -66,8 +63,7 @@ const MainAuth = ({handleTransition, form, setModal, setIsNewPassword}) => {
 
     useEffect(()=>{
         if (createUser?.addUser) {
-            currentUserVar(createUser?.addUser)
-            isAuthUserVar(true)
+            setUserLocal()
             setModal(false);
         }
     },[createUser])

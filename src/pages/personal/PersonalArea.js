@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import cn from "classnames";
 import {useNavigate} from "react-router-dom";
 import {AiOutlineRight} from "react-icons/ai";
@@ -9,9 +9,14 @@ import {signOut} from "firebase/auth"
 
 import styles from "./personalArea.module.scss";
 import {auth} from "../../firebase";
-import {deleteUser} from "../../appolo/operations/user/userStore";
+import {deleteUser, getUserDgraph} from "../../appolo/operations/user/userStore";
+import {useLazyQuery, useQuery} from "@apollo/client";
+import {GET_USER} from "../../appolo/operations/user/userGrapfQgl";
 
 const PersonalArea = () => {
+    // const [getUser, { data, loading, error}] = useLazyQuery(GET_USER);
+    // getUserDgraph(getUser)
+
     const { orderStore, userStore } = rootStore;
     const [personal, setPersonal] = useState(false);
     const navigate = useNavigate();
@@ -20,6 +25,12 @@ const PersonalArea = () => {
         deleteUser();
         navigate("/");
     }
+    // if (loading) return 'Submitting...';
+    // if (error) return `Submission error! ${error?.message}`;
+
+    // useEffect(()=>{
+    //     console.log(data)
+    // },[data])
 
     return (
         <div className={styles.personal}>
@@ -42,10 +53,9 @@ const PersonalArea = () => {
             {!personal ?
                 <HistoryOrders purchases={orderStore.purchase}/> :
                 <AllData
-                    user={userStore.user}
                     formPersonalInfo={userStore.formPersonalInfo}
                     formDeliveryAddress={userStore.formDeliveryAddress}
-                    handleSetUser={userStore.handleSetUser}
+                    // handleSetUser={userStore.handleSetUser}
                 />}
         </div>
     );

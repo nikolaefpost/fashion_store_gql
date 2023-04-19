@@ -1,11 +1,9 @@
 
 import { initializeApp } from "firebase/app";
 import {getAuth, GoogleAuthProvider} from 'firebase/auth';
-// const API_KEY = import.meta.env.VITE_API_KEY;
 
 const firebaseConfig = {
-    // apiKey: API_KEY,
-
+    apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "fashion-store-auth-9ff12.firebaseapp.com",
     projectId: "fashion-store-auth-9ff12",
     storageBucket: "fashion-store-auth-9ff12.appspot.com",
