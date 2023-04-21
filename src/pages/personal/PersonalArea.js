@@ -2,35 +2,34 @@ import React, {useEffect, useState} from 'react';
 import cn from "classnames";
 import {useNavigate} from "react-router-dom";
 import {AiOutlineRight} from "react-icons/ai";
-import rootStore from "../../store/rootStore";
 import HistoryOrders from "./HistoryOrders";
 import AllData from "./AllData";
-import {signOut} from "firebase/auth"
+import {deleteUser } from "../../appolo/operations/user/userStore";
+import { useQuery } from "@apollo/client";
+import { GET_USER_LOCAL } from "../../appolo/operations/user/userGrapfQgl";
+import {formDeliveryAddress, formPersonalInfo} from "../../appolo/operations/user/userFormData";
 
 import styles from "./personalArea.module.scss";
-import {auth} from "../../firebase";
-import {deleteUser, getUserDgraph} from "../../appolo/operations/user/userStore";
-import {useLazyQuery, useQuery} from "@apollo/client";
-import {GET_USER} from "../../appolo/operations/user/userGrapfQgl";
+
 
 const PersonalArea = () => {
-    // const [getUser, { data, loading, error}] = useLazyQuery(GET_USER);
-    // getUserDgraph(getUser)
+    const [purchases, setPurchases] = useState([])
+    const {data: user, loading, error} = useQuery(GET_USER_LOCAL);
 
-    const { orderStore, userStore } = rootStore;
     const [personal, setPersonal] = useState(false);
     const navigate = useNavigate();
     const handleExit = () => {
-        // signOut(auth).catch(e=>console.log(e))
         deleteUser();
         navigate("/");
     }
-    // if (loading) return 'Submitting...';
-    // if (error) return `Submission error! ${error?.message}`;
 
-    // useEffect(()=>{
-    //     console.log(data)
-    // },[data])
+
+    useEffect(()=>{
+        if (user) setPurchases(user.currentUser.purchases)
+    },[user])
+
+    if (loading) return 'Submitting...';
+    if (error) return `Submission error! ${error?.message}`;
 
     return (
         <div className={styles.personal}>
@@ -51,11 +50,10 @@ const PersonalArea = () => {
                 <button className={styles.personal_element} onClick={handleExit}>Выйти</button>
             </div>
             {!personal ?
-                <HistoryOrders purchases={orderStore.purchase}/> :
+                <HistoryOrders purchases={purchases}/> :
                 <AllData
-                    formPersonalInfo={userStore.formPersonalInfo}
-                    formDeliveryAddress={userStore.formDeliveryAddress}
-                    // handleSetUser={userStore.handleSetUser}
+                    formPersonalInfo={formPersonalInfo}
+                    formDeliveryAddress={formDeliveryAddress}
                 />}
         </div>
     );

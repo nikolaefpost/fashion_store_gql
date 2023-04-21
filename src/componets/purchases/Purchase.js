@@ -12,7 +12,7 @@ const Purchase = ({purchase}) => {
         <div key={purchase.orderNumber} className={styles.history_purchase}>
             <div className={styles.purchase}>
                 <div className={styles.element_block}>
-                    <span>№ {purchase.orderNumber} от {purchase.date}</span>
+                    <span>№ {+purchase.orderNumber} от {purchase.date}</span>
                     <span/>
                 </div>
                 <div className={styles.element_block}>
@@ -25,11 +25,11 @@ const Purchase = ({purchase}) => {
                 </div>
                 <div className={styles.element_block}>
                     <span>Сумма бонуса:</span>
-                    <span>{purchase.deliveryInfo.bonus} грн</span>
+                    <span>{purchase.bonus? purchase.bonus: 0} грн</span>
                 </div>
                 <div className={styles.element_block}>
                     <span>Итоговая сумма:</span>
-                    <span>{+purchase.total - +purchase.deliveryInfo.bonus} грн</span>
+                    <span>{+purchase.total - +purchase.bonus} грн</span>
                 </div>
                 <span
                     className={cn(styles.down_svg, {[styles.active_down_svg]: openDetail})}

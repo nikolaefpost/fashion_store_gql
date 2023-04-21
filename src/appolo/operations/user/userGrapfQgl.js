@@ -1,5 +1,3 @@
-import {createUserWithEmailAndPassword, getAuth} from "firebase/auth";
-import {currentUserVar} from "../../cashe/productVar";
 import {gql} from "@apollo/client";
 
 export const ADD_USER = gql`
@@ -22,17 +20,47 @@ export const AUTH_USER = gql`
 `;
 
 export const GET_USER = gql`
- query GetUser($email: String!) {
+ query GetUserPurchase($email: String!) {
   getUser(email: $email) {
+    purchases {
+      date
+      orderNumber
+      orders {
+        color
+        quantity
+        size
+        product {
+          name
+          name_ua
+          image_src
+          id
+          price
+        }
+      }
+      status
+      total
+      bonus
+      deliveryInfo {
+        city
+        delivery
+        email
+        name
+        payment
+        postOffice
+        surname
+        telephone
+      }
+    }
+    surname
+    telephone
     city
     email
     name
     postOffice
-    surname
-    telephone
   }
 }
 `;
+
 
 
 export const UPDATE_USER = gql`
@@ -48,4 +76,11 @@ mutation UpdateUser($patch: UpdateUserInput!) {
     }
   }
 }
+`;
+
+
+export const GET_USER_LOCAL = gql`
+  query GetUserLocal {
+    currentUser @client
+  }
 `;

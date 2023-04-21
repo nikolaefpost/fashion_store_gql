@@ -7,8 +7,8 @@ const PurchaseCard = ({purchase}) => {
     const {name, surname, email, telephone, delivery, payment} = purchase.deliveryInfo
     return (
         <div className={styles.purchase_card}>
-            {purchase.order.map(item=>(
-                <PurchaseOrderCard key={item.id} order={item} />
+            {purchase.orders.map(item=>(
+                <PurchaseOrderCard key={item.product.id} order={item} />
             ))}
             <div className={styles.info_block}>
                 <span>Имя Фамилия: {name} {surname}</span>

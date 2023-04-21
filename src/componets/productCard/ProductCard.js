@@ -34,7 +34,7 @@ const ProductCard = ({product, setProduct, cardId}) => {
             setSizeError(true);
             return;
         }
-        setProduct({id: id, size: sizeProduct, color: colorProduct.id, quantity: 1})
+        setProduct({product: {id}, size: sizeProduct, color: colorProduct.id, quantity: 1})
     }
 
     return (

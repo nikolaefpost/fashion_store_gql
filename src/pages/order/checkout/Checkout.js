@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import cn from "classnames";
 import * as yup from "yup";
 import {useForm} from "react-hook-form";
@@ -9,6 +9,10 @@ import {Link, useNavigate} from "react-router-dom";
 import {observer} from "mobx-react-lite";
 
 import styles from "./checkout.module.scss";
+import {useMutation} from "@apollo/client";
+import {SET_PURCHASE} from "../../../appolo/operations/purchase/purchaseGrapfQgl";
+import {setPurchase} from "../../../appolo/operations/purchase/purchaseStore";
+import {deleteOrder} from "../../../appolo/operations/order/orderMutations";
 
 const phoneRegExp = /^[+]?3?[\s]?8?[\s]?\(?0\d{2}?\)?[\s]?\d{3}[\s|-]?\d{2}[\s|-]?\d{2}$/
 
@@ -58,9 +62,9 @@ const Checkout = ({
                       formDeliveryAddress,
                       formPaymentRadio,
                       sum,
-                      setPurchase,
                       user
                   }) => {
+    const [addPurchase, { data, loading, error }] = useMutation(SET_PURCHASE)
     const navigate = useNavigate();
     const {
         register,
@@ -78,9 +82,21 @@ const Checkout = ({
 
     const onSubmit = handleSubmit(data => {
         if (data.bonus > currentMaxBonus) data.bonus = currentMaxBonus;
-        setPurchase(data);
-        navigate("/personal")
+        console.log(data)
+        setPurchase(data, addPurchase)
+
     });
+
+    useEffect(()=>{
+        console.log(data)
+      if (data?.addPurchase) {
+          deleteOrder()
+          navigate("/personal")
+      }
+    }, [data])
+
+    if (loading) return 'Submitting...';
+    if (error) return `Submission error! ${error?.message}`;
 
     return (
         <div className={styles.checkout}>

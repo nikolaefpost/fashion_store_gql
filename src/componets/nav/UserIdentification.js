@@ -4,26 +4,22 @@ import cn from "classnames";
 import {MdOutlineAccountBalanceWallet} from "react-icons/md"
 import Modal from "../modal/Modal";
 import Form from "../form/Form";
-import rootStore from "../../store/rootStore";
 import {Link} from "react-router-dom";
-
-import styles from "./nav.module.scss"
-import {getUserDgraph} from "../../appolo/operations/user/userStore";
+import {getUserLocal} from "../../appolo/operations/user/userStore";
 import { useQuery, useReactiveVar} from "@apollo/client";
 import {currentUserVar, isAuthUserVar} from "../../appolo/cashe/productVar";
 import {GET_USER} from "../../appolo/operations/user/userGrapfQgl";
 
+import styles from "./nav.module.scss"
+
 const UserIdentification = ({isHome}) => {
     const { data } = useQuery(GET_USER,{
         variables: {
-            email: getUserDgraph()
+            email: getUserLocal()
         }
     });
 
-
     const isAuth = useReactiveVar(isAuthUserVar)
-    console.log(isAuth)
-    const {userStore} = rootStore;
     const [modal, setModal] = useState(false)
 
     const closeModal = (e) => {
@@ -32,15 +28,10 @@ const UserIdentification = ({isHome}) => {
     }
     const openModal = () => setModal(true)
 
-    // useEffect(()=>{
-    //     getUserDgraph(getUser);
-    // },[])
-
     useEffect(()=>{
-        currentUserVar(data?.getUser)
         console.log(data)
+        currentUserVar(data?.getUser)
     },[data])
-
 
     return (
         <div className={styles.user_block}>

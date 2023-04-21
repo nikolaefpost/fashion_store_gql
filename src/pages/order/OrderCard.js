@@ -1,28 +1,25 @@
-import React, {useEffect} from 'react';
+import React  from 'react';
 import cn from "classnames";
 import {RiDeleteBinLine} from "react-icons/ri"
 import {AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
-import rootStore from "../../store/rootStore";
-import {observer} from "mobx-react-lite";
-
-import styles from "./order.module.scss";
 import {decQuantityItem, deleteProduct, incQuantityItem} from "../../appolo/operations/order/orderMutations";
 
+import styles from "./order.module.scss";
+
 const OrderCard = ({orderElement, currentProduct}) => {
-    const { productStore, orderStore } = rootStore;
 
    const decQuantity = () => {
-     if(orderElement.quantity>1)  decQuantityItem(orderElement.id)
+     if(orderElement.quantity>1)  decQuantityItem(orderElement.product.id)
    }
 
     const incQuantity = () => {
-        incQuantityItem(orderElement.id)
+        incQuantityItem(orderElement.product.id)
     }
 
     const handleDeleteOrderElement = () => {
-        deleteProduct(orderElement.id)
+        deleteProduct(orderElement.product.id)
     }
-    return (currentProduct.id?
+    return (currentProduct?.id?
         <div  className={styles.list_item}>
             <div className={styles.title_block}>
                 <div className={styles.image}>
@@ -51,4 +48,4 @@ const OrderCard = ({orderElement, currentProduct}) => {
     );
 };
 
-export default observer(OrderCard);
+export default OrderCard;

@@ -749,6 +749,9 @@
 /*!********************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/form/form.module.scss ***!
   \********************************************************************************************************************************************************************************************************************************/
+.form-module__user_form--kV45d {
+  position: relative;
+}
 .form-module__user_form--kV45d h3 {
   font-weight: 300;
   font-size: 20px;
@@ -795,11 +798,11 @@
   font-family: "Gill Sans", sans-serif;
   position: absolute;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 12px;
+  line-height: 15px;
   color: #FFA4A4;
-  bottom: 20px;
-  left: 100px;
+  bottom: 50px;
+  right: 0;
 }
 .form-module__user_form--kV45d .form-module__info--Ywk_x {
   margin: 20px 0 10px;
@@ -807,6 +810,37 @@
   font-size: 16px;
   line-height: 19px;
   color: #252525;
+}
+
+.form-module__other_auth--VRe_J {
+  margin-top: 20px;
+}
+.form-module__other_auth--VRe_J h5 {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #252525;
+  font-family: Arial, sans-serif;
+}
+
+.form-module__google_button--APfFA {
+  margin-top: 20px;
+  border: 1px solid #252525;
+  background: #FFFFFF;
+  width: 100%;
+  height: 50px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3e77aa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-module__google_button--APfFA svg {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
 }
 /*!******************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/nav/nav.module.scss ***!

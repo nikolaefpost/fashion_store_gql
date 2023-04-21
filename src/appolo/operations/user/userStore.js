@@ -95,7 +95,8 @@ export const authCreateUserDgraph = (addDgraph) => {
     addDgraph({ variables: {email, token} })
 }
 
-export const getUserDgraph = () =>{
+export const getUserLocal = () =>{
+    if (currentUserVar()?.email) return currentUserVar()
     if (storage.getItem("currentUser") ) {
         const current = JSON.parse(storage.getItem("currentUser"));
         if(current.email){
