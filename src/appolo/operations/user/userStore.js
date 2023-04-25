@@ -131,5 +131,13 @@ export const googleAuthUser = (authUser) => {
         .catch((error) => {
             const errorMessage = error.message;
             authErrorVar(errorMessage)
+            const errorCode = error.code;
+            console.log(errorCode)
+            // The email of the user's account used.
+            const email = error.customData.email;
+            console.log(email)
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            console.log(credential)
         });
 }

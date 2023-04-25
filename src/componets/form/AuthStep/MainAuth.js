@@ -53,6 +53,7 @@ const MainAuth = ({handleTransition, form, setModal, setIsNewPassword}) => {
 
     useEffect(() => {
         if (!checkUser) return;
+        console.log(checkUser)
         if (checkUser.checkUserPassword) {
             setUserLocal()
             setModal(false);
