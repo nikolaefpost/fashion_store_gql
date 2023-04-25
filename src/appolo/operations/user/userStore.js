@@ -3,7 +3,7 @@ import {
     getAuth,
     signInWithEmailAndPassword,
     sendEmailVerification,
-    signInWithPopup
+    signInWithPopup, GoogleAuthProvider
 } from "firebase/auth";
 import {
     authErrorVar,
