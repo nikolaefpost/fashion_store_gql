@@ -121,6 +121,10 @@ export const deleteUser = () => {
 }
 
 export const googleAuthUser = (authUser) => {
+
+    auth.onAuthStateChanged(maybeUser => {
+        if (maybeUser !== null) console.log(maybeUser)
+    })
     signInWithPopup(auth, googleAuthProvider)
         .then(credentials => {
             authErrorVar("")
