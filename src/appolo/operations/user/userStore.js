@@ -11,7 +11,7 @@ import {
     isAuthUserVar,
     secondStepVar,
     userDataVar,
-} from "../../cashe/productVar";
+} from "../../cashe/appVar";
 import {auth, googleAuthProvider} from "../../../firebase";
 
 const errorM = {

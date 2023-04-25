@@ -5,10 +5,10 @@ import ProductCard from "../../componets/productCard/ProductCard";
 import {getRecentlyWatched, recentlyWatchedSave} from "../../helpers/recentlyWatchedSave";
 import {handlerScrollUp} from "../../helpers/handlerScrollUp";
 import OtherImage from "./OtherImage";
-import {filterCategory, getProduct} from "../../appolo/operations/poducts/productMutations";
+import {filterCategory, getProduct} from "../../appolo/operations/poducts/productStore";
 import {useQuery} from "@apollo/client";
-import {GET_PRODUCT_LOCAL} from "../../appolo/operations/poducts/productQuery";
-import {setProducts} from "../../appolo/operations/order/orderMutations";
+import {GET_PRODUCT_LOCAL} from "../../appolo/operations/poducts/productGrapfQgl";
+import {setProducts} from "../../appolo/operations/order/orderStore";
 
 import styles from "./product.module.scss";
 

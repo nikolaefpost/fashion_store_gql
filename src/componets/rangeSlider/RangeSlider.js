@@ -6,9 +6,9 @@ import {
     setInputMinPrice,
     setMaxPrice,
     setMinPrice
-} from "../../appolo/operations/poducts/productMutations";
+} from "../../appolo/operations/poducts/productStore";
 import {useReactiveVar} from "@apollo/client";
-import { productInputMinMax, productMinMax } from "../../appolo/cashe/productVar";
+import { productInputMinMax, productMinMax } from "../../appolo/cashe/appVar";
 
 
 const RangeSlider = () => {

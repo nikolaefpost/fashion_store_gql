@@ -5,7 +5,7 @@ import {observer} from "mobx-react-lite";
 import cn from "classnames";
 
 import styles from "../catalog.module.scss";
-import {setSortingOption, sortListByOption} from "../../../appolo/operations/poducts/productMutations";
+import {setSortingOption, sortListByOption} from "../../../appolo/operations/poducts/productStore";
 
 const sortOption = [
 

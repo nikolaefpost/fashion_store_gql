@@ -5,7 +5,7 @@ import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
 import InputForm from "../../inputForm/InputForm";
 import GoogleAuth from "../GoogleAuth";
 import { useReactiveVar} from "@apollo/client";
-import {authErrorVar} from "../../../appolo/cashe/productVar";
+import {authErrorVar} from "../../../appolo/cashe/appVar";
 import {createUserFireBase} from "../../../appolo/operations/user/userStore";
 
 import styles from "../form.module.scss";

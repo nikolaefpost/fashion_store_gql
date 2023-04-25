@@ -4,7 +4,7 @@ import {observer} from "mobx-react-lite";
 import {useOnClickOutside} from "../../../hooks/useOnclickOutside";
 
 import styles from "../catalog.module.scss";
-import {applyFilter, setSize} from "../../../appolo/operations/poducts/productMutations";
+import {applyFilter, setSize} from "../../../appolo/operations/poducts/productStore";
 
 const sizeList = ["XXL", "XXS", "XS", "S", "L"]
 

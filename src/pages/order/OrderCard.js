@@ -2,7 +2,7 @@ import React  from 'react';
 import cn from "classnames";
 import {RiDeleteBinLine} from "react-icons/ri"
 import {AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
-import {decQuantityItem, deleteProduct, incQuantityItem} from "../../appolo/operations/order/orderMutations";
+import {decQuantityItem, deleteProduct, incQuantityItem} from "../../appolo/operations/order/orderStore";
 
 import styles from "./order.module.scss";
 

@@ -108,6 +108,7 @@
     width: 600px;
     margin: 0 auto;
 
+
     & h2{
       @include fonts(300, 36px, 42px, $accent);
       text-align: center;
@@ -115,7 +116,18 @@
 
     & form{
       padding: 50px 0 100px;
+      position: relative;
+
+
+      & .has_already{
+        position: absolute;
+        top: 56px;
+        @include fonts(400, 10px, 10px,  $main)
+      }
     }
+
+
+
 
     & button{
       margin-top: 20px;

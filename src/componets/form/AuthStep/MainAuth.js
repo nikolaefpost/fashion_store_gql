@@ -3,11 +3,10 @@ import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
 import InputForm from "../../inputForm/InputForm";
-// import rootStore from "../../../store/rootStore";
 import {authCreateUserDgraph, authCreateUserFireBase, setUserLocal} from "../../../appolo/operations/user/userStore";
 import {useLazyQuery, useMutation, useReactiveVar} from "@apollo/client";
 import {ADD_USER, AUTH_USER} from "../../../appolo/operations/user/userGrapfQgl";
-import {authErrorVar, userDataVar} from "../../../appolo/cashe/productVar";
+import {authErrorVar, userDataVar} from "../../../appolo/cashe/appVar";
 
 import styles from "../form.module.scss";
 import GoogleAuth from "../GoogleAuth";
@@ -31,7 +30,6 @@ const MainAuth = ({handleTransition, form, setModal, setIsNewPassword}) => {
     const [authUser, {data: checkUser, loading: loadingCheck, error: errorCheck}] = useLazyQuery(AUTH_USER);
     const [addUser, {data: createUser, loading: loadingUser, error: errorUser}] = useMutation(ADD_USER);
     const errorMessage = useReactiveVar(authErrorVar);
-    // const { userStore } = rootStore;
     const currentUser = userDataVar()
 
     const {

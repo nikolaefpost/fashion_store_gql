@@ -16,7 +16,7 @@ const PersonalArea = () => {
     const [purchases, setPurchases] = useState([])
     const {data: user, loading, error} = useQuery(GET_USER_LOCAL);
 
-    const [personal, setPersonal] = useState(false);
+    const [personal, setPersonal] = useState(true);
     const navigate = useNavigate();
     const handleExit = () => {
         deleteUser();

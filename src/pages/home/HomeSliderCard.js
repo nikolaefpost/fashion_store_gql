@@ -1,6 +1,8 @@
 import React from 'react';
 import {coat_category, fur_coats, jackets, parkas} from "../../assets/img";
 import {useLanguage} from "../../context/setting";
+import {useNavigate} from "react-router-dom";
+import {filterCategory} from "../../appolo/operations/poducts/productStore";
 
 import styles from "./home.module.scss";
 
@@ -12,13 +14,20 @@ const categoryImg = {
 }
 
 const HomeSliderCard = ({card}) => {
+    const navigate = useNavigate();
+
 
     const {lang} = useLanguage();
     const {category, category_ua} = card
     let title = lang === "Укр"? category_ua : category;
 
+    const handleMoveCategory = () => {
+        navigate("/card");
+        filterCategory(category)
+    }
+
     return (
-        <div className={styles.element}>
+        <div className={styles.element} onClick={handleMoveCategory}>
             <img src={categoryImg[category]} alt="category" />
             <div className={styles.name}>{title}</div>
         </div>

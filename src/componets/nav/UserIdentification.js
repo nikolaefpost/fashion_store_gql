@@ -7,7 +7,7 @@ import Form from "../form/Form";
 import {Link} from "react-router-dom";
 import {getUserLocal} from "../../appolo/operations/user/userStore";
 import { useQuery, useReactiveVar} from "@apollo/client";
-import {currentUserVar, isAuthUserVar} from "../../appolo/cashe/productVar";
+import {currentUserVar, isAuthUserVar} from "../../appolo/cashe/appVar";
 import {GET_USER} from "../../appolo/operations/user/userGrapfQgl";
 
 import styles from "./nav.module.scss"

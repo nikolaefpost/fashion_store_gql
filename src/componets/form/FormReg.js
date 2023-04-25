@@ -4,7 +4,7 @@ import {observer} from "mobx-react-lite";
 import FirstStep from "./RegStep/FirstStep";
 import SecondStep from "./RegStep/SecondStep";
 import {useReactiveVar} from "@apollo/client";
-import {secondStepVar} from "../../appolo/cashe/productVar";
+import {secondStepVar} from "../../appolo/cashe/appVar";
 
 const FormReg = ({handleTransition, setModal}) => {
     const [user, setUser] = useState({});

@@ -4,8 +4,8 @@ import cn from "classnames";
 import {observer} from "mobx-react-lite";
 import {useOnClickOutside} from "../../../hooks/useOnclickOutside";
 import {useQuery} from "@apollo/client";
-import {GET_COLOR} from "../../../appolo/operations/poducts/productQuery";
-import {applyFilter, setColor} from "../../../appolo/operations/poducts/productMutations";
+import {GET_COLOR} from "../../../appolo/operations/poducts/productGrapfQgl";
+import {applyFilter, setColor} from "../../../appolo/operations/poducts/productStore";
 
 import styles from "../catalog.module.scss";
 

@@ -4,7 +4,7 @@ import RangeSlider from "../../../componets/rangeSlider/RangeSlider";
 import {useOnClickOutside} from "../../../hooks/useOnclickOutside";
 
 import styles from "../catalog.module.scss";
-import {applyFilter} from "../../../appolo/operations/poducts/productMutations";
+import {applyFilter} from "../../../appolo/operations/poducts/productStore";
 
 const SetPrice = () => {
     const [openPrice, setOpenPrice] = useState(false);

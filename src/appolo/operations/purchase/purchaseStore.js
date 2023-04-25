@@ -1,5 +1,5 @@
-import { getTotal} from "../order/orderMutations";
-import {currentUserVar, orderItemsVar} from "../../cashe/productVar";
+import { getTotal} from "../order/orderStore";
+import {currentUserVar, orderItemsVar} from "../../cashe/appVar";
 
 const options = {day: 'numeric', month: 'numeric', year: 'numeric'};
 

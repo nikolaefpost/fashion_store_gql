@@ -1,16 +1,15 @@
 import React  from 'react';
-// import {useLanguage} from "../../context/setting";
 import {AiOutlineRight} from "react-icons/ai"
 import Sidebar from "./Sidebar";
 import HeaderCatalog from "./HeaderCatalog";
 import ProductList from "./ProductList";
 import {useNavigate} from "react-router-dom";
+import {categoryCurrentVar} from "../../appolo/cashe/appVar";
+import {useQuery, useReactiveVar} from "@apollo/client";
+import {GET_CATEGORY_LOCAL, GET_PRODUCT_LOCAL} from "../../appolo/operations/poducts/productGrapfQgl";
+import {filterCategory} from "../../appolo/operations/poducts/productStore";
 
 import styles from "./catalog.module.scss";
-import {categoryCurrentVar} from "../../appolo/cashe/productVar";
-import {useQuery, useReactiveVar} from "@apollo/client";
-import {GET_CATEGORY_LOCAL, GET_PRODUCT_LOCAL} from "../../appolo/operations/poducts/productQuery";
-import {filterCategory} from "../../appolo/operations/poducts/productMutations";
 
 
 
@@ -44,7 +43,7 @@ const Catalog = () => {
             <div className={styles.product_grid}>
 
                 <div className={styles.title}>Каталог </div>
-                <HeaderCatalog length={product?.productList.length}/>
+                {product && <HeaderCatalog length={product.productList.length}/>}
                 <ProductList products={product?.productList? product?.productList: []}/>
                 <Sidebar category={category?.categoryLocal} sort={filterCategory}/>
 

@@ -7,12 +7,12 @@ import InputForm from "../../../componets/inputForm/InputForm";
 import InputFormRadio from "../../../componets/inputForm/InputFormRadio";
 import {Link, useNavigate} from "react-router-dom";
 import {observer} from "mobx-react-lite";
-
-import styles from "./checkout.module.scss";
 import {useMutation} from "@apollo/client";
 import {SET_PURCHASE} from "../../../appolo/operations/purchase/purchaseGrapfQgl";
 import {setPurchase} from "../../../appolo/operations/purchase/purchaseStore";
-import {deleteOrder} from "../../../appolo/operations/order/orderMutations";
+import {deleteOrder} from "../../../appolo/operations/order/orderStore";
+
+import styles from "./checkout.module.scss";
 
 const phoneRegExp = /^[+]?3?[\s]?8?[\s]?\(?0\d{2}?\)?[\s]?\d{3}[\s|-]?\d{2}[\s|-]?\d{2}$/
 
@@ -82,7 +82,6 @@ const Checkout = ({
 
     const onSubmit = handleSubmit(data => {
         if (data.bonus > currentMaxBonus) data.bonus = currentMaxBonus;
-        console.log(data)
         setPurchase(data, addPurchase)
 
     });
@@ -173,7 +172,7 @@ const Checkout = ({
                     />
                 </div>
                 <div className={styles.right_side}>
-                    <Link to="card">Войти в личный кабинет</Link>
+                    <Link to="/personal" >Войти в личный кабинет</Link>
                     <Link to="card" className={styles.text_transform}>УСЛОВИЯ ДОСТАВКИ</Link>
                     <Link to="card" className={styles.text_transform}>УСЛОВИЯ ОБМЕНА И ВОЗВРАТА</Link>
                     <Link to="card" className={styles.text_transform}>ИНФОРМАЦИЯ ОБ ОПЛАТЕ</Link>

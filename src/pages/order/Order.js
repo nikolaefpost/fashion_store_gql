@@ -3,10 +3,10 @@ import {AiOutlineRight} from "react-icons/ai";
 import {useNavigate} from "react-router-dom";
 import OrderList from "./OrderList";
 import Checkout from "./checkout/Checkout";
-import { getOrderStorage, getTotal} from "../../appolo/operations/order/orderMutations";
-import {currentUserVar, orderItemsVar} from "../../appolo/cashe/productVar";
+import { getOrderStorage, getTotal} from "../../appolo/operations/order/orderStore";
+import {currentUserVar, orderItemsVar} from "../../appolo/cashe/appVar";
 import {useQuery, useReactiveVar} from "@apollo/client";
-import {GET_PRODUCT_LOCAL} from "../../appolo/operations/poducts/productQuery";
+import {GET_PRODUCT_LOCAL} from "../../appolo/operations/poducts/productGrapfQgl";
 import {
     formDeliveryAddress,
     formDeliveryRadio,

@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
 import InputForm from "../../componets/inputForm/InputForm";
-import {observer} from "mobx-react-lite";
 import {useMutation, useReactiveVar} from "@apollo/client";
-import {currentUserVar} from "../../appolo/cashe/productVar";
+import {currentUserVar} from "../../appolo/cashe/appVar";
 import {UPDATE_USER} from "../../appolo/operations/user/userGrapfQgl";
 
 import styles from "./personalArea.module.scss";
@@ -36,10 +35,10 @@ const schema = yup
             // .required("Отделение почты не введено"),
     })
 
-const AllData = ({ formPersonalInfo, formDeliveryAddress, handleSetUser}) => {
+const AllData = ({ formPersonalInfo, formDeliveryAddress }) => {
 
     const currentUser = useReactiveVar(currentUserVar);
-    const [updateUser] = useMutation(UPDATE_USER);
+    const [updateUser, { data }] = useMutation(UPDATE_USER);
     console.log(currentUser)
 
     const {
@@ -76,6 +75,17 @@ const AllData = ({ formPersonalInfo, formDeliveryAddress, handleSetUser}) => {
         }).catch(e=>console.log(e))
     });
 
+    useEffect(()=>{
+        console.log(data)
+        if (data) {
+            location.reload()
+        }
+
+        // currentUserVar()
+    },[data])
+
+
+
     return (
         <form className={styles.all_data} onSubmit={onSubmit}>
             <h4>Персональные данные:</h4>
@@ -105,4 +115,4 @@ const AllData = ({ formPersonalInfo, formDeliveryAddress, handleSetUser}) => {
     );
 };
 
-export default observer(AllData);
+export default AllData;

@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import {observer} from "mobx-react-lite";
 import FormAuth from "./FormAuth";
 import FormReg from "./FormReg";
-import {authErrorVar} from "../../appolo/cashe/productVar";
+import {authErrorVar} from "../../appolo/cashe/appVar";
 
 const Form = ({setModal}) => {
     const [isAuth, setIsAuth] = useState(false)
@@ -20,4 +19,4 @@ const Form = ({setModal}) => {
         <FormAuth handleTransition={regToAuth} setModal={setModal}/>;
 };
 
-export default observer(Form);
+export default Form;

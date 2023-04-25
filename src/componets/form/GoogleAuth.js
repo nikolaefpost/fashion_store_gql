@@ -3,7 +3,7 @@ import {FcGoogle} from "react-icons/fc"
 import {useLazyQuery, useMutation} from "@apollo/client";
 import {ADD_USER, AUTH_USER} from "../../appolo/operations/user/userGrapfQgl";
 import {googleAuthUser, setUserLocal} from "../../appolo/operations/user/userStore";
-import {userDataVar} from "../../appolo/cashe/productVar";
+import {userDataVar} from "../../appolo/cashe/appVar";
 
 import styles from "./form.module.scss"
 

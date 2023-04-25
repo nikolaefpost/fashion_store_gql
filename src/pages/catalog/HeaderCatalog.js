@@ -12,15 +12,13 @@ import {
     productCurrentSizeVar,
     productInputMinMax,
     productSortingOption
-} from "../../appolo/cashe/productVar";
-import {resetFilter} from "../../appolo/operations/poducts/productMutations";
+} from "../../appolo/cashe/appVar";
+import {resetFilter} from "../../appolo/operations/poducts/productStore";
 
 import styles from "./catalog.module.scss";
 
 
 const HeaderCatalog = ({length}) => {
-    // setMinMaxPrice();
-    // const {productStore} = rootStore;
     const [openInfo, setOpenInfo] = useState(false)
     const currentSize = useReactiveVar(productCurrentSizeVar);
     const currentColor = useReactiveVar(productCurrentColorVar);
