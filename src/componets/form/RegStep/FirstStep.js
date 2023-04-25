@@ -1,17 +1,14 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
 import InputForm from "../../inputForm/InputForm";
+import GoogleAuth from "../GoogleAuth";
+import { useReactiveVar} from "@apollo/client";
+import {authErrorVar} from "../../../appolo/cashe/productVar";
+import {createUserFireBase} from "../../../appolo/operations/user/userStore";
 
 import styles from "../form.module.scss";
-import AuthProvider from "../../auth/Auth";
-import GoogleAuth from "../GoogleAuth";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import {ADD_USER} from "../../../appolo/operations/user/userGrapfQgl";
-import {useMutation, useReactiveVar} from "@apollo/client";
-import {authErrorVar, currentUserVar, isAuthUserVar} from "../../../appolo/cashe/productVar";
-import {createUserFireBase, deleteUser} from "../../../appolo/operations/user/userStore";
 
 const schema = yup
     .object({
@@ -28,7 +25,7 @@ const schema = yup
         "Поля не заполнены или введены неверно. Исправьте или введите заново, пожалуйста.",
     );
 
-const FirstStep = ({ form, handleTransition}) => {
+const FirstStep = ({ form, handleTransition, setModal}) => {
     const errorMessage = useReactiveVar(authErrorVar);
 
     const {
@@ -65,11 +62,7 @@ const FirstStep = ({ form, handleTransition}) => {
             <button type="submit" className={styles.submit}>Продолжить</button>
 
         </form>
-            <div className={styles.other_auth}>
-                <h5>Registration as user</h5>
-                <GoogleAuth/>
-            </div>
-
+            <GoogleAuth setModal={setModal}/>
         </>
     );
 };

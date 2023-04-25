@@ -4,7 +4,7 @@ import {observer} from "mobx-react-lite";
 import FirstStep from "./RegStep/FirstStep";
 import SecondStep from "./RegStep/SecondStep";
 import {useReactiveVar} from "@apollo/client";
-import {isAuthUserVar, secondStepVar} from "../../appolo/cashe/productVar";
+import {secondStepVar} from "../../appolo/cashe/productVar";
 
 const FormReg = ({handleTransition, setModal}) => {
     const [user, setUser] = useState({});
@@ -16,7 +16,7 @@ const FormReg = ({handleTransition, setModal}) => {
     }, [isCheckEmail, user])
 
     return (!secondStep  ?
-            <FirstStep form={userStore.form} setUser={setUser} handleTransition={handleTransition}/> :
+            <FirstStep form={userStore.form} setUser={setUser} handleTransition={handleTransition} setModal={setModal}/> :
             <SecondStep secondForm={userStore.formStep2} setIsCheckEmail={setIsCheckEmail} setModal={setModal} />
     );
 };

@@ -1,26 +1,44 @@
-import React, {useState} from 'react';
-import {getAuth, signInWithPopup} from "firebase/auth";
+import React, {useEffect} from 'react';
 import {FcGoogle} from "react-icons/fc"
-import {auth, googleAuthProvider} from "../../firebase";
+import {useLazyQuery, useMutation} from "@apollo/client";
+import {ADD_USER, AUTH_USER} from "../../appolo/operations/user/userGrapfQgl";
+import {googleAuthUser, setUserLocal} from "../../appolo/operations/user/userStore";
+import {userDataVar} from "../../appolo/cashe/productVar";
 
 import styles from "./form.module.scss"
 
-const GoogleAuth = () => {
-    const [user, setUser] = useState(null);
+const GoogleAuth = ({setModal}) => {
+    const [authUser, { data: checkUser, loading: loadingCheck, error: errorCheck }] = useLazyQuery(AUTH_USER);
+    const [addUser, { loading, error }] = useMutation(ADD_USER)
     const handleGoogleAuth = () => {
-        auth.onAuthStateChanged(maybeUser => {
-            if (maybeUser !== null) {
-                console.log(maybeUser)
-                return setUser(maybeUser)
-            }
-        })
-        signInWithPopup(auth, googleAuthProvider)
-            .then(credentials => setUser(credentials.user))
-            .catch(e => console.log(e))
+        googleAuthUser(authUser)
     }
 
+    useEffect(()=>{
+        if (!checkUser) return
+        if (!checkUser.checkUserPassword) {
+            const {email, token} = userDataVar()
+            addUser({variables: {email, token}})
+                .then(()=>{
+                    setUserLocal()
+                    setModal(false);
+                })
+                .catch(e=>console.log(e))
+        }else {
+            setUserLocal()
+            setModal(false);
+        }
+    },[checkUser])
+
+    if (loading || loadingCheck) return 'Submitting...';
+    if (error || errorCheck) return `Submission error! ${error?.message}`;
+
     return (
-        <button className={styles.google_button} onClick={handleGoogleAuth}><FcGoogle/>  Google {user?.displayName}</button>
+        <div className={styles.other_auth}>
+            <h5>Enter as user</h5>
+            <button className={styles.google_button} onClick={handleGoogleAuth}><FcGoogle/>  Google </button>
+        </div>
+
     );
 };
 

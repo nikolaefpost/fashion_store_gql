@@ -1,4 +1,10 @@
-import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, sendEmailVerification} from "firebase/auth";
+import {
+    createUserWithEmailAndPassword,
+    getAuth,
+    signInWithEmailAndPassword,
+    sendEmailVerification,
+    signInWithPopup
+} from "firebase/auth";
 import {
     authErrorVar,
     currentUserVar,
@@ -6,6 +12,8 @@ import {
     secondStepVar,
     userDataVar,
 } from "../../cashe/productVar";
+import {auth, googleAuthProvider} from "../../../firebase";
+
 const errorM = {
     "auth/wrong-password": "Wrong password",
     "auth/email-already-in-use": "This email address is already taken",
@@ -16,7 +24,7 @@ const errorM = {
 
 const storage = window.localStorage;
 
-export const createUserFireBase = (email, password )=>{
+export const createUserFireBase = (email, password) => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -41,17 +49,16 @@ export const sendEmailVerificationFireBase = () => {
         });
 }
 
-export const authUserFireBase = ( mutationDgraph) =>{
+export const authUserFireBase = (mutationDgraph) => {
     const auth = getAuth();
     const {email, password} = userDataVar()
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            console.log(user)
             authErrorVar("")
-            if (user.emailVerified){
-                mutationDgraph({ variables: {email: user.email, token: user.accessToken} })
-            }else{
+            if (user.emailVerified) {
+                mutationDgraph({variables: {email: user.email, token: user.accessToken}})
+            } else {
                 authErrorVar(`${email} Follow this link to verify your email address`)
             }
 
@@ -68,17 +75,17 @@ export const setUserLocal = () => {
     isAuthUserVar(true)
 }
 
-export const authCreateUserFireBase = (email, password, checkDgraph) =>{
+export const authCreateUserFireBase = (email, password, checkDgraph) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
             authErrorVar("")
-            if (user.emailVerified){
-                checkDgraph({ variables: {email: user.email, token: user.accessToken} })
+            if (user.emailVerified) {
+                checkDgraph({variables: {email: user.email, token: user.accessToken}})
                 userDataVar({email: user.email, token: user.accessToken, password})
                 console.log("authCreateUserFireBase", user)
-            }else{
+            } else {
                 authErrorVar(`${email} Follow this link to verify your email address`)
             }
 
@@ -92,23 +99,37 @@ export const authCreateUserFireBase = (email, password, checkDgraph) =>{
 
 export const authCreateUserDgraph = (addDgraph) => {
     const {email, token} = userDataVar()
-    addDgraph({ variables: {email, token} })
+    addDgraph({variables: {email, token}})
 }
 
-export const getUserLocal = () =>{
+export const getUserLocal = () => {
     if (currentUserVar()?.email) return currentUserVar()
-    if (storage.getItem("currentUser") ) {
+    if (storage.getItem("currentUser")) {
         const current = JSON.parse(storage.getItem("currentUser"));
-        if(current.email){
+        if (current.email) {
             isAuthUserVar(true);
         }
         return current.email
     }
 }
 
-export const  deleteUser = () => {
+export const deleteUser = () => {
     userDataVar({});
     currentUserVar({});
     storage.setItem("currentUser", JSON.stringify({}));
     isAuthUserVar(false);
+}
+
+export const googleAuthUser = (authUser) => {
+    signInWithPopup(auth, googleAuthProvider)
+        .then(credentials => {
+            authErrorVar("")
+            authUser({variables: {email: credentials.user.email, token: credentials.user.accessToken}})
+                .catch(e => authErrorVar(e))
+            userDataVar({email: credentials.user.email, token: credentials.user.accessToken})
+        })
+        .catch((error) => {
+            const errorMessage = error.message;
+            authErrorVar(errorMessage)
+        });
 }

@@ -10,6 +10,7 @@ import {ADD_USER, AUTH_USER} from "../../../appolo/operations/user/userGrapfQgl"
 import {authErrorVar, userDataVar} from "../../../appolo/cashe/productVar";
 
 import styles from "../form.module.scss";
+import GoogleAuth from "../GoogleAuth";
 
 const schema = yup
     .object({
@@ -27,8 +28,8 @@ const schema = yup
     );
 
 const MainAuth = ({handleTransition, form, setModal, setIsNewPassword}) => {
-    const [authUser, { data: checkUser, loading: loadingCheck, error: errorCheck }] = useLazyQuery(AUTH_USER);
-    const [addUser, { data: createUser, loading: loadingUser, error:  errorUser}] = useMutation(ADD_USER);
+    const [authUser, {data: checkUser, loading: loadingCheck, error: errorCheck}] = useLazyQuery(AUTH_USER);
+    const [addUser, {data: createUser, loading: loadingUser, error: errorUser}] = useMutation(ADD_USER);
     const errorMessage = useReactiveVar(authErrorVar);
     // const { userStore } = rootStore;
     const currentUser = userDataVar()
@@ -50,53 +51,56 @@ const MainAuth = ({handleTransition, form, setModal, setIsNewPassword}) => {
     });
 
 
-    useEffect(()=>{
+    useEffect(() => {
         if (!checkUser) return;
         if (checkUser.checkUserPassword) {
             setUserLocal()
             setModal(false);
-        }
-        else {
+        } else {
             authCreateUserDgraph(addUser)
-        };
-    },[checkUser])
+        }
+    }, [checkUser])
 
-    useEffect(()=>{
+    useEffect(() => {
         if (createUser?.addUser) {
             setUserLocal()
             setModal(false);
         }
-    },[createUser])
+    }, [createUser])
 
     if (loadingCheck || loadingUser) return 'Submitting...';
     if (errorCheck || errorUser) return `Submission error! ${errorUser?.message} ${errorCheck?.message}`;
-    return (
-        <form
-            onSubmit={onSubmit}
-            className={styles.user_form}
-        >
-            <h3>Авторизация</h3>
-            {form.map(item => <InputForm
-                key={item.field}
-                register={register}
-                errors={errors}
-                field={item.field}
-                name={item.name}
-                inputType={item.type}
-            />)}
-            <div className={styles.help_block}>
-                <button
-                    className={styles.help_button}
-                    onClick={()=>setIsNewPassword(true)}
-                >Забыли пароль?</button>
-                <button
-                    className={styles.help_button}
-                    onClick={handleTransition}
-                >Нет аккаунта?</button>
-            </div>
-            {errorMessage !== "" && <div className={styles.error}>{errorMessage}</div>}
-            <button  type="submit" className={styles.submit}>Войти</button>
-        </form>
+    return (<>
+            <form
+                onSubmit={onSubmit}
+                className={styles.user_form}
+            >
+                <h3>Авторизация</h3>
+                {form.map(item => <InputForm
+                    key={item.field}
+                    register={register}
+                    errors={errors}
+                    field={item.field}
+                    name={item.name}
+                    inputType={item.type}
+                />)}
+                <div className={styles.help_block}>
+                    <button
+                        className={styles.help_button}
+                        onClick={() => setIsNewPassword(true)}
+                    >Забыли пароль?
+                    </button>
+                    <button
+                        className={styles.help_button}
+                        onClick={handleTransition}
+                    >Нет аккаунта?
+                    </button>
+                </div>
+                {errorMessage !== "" && <div className={styles.error}>{errorMessage}</div>}
+                <button type="submit" className={styles.submit}>Войти</button>
+            </form>
+            <GoogleAuth setModal={setModal}/>
+        </>
     );
 };
 
