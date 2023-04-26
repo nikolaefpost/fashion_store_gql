@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import {insta, telegram} from "../../assets/icon";
 
 import styles from "./footer.module.scss"
+import {useLanguage} from "../../context/setting";
 
 const Footer = () => {
-
+    const {text} = useLanguage();
     return (
         <div className={styles.container}>
             <div className={styles.block}>
@@ -16,7 +17,7 @@ const Footer = () => {
             <div className={styles.block}>
                 <h3>ПОЛЕЗНОЕ</h3>
                 <Link to="">Оплата и доставка</Link>
-                <Link to="">Условия возврата</Link>
+                <Link to="/exchange">{text.exchange_and_return}</Link>
                 <Link to="">Бонусная система</Link>
             </div>
             <div className={styles.block}>

@@ -40,7 +40,7 @@ const Nav = () => {
                         isActive ? styles.active : ""
                     }
                 >
-                    {text.card}
+                    {text.catalog}
                 </NavLink>
                 <NavLink
                     to="about-us"

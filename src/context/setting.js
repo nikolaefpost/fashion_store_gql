@@ -1,21 +1,7 @@
 import React, {createContext,  useContext, useEffect, useState} from "react";
+import {data} from "./languageData";
 
-export const data = {
-    en: {
-        card: 'card',
-        new: 'new',
-        aboutUs: 'about Us',
-        checkout: 'checkout',
-        check_the_entered: 'Check the entered data'
-    },
-    rus: {
-        card: 'каталог',
-        new: 'new',
-        aboutUs: 'о нас',
-        checkout: 'оформить заказ',
-        check_the_entered: 'Проверте введенные данные'
-    },
-};
+
 
 const SettingContext = createContext({});
 
@@ -32,7 +18,7 @@ export const LanguageProvider = ({children}) => {
           setText(data.en);
         }
         else {
-          setText(data.rus);
+          setText(data.ua);
         }
     };
 

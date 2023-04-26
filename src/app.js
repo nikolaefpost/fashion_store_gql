@@ -1,6 +1,6 @@
 import React from 'react';
 import {createHashRouter} from "react-router-dom";
-import {Catalog, Order, Layout, Error404, Home, Product, PersonalArea} from "./pages";
+import {Catalog, Order, Layout, Error404, Home, Product, PersonalArea, ExchangeReturn} from "./pages";
 
 
 
@@ -29,6 +29,10 @@ export const router = createHashRouter([
             {
                 path: "personal",
                 element: <PersonalArea/>,
+            },
+            {
+                path: "exchange",
+                element: <ExchangeReturn/>,
             },
             {
                 path: "*",
