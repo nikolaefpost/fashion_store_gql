@@ -14,13 +14,13 @@
   line-height: 19px;
   color: #252525;
   cursor: pointer;
+  display: inline-block;
+}
+.catalog-module__content--Xm43G .catalog-module__nav_block--BprmD span::first-letter {
+  text-transform: uppercase;
 }
 .catalog-module__content--Xm43G .catalog-module__nav_block--BprmD .catalog-module__nav_category--CHeYr {
   color: #E0BEA2;
-}
-.catalog-module__content--Xm43G .catalog-module__nav_block--BprmD .catalog-module__nav_category--CHeYr::first-letter {
-  text-transform: uppercase;
-  color: red;
 }
 .catalog-module__content--Xm43G .catalog-module__nav_block--BprmD svg {
   width: 14px;
@@ -44,6 +44,9 @@
   font-size: 20px;
   line-height: 23px;
   color: #252525;
+}
+.catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__title--Ha6uj::first-letter {
+  text-transform: uppercase;
 }
 .catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__sidebar--QZ4dc {
   grid-area: sidebar;
@@ -104,6 +107,9 @@
   border-radius: 6px;
   padding: 4px;
   cursor: pointer;
+}
+.catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__header--qLjOE .catalog-module__info--nCZpi .catalog-module__selected--D1KB_::first-letter {
+  text-transform: uppercase;
 }
 .catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__header--qLjOE .catalog-module__info--nCZpi .catalog-module__selected_color--D_u1h {
   margin-left: 5px;
@@ -186,12 +192,16 @@
   font-size: 16px;
   line-height: 19px;
   color: #252525;
-  height: 57px;
+  max-height: 57px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 16px;
   text-align: center;
+  display: inline-block;
+}
+.catalog-module__card_text--Aqp6W .catalog-module__card_title--JW7Mx::first-letter {
+  text-transform: uppercase;
 }
 .catalog-module__card_text--Aqp6W .catalog-module__card_price--c1lMc {
   font-weight: 700;
@@ -345,6 +355,7 @@
      object-fit: contain;
 }
 .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__list--z9ir9 .order-module__list_item--pcrj0 .order-module__title_block--BvYjx .order-module__title--CWZbn {
+  width: calc(100% - 95px);
   position: relative;
   height: 100%;
   font-weight: 300;
@@ -352,8 +363,11 @@
   line-height: 19px;
   color: #252525;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+}
+.order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__list--z9ir9 .order-module__list_item--pcrj0 .order-module__title_block--BvYjx .order-module__title--CWZbn p:first-letter {
+  text-transform: uppercase;
 }
 .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__list--z9ir9 .order-module__list_item--pcrj0 .order-module__title_block--BvYjx .order-module__title--CWZbn span {
   position: absolute;
@@ -694,6 +708,7 @@
   font-size: 16px;
   line-height: 19px;
   color: #FFFFFF;
+  text-transform: uppercase;
 }
 .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__right_side--L4c3m button[type=submit]:hover {
   filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
@@ -944,6 +959,7 @@
   line-height: 23px;
   color: #252525;
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 .footer-module__container--sTirR .footer-module__block--aw3f8 a {
   margin-top: 10px;
@@ -955,6 +971,9 @@
 }
 .footer-module__container--sTirR .footer-module__block--aw3f8 a:hover {
   text-decoration: underline;
+}
+.footer-module__container--sTirR .footer-module__block--aw3f8 a::first-letter {
+  text-transform: uppercase;
 }
 .footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__social--Bc9yJ {
   margin-top: 10px;
@@ -1349,6 +1368,7 @@ span {
   align-items: center;
   border: none;
   cursor: pointer;
+  text-transform: uppercase;
 }
 .productCard-module__content--fJ44M .productCard-module__product_card--NZTBd .productCard-module__text_block--eknnl .productCard-module__button_block--UZzT7 button:hover {
   filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
@@ -1538,6 +1558,7 @@ span {
      object-fit: contain;
 }
 .purchases-module__history_purchase--Zx5mm .purchases-module__purchase_card--dnT8Q .purchases-module__product_position--vYmUV .purchases-module__title_block--IxIX9 .purchases-module__title--tybxb {
+  width: calc(100% - 95px);
   position: relative;
   height: 100%;
   font-weight: 300;
@@ -1545,8 +1566,11 @@ span {
   line-height: 19px;
   color: #252525;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+}
+.purchases-module__history_purchase--Zx5mm .purchases-module__purchase_card--dnT8Q .purchases-module__product_position--vYmUV .purchases-module__title_block--IxIX9 .purchases-module__title--tybxb p:first-letter {
+  text-transform: uppercase;
 }
 .purchases-module__history_purchase--Zx5mm .purchases-module__purchase_card--dnT8Q .purchases-module__product_position--vYmUV .purchases-module__title_block--IxIX9 .purchases-module__title--tybxb span {
   position: absolute;
@@ -1795,4 +1819,76 @@ span {
 }
 .exchangeReturn-module__content--iVihd .exchangeReturn-module__case--HlhP2 .exchangeReturn-module__case_item--Gv7w3 p {
   text-align: center;
+}
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/payment&delivery/paymentDelivery.module.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+.paymentDelivery-module__content--YfB4G {
+  padding: 95px 150px 100px;
+}
+.paymentDelivery-module__content--YfB4G .paymentDelivery-module__nav_block--Xf77u span {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #252525;
+  cursor: pointer;
+}
+.paymentDelivery-module__content--YfB4G .paymentDelivery-module__nav_block--Xf77u .paymentDelivery-module__nav_category--ZKqTa {
+  color: #E0BEA2;
+}
+.paymentDelivery-module__content--YfB4G .paymentDelivery-module__nav_block--Xf77u .paymentDelivery-module__nav_category--ZKqTa::first-letter {
+  text-transform: uppercase;
+  color: red;
+}
+.paymentDelivery-module__content--YfB4G .paymentDelivery-module__nav_block--Xf77u svg {
+  width: 14px;
+  height: 14px;
+  color: #E0BEA2;
+  margin: 0 5px;
+}
+.paymentDelivery-module__content--YfB4G h3 {
+  margin-top: 30px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 23px;
+  color: #252525;
+  padding-bottom: 10px;
+}
+.paymentDelivery-module__content--YfB4G h4 {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  color: #252525;
+}
+.paymentDelivery-module__content--YfB4G .paymentDelivery-module__options--KOqwf {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+}
+.paymentDelivery-module__content--YfB4G .paymentDelivery-module__options--KOqwf .paymentDelivery-module__option_item--_fif4 {
+  width: 50%;
+}
+.paymentDelivery-module__content--YfB4G .paymentDelivery-module__checkout_process--KD1Xt {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+.paymentDelivery-module__content--YfB4G .paymentDelivery-module__checkout_process--KD1Xt .paymentDelivery-module__steps--tsK_T {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.paymentDelivery-module__content--YfB4G .paymentDelivery-module__checkout_process--KD1Xt .paymentDelivery-module__first_step--eqv_R {
+  flex: 2 2 28%;
+}
+.paymentDelivery-module__content--YfB4G .paymentDelivery-module__checkout_process--KD1Xt .paymentDelivery-module__second_step--EiTkZ {
+  flex: 2 2 20%;
+}
+.paymentDelivery-module__content--YfB4G .paymentDelivery-module__checkout_process--KD1Xt .paymentDelivery-module__third_step--sa8vp {
+  flex: 2 2 52%;
 }
