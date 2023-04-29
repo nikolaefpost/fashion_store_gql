@@ -7,16 +7,21 @@ import {useMutation} from "@apollo/client";
 import {ADD_MAIL} from "../../appolo/operations/mailingList/MailingListGraphQgl";
 
 import styles from "./home.module.scss";
+import {useLanguage} from "../../context/setting";
 
-const schema = yup
-    .object({
-        email: yup
-            .string()
-            .email("Неверный адрес электронной почты")
-            .required("Адрес электронной почты не введен"),
-    })
+
 
 const SubscriptForm = () => {
+    const {text} = useLanguage();
+
+    const schema = yup
+        .object({
+            email: yup
+                .string()
+                .email(text.incorrect_email)
+                .required(text.not_entered_email),
+        })
+
     const [addMailingList, { error }] = useMutation(ADD_MAIL)
     const {
         register,
@@ -44,13 +49,10 @@ const SubscriptForm = () => {
 
     return (
         <form onSubmit={onSubmit} onClick={()=>clearErrors("email")}>
-            <InputForm register={register} errors={errors} field={"email"} name="Ваш e-mail*" inputType="text" center />
-            {error && <div className={styles.has_already}>This mail is already subscribed</div>}
-            <button type="submit">ПОДПИСАТЬСЯ</button>
-            <p>
-                Нажимая на кнопку «Подписаться», я соглашаюсь на обработку моих персональных данных
-                и ознакомлен(а) с условиями конфиденциальности.
-            </p>
+            <InputForm register={register} errors={errors} field={"email"} name={text.your_email} inputType="text" center />
+            {error && <div className={styles.has_already}>{text.already_subscribed}</div>}
+            <button type="submit">{text.subscribe}</button>
+            <p>{text.confidentiality}</p>
         </form>
     );
 };

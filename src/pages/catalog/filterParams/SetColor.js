@@ -8,9 +8,10 @@ import {GET_COLOR} from "../../../appolo/operations/poducts/productGrapfQgl";
 import {applyFilter, setColor} from "../../../appolo/operations/poducts/productStore";
 
 import styles from "../catalog.module.scss";
+import {useLanguage} from "../../../context/setting";
 
 const SetColor = () => {
-
+    const {text} = useLanguage();
     const {data, loading, error} = useQuery(GET_COLOR);
     const [openColor, setOpenColor] = useState(false);
     const colorRef = useRef(null);
@@ -25,7 +26,7 @@ const SetColor = () => {
     if (error) return <h2>ERROR!</h2>
     return (
         <div className={styles.header_block} onClick={()=>setOpenColor(true)}>
-            <span className={styles.header_title}>Цвет</span>
+            <span className={styles.header_title}>{text.color}</span>
             <AiOutlineDown/>
             {openColor && <div ref={colorRef} className={styles.modal_size}>
                 {loading && <div>Loading ... </div>}

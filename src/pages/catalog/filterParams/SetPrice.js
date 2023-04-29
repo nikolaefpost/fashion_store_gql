@@ -5,8 +5,10 @@ import {useOnClickOutside} from "../../../hooks/useOnclickOutside";
 
 import styles from "../catalog.module.scss";
 import {applyFilter} from "../../../appolo/operations/poducts/productStore";
+import {useLanguage} from "../../../context/setting";
 
 const SetPrice = () => {
+    const {text} = useLanguage();
     const [openPrice, setOpenPrice] = useState(false);
     const priceRef = useRef(null);
     useOnClickOutside(priceRef, ()=>setOpenPrice(false));
@@ -18,7 +20,7 @@ const SetPrice = () => {
     }
     return (
         <div className={styles.header_block} onClick={()=>setOpenPrice(true)}>
-            <span className={styles.header_title}>Цена</span>
+            <span className={styles.header_title}>{text.price}</span>
             <AiOutlineDown/>
             {openPrice && <div ref={priceRef} className={styles.modal_size}>
                 <RangeSlider/>

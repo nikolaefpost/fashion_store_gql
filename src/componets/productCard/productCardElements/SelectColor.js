@@ -1,10 +1,13 @@
 import React from 'react';
 import cn from "classnames";
+import {useLanguage} from "../../../context/setting";
 
 import styles from "../productCard.module.scss";
 
 
+
 const SelectColor = ({colorProduct, setColorProduct, color}) => {
+    const {lang} = useLanguage();
     return (
         <>
             <div className={styles.color_block}>
@@ -17,7 +20,7 @@ const SelectColor = ({colorProduct, setColorProduct, color}) => {
                 ))}
             </div>
             <div className={styles.color_text}>
-                Color: {colorProduct.color}
+                Color: {lang === "Eng"? colorProduct.color: colorProduct.color_ua}
             </div>
 
         </>

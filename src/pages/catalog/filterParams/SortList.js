@@ -6,15 +6,17 @@ import cn from "classnames";
 
 import styles from "../catalog.module.scss";
 import {setSortingOption, sortListByOption} from "../../../appolo/operations/poducts/productStore";
+import {useLanguage} from "../../../context/setting";
 
-const sortOption = [
 
-    {id: 0, name: "по возрастанию цены"},
-    {id: 1, name: "по убыванию цены"}
-    // {id: 2, name: "по рейтингу"},
-]
 
 const SortList = () => {
+    const {text} = useLanguage();
+    const sortOption = [
+        {id: 0, name: text.rising_price},
+        {id: 1, name: text.rising_price}
+        // {id: 2, name: "по рейтингу"},
+    ]
     const [openSort, setOpenSort] = useState(false);
     const sortRef = useRef(null);
     useOnClickOutside(sortRef, ()=>setOpenSort(false));
@@ -27,7 +29,7 @@ const SortList = () => {
     }
     return (
         <div className={styles.header_block} onClick={()=>setOpenSort(true)}>
-            <span className={styles.header_title}>Сортировать по</span>
+            <span className={styles.header_title}>{text.sort_by}</span>
             <AiOutlineDown/>
             {openSort && <div ref={sortRef} className={cn(styles.modal_size, styles.sort_field)}>
                 {sortOption.map(el=>(

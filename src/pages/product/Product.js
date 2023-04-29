@@ -9,8 +9,10 @@ import {filterCategory, getProduct} from "../../appolo/operations/poducts/produc
 import {useQuery} from "@apollo/client";
 import {GET_PRODUCT_LOCAL} from "../../appolo/operations/poducts/productGrapfQgl";
 import {setProducts} from "../../appolo/operations/order/orderStore";
+import {useLanguage} from "../../context/setting";
 
 import styles from "./product.module.scss";
+
 
 
 const styleX = {width: "370px", height: "501px"}
@@ -18,6 +20,7 @@ const styleL = {width: "274px", height: "401px"}
 
 
 const Product = () => {
+    const {text, lang} = useLanguage();
     let {cardId} = useParams();
     const {data: product} = useQuery(GET_PRODUCT_LOCAL);
     const saved = getRecentlyWatched();
@@ -42,13 +45,16 @@ const Product = () => {
     return (
         <div className={styles.content}>
             <div className={styles.nav_block}>
-                <span onClick={() => navigate("/")}>Главная</span>
+                <span onClick={() => navigate("/")}>{text.home}</span>
                 <AiOutlineRight/>
-                <span onClick={() => navigate("/card")}>Каталог</span>
+                <span onClick={() => navigate("/card")}>{text.catalog}</span>
                 <AiOutlineRight/>
-                <span onClick={handleTransitionCategory}>{currentProduct?.category?.category}</span>
+                <span onClick={handleTransitionCategory}>
+                    {lang === "Eng"?
+                    currentProduct?.category?.category:currentProduct?.category?.category_ua}
+                </span>
                 <AiOutlineRight/>
-                <span>{currentProduct?.name}</span>
+                <span>{lang === "Eng"? currentProduct?.name: currentProduct?.name_ua}</span>
             </div>
             <ProductCard
                 product={currentProduct}
@@ -61,12 +67,12 @@ const Product = () => {
             />
             {product?.productList.length &&
                 <>
-                    <OtherImage title="Весь образ" handleTransition={handleTransition} style={styleX} data={dataWhile}/>
-                    <OtherImage title="Дополните образ" handleTransition={handleTransition} style={styleL}
+                    <OtherImage title={text.whole_image} handleTransition={handleTransition} style={styleX} data={dataWhile}/>
+                    <OtherImage title={text.complete_look} handleTransition={handleTransition} style={styleL}
                                 data={dataAdditional}/>
-                    <OtherImage title="Вам может понравиться" handleTransition={handleTransition} style={styleL}
+                    <OtherImage title={text.may_like} handleTransition={handleTransition} style={styleL}
                                 data={dataLike}/>
-                    <OtherImage title="Вы недавно смотрели" handleTransition={handleTransition} style={styleL}
+                    <OtherImage title={text.recently_viewed} handleTransition={handleTransition} style={styleL}
                                 data={dataRecentlyWatched}/>
                 </>}
         </div>

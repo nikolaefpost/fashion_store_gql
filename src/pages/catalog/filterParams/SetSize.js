@@ -5,10 +5,12 @@ import {useOnClickOutside} from "../../../hooks/useOnclickOutside";
 
 import styles from "../catalog.module.scss";
 import {applyFilter, setSize} from "../../../appolo/operations/poducts/productStore";
+import {useLanguage} from "../../../context/setting";
 
 const sizeList = ["XXL", "XXS", "XS", "S", "L"]
 
 const SetSize = () => {
+    const {text} = useLanguage();
     const [openSize, setOpenSize] = useState(false);
     const sizeRef = useRef(null);
     useOnClickOutside(sizeRef, ()=>setOpenSize(false));
@@ -21,7 +23,7 @@ const SetSize = () => {
     }
     return (
         <div className={styles.header_block} onClick={()=>setOpenSize(true)}>
-            <span className={styles.header_title}>Размер</span>
+            <span className={styles.header_title}>{text.size}</span>
             <AiOutlineDown/>
             {openSize && <div className={styles.modal_size} ref={sizeRef}>
                 {sizeList.map(el=>(

@@ -2,11 +2,13 @@ import React from 'react';
 import OrderCard from "./OrderCard";
 
 import styles from "./order.module.scss"
+import {useLanguage} from "../../context/setting";
 
 const OrderList = ({order, products, total}) => {
+    const {text} = useLanguage();
     return (
         <div className={styles.order_list}>
-            <h3>Ваш заказ</h3>
+            <h3>{text.your_order}</h3>
             <div className={styles.list}>
                 {order.map((el) => (
                     <OrderCard
@@ -16,7 +18,7 @@ const OrderList = ({order, products, total}) => {
                     />
                 ))}
             </div>
-            <div className={styles.total}>К оплате: <span>{total}</span></div>
+            <div className={styles.total}>{text.to_pay}: <span>{total}</span></div>
 
         </div>
     );

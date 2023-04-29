@@ -10,24 +10,24 @@ const Footer = () => {
     return (
         <div className={styles.container}>
             <div className={styles.block}>
-                <h3>КОМПАНИЯ</h3>
-                <Link to="">О нас</Link>
-                <Link to="">Контакты</Link>
+                <h3>{text.company}</h3>
+                <Link to="">{text.aboutUs}</Link>
+                <Link to="">{text.contacts}</Link>
             </div>
             <div className={styles.block}>
-                <h3>ПОЛЕЗНОЕ</h3>
-                <Link to="">Оплата и доставка</Link>
+                <h3>{text.useful}</h3>
+                <Link to="/payment&delivery">{text.payment_delivery}</Link>
                 <Link to="/exchange">{text.exchange_and_return}</Link>
-                <Link to="">Бонусная система</Link>
+                <Link to="">{text.bonus_system}</Link>
             </div>
             <div className={styles.block}>
-                <h3>ПОКУПАТЕЛЮ</h3>
-                <Link to="">Избранное</Link>
-                <Link to="">Публичная оферта</Link>
-                <Link to="">Политика конфиденциальности</Link>
+                <h3>{text.to_the_buyer}</h3>
+                <Link to="">{text.favorites}</Link>
+                <Link to="">{text.public_offer}</Link>
+                <Link to="">{text.privacy_policy}</Link>
             </div>
             <div className={styles.block}>
-                <h3>КОНТАКТЫ</h3>
+                <h3>{text.contacts}</h3>
                 <div className={styles.social}>
                     <img alt="instagram" src={insta}/>
                     <img alt="telegram" src={telegram}/>

@@ -15,9 +15,11 @@ import {
 } from "../../appolo/operations/user/userFormData";
 
 import styles from "./order.module.scss";
+import {useLanguage} from "../../context/setting";
 
 
 const Order = () => {
+    const {text} = useLanguage();
     const {data} = useQuery(GET_PRODUCT_LOCAL);
 
     getOrderStorage()
@@ -25,14 +27,13 @@ const Order = () => {
     const  sum  = getTotal();
     const orderItems = useReactiveVar(orderItemsVar);
     const user = useReactiveVar(currentUserVar)
-    console.log(orderItems)
 
     return (
         <div className={styles.order}>
             <div className={styles.nav_block}>
-                <span onClick={()=>navigate("/")}>Главная</span>
+                <span onClick={()=>navigate("/")}>{text.home}</span>
                 <AiOutlineRight/>
-                <span>Корзина</span>
+                <span>{text.cart}</span>
             </div>
             <OrderList order={orderItems} total={sum} products={data} />
             <Checkout

@@ -1,9 +1,10 @@
 import React from 'react';
 import {cart, delivery, label, time, form, expenses} from "../../assets/icon"
-import styles from "./exchangeReturn.module.scss"
 import {useNavigate} from "react-router-dom";
 import {AiOutlineRight} from "react-icons/ai";
 import {useLanguage} from "../../context/setting";
+
+import styles from "./exchangeReturn.module.scss";
 
 const ExchangeReturn = () => {
     const {text} = useLanguage();

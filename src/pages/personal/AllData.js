@@ -8,38 +8,37 @@ import {currentUserVar} from "../../appolo/cashe/appVar";
 import {UPDATE_USER} from "../../appolo/operations/user/userGrapfQgl";
 
 import styles from "./personalArea.module.scss";
+import {useLanguage} from "../../context/setting";
 
 const phoneRegExp = /^[+]?3?[\s]?8?[\s]?\(?0\d{2}?\)?[\s]?\d{3}[\s|-]?\d{2}[\s|-]?\d{2}$/
 
-const schema = yup
-    .object({
-        name: yup
-            .string(),
-            // .min(2, "Имя должно содержать минимум 2 символов"),
-        surname: yup
-            .string(),
-            // .min(2, "Фамилия должна содержать минимум 2 символов"),
-        email: yup
-            .string()
-            .email("Неверный адрес электронной почты")
-            .required("Адрес электронной почты не введен"),
-        telephone: yup
-            .string()
-            .required("Телефон не введен")
-            .matches(phoneRegExp, 'Не правильный номер телефона'),
-        city: yup
-            .string(),
-            // .required("Город доставки не введен"),
-        postOffice: yup
-            .string(),
-            // .required("Отделение почты не введено"),
-    })
+
 
 const AllData = ({ formPersonalInfo, formDeliveryAddress }) => {
+    const {text, lang} = useLanguage();
+
+    const schema = yup
+        .object({
+            name: yup
+                .string(),
+            surname: yup
+                .string(),
+            email: yup
+                .string()
+                .email(text.incorrect_email)
+                .required(text.not_entered_email),
+            telephone: yup
+                .string()
+                .required(text.no_phone)
+                .matches(phoneRegExp, text.invalid_phone),
+            city: yup
+                .string(),
+            postOffice: yup
+                .string(),
+        })
 
     const currentUser = useReactiveVar(currentUserVar);
     const [updateUser, { data }] = useMutation(UPDATE_USER);
-    console.log(currentUser)
 
     const {
         register,
@@ -76,41 +75,38 @@ const AllData = ({ formPersonalInfo, formDeliveryAddress }) => {
     });
 
     useEffect(()=>{
-        console.log(data)
         if (data) {
             location.reload()
         }
-
-        // currentUserVar()
     },[data])
 
 
 
     return (
         <form className={styles.all_data} onSubmit={onSubmit}>
-            <h4>Персональные данные:</h4>
+            <h4>{text.personal_info}:</h4>
             <div className={styles.formPersonalInfo}>
                 {formPersonalInfo.map(item => <InputForm
                     key={item.field}
                     register={register}
                     errors={errors}
                     field={item.field}
-                    name={item.name}
+                    name={lang === "Eng" ? item.name: item.name_ua}
                     inputType={item.type}
                 />)}
             </div>
-            <h4>Адрес доставки:</h4>
+            <h4>{text.delivery_address}:</h4>
             <div className={styles.formPersonalInfo}>
                 {formDeliveryAddress.map(item => <InputForm
                     key={item.field}
                     register={register}
                     errors={errors}
                     field={item.field}
-                    name={item.name}
+                    name={lang === "Eng" ? item.name: item.name_ua}
                     inputType={item.type}
                 />)}
             </div>
-            <button type="submit">ОБНОВИТЬ ИНФОРМАЦИЮ</button>
+            <button type="submit">{text.update_info}</button>
         </form>
     );
 };

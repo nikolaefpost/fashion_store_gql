@@ -14,9 +14,12 @@ import time from "./time.svg";
 import expenses from "./expenses.svg";
 import form from "./form.svg";
 import label from "./label.svg";
+import firstStep from "./firstStep.svg";
+import secondStep from "./secondStep.svg";
+import thirdStep from "./thirdStep.svg";
 
 
 export {
     FavoriteIcon, MenuIcon, SearchIcon, UserIcon, OrderIcon, insta, telegram, visa, mastercard, privat24,
-    cart, form, delivery, time, expenses, label
+    cart, form, delivery, time, expenses, label, secondStep, thirdStep, firstStep
 }

@@ -7,5 +7,6 @@ import Home from "./home/Home"
 import Product from "./product/Product";
 import PersonalArea from "./personal/PersonalArea";
 import ExchangeReturn from "./exchangeReturn/ExchangeReturn";
+import PaymentDelivery from "./payment&delivery/PaymentDelivery";
 
-export {Catalog, Order, Result, Layout, Error404, Home, Product, PersonalArea, ExchangeReturn}
+export {Catalog, Order, Result, Layout, Error404, Home, Product, PersonalArea, ExchangeReturn, PaymentDelivery}

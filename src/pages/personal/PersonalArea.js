@@ -10,9 +10,11 @@ import { GET_USER_LOCAL } from "../../appolo/operations/user/userGrapfQgl";
 import {formDeliveryAddress, formPersonalInfo} from "../../appolo/operations/user/userFormData";
 
 import styles from "./personalArea.module.scss";
+import {useLanguage} from "../../context/setting";
 
 
 const PersonalArea = () => {
+    const {text} = useLanguage();
     const [purchases, setPurchases] = useState([])
     const {data: user, loading, error} = useQuery(GET_USER_LOCAL);
 
@@ -34,20 +36,20 @@ const PersonalArea = () => {
     return (
         <div className={styles.personal}>
             <div className={styles.nav_block}>
-                <span onClick={()=>navigate("/")}>Главная</span>
+                <span onClick={()=>navigate("/")}>{text.home}</span>
                 <AiOutlineRight/>
-                <span>Личный кабинет</span>
+                <span>{text.personal_area}</span>
             </div>
             <div className={styles.personal_nav}>
                 <button
                     className={cn(styles.personal_element, {[styles.active]: !personal})}
                     onClick={()=>setPersonal(false)}
-                >История заказов</button>
+                >{text.history_orders}</button>
                 <button
                     className={cn(styles.personal_element, {[styles.active]: personal})}
                     onClick={()=>setPersonal(true)}
-                >Личные данные</button>
-                <button className={styles.personal_element} onClick={handleExit}>Выйти</button>
+                >{text.personal_data}</button>
+                <button className={styles.personal_element} onClick={handleExit}>{text.out}</button>
             </div>
             {!personal ?
                 <HistoryOrders purchases={purchases}/> :

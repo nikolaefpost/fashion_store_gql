@@ -100,7 +100,7 @@ export const sortListByOption = () => {
             list.sort((a, b) => a.price > b.price ? -1 : 1)
             break;
         default:
-            this.sortingOption = null;
+            productSortingOption("");
     }
     productChangeItemsVar(list)
 }

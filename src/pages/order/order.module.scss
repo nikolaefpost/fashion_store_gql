@@ -67,10 +67,19 @@
           }
 
           & .title {
+            width: calc(100% - 95px);
             position: relative;
             height: 100%;
             @include fonts(300, 16px, 19px, $accent);
-            @include display-flex;
+            @include display-flex(flex-start);
+
+            & p{
+              &:first-letter{
+                text-transform: uppercase;
+              }
+            }
+
+
 
             & span {
               position: absolute;

@@ -3,13 +3,16 @@ import { AiOutlineHeart} from "react-icons/ai";
 import Description from "./Description";
 import SelectSize from "./productCardElements/SelectSize";
 import SelectColor from "./productCardElements/SelectColor";
+import {useLanguage} from "../../context/setting";
 
 import styles from "./productCard.module.scss";
 
 
+
 const ProductCard = ({product, setProduct, cardId}) => {
+    const {text, lang} = useLanguage();
     const [openSelect, setOpenSelect] = useState(false);
-    const [sizeProduct, setSizeProduct] = useState("Выберите размер");
+    const [sizeProduct, setSizeProduct] = useState();
     const [sizeError, setSizeError] = useState(false);
 
     const [colorProduct, setColorProduct] = useState({});
@@ -20,22 +23,24 @@ const ProductCard = ({product, setProduct, cardId}) => {
         if (product?.image_src?.length) {
             setCurrentImg(product?.image_src[0])
         }
-
         if (product?.color) setColorProduct(product?.color[0])
     },[product])
 
 
     useEffect(()=>{
-        setSizeProduct("Choose a size")
-    },[cardId])
+        setSizeProduct(text.select_size)
+    },[cardId, text])
 
     const setOrder = (id) => {
-        if (sizeProduct === "Choose a size") {
+        if (sizeProduct === text.select_size) {
             setSizeError(true);
             return;
         }
         setProduct({product: {id}, size: sizeProduct, color: colorProduct.id, quantity: 1})
     }
+
+    const descriptionComposition = lang === "Eng"? product?.description_composition : product?.description_composition_ua
+    const descriptionCare = lang === "Eng"? product?.description_care : product?.description_care_ua
 
     return (
         <div className={styles.content}>
@@ -53,8 +58,8 @@ const ProductCard = ({product, setProduct, cardId}) => {
                     </div>
                 </div>
                 <div className={styles.text_block}>
-                    <h3>{product?.name}</h3>
-                    <div className={styles.price}>{product?.price} gr.</div>
+                    <h3>{lang === "Eng"? product?.name : product?.name_ua}</h3>
+                    <div className={styles.price}>{product?.price} {text.currency}.</div>
                     <SelectColor colorProduct={colorProduct} setColorProduct={setColorProduct} color={product?.color}  />
                     <SelectSize
                         openSelect={openSelect}
@@ -66,20 +71,22 @@ const ProductCard = ({product, setProduct, cardId}) => {
                         size={product?.size}
                     />
                     <div className={styles.button_block}>
-                        <button onClick={()=>setOrder(product?.id)}>ADD TO CART</button>
-                        <button><AiOutlineHeart/>TO FAVORITES</button>
+                        <button onClick={()=>setOrder(product?.id)}>{text.add_cart}</button>
+                        <button><AiOutlineHeart/>{text.to_favorites}</button>
                     </div>
                     <div className={styles.description}>
-                        <h4>Details</h4>
-                        <Description title="About">{product?.description_details}</Description>
-                        <Description title="Measurements and description">
-                            {product?.description_composition && <ul>
-                                {product?.description_composition.map(item => <li key={item}>{item}</li>)}
+                        <h4>{text.details}</h4>
+                        <Description title={text.description}>
+                            {lang === "Eng" ? product?.description_details : product?.description_details_ua}
+                        </Description>
+                        <Description title={text.composition}>
+                            {descriptionComposition && <ul>
+                                {descriptionComposition.map(item => <li key={item}>{item}</li>)}
                             </ul>}
                         </Description>
-                        <Description title="Composition and care">
-                            {product?.description_care && <ul>
-                                {product?.description_care.map(item => <li key={item}>- {item}</li>)}
+                        <Description title={text.care}>
+                            {descriptionCare && <ul>
+                                {descriptionCare.map(item => <li key={item}>- {item}</li>)}
                             </ul>}
                         </Description>
                     </div>

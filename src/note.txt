@@ -1,5 +1,3 @@
 Шрифты не подключены
-node modules попадают в dist
-подключить CSS фреймворки через SCSS
 useOnClickOutside сделать вариант при событии onClick
-переделать фильтр элементов в Продукте как в Корзине
+Особистий кабінет: Delivery method, Payment method ua and not, Status???

@@ -3,11 +3,12 @@ import cn from "classnames";
 import {AiOutlineRight} from "react-icons/ai";
 
 import styles from "../productCard.module.scss";
+import {useLanguage} from "../../../context/setting";
 
 // const size = ["XXS", "XS", "S", "M", "L"];
 
 const SelectSize = ({openSelect, setOpenSelect, sizeProduct, setSizeProduct, sizeError, setSizeError, size}) => {
-
+    const {text} = useLanguage();
     const handleSetSizeProduct = (el) => {
         setSizeProduct(el);
         setSizeError(false)
@@ -22,7 +23,7 @@ const SelectSize = ({openSelect, setOpenSelect, sizeProduct, setSizeProduct, siz
                     <li key={el} onClick={() => handleSetSizeProduct(el)}>{el}</li>
                 ))}
             </ul>}
-            {sizeError && <div className={styles.error}>Choose a size!</div>}
+            {sizeError && <div className={styles.error}>{text.select_size}!</div>}
         </div>
     );
 };

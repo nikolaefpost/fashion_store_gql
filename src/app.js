@@ -1,6 +1,7 @@
 import React from 'react';
 import {createHashRouter} from "react-router-dom";
 import {Catalog, Order, Layout, Error404, Home, Product, PersonalArea, ExchangeReturn} from "./pages";
+import PaymentDelivery from "./pages/payment&delivery/PaymentDelivery";
 
 
 
@@ -33,6 +34,10 @@ export const router = createHashRouter([
             {
                 path: "exchange",
                 element: <ExchangeReturn/>,
+            },
+            {
+                path: "payment&delivery",
+                element: <PaymentDelivery/>,
             },
             {
                 path: "*",

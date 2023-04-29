@@ -10,14 +10,14 @@ import {GET_CATEGORY_LOCAL, GET_PRODUCT_LOCAL} from "../../appolo/operations/pod
 import {filterCategory} from "../../appolo/operations/poducts/productStore";
 
 import styles from "./catalog.module.scss";
+import {useLanguage} from "../../context/setting";
 
 
 
 
 const Catalog = () => {
-    // const {text} = useLanguage();
+    const {text} = useLanguage();
     const navigate = useNavigate();
-    // const {productStore} = rootStore;
 
     const handleHome = () => {
        navigate("/")
@@ -30,11 +30,11 @@ const Catalog = () => {
     return (
         <div className={styles.content}>
             <div className={styles.nav_block}>
-                <span onClick={handleHome}>Главная</span>
+                <span onClick={handleHome}>{text.home}</span>
                 <AiOutlineRight/>
                 <span
                     onClick={()=>filterCategory("")}
-                >Каталог</span>
+                >{text.catalog}</span>
                 {currentCategory && <>
                     <AiOutlineRight/>
                     <span className={styles.nav_category}>{currentCategory}</span>
@@ -42,7 +42,7 @@ const Catalog = () => {
             </div>
             <div className={styles.product_grid}>
 
-                <div className={styles.title}>Каталог </div>
+                <div className={styles.title}>{text.catalog}</div>
                 {product && <HeaderCatalog length={product.productList.length}/>}
                 <ProductList products={product?.productList? product?.productList: []}/>
                 <Sidebar category={category?.categoryLocal} sort={filterCategory}/>

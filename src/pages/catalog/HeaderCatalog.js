@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import cn from "classnames";
 import SetSize from "./filterParams/SetSize";
 import SetColor from "./filterParams/SetColor";
-import {observer} from "mobx-react-lite";
 import SetPrice from "./filterParams/SetPrice";
 import SortList from "./filterParams/SortList";
 import {useReactiveVar} from "@apollo/client";
@@ -16,9 +15,11 @@ import {
 import {resetFilter} from "../../appolo/operations/poducts/productStore";
 
 import styles from "./catalog.module.scss";
+import {useLanguage} from "../../context/setting";
 
 
 const HeaderCatalog = ({length}) => {
+    const {text} = useLanguage();
     const [openInfo, setOpenInfo] = useState(false)
     const currentSize = useReactiveVar(productCurrentSizeVar);
     const currentColor = useReactiveVar(productCurrentColorVar);
@@ -44,18 +45,18 @@ const HeaderCatalog = ({length}) => {
             <SetPrice/>
             <SortList/>
             {openInfo && <div className={styles.info}>
-                Выбрано {length} товаров
-                <span className={styles.selected} onClick={reset}>Cбросить</span>
+                {text.selected} {length} {text.goods}
+                <span className={styles.selected} onClick={reset}>{text.reset}</span>
                 {currentSize && <span className={styles.selected}>{currentSize}</span>}
                 {currentColor && <div className={styles.selected_color}>
                     <div className={cn(styles.circle, styles[currentColor])}/>
                 </div>}
                 {changePriseRange && <>
-                    <div className={styles.selected}>от:
-                        <span>{inputMinMax.min}</span> гр.
+                    <div className={styles.selected}>{text.from}:
+                        <span>{inputMinMax.min}</span> {text.currency}.
                     </div>
-                    <div className={styles.selected}> до:
-                        <span>{inputMinMax.max}</span> гр.
+                    <div className={styles.selected}> {text.to}:
+                        <span>{inputMinMax.max}</span> {text.currency}.
                     </div>
                 </>}
                 {sortingOption && <span className={styles.selected}>{sortingOption.name}</span>}
@@ -64,4 +65,4 @@ const HeaderCatalog = ({length}) => {
     );
 };
 
-export default observer(HeaderCatalog);
+export default HeaderCatalog;

@@ -5,11 +5,13 @@ import HomeSlider from "./HomeSlider";
 import SubscriptForm from "./SubscriptForm";
 
 import styles from "./home.module.scss";
+import {useLanguage} from "../../context/setting";
 
 
 const news = [new1, new2, new3];
 
 const Home = () => {
+    const {text} = useLanguage();
     return (
         <div className={styles.content}>
             <div className={styles.new_block}>
@@ -21,11 +23,11 @@ const Home = () => {
                 ))}
             </div>
             <div className={styles.category}>
-                <h2>Категории</h2>
+                <h2>{text.categories}</h2>
                 <HomeSlider />
             </div>
             <div className={styles.subscription}>
-                <h2>Узнайте  первым о новинках</h2>
+                <h2>{text.know_new}</h2>
                 <SubscriptForm/>
             </div>
 
