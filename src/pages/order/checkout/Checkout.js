@@ -177,10 +177,10 @@ const Checkout = ({
                     />
                 </div>
                 <div className={styles.right_side}>
-                    <Link to="/personal" >Войти в личный кабинет</Link>
-                    <Link to="card" className={styles.text_transform}>УСЛОВИЯ ДОСТАВКИ</Link>
-                    <Link to="card" className={styles.text_transform}>УСЛОВИЯ ОБМЕНА И ВОЗВРАТА</Link>
-                    <Link to="card" className={styles.text_transform}>ИНФОРМАЦИЯ ОБ ОПЛАТЕ</Link>
+                    <Link to="/personal" >{text.enter_account}</Link>
+                    <Link to="/payment&delivery" className={styles.text_transform}>{text.delivery_terms}</Link>
+                    <Link to="/exchange" className={styles.text_transform}>{text.terms_exchange}</Link>
+                    <Link to="/payment&delivery" className={styles.text_transform}>{text.payment_information}</Link>
                     <div className={styles.info_field}>
                         <span>{text.delivery}:</span>
                         <span>{watchAllFields?.delivery}</span>

@@ -29,7 +29,6 @@ const UserIdentification = ({isHome}) => {
     const openModal = () => setModal(true)
 
     useEffect(()=>{
-        console.log(data)
         currentUserVar(data?.getUser)
     },[data])
 

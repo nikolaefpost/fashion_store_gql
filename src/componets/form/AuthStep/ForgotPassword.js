@@ -3,18 +3,23 @@ import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
 import InputForm from "../../inputForm/InputForm";
+import {handleSetRecoveryEmail} from "../../../appolo/operations/user/userStore";
+import {userMailVar} from "../../../appolo/cashe/appVar";
+import {useLanguage} from "../../../context/setting";
 
 import styles from "../form.module.scss";
 
-const schema = yup
-    .object({
-        email: yup
-            .string()
-            .email("Неверный адрес электронной почты")
-            .required("Адрес электронной почты не введен"),
-    })
 
-const ForgotPassword = ({handleSetRecoveryEmail, setIsNewPassword}) => {
+
+const ForgotPassword = ({ setIsNewPassword}) => {
+    const { text } = useLanguage();
+    const schema = yup
+        .object({
+            email: yup
+                .string()
+                .email(text.incorrect_email)
+                .required(text.not_entered_email),
+        })
 
     const {
         register,
@@ -23,12 +28,12 @@ const ForgotPassword = ({handleSetRecoveryEmail, setIsNewPassword}) => {
     } = useForm({
         mode: "onTouched",
         resolver: yupResolver(schema),
-        // values: userStore.user,
+        values: {email: userMailVar()},
         shouldFocusError: true,
 
     });
     const onSubmit = handleSubmit(data => {
-        handleSetRecoveryEmail(data);
+        handleSetRecoveryEmail(data.email);
         setIsNewPassword(false);
     });
 
@@ -37,18 +42,16 @@ const ForgotPassword = ({handleSetRecoveryEmail, setIsNewPassword}) => {
             className={styles.user_form}
             onSubmit={onSubmit}
         >
-            <h3>Забыли пароль?</h3>
-            <p className={styles.info}>
-                Введите свою почту и мы отправим вам код для сброса пароля и восстановления аккаунта:
-            </p>
+            <h3>{text.forgot_password}?</h3>
+            <p className={styles.info}>{text.description_reset_password}</p>
             <InputForm
                 register={register}
                 errors={errors}
                 field={"email"}
-                name="Ваш e-mail*"
+                name ={text.your_email}
                 inputType="text"
                />
-            <button type="submit" className={styles.submit}>ПОДПИСАТЬСЯ</button>
+            <button type="submit" className={styles.submit}>{text.subscribe}</button>
 
         </form>
     );

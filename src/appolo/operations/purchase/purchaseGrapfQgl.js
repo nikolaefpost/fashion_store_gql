@@ -36,7 +36,7 @@ export const GET_PURCHASE = gql`
 `
 
 export const SET_PURCHASE = gql`
-    mutation AddPurchase($buyer: UserRef!, $date: String!, $deliveryInfo: DeliveryInfoRef!, $orders: [OrderRef!]!, $status: String!, $total: Float!, $bonus: Int ) {
+    mutation AddPurchase($buyer: UserRef!, $date: String!, $deliveryInfo: DeliveryInfoRef!, $orders: [OrderRef!]!, $status: Int!, $total: Float!, $bonus: Int ) {
   addPurchase(input: {
     buyer: $buyer,
     date: $date,

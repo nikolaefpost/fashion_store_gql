@@ -29,3 +29,4 @@ export const userDataVar = makeVar({});
 export const isAuthUserVar = makeVar(false);
 export const authErrorVar = makeVar('');
 export const secondStepVar = makeVar(false);
+export const userMailVar = makeVar('');

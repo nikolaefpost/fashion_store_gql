@@ -20,7 +20,7 @@ export const setPurchase = (deliveryInfo, addPurchase) => {
                 surname: deliveryInfo.surname,
                 telephone: deliveryInfo.telephone,
             },
-            status: "В работе",
+            status: 0,
             total: getTotal(),
             bonus: deliveryInfo.bonus
         }

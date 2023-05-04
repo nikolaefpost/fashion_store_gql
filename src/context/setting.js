@@ -2,16 +2,27 @@ import React, {createContext,  useContext, useEffect, useState} from "react";
 import {data} from "./languageData";
 
 
-
+const storage = window.localStorage;
 const SettingContext = createContext({});
 
 export const LanguageProvider = ({children}) => {
-    const [lang, setLang] = useState("Eng");
+    const currentLang = storage.getItem("language")
+
+    const [lang, setLang] = useState(currentLang? currentLang: "Eng");
     const [text, setText] = useState({});
 
-    const onChangeLang = () => setLang(prev => {
-        return (prev === "Eng")? "Укр" : "Eng"
-    });
+    const onChangeLang = () => {
+        setLang(prev => {
+            if (prev === "Eng"){
+                storage.setItem("language", "Укр");
+                return "Укр"
+            }else{
+                storage.setItem("language", "Eng");
+                return "Eng"
+            }
+        })
+
+    };
 
     const getLanguage = () => {
         if (lang === "Eng") {

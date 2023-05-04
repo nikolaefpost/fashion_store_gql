@@ -3,14 +3,16 @@ import {
     getAuth,
     signInWithEmailAndPassword,
     sendEmailVerification,
-    signInWithPopup, GoogleAuthProvider
+    signInWithPopup,
+    GoogleAuthProvider,
+    sendPasswordResetEmail
 } from "firebase/auth";
 import {
     authErrorVar,
     currentUserVar,
     isAuthUserVar,
     secondStepVar,
-    userDataVar,
+    userDataVar, userMailVar,
 } from "../../cashe/appVar";
 import {auth, googleAuthProvider} from "../../../firebase";
 
@@ -91,6 +93,7 @@ export const authCreateUserFireBase = (email, password, checkDgraph) => {
 
         })
         .catch((error) => {
+            userMailVar(email)
             const errorCode = error.code;
             console.log(errorCode)
             authErrorVar(errorM[errorCode])
@@ -128,6 +131,7 @@ export const googleAuthUser = (authUser) => {
     signInWithPopup(auth, googleAuthProvider)
         .then(credentials => {
             authErrorVar("")
+            console.log({email: credentials.user.email, token: credentials.user.accessToken})
             authUser({variables: {email: credentials.user.email, token: credentials.user.accessToken}})
                 .catch(e => authErrorVar(e))
             userDataVar({email: credentials.user.email, token: credentials.user.accessToken})
@@ -143,5 +147,18 @@ export const googleAuthUser = (authUser) => {
             // The AuthCredential type that was used.
             const credential = GoogleAuthProvider.credentialFromError(error);
             console.log(credential)
+        });
+}
+
+export const handleSetRecoveryEmail = (email) => {
+    const auth = getAuth();
+    sendPasswordResetEmail(auth, email)
+        .then(() => {
+            authErrorVar('')
+        })
+        .catch((error) => {
+            // const errorCode = error.code;
+            const errorMessage = error.message;
+            authErrorVar(errorMessage)
         });
 }

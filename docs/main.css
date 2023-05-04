@@ -193,9 +193,6 @@
   line-height: 19px;
   color: #252525;
   max-height: 57px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 0 16px;
   text-align: center;
   display: inline-block;
@@ -689,6 +686,7 @@
   text-transform: uppercase;
 }
 .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__right_side--L4c3m .checkout-module__info_field--AAxwZ span:last-child {
+  margin-left: 10px;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;

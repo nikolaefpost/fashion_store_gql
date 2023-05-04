@@ -1,8 +1,8 @@
 import {mastercard, privat24, visa} from "../../../assets/icon";
 
 export const form = [
-    {field: "email", name: "Ваш e-mail*", type: "text"},
-    {field: "password", name: "Ваш пароль*", type: "password"},
+    {field: "email", name: "Your e-mail*", name_ua: "Ваш e-mail*", type: "text"},
+    {field: "password", name: "Your password*", name_ua: "Ваш пароль*", type: "password"},
 ];
 export const formStep2 = [{field: "code", name: "Код с e-mail*", type: "text"}]
 export const formPersonalInfo = [

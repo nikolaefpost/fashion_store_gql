@@ -3,21 +3,23 @@ import {authUserFireBase, sendEmailVerificationFireBase, setUserLocal} from "../
 import {useMutation, useReactiveVar} from "@apollo/client";
 import {ADD_USER} from "../../../appolo/operations/user/userGrapfQgl";
 import {userDataVar} from "../../../appolo/cashe/appVar";
+import {useLanguage} from "../../../context/setting";
 
 import styles from "../form.module.scss";
 
 
+
 const SecondStep = ({setModal}) => {
+    const {text} = useLanguage();
     const [addUser, {data, loading, error}] = useMutation(ADD_USER)
     const currentData = useReactiveVar(userDataVar)
-    const {email} = userDataVar();
+    const { email } = userDataVar();
 
     const createUserFinality = () => {
         authUserFireBase(addUser)
     }
 
     useEffect(() => {
-        console.log(currentData)
         if (currentData.email) {
             sendEmailVerificationFireBase()
         }
@@ -35,16 +37,14 @@ const SecondStep = ({setModal}) => {
 
     return (
         <div className={styles.user_form}>
-            <h3>Регистрация - шаг 2</h3>
-            <div>
-                Received a letter in the mailbox {email}. Follow the link provided to confirm your email.
-                Then proceed with registration.
-            </div>
+            <h3>{text.registration_step_2}</h3>
+            <div>{text.should_receive_letter} {email}. {text.follow_link_proceed}</div>
             <button
                 type="button"
                 className={styles.submit}
                 onClick={createUserFinality}
-            >ЗАРЕГИСТРИРОВАТЬСЯ
+            >
+                {text.register}
             </button>
         </div>
     );

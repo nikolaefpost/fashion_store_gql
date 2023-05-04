@@ -7,7 +7,9 @@ import styles from "./purchases.module.scss";
 import {useLanguage} from "../../context/setting";
 
 const Purchase = ({purchase}) => {
+
     const {text} = useLanguage();
+    const status =[text.in_processing, text.delivered, text.completed, text.canceled]
 
     const [openDetail, setOpenDetail] = useState(false)
     return (
@@ -19,7 +21,7 @@ const Purchase = ({purchase}) => {
                 </div>
                 <div className={styles.element_block}>
                     <span>{text.status}:</span>
-                    <span>{purchase.status}</span>
+                    <span>{status[purchase.status]}</span>
                 </div>
                 <div className={styles.element_block}>
                     <span>{text.order_price}:</span>

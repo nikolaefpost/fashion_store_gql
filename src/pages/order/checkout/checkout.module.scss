@@ -104,6 +104,7 @@
         }
 
         & span:last-child{
+          margin-left: 10px;
           @include fonts(700, 16px, 19px, $accent);
         }
       }

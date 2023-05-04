@@ -194,7 +194,7 @@
   & .card_title{
     @include fonts(300, 16px, 19px, $accent);
     max-height: 57px;
-    @include display-flex;
+    //@include display-flex;
     padding: 0 16px;
     text-align: center;
     display: inline-block;
