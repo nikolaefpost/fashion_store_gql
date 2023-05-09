@@ -8,26 +8,6 @@
 .catalog-module__content--Xm43G {
   padding: 95px 150px 100px;
 }
-.catalog-module__content--Xm43G .catalog-module__nav_block--BprmD span {
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
-  color: #252525;
-  cursor: pointer;
-  display: inline-block;
-}
-.catalog-module__content--Xm43G .catalog-module__nav_block--BprmD span::first-letter {
-  text-transform: uppercase;
-}
-.catalog-module__content--Xm43G .catalog-module__nav_block--BprmD .catalog-module__nav_category--CHeYr {
-  color: #E0BEA2;
-}
-.catalog-module__content--Xm43G .catalog-module__nav_block--BprmD svg {
-  width: 14px;
-  height: 14px;
-  color: #E0BEA2;
-  margin: 0 5px;
-}
 .catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX {
   margin-top: 30px;
   width: 100%;
@@ -169,16 +149,32 @@
   gap: 30px 15px;
 }
 
-.catalog-module__card_img--Kwq6O {
+.catalog-module__product_card--bIRmW {
+  position: relative;
+}
+.catalog-module__product_card--bIRmW .catalog-module__add_favorite--gooLK {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background-color: #E0BEA2;
+  border-radius: 0 0 0 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.catalog-module__product_card--bIRmW .catalog-module__add_favorite--gooLK svg {
+  color: #FFFFFF;
+}
+.catalog-module__product_card--bIRmW .catalog-module__card_img--Kwq6O {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
   height: calc(100% - 139px);
-  padding: 12px;
   cursor: pointer;
 }
-
-.catalog-module__card_text--Aqp6W {
+.catalog-module__product_card--bIRmW .catalog-module__card_text--Aqp6W {
   margin-top: 10px;
   display: flex;
   justify-content: flex-end;
@@ -187,7 +183,7 @@
   gap: 5px;
   cursor: pointer;
 }
-.catalog-module__card_text--Aqp6W .catalog-module__card_title--JW7Mx {
+.catalog-module__product_card--bIRmW .catalog-module__card_text--Aqp6W .catalog-module__card_title--JW7Mx {
   font-weight: 300;
   font-size: 16px;
   line-height: 19px;
@@ -197,41 +193,41 @@
   text-align: center;
   display: inline-block;
 }
-.catalog-module__card_text--Aqp6W .catalog-module__card_title--JW7Mx::first-letter {
+.catalog-module__product_card--bIRmW .catalog-module__card_text--Aqp6W .catalog-module__card_title--JW7Mx::first-letter {
   text-transform: uppercase;
 }
-.catalog-module__card_text--Aqp6W .catalog-module__card_price--c1lMc {
+.catalog-module__product_card--bIRmW .catalog-module__card_text--Aqp6W .catalog-module__card_price--c1lMc {
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
   color: #252525;
 }
-.catalog-module__card_text--Aqp6W .catalog-module__card_size--z_vUz {
+.catalog-module__product_card--bIRmW .catalog-module__card_text--Aqp6W .catalog-module__card_size--z_vUz {
   text-transform: uppercase;
   font-weight: 300;
   font-size: 16px;
   line-height: 19px;
   color: #252525;
 }
-.catalog-module__card_text--Aqp6W .catalog-module__card_color--BmjNW {
+.catalog-module__product_card--bIRmW .catalog-module__card_text--Aqp6W .catalog-module__card_color--BmjNW {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
-.catalog-module__card_text--Aqp6W .catalog-module__card_color--BmjNW div {
+.catalog-module__product_card--bIRmW .catalog-module__card_text--Aqp6W .catalog-module__card_color--BmjNW div {
   width: 14px;
   height: 14px;
   border-radius: 7px;
 }
-.catalog-module__card_text--Aqp6W .catalog-module__card_color--BmjNW .catalog-module__white--VBSan {
+.catalog-module__product_card--bIRmW .catalog-module__card_text--Aqp6W .catalog-module__card_color--BmjNW .catalog-module__white--VBSan {
   background: #FFFFFF;
   border: 0.3px solid #252525;
 }
-.catalog-module__card_text--Aqp6W .catalog-module__card_color--BmjNW .catalog-module__grey--cOsbS {
+.catalog-module__product_card--bIRmW .catalog-module__card_text--Aqp6W .catalog-module__card_color--BmjNW .catalog-module__grey--cOsbS {
   background: #6F83A4;
 }
-.catalog-module__card_text--Aqp6W .catalog-module__card_color--BmjNW .catalog-module__beige--vaGtZ {
+.catalog-module__product_card--bIRmW .catalog-module__card_text--Aqp6W .catalog-module__card_color--BmjNW .catalog-module__beige--vaGtZ {
   background: #F1DDAA;
 }
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
@@ -276,6 +272,32 @@
 .rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo .rangeSlider-module__right--u618w {
   left: calc(100% - 10px);
 }
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/navBlock/navBlock.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+.navBlock-module__nav_block--EnQbL span {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #252525;
+  cursor: pointer;
+  display: inline-block;
+}
+.navBlock-module__nav_block--EnQbL span::first-letter {
+  text-transform: uppercase;
+}
+.navBlock-module__nav_block--EnQbL .navBlock-module__nav_category--tna4p {
+  color: #E0BEA2;
+}
+.navBlock-module__nav_block--EnQbL .navBlock-module__nav_category--tna4p::first-letter {
+  text-transform: uppercase;
+}
+.navBlock-module__nav_block--EnQbL svg {
+  width: 14px;
+  height: 14px;
+  color: #E0BEA2;
+  margin: 0 5px;
+}
 /*!******************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/order/order.module.scss ***!
   \******************************************************************************************************************************************************************************************************************************/
@@ -283,28 +305,6 @@
   padding: 95px 150px 100px;
   width: 1440px;
   margin: 0 auto;
-}
-.order-module__order--xjh7c .order-module__nav_block--BVXae {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-.order-module__order--xjh7c .order-module__nav_block--BVXae span {
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
-  color: #252525;
-  cursor: pointer;
-  display: block;
-}
-.order-module__order--xjh7c .order-module__nav_block--BVXae span::first-letter {
-  text-transform: uppercase;
-}
-.order-module__order--xjh7c .order-module__nav_block--BVXae svg {
-  width: 14px;
-  height: 14px;
-  color: #E0BEA2;
-  margin: 0 5px;
 }
 .order-module__order--xjh7c .order-module__order_list--VHtQa {
   margin-top: 30px;
@@ -976,10 +976,13 @@
 .footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__social--Bc9yJ {
   margin-top: 10px;
 }
-.footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__social--Bc9yJ img {
+.footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__social--Bc9yJ a {
+  margin-right: 14px;
+}
+.footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__social--Bc9yJ a img {
   cursor: pointer;
 }
-.footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__social--Bc9yJ img:hover {
+.footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__social--Bc9yJ a img:hover {
   filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
 }
 /*!********************************************************************************************************************************************************************************************************************************!*\
@@ -1138,22 +1141,25 @@ span {
   line-height: 23px;
   color: #FFFFFF;
 }
-.home-module__content--outwt .home-module__subscription--V5Wwo {
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/SubscriptBlock/subscriptBlock.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+.subscriptBlock-module__subscription--fKn9j {
   width: 600px;
   margin: 0 auto;
 }
-.home-module__content--outwt .home-module__subscription--V5Wwo h2 {
+.subscriptBlock-module__subscription--fKn9j h2 {
   font-weight: 300;
   font-size: 36px;
   line-height: 42px;
   color: #252525;
   text-align: center;
 }
-.home-module__content--outwt .home-module__subscription--V5Wwo form {
+.subscriptBlock-module__subscription--fKn9j form {
   padding: 50px 0 100px;
   position: relative;
 }
-.home-module__content--outwt .home-module__subscription--V5Wwo form .home-module__has_already--JLyMq {
+.subscriptBlock-module__subscription--fKn9j form .subscriptBlock-module__has_already--VXscA {
   position: absolute;
   top: 56px;
   font-weight: 400;
@@ -1161,7 +1167,7 @@ span {
   line-height: 10px;
   color: #E0BEA2;
 }
-.home-module__content--outwt .home-module__subscription--V5Wwo button {
+.subscriptBlock-module__subscription--fKn9j button {
   margin-top: 20px;
   border: none;
   background: #E0BEA2;
@@ -1176,10 +1182,10 @@ span {
   justify-content: center;
   align-items: center;
 }
-.home-module__content--outwt .home-module__subscription--V5Wwo button:hover {
+.subscriptBlock-module__subscription--fKn9j button:hover {
   filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
 }
-.home-module__content--outwt .home-module__subscription--V5Wwo p {
+.subscriptBlock-module__subscription--fKn9j p {
   margin-top: 20px;
   text-align: center;
   font-weight: 200;
@@ -1766,26 +1772,6 @@ span {
 .exchangeReturn-module__content--iVihd {
   padding: 95px 150px 100px;
 }
-.exchangeReturn-module__content--iVihd .exchangeReturn-module__nav_block--rywsG span {
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
-  color: #252525;
-  cursor: pointer;
-}
-.exchangeReturn-module__content--iVihd .exchangeReturn-module__nav_block--rywsG .exchangeReturn-module__nav_category--FSggR {
-  color: #E0BEA2;
-}
-.exchangeReturn-module__content--iVihd .exchangeReturn-module__nav_block--rywsG .exchangeReturn-module__nav_category--FSggR::first-letter {
-  text-transform: uppercase;
-  color: red;
-}
-.exchangeReturn-module__content--iVihd .exchangeReturn-module__nav_block--rywsG svg {
-  width: 14px;
-  height: 14px;
-  color: #E0BEA2;
-  margin: 0 5px;
-}
 .exchangeReturn-module__content--iVihd h3 {
   margin-top: 30px;
   font-weight: 300;
@@ -1823,26 +1809,6 @@ span {
   \***************************************************************************************************************************************************************************************************************************************************/
 .paymentDelivery-module__content--YfB4G {
   padding: 95px 150px 100px;
-}
-.paymentDelivery-module__content--YfB4G .paymentDelivery-module__nav_block--Xf77u span {
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
-  color: #252525;
-  cursor: pointer;
-}
-.paymentDelivery-module__content--YfB4G .paymentDelivery-module__nav_block--Xf77u .paymentDelivery-module__nav_category--ZKqTa {
-  color: #E0BEA2;
-}
-.paymentDelivery-module__content--YfB4G .paymentDelivery-module__nav_block--Xf77u .paymentDelivery-module__nav_category--ZKqTa::first-letter {
-  text-transform: uppercase;
-  color: red;
-}
-.paymentDelivery-module__content--YfB4G .paymentDelivery-module__nav_block--Xf77u svg {
-  width: 14px;
-  height: 14px;
-  color: #E0BEA2;
-  margin: 0 5px;
 }
 .paymentDelivery-module__content--YfB4G h3 {
   margin-top: 30px;
@@ -1889,4 +1855,120 @@ span {
 }
 .paymentDelivery-module__content--YfB4G .paymentDelivery-module__checkout_process--KD1Xt .paymentDelivery-module__third_step--sa8vp {
   flex: 2 2 52%;
+}
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/favorites/favorites.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+.favorites-module__content--fFXWy {
+  padding: 95px 150px 100px;
+}
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/contacts/contacts.module.scss ***!
+  \************************************************************************************************************************************************************************************************************************************/
+.contacts-module__content--uXEG2 {
+  padding: 95px 150px 100px;
+}
+.contacts-module__content--uXEG2 h3 {
+  margin-top: 30px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 23px;
+  color: #252525;
+}
+.contacts-module__content--uXEG2 .contacts-module__connect--zM2Ka {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10%;
+  margin: 30px 0 100px;
+}
+.contacts-module__content--uXEG2 .contacts-module__connect--zM2Ka .contacts-module__item--NhdVT {
+  width: 25%;
+}
+.contacts-module__content--uXEG2 .contacts-module__connect--zM2Ka .contacts-module__item--NhdVT h4 {
+  text-align: left;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #252525;
+}
+.contacts-module__content--uXEG2 .contacts-module__connect--zM2Ka .contacts-module__item--NhdVT p {
+  margin-top: 20px;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 19px;
+  color: #252525;
+  font-feature-settings: "pnum" on, "lnum" on;
+}
+.contacts-module__content--uXEG2 .contacts-module__connect--zM2Ka .contacts-module__item--NhdVT a {
+  margin-top: 20px;
+  margin-right: 15px;
+  display: inline-block;
+}
+.contacts-module__content--uXEG2 .contacts-module__connect--zM2Ka .contacts-module__item--NhdVT a img {
+  width: 25px;
+}
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/aboutUs/aboutUs.module.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+.aboutUs-module__content--ZOuFD {
+  padding: 95px 150px 100px;
+}
+.aboutUs-module__content--ZOuFD h3 {
+  margin-top: 30px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 23px;
+  color: #252525;
+}
+.aboutUs-module__content--ZOuFD h3::first-letter {
+  text-transform: uppercase;
+}
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/bonusSystem/bonusSystem.module.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+.bonusSystem-module__content--jqxqv {
+  padding: 95px 150px 100px;
+}
+.bonusSystem-module__content--jqxqv h3 {
+  margin-top: 30px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 23px;
+  color: #252525;
+}
+.bonusSystem-module__content--jqxqv h3::first-letter {
+  text-transform: uppercase;
+}
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/publicOffer/publicOffer.module.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+.publicOffer-module__content--M7DT2 {
+  padding: 95px 150px 100px;
+}
+.publicOffer-module__content--M7DT2 h3 {
+  margin-top: 30px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 23px;
+  color: #252525;
+}
+.publicOffer-module__content--M7DT2 h3::first-letter {
+  text-transform: uppercase;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/privacyPolicy/privacyPolicy.module.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+.privacyPolicy-module__content--eAx4t {
+  padding: 95px 150px 100px;
+}
+.privacyPolicy-module__content--eAx4t h3 {
+  margin-top: 30px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 23px;
+  color: #252525;
+}
+.privacyPolicy-module__content--eAx4t h3::first-letter {
+  text-transform: uppercase;
 }

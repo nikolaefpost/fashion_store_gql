@@ -4,30 +4,6 @@
 .content{
   padding: 95px 150px 100px;
 
-  & .nav_block{
-
-    & span{
-      @include fonts(300, 16px, 19px, $accent);
-      cursor: pointer;
-      display: inline-block;
-
-      &::first-letter {
-        text-transform: uppercase;
-      }
-    }
-
-    & .nav_category{
-      color: $main;
-    }
-
-    & svg{
-      width: 14px;
-      height: 14px;
-      color: $main;
-      margin: 0 5px;
-    }
-  }
-
   & .product_grid{
     margin-top: 30px;
     width: 100%;
@@ -176,65 +152,85 @@
   }
 }
 
-.card_img{
-  object-fit: cover;
-  width: 100%;
-  height: calc(100% - 139px);
-  padding: 12px;
-  cursor: pointer;
-}
+.product_card{
+  position: relative;
 
-.card_text{
-  margin-top: 10px;
-  @include display-flex(flex-end, center);
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-
-  & .card_title{
-    @include fonts(300, 16px, 19px, $accent);
-    max-height: 57px;
-    //@include display-flex;
-    padding: 0 16px;
-    text-align: center;
-    display: inline-block;
-
-    &::first-letter {
-      text-transform: uppercase;
-    }
-
-  }
-
-  & .card_price{
-    @include fonts(700, 16px, 19px, $accent);
-  }
-
-  & .card_size{
-    text-transform: uppercase;
-    @include fonts(300, 16px, 19px, $accent);
-  }
-
-  & .card_color{
+  & .add_favorite{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-color: $main;
+    border-radius: 0 0 0 50%;
     @include display-flex;
+
+    & svg{
+      color: #FFFFFF;
+    }
+  }
+
+
+ & .card_img{
+    object-fit: cover;
+    width: 100%;
+    height: calc(100% - 139px);
+    //padding: 12px;
+    cursor: pointer;
+  }
+
+  & .card_text{
+    margin-top: 10px;
+    @include display-flex(flex-end, center);
+    flex-direction: column;
     gap: 5px;
+    cursor: pointer;
 
-    & div{
-      width: 14px;
-      height: 14px;
-      border-radius: 7px;
+    & .card_title{
+      @include fonts(300, 16px, 19px, $accent);
+      max-height: 57px;
+      //@include display-flex;
+      padding: 0 16px;
+      text-align: center;
+      display: inline-block;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+
     }
 
-    & .white{
-      background: #FFFFFF;
-      border: 0.3px solid $accent;
+    & .card_price{
+      @include fonts(700, 16px, 19px, $accent);
     }
 
-    & .grey{
-      background: #6F83A4;
+    & .card_size{
+      text-transform: uppercase;
+      @include fonts(300, 16px, 19px, $accent);
     }
 
-    & .beige{
-      background: #F1DDAA;
+    & .card_color{
+      @include display-flex;
+      gap: 5px;
+
+      & div{
+        width: 14px;
+        height: 14px;
+        border-radius: 7px;
+      }
+
+      & .white{
+        background: #FFFFFF;
+        border: 0.3px solid $accent;
+      }
+
+      & .grey{
+        background: #6F83A4;
+      }
+
+      & .beige{
+        background: #F1DDAA;
+      }
     }
   }
 }

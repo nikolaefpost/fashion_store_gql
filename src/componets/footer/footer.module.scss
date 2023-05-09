@@ -34,13 +34,19 @@
     & .social{
       margin-top: 10px;
 
-      & img{
-        cursor: pointer;
+      & a {
+        margin-right: 14px;
 
-        &:hover{
-          filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
+        & img{
+          cursor: pointer;
+
+          &:hover{
+            filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
+          }
         }
       }
+
+
     }
   }
 }

@@ -17,9 +17,10 @@ import label from "./label.svg";
 import firstStep from "./firstStep.svg";
 import secondStep from "./secondStep.svg";
 import thirdStep from "./thirdStep.svg";
+import heartOutline from "./heartOutline.svg";
 
 
 export {
     FavoriteIcon, MenuIcon, SearchIcon, UserIcon, OrderIcon, insta, telegram, visa, mastercard, privat24,
-    cart, form, delivery, time, expenses, label, secondStep, thirdStep, firstStep
+    cart, form, delivery, time, expenses, label, secondStep, thirdStep, firstStep, heartOutline
 }

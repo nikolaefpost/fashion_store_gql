@@ -12,7 +12,8 @@ import {
     currentUserVar,
     isAuthUserVar,
     secondStepVar,
-    userDataVar, userMailVar,
+    userDataVar,
+    userMailVar,
 } from "../../cashe/appVar";
 import {auth, googleAuthProvider} from "../../../firebase";
 

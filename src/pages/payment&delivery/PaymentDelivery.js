@@ -1,11 +1,10 @@
 import React from 'react';
 import {firstStep, secondStep, thirdStep} from "../../assets/icon";
 import cn from "classnames";
-import {AiOutlineRight} from "react-icons/ai";
 import {useLanguage} from "../../context/setting";
-import {useNavigate} from "react-router-dom";
+import NavBlock from "../../componets/navBlock/NavBlock";
 
-import styles from "./paymentDelivery.module.scss"
+import styles from "./paymentDelivery.module.scss";
 
 
 
@@ -14,18 +13,9 @@ const PaymentDelivery = () => {
     const canPayMethods = [text.nova_poshta, text.money_transfer, text.privat24];
     const deliveryOptions = [text.sending_nova_poshta, text.international_delivery, text.delivery_time]
 
-
-    const navigate = useNavigate();
-    const handleHome = () => {
-        navigate("/")
-    }
     return (
         <div className={styles.content}>
-            <div className={styles.nav_block}>
-                <span onClick={handleHome}>{text.home}</span>
-                <AiOutlineRight/>
-                <span>{text.payment_delivery}</span>
-            </div>
+            <NavBlock namePage={text.payment_delivery}/>
             <h3>{text.payment_delivery}</h3>
             <div className={styles.options}>
                 <div className={styles.option_item}>

@@ -1,17 +1,12 @@
 import React from 'react';
 import {cart, delivery, label, time, form, expenses} from "../../assets/icon"
-import {useNavigate} from "react-router-dom";
-import {AiOutlineRight} from "react-icons/ai";
 import {useLanguage} from "../../context/setting";
+import NavBlock from "../../componets/navBlock/NavBlock";
 
 import styles from "./exchangeReturn.module.scss";
 
 const ExchangeReturn = () => {
     const {text} = useLanguage();
-    const navigate = useNavigate();
-    const handleHome = () => {
-        navigate("/")
-    }
 
     const caseItem = [
         {icon: label, text: text.has_labels},
@@ -24,11 +19,7 @@ const ExchangeReturn = () => {
 
     return (
         <div className={styles.content}>
-            <div className={styles.nav_block}>
-                <span onClick={handleHome}>{text.home}</span>
-                <AiOutlineRight/>
-                <span>{text.exchange_and_return}</span>
-            </div>
+            <NavBlock namePage={text.exchange_and_return}/>
             <h3>{text.exchange_and_return}</h3>
             <p>{text.does_not_suit}</p>
             <p>{text.exchange_case}</p>

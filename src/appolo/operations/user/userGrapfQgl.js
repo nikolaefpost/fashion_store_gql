@@ -57,10 +57,20 @@ export const GET_USER = gql`
     email
     name
     postOffice
+    favorites {
+      id
+      image_src
+      name
+      name_ua
+      price
+      size
+      color {
+        id
+      }
+    }
   }
 }
 `;
-
 
 
 export const UPDATE_USER = gql`
@@ -73,6 +83,26 @@ mutation UpdateUser($patch: UpdateUserInput!) {
       postOffice
       surname
       telephone
+    }
+  }
+}
+`;
+
+export const UPDATE_FAVORITES = gql`
+mutation UpdateFavorites($favorites: [ProductRef], $email: StringHashFilter) {
+  updateUser(input: {filter: {email: $email}, set: {favorites: $favorites}}) {
+    user {
+      email
+    }
+  }
+}
+`;
+
+export const DELETE_FAVORITES = gql`
+mutation deleteFavorites($favorites: [ProductRef], $email: StringHashFilter) {
+  updateUser(input: {filter: {email: $email}, remove: {favorites: $favorites}}) {
+    user {
+      email
     }
   }
 }

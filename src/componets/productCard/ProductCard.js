@@ -4,6 +4,8 @@ import Description from "./Description";
 import SelectSize from "./productCardElements/SelectSize";
 import SelectColor from "./productCardElements/SelectColor";
 import {useLanguage} from "../../context/setting";
+import {useMutation, useQuery} from "@apollo/client";
+import {GET_USER_LOCAL, UPDATE_FAVORITES} from "../../appolo/operations/user/userGrapfQgl";
 
 import styles from "./productCard.module.scss";
 
@@ -11,6 +13,9 @@ import styles from "./productCard.module.scss";
 
 const ProductCard = ({product, setProduct, cardId}) => {
     const {text, lang} = useLanguage();
+    const {data: user} = useQuery(GET_USER_LOCAL);
+    console.log(product, user)
+    const [updateUser, { data }] = useMutation(UPDATE_FAVORITES);
     const [openSelect, setOpenSelect] = useState(false);
     const [sizeProduct, setSizeProduct] = useState();
     const [sizeError, setSizeError] = useState(false);
@@ -18,6 +23,15 @@ const ProductCard = ({product, setProduct, cardId}) => {
     const [colorProduct, setColorProduct] = useState({});
 
     const [currentImg, setCurrentImg] = useState("");
+
+    const handleAddFavorites = () => {
+        updateUser({
+            variables: {
+                favorites: [{id: product.id}],
+                email: {eq: user.currentUser.email}
+            }
+        })
+    }
 
     useEffect(()=>{
         if (product?.image_src?.length) {
@@ -72,7 +86,7 @@ const ProductCard = ({product, setProduct, cardId}) => {
                     />
                     <div className={styles.button_block}>
                         <button onClick={()=>setOrder(product?.id)}>{text.add_cart}</button>
-                        <button><AiOutlineHeart/>{text.to_favorites}</button>
+                        <button onClick={handleAddFavorites}><AiOutlineHeart/>{text.to_favorites}</button>
                     </div>
                     <div className={styles.description}>
                         <h4>{text.details}</h4>

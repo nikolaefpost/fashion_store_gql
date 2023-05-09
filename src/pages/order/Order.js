@@ -1,6 +1,4 @@
 import React from 'react';
-import {AiOutlineRight} from "react-icons/ai";
-import {useNavigate} from "react-router-dom";
 import OrderList from "./OrderList";
 import Checkout from "./checkout/Checkout";
 import { getOrderStorage, getTotal} from "../../appolo/operations/order/orderStore";
@@ -16,6 +14,7 @@ import {
 
 import styles from "./order.module.scss";
 import {useLanguage} from "../../context/setting";
+import NavBlock from "../../componets/navBlock/NavBlock";
 
 
 const Order = () => {
@@ -23,18 +22,13 @@ const Order = () => {
     const {data} = useQuery(GET_PRODUCT_LOCAL);
 
     getOrderStorage()
-    const navigate = useNavigate();
     const  sum  = getTotal();
     const orderItems = useReactiveVar(orderItemsVar);
     const user = useReactiveVar(currentUserVar)
 
     return (
         <div className={styles.order}>
-            <div className={styles.nav_block}>
-                <span onClick={()=>navigate("/")}>{text.home}</span>
-                <AiOutlineRight/>
-                <span>{text.cart}</span>
-            </div>
+            <NavBlock namePage={text.cart}/>
             <OrderList order={orderItems} total={sum} products={data} />
             <Checkout
                 formPersonalInfo={formPersonalInfo}

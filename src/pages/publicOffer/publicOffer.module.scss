@@ -1,0 +1,16 @@
+@import "../../style/mixins";
+@import "../../style/colors";
+
+.content {
+  padding: 95px 150px 100px;
+
+
+  & h3 {
+    margin-top: 30px;
+    @include fonts(300, 20px, 23px, $accent);
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}

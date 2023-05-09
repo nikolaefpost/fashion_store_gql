@@ -69,7 +69,7 @@ const Nav = () => {
                 <SearchIcon color={isHome? "#FFFFFF":"#252525"} />
                 {/*<UserIcon color={isHome? "#FFFFFF":"#E0BEA2"} />*/}
                 <UserIdentification isHome={isHome}/>
-                <FavoriteIcon color={isHome? "#FFFFFF":"#E0BEA2"}/>
+                <Link to="favorites"><FavoriteIcon color={isHome? "#FFFFFF":"#E0BEA2"}/></Link>
                 <Link to="order"><OrderIcon color={isHome? "#FFFFFF":"#E0BEA2"} /></Link>
 
             </div>

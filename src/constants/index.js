@@ -1,0 +1,5 @@
+export const telephone1 = "+38 093 6562780"
+export const telephone2 = "+38 066 6923320"
+export const email = "yemelyanov.eduard@gmail.com"
+export const instaHref = "https://www.instagram.com/nikolaeff.post/"
+export const linkedinHref = "https://www.linkedin.com/in/eduard-yemelyanov-586a96204/"

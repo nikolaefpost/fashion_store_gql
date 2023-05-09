@@ -2,10 +2,11 @@ import React from 'react';
 import {new1, new2, new3} from "../../assets/img"
 import {observer} from "mobx-react-lite";
 import HomeSlider from "./HomeSlider";
-import SubscriptForm from "./SubscriptForm";
+import {useLanguage} from "../../context/setting";
+import SubscriptBlock from "../../componets/SubscriptBlock/subscriptBlock";
 
 import styles from "./home.module.scss";
-import {useLanguage} from "../../context/setting";
+
 
 
 const news = [new1, new2, new3];
@@ -26,11 +27,7 @@ const Home = () => {
                 <h2>{text.categories}</h2>
                 <HomeSlider />
             </div>
-            <div className={styles.subscription}>
-                <h2>{text.know_new}</h2>
-                <SubscriptForm/>
-            </div>
-
+            <SubscriptBlock/>
         </div>
     );
 };

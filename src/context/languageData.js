@@ -137,6 +137,12 @@ export const data = {
         forgot_password: "Forgot your password",
         description_reset_password: "Enter the email address you used when registering. You will receive an email with " +
             "a link to reset your password. If you didn't receive an email, please check your email address and spam folder.",
+        connect_us: "Connect with us",
+        social_networks: "In social networks",
+        by_phone: "By phone",
+        by_mail: "By mail",
+        our_office: "Our office",
+        address: "Nikolaev, Krasnyh Mayovshchikov street, 13",
     },
     ua: {
         catalog: 'каталог',
@@ -274,6 +280,14 @@ export const data = {
         not_account: "Немає облікового запису",
         enter: "Увійти",
         forgot_password: "Забули пароль",
-        description_reset_password: "Введіть адресу електронної пошти, яку ви використовували під час реєстрації. Ви отримаєте електронного листа з посиланням на скидання пароля. Якщо ви не отримали листа, перевірте свою адресу електронної пошти та папку зі спамом.",
+        description_reset_password: "Введіть адресу електронної пошти, яку ви використовували під час реєстрації." +
+            " Ви отримаєте електронного листа з посиланням на скидання пароля. Якщо ви не отримали листа, перевірте" +
+            " свою адресу електронної пошти та папку зі спамом.",
+        connect_us: "Зв'язатися з нами",
+        social_networks: "В соціальних мережах",
+        by_phone: "По телефону",
+        by_mail: "Поштою",
+        our_office: "Наш офіс",
+        address: "м. Миколаїв, вулиця Червоних майовщиків, 13",
     },
 };
