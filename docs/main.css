@@ -56,6 +56,8 @@
   justify-content: flex-start;
   align-items: center;
   gap: 30px;
+  z-index: 10;
+  position: relative;
 }
 .catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__header--qLjOE .catalog-module__circle--Wua9a {
   width: 14px;
