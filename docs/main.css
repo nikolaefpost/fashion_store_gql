@@ -487,6 +487,9 @@
 .inputForm-module__input_block--rzEJP .inputForm-module__center--LjbF_ {
   text-align: center;
 }
+.inputForm-module__input_block--rzEJP .inputForm-module__search--OOn2k {
+  border-radius: 20px;
+}
 .inputForm-module__input_block--rzEJP input {
   all: unset;
   font-weight: 200;
@@ -720,6 +723,86 @@
   line-height: 16px;
   color: #252525;
 }
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/nav/navDesktop.module.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+.navDesktop-module__nav--f8_7B {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  padding: 24px 150px;
+  color: #E0BEA2;
+  position: absolute;
+  width: calc(100% - 300px);
+  opacity: 0.9;
+  z-index: 11;
+}
+.navDesktop-module__nav--f8_7B .navDesktop-module__left_block--EqElO {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 26px;
+}
+.navDesktop-module__nav--f8_7B .navDesktop-module__left_block--EqElO img {
+  margin-right: 78px;
+  fill: #E0BEA2;
+}
+.navDesktop-module__nav--f8_7B .navDesktop-module__left_block--EqElO a {
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  color: #252525;
+  text-transform: uppercase;
+}
+.navDesktop-module__nav--f8_7B .navDesktop-module__left_block--EqElO .navDesktop-module__active--oKbYO {
+  color: #E0BEA2;
+}
+.navDesktop-module__nav--f8_7B .navDesktop-module__title--vGqkq {
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 40px;
+  color: #E0BEA2;
+  text-transform: uppercase;
+}
+.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg a svg {
+  margin-bottom: -3px;
+}
+.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg .navDesktop-module__user_block--u6U3r {
+  position: relative;
+}
+.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg .navDesktop-module__user_block--u6U3r .navDesktop-module__account--QgdqU {
+  color: #E0BEA2;
+}
+.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg .navDesktop-module__user_block--u6U3r .navDesktop-module__account--QgdqU svg {
+  width: 25px;
+  height: 25px;
+  margin-bottom: -3px;
+  color: inherit;
+}
+.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg .navDesktop-module__user_block--u6U3r .navDesktop-module__color--I3S5I {
+  color: #FFFFFF;
+}
+.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg .navDesktop-module__language--QwHxq {
+  margin-right: 45px;
+}
+.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg .navDesktop-module__language--QwHxq button {
+  border: none;
+  background: transparent;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  color: #E0BEA2;
+  text-transform: uppercase;
+}
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/modal/modal.module.scss ***!
   \**********************************************************************************************************************************************************************************************************************************/
@@ -857,84 +940,100 @@
   height: 24px;
   margin-right: 12px;
 }
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/nav/nav.module.scss ***!
-  \******************************************************************************************************************************************************************************************************************************/
-.nav-module__nav--HTSVJ {
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/nav/navMobile.module.scss ***!
+  \************************************************************************************************************************************************************************************************************************************/
+.navMobile-module__nav--G9Mxb {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: transparent;
-  padding: 24px 150px;
+  padding: 22px 20px;
   color: #E0BEA2;
   position: absolute;
-  width: calc(100% - 300px);
-  opacity: 0.9;
+  width: 100%;
   z-index: 11;
 }
-.nav-module__nav--HTSVJ .nav-module__left_block--KZy68 {
+.navMobile-module__nav--G9Mxb .navMobile-module__left_block--0ycHK {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 26px;
+  gap: 22px;
 }
-.nav-module__nav--HTSVJ .nav-module__left_block--KZy68 img {
-  margin-right: 78px;
-  fill: #E0BEA2;
-}
-.nav-module__nav--HTSVJ .nav-module__left_block--KZy68 a {
-  text-decoration: none;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 21px;
-  color: #252525;
-  text-transform: uppercase;
-}
-.nav-module__nav--HTSVJ .nav-module__left_block--KZy68 .nav-module__active--GGVo_ {
-  color: #E0BEA2;
-}
-.nav-module__nav--HTSVJ .nav-module__title--WxTF6 {
-  text-decoration: none;
-  font-weight: 300;
-  font-size: 40px;
-  line-height: 40px;
-  color: #E0BEA2;
-  text-transform: uppercase;
-}
-.nav-module__nav--HTSVJ .nav-module__right_block--Y2JCp {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-}
-.nav-module__nav--HTSVJ .nav-module__right_block--Y2JCp a svg {
-  margin-bottom: -3px;
-}
-.nav-module__nav--HTSVJ .nav-module__right_block--Y2JCp .nav-module__user_block--pp1w_ {
-  position: relative;
-}
-.nav-module__nav--HTSVJ .nav-module__right_block--Y2JCp .nav-module__user_block--pp1w_ .nav-module__account--CWAz2 {
-  color: #E0BEA2;
-}
-.nav-module__nav--HTSVJ .nav-module__right_block--Y2JCp .nav-module__user_block--pp1w_ .nav-module__account--CWAz2 svg {
-  width: 25px;
-  height: 25px;
-  margin-bottom: -3px;
-}
-.nav-module__nav--HTSVJ .nav-module__right_block--Y2JCp .nav-module__user_block--pp1w_ .nav-module__color--nSmDL {
-  color: #FFFFFF;
-}
-.nav-module__nav--HTSVJ .nav-module__right_block--Y2JCp .nav-module__language--B3xwz {
-  margin-right: 45px;
-}
-.nav-module__nav--HTSVJ .nav-module__right_block--Y2JCp .nav-module__language--B3xwz button {
+.navMobile-module__nav--G9Mxb .navMobile-module__left_block--0ycHK .navMobile-module__language--NSrDF button {
   border: none;
   background: transparent;
   font-weight: 300;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 16px;
+  line-height: 19px;
   color: #E0BEA2;
   text-transform: uppercase;
+}
+.navMobile-module__nav--G9Mxb .navMobile-module__left_block--0ycHK .navMobile-module__language--NSrDF svg {
+  width: 10px;
+  height: 10px;
+}
+.navMobile-module__nav--G9Mxb .navMobile-module__title--oLZEq {
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 26px;
+  color: #E0BEA2;
+  text-transform: uppercase;
+}
+.navMobile-module__nav--G9Mxb .navMobile-module__right_block--c2qj5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.navMobile-module__nav--G9Mxb .navMobile-module__mobile_menu--NR_p1 {
+  position: absolute;
+  width: 100%;
+  height: calc(100vh - 74px);
+  left: 0;
+  top: 74px;
+  z-index: 100;
+  background-color: #FFFFFF;
+  border-top: 1px solid #E0BEA2;
+  padding: 0 20px;
+}
+.navMobile-module__nav--G9Mxb .navMobile-module__mobile_menu--NR_p1 .navMobile-module__search_form--XSCTo {
+  position: relative;
+  z-index: 10;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #252525;
+}
+.navMobile-module__nav--G9Mxb .navMobile-module__mobile_menu--NR_p1 .navMobile-module__search_form--XSCTo .navMobile-module__search_icon--TM2NS {
+  position: absolute;
+  top: 29px;
+  right: 20px;
+  z-index: 10;
+  color: #252525;
+}
+.navMobile-module__nav--G9Mxb .navMobile-module__mobile_menu--NR_p1 .navMobile-module__search_form--XSCTo .navMobile-module__search_icon--TM2NS svg {
+  width: 30px;
+  height: 30px;
+}
+.navMobile-module__nav--G9Mxb .navMobile-module__mobile_menu--NR_p1 .navMobile-module__item_menu--Hx7we {
+  height: 60px;
+  border-bottom: 1px solid #252525;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #252525;
+  gap: 12px;
+  text-decoration: none;
+}
+.navMobile-module__nav--G9Mxb .navMobile-module__mobile_menu--NR_p1 .navMobile-module__item_menu--Hx7we svg {
+  width: 20px;
+  height: 20px;
+  margin-bottom: -3px;
+  color: #E0BEA2;
 }
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/footer/footer.module.scss ***!

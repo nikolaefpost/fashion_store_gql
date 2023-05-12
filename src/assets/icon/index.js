@@ -18,9 +18,10 @@ import firstStep from "./firstStep.svg";
 import secondStep from "./secondStep.svg";
 import thirdStep from "./thirdStep.svg";
 import heartOutline from "./heartOutline.svg";
+import CloseMenuIcon from "./CloseMenuIcon.js"
 
 
 export {
     FavoriteIcon, MenuIcon, SearchIcon, UserIcon, OrderIcon, insta, telegram, visa, mastercard, privat24,
-    cart, form, delivery, time, expenses, label, secondStep, thirdStep, firstStep, heartOutline
+    cart, form, delivery, time, expenses, label, secondStep, thirdStep, firstStep, heartOutline, CloseMenuIcon
 }

@@ -143,6 +143,9 @@ export const data = {
         by_mail: "By mail",
         our_office: "Our office",
         address: "Nikolaev, Krasnyh Mayovshchikov street, 13",
+        enter_request: "Enter your request",
+        not_request: "Request not entered",
+        log_in_up: "log in / log up",
     },
     ua: {
         catalog: 'каталог',
@@ -289,5 +292,8 @@ export const data = {
         by_mail: "Поштою",
         our_office: "Наш офіс",
         address: "м. Миколаїв, вулиця Червоних майовщиків, 13",
+        enter_request: "Введіть запит",
+        not_request: "Запит не введено",
+        log_in_up: "увійти / реєстрація",
     },
 };

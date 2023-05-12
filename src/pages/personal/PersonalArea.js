@@ -27,7 +27,7 @@ const PersonalArea = () => {
 
 
     useEffect(()=>{
-        if (user) setPurchases(user.currentUser.purchases)
+        if (user?.currentUser) setPurchases(user.currentUser.purchases)
     },[user])
 
     if (loading) return 'Submitting...';

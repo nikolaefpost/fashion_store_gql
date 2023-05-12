@@ -4,7 +4,7 @@ import cn from "classnames";
 
 import styles from "./inputForm.module.scss"
 
-const InputForm = ({register, errors, field, name , inputType, center}) => {
+const InputForm = ({register, errors={}, field, name , inputType, center, search}) => {
     const [type, setType] = useState(inputType);
 
     const onHidePassword = () => {
@@ -15,7 +15,8 @@ const InputForm = ({register, errors, field, name , inputType, center}) => {
         <div className={styles.input_block}  key={field}>
             {!!errors[field] && <span className={styles.error}>{errors[field].message}</span>}
             <input
-                className={cn({[styles.error_border]:errors[field]}, {[styles.center]: center})}
+                className={cn({[styles.error_border]:errors[field]}, {[styles.center]: center},
+                    {[styles.search]: search})}
                 type={type}
                 placeholder={name}
                 {...register(field)}

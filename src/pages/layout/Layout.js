@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from "react-router-dom";
-import Nav from "../../componets/nav/nav";
+import Nav from "../../componets/nav/Nav";
 import Footer from "../../componets/footer/Footer";
 import {useQuery} from "@apollo/client";
 import {categoryItemsVar, productChangeItemsVar, productItemsVar} from "../../appolo/cashe/appVar";
@@ -16,6 +16,10 @@ const Layout = () => {
     const { loading: loadProduct, error: errorProduct , data: product  } = useQuery(GET_PRODUCTS);
     productItemsVar(product?.queryProduct)
     productChangeItemsVar(product?.queryProduct);
+
+
+
+
 
     setMinMaxPrice();
 

@@ -7,13 +7,13 @@ import Form from "../form/Form";
 import {Link} from "react-router-dom";
 import {getUserLocal} from "../../appolo/operations/user/userStore";
 import { useQuery, useReactiveVar} from "@apollo/client";
-import {currentUserVar, isAuthUserVar, refetchVar} from "../../appolo/cashe/appVar";
+import {currentUserVar, isAuthUserVar} from "../../appolo/cashe/appVar";
 import {GET_USER} from "../../appolo/operations/user/userGrapfQgl";
 
-import styles from "./nav.module.scss"
+import styles from "./navDesktop.module.scss"
 
 const UserIdentification = ({isHome}) => {
-    const { data, refetch } = useQuery(GET_USER,{
+    const { data } = useQuery(GET_USER,{
         variables: {
             email: getUserLocal(),
             pollInterval: 500,
@@ -21,7 +21,7 @@ const UserIdentification = ({isHome}) => {
     });
 
     const isAuth = useReactiveVar(isAuthUserVar)
-    const isRefetch = useReactiveVar(refetchVar)
+    // const isRefetch = useReactiveVar(refetchVar)
     const [modal, setModal] = useState(false)
 
     const closeModal = (e) => {
@@ -35,12 +35,12 @@ const UserIdentification = ({isHome}) => {
         console.log(data)
     },[data])
 
-    useEffect(()=>{
-        if (isRefetch === 0) return
-        console.log(isRefetch)
-        refetch({ email: getUserLocal() })
-        // location.reload()
-    },[isRefetch])
+    // useEffect(()=>{
+    //     if (isRefetch === 0) return
+    //     console.log(isRefetch)
+    //     refetch({ email: getUserLocal() })
+    //     // location.reload()
+    // },[isRefetch])
 
     return (
         <div className={styles.user_block}>
