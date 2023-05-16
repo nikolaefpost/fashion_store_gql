@@ -1,17 +1,19 @@
 import React from 'react';
 import {new1, new2, new3} from "../../assets/img"
-import {observer} from "mobx-react-lite";
 import HomeSlider from "./HomeSlider";
 import {useLanguage} from "../../context/setting";
 import SubscriptBlock from "../../componets/SubscriptBlock/subscriptBlock";
 
 import styles from "./home.module.scss";
+import {useMediaQuery} from "../../helpers/useMediaQuery";
 
 
-
-const news = [new1, new2, new3];
 
 const Home = () => {
+
+    const isMobile = useMediaQuery(500);
+
+    const news  = isMobile? [new1] :  [new1, new2, new3];
     const {text} = useLanguage();
     return (
         <div className={styles.content}>
@@ -32,4 +34,4 @@ const Home = () => {
     );
 };
 
-export default observer(Home);
+export default Home;

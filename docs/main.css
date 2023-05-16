@@ -541,6 +541,21 @@
   width: 19px;
   height: 19px;
 }
+@media screen and (max-width: 500px) {
+  .inputForm-module__input_block--rzEJP input {
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(37, 37, 37, 0.5);
+    height: 40px;
+  }
+  .inputForm-module__input_block--rzEJP input::placeholder {
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(37, 37, 37, 0.5);
+  }
+}
 
 .inputForm-module__radio--sBkoR {
   margin-top: 20px;
@@ -723,10 +738,10 @@
   line-height: 16px;
   color: #252525;
 }
-/*!*************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/nav/navDesktop.module.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************/
-.navDesktop-module__nav--f8_7B {
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/nav/desktop/navDesktop.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
+.navDesktop-module__nav--CQV1E {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -738,17 +753,17 @@
   opacity: 0.9;
   z-index: 11;
 }
-.navDesktop-module__nav--f8_7B .navDesktop-module__left_block--EqElO {
+.navDesktop-module__nav--CQV1E .navDesktop-module__left_block--R1ck1 {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 26px;
 }
-.navDesktop-module__nav--f8_7B .navDesktop-module__left_block--EqElO img {
+.navDesktop-module__nav--CQV1E .navDesktop-module__left_block--R1ck1 img {
   margin-right: 78px;
   fill: #E0BEA2;
 }
-.navDesktop-module__nav--f8_7B .navDesktop-module__left_block--EqElO a {
+.navDesktop-module__nav--CQV1E .navDesktop-module__left_block--R1ck1 a {
   text-decoration: none;
   font-weight: 300;
   font-size: 18px;
@@ -756,10 +771,10 @@
   color: #252525;
   text-transform: uppercase;
 }
-.navDesktop-module__nav--f8_7B .navDesktop-module__left_block--EqElO .navDesktop-module__active--oKbYO {
+.navDesktop-module__nav--CQV1E .navDesktop-module__left_block--R1ck1 .navDesktop-module__active--aXYR3 {
   color: #E0BEA2;
 }
-.navDesktop-module__nav--f8_7B .navDesktop-module__title--vGqkq {
+.navDesktop-module__nav--CQV1E .navDesktop-module__title--ONj2O {
   text-decoration: none;
   font-weight: 300;
   font-size: 40px;
@@ -767,34 +782,34 @@
   color: #E0BEA2;
   text-transform: uppercase;
 }
-.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg {
+.navDesktop-module__nav--CQV1E .navDesktop-module__right_block--aTn2M {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
 }
-.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg a svg {
+.navDesktop-module__nav--CQV1E .navDesktop-module__right_block--aTn2M a svg {
   margin-bottom: -3px;
 }
-.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg .navDesktop-module__user_block--u6U3r {
+.navDesktop-module__nav--CQV1E .navDesktop-module__right_block--aTn2M .navDesktop-module__user_block--_0Rx4 {
   position: relative;
 }
-.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg .navDesktop-module__user_block--u6U3r .navDesktop-module__account--QgdqU {
+.navDesktop-module__nav--CQV1E .navDesktop-module__right_block--aTn2M .navDesktop-module__user_block--_0Rx4 .navDesktop-module__account--wz8m9 {
   color: #E0BEA2;
 }
-.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg .navDesktop-module__user_block--u6U3r .navDesktop-module__account--QgdqU svg {
+.navDesktop-module__nav--CQV1E .navDesktop-module__right_block--aTn2M .navDesktop-module__user_block--_0Rx4 .navDesktop-module__account--wz8m9 svg {
   width: 25px;
   height: 25px;
   margin-bottom: -3px;
   color: inherit;
 }
-.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg .navDesktop-module__user_block--u6U3r .navDesktop-module__color--I3S5I {
+.navDesktop-module__nav--CQV1E .navDesktop-module__right_block--aTn2M .navDesktop-module__user_block--_0Rx4 .navDesktop-module__color--xeMGi {
   color: #FFFFFF;
 }
-.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg .navDesktop-module__language--QwHxq {
+.navDesktop-module__nav--CQV1E .navDesktop-module__right_block--aTn2M .navDesktop-module__language--csdac {
   margin-right: 45px;
 }
-.navDesktop-module__nav--f8_7B .navDesktop-module__right_block--Wzqkg .navDesktop-module__language--QwHxq button {
+.navDesktop-module__nav--CQV1E .navDesktop-module__right_block--aTn2M .navDesktop-module__language--csdac button {
   border: none;
   background: transparent;
   font-weight: 300;
@@ -940,10 +955,10 @@
   height: 24px;
   margin-right: 12px;
 }
-/*!************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/nav/navMobile.module.scss ***!
-  \************************************************************************************************************************************************************************************************************************************/
-.navMobile-module__nav--G9Mxb {
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/nav/mobil/navMobile.module.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+.navMobile-module__nav--Gidq_ {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -954,13 +969,13 @@
   width: 100%;
   z-index: 11;
 }
-.navMobile-module__nav--G9Mxb .navMobile-module__left_block--0ycHK {
+.navMobile-module__nav--Gidq_ .navMobile-module__left_block--oHUsW {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 22px;
 }
-.navMobile-module__nav--G9Mxb .navMobile-module__left_block--0ycHK .navMobile-module__language--NSrDF button {
+.navMobile-module__nav--Gidq_ .navMobile-module__left_block--oHUsW .navMobile-module__language--YJ1Le button {
   border: none;
   background: transparent;
   font-weight: 300;
@@ -969,11 +984,11 @@
   color: #E0BEA2;
   text-transform: uppercase;
 }
-.navMobile-module__nav--G9Mxb .navMobile-module__left_block--0ycHK .navMobile-module__language--NSrDF svg {
+.navMobile-module__nav--Gidq_ .navMobile-module__left_block--oHUsW .navMobile-module__language--YJ1Le svg {
   width: 10px;
   height: 10px;
 }
-.navMobile-module__nav--G9Mxb .navMobile-module__title--oLZEq {
+.navMobile-module__nav--Gidq_ .navMobile-module__title--ztfN5 {
   text-decoration: none;
   font-weight: 300;
   font-size: 26px;
@@ -981,13 +996,13 @@
   color: #E0BEA2;
   text-transform: uppercase;
 }
-.navMobile-module__nav--G9Mxb .navMobile-module__right_block--c2qj5 {
+.navMobile-module__nav--Gidq_ .navMobile-module__right_block--yLxKQ {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
-.navMobile-module__nav--G9Mxb .navMobile-module__mobile_menu--NR_p1 {
+.navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 {
   position: absolute;
   width: 100%;
   height: calc(100vh - 74px);
@@ -998,24 +1013,24 @@
   border-top: 1px solid #E0BEA2;
   padding: 0 20px;
 }
-.navMobile-module__nav--G9Mxb .navMobile-module__mobile_menu--NR_p1 .navMobile-module__search_form--XSCTo {
+.navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__search_form--x0zxP {
   position: relative;
   z-index: 10;
   padding-bottom: 20px;
   border-bottom: 1px solid #252525;
 }
-.navMobile-module__nav--G9Mxb .navMobile-module__mobile_menu--NR_p1 .navMobile-module__search_form--XSCTo .navMobile-module__search_icon--TM2NS {
+.navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__search_form--x0zxP .navMobile-module__search_icon--TQhGw {
   position: absolute;
   top: 29px;
   right: 20px;
   z-index: 10;
   color: #252525;
 }
-.navMobile-module__nav--G9Mxb .navMobile-module__mobile_menu--NR_p1 .navMobile-module__search_form--XSCTo .navMobile-module__search_icon--TM2NS svg {
+.navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__search_form--x0zxP .navMobile-module__search_icon--TQhGw svg {
   width: 30px;
   height: 30px;
 }
-.navMobile-module__nav--G9Mxb .navMobile-module__mobile_menu--NR_p1 .navMobile-module__item_menu--Hx7we {
+.navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__item_menu--bB64x {
   height: 60px;
   border-bottom: 1px solid #252525;
   display: flex;
@@ -1029,16 +1044,50 @@
   gap: 12px;
   text-decoration: none;
 }
-.navMobile-module__nav--G9Mxb .navMobile-module__mobile_menu--NR_p1 .navMobile-module__item_menu--Hx7we svg {
+.navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__item_menu--bB64x a {
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #252525;
+}
+.navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__item_menu--bB64x svg {
   width: 20px;
   height: 20px;
   margin-bottom: -3px;
   color: #E0BEA2;
+  margin-right: 12px;
+}
+.navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__contact_info--zXfQB {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+}
+.navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__contact_info--zXfQB .navMobile-module__social--LAfM5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__contact_info--zXfQB .navMobile-module__social--LAfM5 a img {
+  cursor: pointer;
+}
+.navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__contact_info--zXfQB .navMobile-module__social--LAfM5 a img:hover {
+  filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
+}
+.navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__contact_info--zXfQB p {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: #252525;
 }
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/footer/footer.module.scss ***!
   \************************************************************************************************************************************************************************************************************************************/
 .footer-module__container--sTirR {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -1075,16 +1124,104 @@
   text-transform: uppercase;
 }
 .footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__social--Bc9yJ {
-  margin-top: 10px;
+  height: 29px;
 }
 .footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__social--Bc9yJ a {
+  display: inline-block;
   margin-right: 14px;
+  height: 19px;
 }
 .footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__social--Bc9yJ a img {
   cursor: pointer;
 }
 .footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__social--Bc9yJ a img:hover {
   filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
+}
+.footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__info--pvANS {
+  margin-top: 10px;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 19px;
+  color: #252525;
+}
+.footer-module__container--sTirR .footer-module__rights--RSUoN {
+  position: absolute;
+  bottom: 12px;
+  right: 24px;
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 15px;
+  color: #252525;
+}
+@media screen and (max-width: 500px) {
+  .footer-module__container--sTirR {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px 47px 20px;
+  }
+  .footer-module__container--sTirR .footer-module__block--aw3f8 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 0.3px solid #252525;
+    position: relative;
+    padding-bottom: 5px;
+  }
+  .footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__svg--UFPPQ {
+    width: 14px;
+    height: 14px;
+    color: #E0BEA2;
+    position: absolute;
+    transform: rotate(90deg);
+    top: 3px;
+    right: 8px;
+    transition: all 0.3s ease-out;
+  }
+  .footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__active_svg--k5qz2 {
+    transform: rotate(180deg);
+    transition: all 0.3s ease-out;
+  }
+  .footer-module__container--sTirR .footer-module__block--aw3f8 h3 {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    color: #252525;
+    margin-bottom: 0;
+  }
+  .footer-module__container--sTirR .footer-module__block--aw3f8 a {
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 16px;
+    color: #252525;
+  }
+  .footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__social--Bc9yJ {
+    margin-top: 12px;
+  }
+  .footer-module__container--sTirR .footer-module__block--aw3f8:last-child {
+    border: none;
+  }
+  .footer-module__container--sTirR .footer-module__block--aw3f8 .footer-module__info--pvANS {
+    margin-top: 5px;
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 16px;
+    color: #252525;
+  }
+  .footer-module__container--sTirR .footer-module__rights--RSUoN {
+    position: absolute;
+    bottom: 12px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: 200;
+    font-size: 10px;
+    line-height: 12px;
+    color: #252525;
+  }
 }
 /*!********************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/layout/layout.module.scss ***!
@@ -1242,6 +1379,63 @@ span {
   line-height: 23px;
   color: #FFFFFF;
 }
+@media screen and (max-width: 500px) {
+  .home-module__content--outwt .home-module__category--eHpD6 {
+    padding: 60px 20px;
+  }
+  .home-module__content--outwt .home-module__category--eHpD6 h2 {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    color: #252525;
+    margin-bottom: 30px;
+  }
+  .home-module__content--outwt .home-module__category--eHpD6 .home-module__slider--jghSJ {
+    height: 230px;
+  }
+  .home-module__content--outwt .home-module__category--eHpD6 .home-module__slider--jghSJ .home-module__control--rFF0R {
+    width: 30px;
+    height: 30px;
+    top: 100px;
+  }
+  .home-module__content--outwt .home-module__category--eHpD6 .home-module__slider--jghSJ .home-module__control--rFF0R svg {
+    color: #FFFFFF;
+    width: 20px;
+    height: 20px;
+  }
+  .home-module__content--outwt .home-module__category--eHpD6 .home-module__slider--jghSJ .home-module__left--hiuko {
+    left: 10px;
+  }
+  .home-module__content--outwt .home-module__category--eHpD6 .home-module__slider--jghSJ .home-module__right--uj4hD {
+    right: 10px;
+  }
+  .home-module__content--outwt .home-module__category--eHpD6 .home-module__slider--jghSJ .home-module__shift_elements--fIds_ {
+    gap: 5px;
+  }
+  .home-module__content--outwt .home-module__category--eHpD6 .home-module__slider--jghSJ .home-module__shift_elements--fIds_ .home-module__element--QB6xD {
+    width: 165px;
+  }
+  .home-module__content--outwt .home-module__category--eHpD6 .home-module__slider--jghSJ .home-module__shift_elements--fIds_ .home-module__element--QB6xD img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .home-module__content--outwt .home-module__category--eHpD6 .home-module__slider--jghSJ .home-module__shift_elements--fIds_ .home-module__element--QB6xD .home-module__name--L1tsT {
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    bottom: 0;
+    background: #E0BEA2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+  }
+}
 /*!****************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/SubscriptBlock/subscriptBlock.module.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************/
@@ -1293,6 +1487,33 @@ span {
   font-size: 16px;
   line-height: 19px;
   color: #252525;
+}
+@media screen and (max-width: 500px) {
+  .subscriptBlock-module__subscription--fKn9j {
+    width: 100%;
+    padding: 0 20px;
+  }
+  .subscriptBlock-module__subscription--fKn9j h2 {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    color: #252525;
+  }
+  .subscriptBlock-module__subscription--fKn9j p {
+    margin-top: 15px;
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 16px;
+    color: #252525;
+  }
+  .subscriptBlock-module__subscription--fKn9j button {
+    margin-top: 15px;
+    height: 40px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+  }
 }
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/productCard/productCard.module.scss ***!

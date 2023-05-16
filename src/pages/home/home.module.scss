@@ -101,4 +101,63 @@
       }
     }
   }
+
+  @media screen and (max-width: 500px){
+    & .category{
+      padding: 60px 20px;
+
+      & h2{
+        @include fonts(300, 24px, 28px, $accent);
+        margin-bottom: 30px;
+      }
+
+      & .slider{
+        height: 230px;
+
+        & .control{
+          width: 30px;
+          height: 30px;
+          top: 100px;
+
+          & svg{
+            color: #FFFFFF;
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        & .left{
+          left: 10px;
+        }
+
+        & .right{
+          right: 10px;
+        }
+
+        & .shift_elements{
+          gap: 5px;
+
+          & .element{
+            width: 165px;
+
+            & img{
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+
+            & .name{
+              position: absolute;
+              width: 100%;
+              height: 35px;
+              bottom: 0;
+              background: $main;
+              @include display-flex;
+              @include fonts(300, 18px, 21px, #FFFFFF);
+            }
+          }
+        }
+      }
+    }
+  }
 }

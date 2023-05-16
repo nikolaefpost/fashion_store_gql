@@ -10,9 +10,9 @@ import Modal from "../../modal/Modal";
 import Form from "../../form/Form";
 import {useLanguage} from "../../../context/setting";
 
-import styles from "../navMobile.module.scss";
+import styles from "./navMobile.module.scss";
 
-const UserIdentificationMobil = () => {
+const UserIdentificationMobil = ({closeMenu}) => {
     const { text } = useLanguage();
     const { data } = useQuery(GET_USER,{
         variables: {
@@ -34,16 +34,16 @@ const UserIdentificationMobil = () => {
         currentUserVar(data?.getUser)
     },[data])
     return (
-        <div className={styles.item_menu}>
+        <div className={styles.item_menu} onClick={closeMenu}>
             {isAuth ?
-                <>
-                    <Link to="personal"  ><MdOutlineAccountBalanceWallet/></Link>
+                <Link to="personal" >
+                    <MdOutlineAccountBalanceWallet/>
                     {text.personal_area}
-                </> :
-                <>
-                    <UserIcon color="#E0BEA2" openModal={openModal}/>
+                </Link> :
+                <div onClick={openModal}>
+                    <UserIcon color="#E0BEA2"/>
                     {text.log_in_up}
-                </>
+                </div>
                 }
             {modal && <Modal fn={closeModal}>
                 <Form setModal={setModal} />

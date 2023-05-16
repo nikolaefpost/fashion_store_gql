@@ -6,6 +6,7 @@ import {ADD_MAIL} from "../../appolo/operations/mailingList/MailingListGraphQgl"
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
 import InputForm from "../inputForm/InputForm";
+
 import styles from "./subscriptBlock.module.scss";
 
 const SubscriptBlock = () => {

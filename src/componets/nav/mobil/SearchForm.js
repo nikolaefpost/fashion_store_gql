@@ -6,7 +6,7 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
 import {BiSearch} from "react-icons/bi"
 
-import styles from "../navMobile.module.scss"
+import styles from "./navMobile.module.scss"
 
 const SearchForm = () => {
     const {text} = useLanguage();

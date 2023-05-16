@@ -1,7 +1,7 @@
 import React from 'react';
 import {useMediaQuery} from "../../helpers/useMediaQuery";
-import NavDesktop from "./NavDesktop";
-import NavMobile from "./NavMobile";
+import NavDesktop from "./desktop/NavDesktop";
+import NavMobile from "./mobil/NavMobile";
 
 const Nav = () => {
     const isMobile = useMediaQuery(500);

@@ -61,6 +61,17 @@
       height: 19px;
     }
   }
+
+  @media screen and (max-width: 500px){
+    & input {
+      @include fonts(200, 14px, 16px, rgba(37, 37, 37, 0.5));
+      height: 40px;
+
+      &::placeholder {
+        @include fonts(200, 14px, 16px, rgba(37, 37, 37, 0.5));
+      }
+    }
+  }
 }
 
 .radio{

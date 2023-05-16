@@ -1,0 +1,129 @@
+@import "../../../style/mixins";
+@import "../../../style/colors";
+
+.nav {
+  @include display-flex(space-between);
+  background: transparent;
+  padding: 22px 20px;
+  color: $main;
+  position: absolute;
+  width: 100%;
+  //opacity: .9;
+  z-index: 11;
+
+  & .left_block{
+    @include display-flex;
+    gap: 22px;
+
+    & .language{
+
+      & button{
+        border: none;
+        background: transparent;
+        @include fonts(300, 16px, 19px, $main);
+        text-transform: uppercase;
+      }
+
+      & svg{
+        width: 10px;
+        height: 10px;
+      }
+
+
+    }
+  }
+
+  & .title{
+    text-decoration: none;
+    @include fonts(300, 26px, 26px, $main);
+    text-transform: uppercase;
+  }
+
+  & .right_block{
+    @include display-flex;
+    gap: 20px;
+  }
+
+  & .mobile_menu{
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 74px);
+    left: 0;
+    top: 74px;
+    z-index: 100;
+    background-color: #FFFFFF;
+    border-top: 1px solid $main;
+    padding: 0 20px;
+
+    & .search_form{
+      position: relative;
+      z-index: 10;
+      padding-bottom: 20px;
+      border-bottom: 1px solid $accent;
+
+      & .search_icon{
+        position: absolute;
+        top: 29px;
+        right: 20px;
+        z-index: 10;
+        color: $accent;
+
+        & svg{
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+
+    & .item_menu{
+      height: 60px;
+      border-bottom: 1px solid $accent;
+      @include display-flex;
+      text-transform: uppercase;
+      @include fonts(300, 16px, 19px, $accent);
+      gap: 12px;
+      text-decoration: none;
+
+      & a{
+        text-decoration: none;
+        @include fonts(300, 16px, 19px, $accent);
+      }
+
+      & svg{
+        width: 20px;
+        height: 20px;
+        margin-bottom: -3px;
+        color: $main;
+        margin-right: 12px;
+      }
+    }
+
+    & .contact_info{
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+
+      & .social{
+        @include display-flex;
+        gap: 10px;
+
+        & a {
+          & img{
+            cursor: pointer;
+
+            &:hover{
+              filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
+            }
+          }
+        }
+      }
+
+      & p{
+        text-align: center;
+        margin-top: 10px;
+        @include fonts(300, 14px, 16px, $accent);
+      }
+    }
+  }
+
+}
