@@ -146,6 +146,7 @@ export const data = {
         enter_request: "Enter your request",
         not_request: "Request not entered",
         log_in_up: "log in / log up",
+        filters: "Filters",
     },
     ua: {
         catalog: 'каталог',
@@ -295,5 +296,6 @@ export const data = {
         enter_request: "Введіть запит",
         not_request: "Запит не введено",
         log_in_up: "увійти / реєстрація",
+        filters: "Фільтри",
     },
 };

@@ -27,7 +27,7 @@ const SetColor = () => {
     return (
         <div className={styles.header_block} onClick={()=>setOpenColor(true)}>
             <span className={styles.header_title}>{text.color}</span>
-            <AiOutlineDown/>
+            <span className={cn(styles.svg, {[styles.active_svg]: openColor})}><AiOutlineDown/></span>
             {openColor && <div ref={colorRef} className={styles.modal_size}>
                 {loading && <div>Loading ... </div>}
                 {data && data?.queryColor.map(el=>(

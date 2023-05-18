@@ -6,6 +6,7 @@ import {useOnClickOutside} from "../../../hooks/useOnclickOutside";
 import styles from "../catalog.module.scss";
 import {applyFilter, setSize} from "../../../appolo/operations/poducts/productStore";
 import {useLanguage} from "../../../context/setting";
+import cn from "classnames";
 
 const sizeList = ["XXL", "XXS", "XS", "S", "L"]
 
@@ -22,9 +23,9 @@ const SetSize = () => {
         setOpenSize(false)
     }
     return (
-        <div className={styles.header_block} onClick={()=>setOpenSize(true)}>
-            <span className={styles.header_title}>{text.size}</span>
-            <AiOutlineDown/>
+        <div className={styles.header_block} onClick={()=>setOpenSize(pre => !pre)}>
+            <span className={styles.header_title} >{text.size}</span>
+            <span className={cn(styles.svg, {[styles.active_svg]: openSize})}><AiOutlineDown/></span>
             {openSize && <div className={styles.modal_size} ref={sizeRef}>
                 {sizeList.map(el=>(
                     <span key={el} onClick={(e)=>closeModal(e,el)}>{el}</span>

@@ -6,6 +6,7 @@ import {useOnClickOutside} from "../../../hooks/useOnclickOutside";
 import styles from "../catalog.module.scss";
 import {applyFilter} from "../../../appolo/operations/poducts/productStore";
 import {useLanguage} from "../../../context/setting";
+import cn from "classnames";
 
 const SetPrice = () => {
     const {text} = useLanguage();
@@ -21,8 +22,8 @@ const SetPrice = () => {
     return (
         <div className={styles.header_block} onClick={()=>setOpenPrice(true)}>
             <span className={styles.header_title}>{text.price}</span>
-            <AiOutlineDown/>
-            {openPrice && <div ref={priceRef} className={styles.modal_size}>
+            <span className={cn(styles.svg, {[styles.active_svg]: openPrice})}><AiOutlineDown/></span>
+            {openPrice && <div ref={priceRef} className={cn(styles.modal_size, styles.extend_price)}>
                 <RangeSlider/>
                 <button onClick={closeModal}>Ок</button>
             </div>}

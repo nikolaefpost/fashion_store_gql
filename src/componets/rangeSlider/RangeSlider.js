@@ -1,14 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react';
+import {setInputMaxPrice, setInputMinPrice, setMaxPrice, setMinPrice}
+    from "../../appolo/operations/poducts/productStore";
+import {useReactiveVar} from "@apollo/client";
+import {productInputMinMax, productMinMax} from "../../appolo/cashe/appVar";
 
 import styles from "./rangeSlider.module.scss"
-import {
-    setInputMaxPrice,
-    setInputMinPrice,
-    setMaxPrice,
-    setMinPrice
-} from "../../appolo/operations/poducts/productStore";
-import {useReactiveVar} from "@apollo/client";
-import { productInputMinMax, productMinMax } from "../../appolo/cashe/appVar";
 
 
 const RangeSlider = () => {
@@ -56,7 +52,7 @@ const RangeSlider = () => {
     }, [onStartMinMove, onStartMaxMove])
 
     const handleChangeMin = (e) => {
-      let value = (e.target.value && (typeof parseInt(e.target.value, 10) === "number")) ? parseInt(e.target.value, 10) : 0;
+        let value = (e.target.value && (typeof parseInt(e.target.value, 10) === "number")) ? parseInt(e.target.value, 10) : 0;
         setInputMinPrice(value)
 
     }
@@ -85,15 +81,15 @@ const RangeSlider = () => {
             </div>
             <div ref={lineRange} className={styles.line}>
                 <div
-                    onMouseUp={()=>setOnStartMinMove(false)}
-                    onMouseDown={()=>setOnStartMinMove(true)}
+                    onMouseUp={() => setOnStartMinMove(false)}
+                    onMouseDown={() => setOnStartMinMove(true)}
                     ref={leftMarker}
                     className={styles.marker_range}
                     style={{left: minMax.min}}
                 />
                 <div
-                    onMouseUp={()=>setOnStartMaxMove(false)}
-                    onMouseDown={()=>setOnStartMaxMove(true)}
+                    onMouseUp={() => setOnStartMaxMove(false)}
+                    onMouseDown={() => setOnStartMaxMove(true)}
                     ref={rightMarker}
                     className={styles.marker_range}
                     style={{left: minMax.max}}

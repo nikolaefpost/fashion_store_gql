@@ -9,7 +9,6 @@ import {setSortingOption, sortListByOption} from "../../../appolo/operations/pod
 import {useLanguage} from "../../../context/setting";
 
 
-
 const SortList = () => {
     const {text} = useLanguage();
     const sortOption = [
@@ -19,21 +18,21 @@ const SortList = () => {
     ]
     const [openSort, setOpenSort] = useState(false);
     const sortRef = useRef(null);
-    useOnClickOutside(sortRef, ()=>setOpenSort(false));
+    useOnClickOutside(sortRef, () => setOpenSort(false));
 
-    const closeModal = (e,param) => {
+    const closeModal = (e, param) => {
         e.stopPropagation()
         setSortingOption(param);
         sortListByOption();
         setOpenSort(false)
     }
     return (
-        <div className={styles.header_block} onClick={()=>setOpenSort(true)}>
+        <div className={styles.header_block} onClick={() => setOpenSort(true)}>
             <span className={styles.header_title}>{text.sort_by}</span>
-            <AiOutlineDown/>
+            <span className={cn(styles.svg, {[styles.active_svg]: openSort})}><AiOutlineDown/></span>
             {openSort && <div ref={sortRef} className={cn(styles.modal_size, styles.sort_field)}>
-                {sortOption.map(el=>(
-                    <span key={el.id} onClick={(e)=>closeModal(e,el)}>{el.name}</span>
+                {sortOption.map(el => (
+                    <span key={el.id} onClick={(e) => closeModal(e, el)}>{el.name}</span>
                 ))}
             </div>}
         </div>

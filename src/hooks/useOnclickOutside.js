@@ -6,7 +6,6 @@ export const useOnClickOutside = (ref, fn) => {
         if (ref.current && !ref.current.contains(e.target)) {
             fn();
         }
-
     }
 
   useEffect(()=>{

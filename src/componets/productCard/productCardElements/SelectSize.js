@@ -5,8 +5,6 @@ import {AiOutlineRight} from "react-icons/ai";
 import styles from "../productCard.module.scss";
 import {useLanguage} from "../../../context/setting";
 
-// const size = ["XXS", "XS", "S", "M", "L"];
-
 const SelectSize = ({openSelect, setOpenSelect, sizeProduct, setSizeProduct, sizeError, setSizeError, size}) => {
     const {text} = useLanguage();
     const handleSetSizeProduct = (el) => {

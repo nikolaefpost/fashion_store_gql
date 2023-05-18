@@ -1,0 +1,105 @@
+@import "../../../style/mixins";
+@import "../../../style/colors";
+
+.sidebar {
+  flex-direction: column;
+  @include fonts(300, 16px, 19px, $accent);
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  @include display-flex;
+  cursor: pointer;
+  background: $main;
+  gap: 5px;
+
+  & .current{
+    @include fonts(200, 18px, 21px, #FFFFFF);
+    display: inline-block;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  & ul {
+    all: unset;
+    width: 100%;
+    padding: 0;
+
+    & li {
+      list-style-type: none;
+      @include fonts(200, 18px, 21px, #FFFFFF);
+      margin-top: 5px;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  & .svg {
+    width: 18px;
+    height: 18px;
+    color: #FFFFFF;
+    position: absolute;
+    transform: rotate(90deg);
+    top: 14px;
+    margin-left: 10px;
+    transition: all .3s ease-out
+  }
+
+  & .active_svg {
+    transform: rotate(180deg);
+    transition: all .3s ease-out
+  }
+
+  & span {
+    @include fonts(300, 16px, 19px, $accent);
+    cursor: pointer;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.mobile_filter_wrapper{
+  width: 100%;
+  padding-bottom: 5px;
+
+  border-bottom: 1px solid $accent;
+
+  & .mobil_header{
+    width: 100%;
+    position: relative;
+    text-align: left;
+
+    & span{
+      @include fonts(300, 16px, 19px, $accent);
+    }
+
+    & img{
+      margin-left: 8px;
+      margin-bottom: -2px;
+    }
+
+    & .svg {
+      width: 18px;
+      height: 18px;
+      color: $main;
+      position: absolute;
+      transform: rotate(90deg);
+      top: 6px;
+      right: 10px;
+      transition: all .3s ease-out
+    }
+
+    & .active_svg {
+      transform: rotate(180deg);
+      transition: all .3s ease-out
+    }
+  }
+
+
+}

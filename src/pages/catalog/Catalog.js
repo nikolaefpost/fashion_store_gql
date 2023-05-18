@@ -1,6 +1,5 @@
 import React  from 'react';
-import Sidebar from "./Sidebar";
-import HeaderCatalog from "./HeaderCatalog";
+import DesktopSidebar from "./desktop/DesktopSidebar";
 import ProductList from "./ProductList";
 import {categoryCurrentVar} from "../../appolo/cashe/appVar";
 import {useQuery, useReactiveVar} from "@apollo/client";
@@ -10,12 +9,16 @@ import {useLanguage} from "../../context/setting";
 import NavBlock from "../../componets/navBlock/NavBlock";
 
 import styles from "./catalog.module.scss";
+import {useMediaQuery} from "../../helpers/useMediaQuery";
+import MobilSidebar from "./mobile/MobilSidebar";
+import Header from "./Header";
 
 
 
 
 const Catalog = () => {
     const {text} = useLanguage();
+    const isMobile = useMediaQuery(500);
     
     const handlerResetCategory  = () => {
         filterCategory("")
@@ -33,23 +36,13 @@ const Catalog = () => {
                 currentCategory={currentCategory}
                 handlerResetCategory={handlerResetCategory}
             />
-            {/*<div className={styles.nav_block}>*/}
-            {/*    <span onClick={handleHome}>{text.home}</span>*/}
-            {/*    <AiOutlineRight/>*/}
-            {/*    <span*/}
-            {/*        onClick={handlerResetCategory}*/}
-            {/*    >{text.catalog}</span>*/}
-            {/*    {currentCategory && <>*/}
-            {/*        <AiOutlineRight/>*/}
-            {/*        <span className={styles.nav_category}>{currentCategory}</span>*/}
-            {/*    </>}*/}
-            {/*</div>*/}
             <div className={styles.product_grid}>
-
-                <div className={styles.title}>{text.catalog}</div>
-                {product && <HeaderCatalog length={product.productList.length}/>}
+                {!isMobile?
+                    <DesktopSidebar category={category?.categoryLocal} sort={filterCategory}/>:
+                    <MobilSidebar category={category?.categoryLocal} sort={filterCategory} current={currentCategory}/>
+                }
+                {product && <Header length={product.productList.length} isMobile={isMobile}/> }
                 <ProductList products={product?.productList? product?.productList: []}/>
-                <Sidebar category={category?.categoryLocal} sort={filterCategory}/>
 
             </div>
         </div>
