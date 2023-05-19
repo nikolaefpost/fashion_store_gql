@@ -345,89 +345,6 @@
 .catalog-module__product_card--bIRmW .catalog-module__card_text--Aqp6W .catalog-module__card_color--BmjNW .catalog-module__beige--vaGtZ {
   background: #F1DDAA;
 }
-/*!**********************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/rangeSlider/rangeSlider.module.scss ***!
-  \**********************************************************************************************************************************************************************************************************************************************/
-.rangeSlider-module__container--mzF7a {
-  width: 200px;
-  padding: 10px 0;
-}
-.rangeSlider-module__container--mzF7a .rangeSlider-module__input_block--vnPJD {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 10px;
-}
-.rangeSlider-module__container--mzF7a .rangeSlider-module__input_block--vnPJD input {
-  width: 50px;
-}
-.rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo {
-  position: relative;
-  width: 100%;
-  height: 4px;
-  border-radius: 2px;
-  border: 0.5px solid #252525;
-  background: #FFFFFF;
-}
-.rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo .rangeSlider-module__marker_range--sa9IW {
-  top: -6px;
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border-radius: 5px;
-  border: 0.5px solid #252525;
-  background: #FFFFFF;
-  z-index: 1;
-  cursor: pointer;
-}
-.rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo .rangeSlider-module__left--HKsfu {
-  left: 0;
-}
-.rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo .rangeSlider-module__right--u618w {
-  left: calc(100% - 10px);
-}
-@media screen and (max-width: 500px) {
-  .rangeSlider-module__container--mzF7a {
-    width: 200px;
-    padding: 10px 0;
-  }
-  .rangeSlider-module__container--mzF7a .rangeSlider-module__input_block--vnPJD {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 10px;
-  }
-  .rangeSlider-module__container--mzF7a .rangeSlider-module__input_block--vnPJD input {
-    width: 50px;
-  }
-  .rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo {
-    position: relative;
-    width: 100%;
-    height: 4px;
-    border-radius: 2px;
-    border: 0.5px solid #252525;
-    background: #FFFFFF;
-  }
-  .rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo .rangeSlider-module__marker_range--sa9IW {
-    top: -6px;
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border-radius: 5px;
-    border: 0.5px solid #252525;
-    background: #FFFFFF;
-    z-index: 1;
-    cursor: pointer;
-  }
-  .rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo .rangeSlider-module__left--HKsfu {
-    left: 0;
-  }
-  .rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo .rangeSlider-module__right--u618w {
-    left: calc(100% - 10px);
-  }
-}
 /*!****************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/navBlock/navBlock.module.scss ***!
   \****************************************************************************************************************************************************************************************************************************************/
@@ -558,6 +475,89 @@
 .mobileCatalog-module__mobile_filter_wrapper--D0ier .mobileCatalog-module__mobil_header--ch8kb .mobileCatalog-module__active_svg--luMmN {
   transform: rotate(180deg);
   transition: all 0.3s ease-out;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/rangeSlider/rangeSlider.module.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+.rangeSlider-module__container--mzF7a {
+  width: 200px;
+  padding: 10px 0;
+}
+.rangeSlider-module__container--mzF7a .rangeSlider-module__input_block--vnPJD {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.rangeSlider-module__container--mzF7a .rangeSlider-module__input_block--vnPJD input {
+  width: 50px;
+}
+.rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  border: 0.5px solid #252525;
+  background: #FFFFFF;
+}
+.rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo .rangeSlider-module__marker_range--sa9IW {
+  top: -6px;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 5px;
+  border: 0.5px solid #252525;
+  background: #FFFFFF;
+  z-index: 1;
+  cursor: pointer;
+}
+.rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo .rangeSlider-module__left--HKsfu {
+  left: 0;
+}
+.rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo .rangeSlider-module__right--u618w {
+  left: calc(100% - 10px);
+}
+@media screen and (max-width: 500px) {
+  .rangeSlider-module__container--mzF7a {
+    width: 200px;
+    padding: 10px 0;
+  }
+  .rangeSlider-module__container--mzF7a .rangeSlider-module__input_block--vnPJD {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .rangeSlider-module__container--mzF7a .rangeSlider-module__input_block--vnPJD input {
+    width: 50px;
+  }
+  .rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    border: 0.5px solid #252525;
+    background: #FFFFFF;
+  }
+  .rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo .rangeSlider-module__marker_range--sa9IW {
+    top: -6px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 5px;
+    border: 0.5px solid #252525;
+    background: #FFFFFF;
+    z-index: 1;
+    cursor: pointer;
+  }
+  .rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo .rangeSlider-module__left--HKsfu {
+    left: 0;
+  }
+  .rangeSlider-module__container--mzF7a .rangeSlider-module__line--NXINo .rangeSlider-module__right--u618w {
+    left: calc(100% - 10px);
+  }
 }
 /*!******************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/order/order.module.scss ***!

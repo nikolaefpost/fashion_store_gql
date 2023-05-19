@@ -31,6 +31,20 @@ const RangeSlider = () => {
             event.clientX - pos.x > parseInt(leftMarker.current.style.left, 10) + 24
         ) setMaxPrice(event.clientX - pos.x - 8)
     }
+    const handleTouchMax = (event) => {
+        const pos = lineRange.current.getBoundingClientRect()
+        if (
+            (event.targetTouches[0].clientX - pos.x) < 192 &&
+            event.targetTouches[0].clientX - pos.x > parseInt(leftMarker.current.style.left, 10) + 24
+        ) setMaxPrice(event.targetTouches[0].clientX - pos.x - 8)
+    }
+
+    const handleTouchMin = (event) => {
+        const pos = lineRange.current.getBoundingClientRect()
+        if ((event.targetTouches[0].clientX - pos.x) > 8
+            && event.targetTouches[0].clientX - pos.x < parseInt(rightMarker.current.style.left, 10) - 8
+        ) setMinPrice(event.targetTouches[0].clientX - pos.x - 8)
+    }
 
     useEffect(() => {
         if (onStartMinMove) {
@@ -81,6 +95,7 @@ const RangeSlider = () => {
             </div>
             <div ref={lineRange} className={styles.line}>
                 <div
+                    onTouchMove={handleTouchMin}
                     onMouseUp={() => setOnStartMinMove(false)}
                     onMouseDown={() => setOnStartMinMove(true)}
                     ref={leftMarker}
@@ -88,6 +103,7 @@ const RangeSlider = () => {
                     style={{left: minMax.min}}
                 />
                 <div
+                    onTouchMove={handleTouchMax}
                     onMouseUp={() => setOnStartMaxMove(false)}
                     onMouseDown={() => setOnStartMaxMove(true)}
                     ref={rightMarker}
