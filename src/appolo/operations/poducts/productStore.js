@@ -26,22 +26,32 @@ export const setColor = (color) => {
     productCurrentColorVar(color);
 }
 
-export const setMinMaxPrice = () => {
+// export const setMinMaxPrices = () => {
+//     let data = productItemsVar()
+//     if (!data) return;
+//     const {min, max} = productMinMax()
+//     let maxValue = Math.round(data.reduce((a, b) => a.price > b.price ? a : b).price);
+//     productMaxPrice(maxValue)
+//     productRatio(maxValue / 184)
+//     productInputMinMax({
+//         min: min * maxValue / 184,
+//         max: Math.round(max * maxValue / 184)
+//     })
+// }
+
+export const setMinMaxPrices = () => {
     let data = productItemsVar()
     if (!data) return;
-    const {min, max} = productMinMax()
     let maxValue = Math.round(data.reduce((a, b) => a.price > b.price ? a : b).price);
     productMaxPrice(maxValue)
     productRatio(maxValue / 184)
-    productInputMinMax({
-        min: min * maxValue / 184,
-        max: Math.round(max * maxValue / 184)
-    })
+    productInputMinMax({min: 0, max: maxValue})
 }
+
+
 
 export const setMinPrice = (min) => {
     productMinMax({...productMinMax(), min})
-    console.log(Math.round(min * productRatio()))
     productInputMinMax({...productInputMinMax(), min: Math.round(min * productRatio())})
 }
 
@@ -67,7 +77,6 @@ export const setInputMaxPrice = (max) => {
     const inputMinMax = productInputMinMax();
     const minMax = productMinMax();
     const ratio = productRatio();
-    console.log("setInputMaxPrice", maxValue)
     productInputMinMax({...inputMinMax, max: maxValue})
 
     if (inputMinMax.min === 0) {
@@ -79,6 +88,22 @@ export const setInputMaxPrice = (max) => {
     }
     if (maxValue > productMaxPrice()) productMinMax({...minMax, max: 184})
 }
+
+export const setInputMaxValue = () =>{
+    const minMax = productMinMax();
+    const inputMinMax = productInputMinMax();
+    productMinMax({...minMax, max: 184});
+    productInputMinMax({...inputMinMax, max: productMaxPrice()})
+}
+
+export const setInputMinValue = () =>{
+    const minMax = productMinMax();
+    const inputMinMax = productInputMinMax();
+    productMinMax({...minMax, min: 0});
+    productInputMinMax({...inputMinMax, min: 0})
+}
+
+
 
 export const setSortingOption = (option) => {
     productSortingOption(option);
@@ -137,7 +162,7 @@ export const resetFilter = () => {
     productMinMax({min: 0, max: 184})
     productInputMinMax({min: 0, max: 184 * productRatio()})
     productChangePriseRange(false);
-    productSortingOption(null);
+    productSortingOption("");
 
 
     if (currentCategory !== "") {

@@ -5,7 +5,7 @@ import Footer from "../../componets/footer/Footer";
 import {useQuery} from "@apollo/client";
 import {categoryItemsVar, productChangeItemsVar, productItemsVar} from "../../appolo/cashe/appVar";
 import {GET_CATEGORY, GET_PRODUCTS} from "../../appolo/operations/poducts/productGrapfQgl";
-import {setMinMaxPrice} from "../../appolo/operations/poducts/productStore";
+import {setMinMaxPrices} from "../../appolo/operations/poducts/productStore";
 
 import style from "./layout.module.scss"
 
@@ -16,12 +16,7 @@ const Layout = () => {
     const { loading: loadProduct, error: errorProduct , data: product  } = useQuery(GET_PRODUCTS);
     productItemsVar(product?.queryProduct)
     productChangeItemsVar(product?.queryProduct);
-
-
-
-
-
-    setMinMaxPrice();
+    setMinMaxPrices();
 
     return (
             <div className={style.outlet}>

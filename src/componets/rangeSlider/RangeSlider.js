@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {setInputMaxPrice, setInputMinPrice, setMaxPrice, setMinPrice}
+import {setInputMaxPrice, setInputMaxValue, setInputMinPrice, setInputMinValue, setMaxPrice, setMinPrice}
     from "../../appolo/operations/poducts/productStore";
 import {useReactiveVar} from "@apollo/client";
 import {productInputMinMax, productMinMax} from "../../appolo/cashe/appVar";
@@ -8,7 +8,6 @@ import styles from "./rangeSlider.module.scss"
 
 
 const RangeSlider = () => {
-
     const minMax = useReactiveVar(productMinMax);
     const inputMinMax = useReactiveVar(productInputMinMax);
     const [onStartMinMove, setOnStartMinMove] = useState(false);
@@ -32,6 +31,7 @@ const RangeSlider = () => {
         ) setMaxPrice(event.clientX - pos.x - 8)
     }
     const handleTouchMax = (event) => {
+        event.stopPropagation()
         const pos = lineRange.current.getBoundingClientRect()
         if (
             (event.targetTouches[0].clientX - pos.x) < 192 &&
@@ -81,7 +81,7 @@ const RangeSlider = () => {
     return (
         <div className={styles.container}>
             <div className={styles.input_block}>
-                <span>Мин</span>
+                <span onTouchStart={setInputMinValue}>Мин</span>
                 <input
                     value={inputMinMax.min}
                     onChange={handleChangeMin}
@@ -91,7 +91,11 @@ const RangeSlider = () => {
                     onChange={handleChangeMax}
                     type="number"
                 />
-                <span>Мах</span>
+                <span onTouchStart={setInputMaxValue}>Мах</span>
+                {/*{isMobile?*/}
+                {/*    <span onTouchStart={setInputMaxValue}>Мах</span>:*/}
+                {/*    <span onClick={setInputMaxValue}>Мах</span>*/}
+                {/*}*/}
             </div>
             <div ref={lineRange} className={styles.line}>
                 <div
