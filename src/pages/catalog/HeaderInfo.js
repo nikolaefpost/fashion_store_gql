@@ -14,8 +14,10 @@ const HeaderInfo = ({setOpenInfo, length, changePriseRange, currentColor, curren
     }
     return (
         <div className={styles.info}>
-            {text.selected} {length} {text.goods}
-            <span className={styles.selected} onClick={reset}>{text.reset}</span>
+            <div className={styles.info_title}>
+                {text.selected} {length} {text.goods}
+                <span className={cn(styles.selected, styles.reset)} onClick={reset}>{text.reset}</span>
+            </div>
             {currentSize && <span className={styles.selected}>{currentSize}</span>}
             {currentColor && <div className={styles.selected_color}>
                 <div className={cn(styles.circle, styles[currentColor])}/>

@@ -85,7 +85,7 @@
 }
 .catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__info--nCZpi .catalog-module__selected--D1KB_ {
   margin-left: 5px;
-  border: 0.3px solid #252525;
+  border-bottom: 0.3px solid #252525;
   border-radius: 6px;
   padding: 4px;
   cursor: pointer;
@@ -93,11 +93,15 @@
 .catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__info--nCZpi .catalog-module__selected--D1KB_::first-letter {
   text-transform: uppercase;
 }
+.catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__info--nCZpi .catalog-module__reset--uq9d6 {
+  color: #E0BEA2;
+  border: 0.3px solid #E0BEA2;
+}
 .catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__info--nCZpi .catalog-module__selected_color--D_u1h {
   margin-left: 5px;
-  border: 0.3px solid #252525;
+  border-bottom: 0.3px solid #252525;
   border-radius: 6px;
-  padding: 9px;
+  padding: 8px;
   display: inline;
 }
 .catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__header_block--WTY6m {
@@ -190,21 +194,26 @@
     flex-wrap: wrap;
     gap: 6px;
   }
+  .catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__info--nCZpi .catalog-module__info_title--lenuu {
+    width: 100%;
+    padding: 6px 0;
+    text-align: center;
+  }
   .catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__info--nCZpi .catalog-module__selected--D1KB_ {
     margin-left: 5px;
-    border: 0.3px solid #252525;
-    border-radius: 6px;
+    border-radius: 3px;
     padding: 4px;
     cursor: pointer;
+    background-color: #E0BEA2;
+    color: #FFFFFF;
   }
   .catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__info--nCZpi .catalog-module__selected--D1KB_::first-letter {
     text-transform: uppercase;
   }
   .catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__info--nCZpi .catalog-module__selected_color--D_u1h {
     margin-left: 5px;
-    border: 0.3px solid #252525;
-    border-radius: 6px;
-    padding: 6px;
+    border-radius: 3px;
+    padding: 5.5px;
     display: inline;
   }
   .catalog-module__content--Xm43G .catalog-module__product_grid--Bq2dX .catalog-module__header_block--WTY6m .catalog-module__modal_size--ZHaH4 {

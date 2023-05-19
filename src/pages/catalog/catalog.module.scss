@@ -78,7 +78,7 @@
 
       & .selected {
         margin-left: 5px;
-        border: .3px solid $accent;
+        border-bottom: .3px solid $accent;
         border-radius: 6px;
         padding: 4px;
         cursor: pointer;
@@ -88,11 +88,16 @@
         }
       }
 
+      & .reset{
+        color: $main;
+        border: .3px solid $main;
+      }
+
       & .selected_color {
         margin-left: 5px;
-        border: .3px solid $accent;
+        border-bottom: .3px solid $accent;
         border-radius: 6px;
-        padding: 9px;
+        padding: 8px;
         display: inline;
       }
     }
@@ -191,12 +196,19 @@
         flex-wrap: wrap;
         gap: 6px;
 
+        & .info_title{
+          width: 100%;
+          padding: 6px 0;
+          text-align: center;
+        }
+
         & .selected {
           margin-left: 5px;
-          border: .3px solid $accent;
-          border-radius: 6px;
+          border-radius: 3px;
           padding: 4px;
           cursor: pointer;
+          background-color: $main;
+          color: #FFFFFF;
 
           &::first-letter {
             text-transform: uppercase;
@@ -205,9 +217,8 @@
 
         & .selected_color {
           margin-left: 5px;
-          border: .3px solid $accent;
-          border-radius: 6px;
-          padding: 6px;
+          border-radius: 3px;
+          padding: 5.5px;
           display: inline;
         }
       }
