@@ -221,7 +221,7 @@
 
         & .selected_color {
           border-radius: 3px;
-          padding: 5.5px;
+          padding: 5px;
           background-color: $main;
         }
       }
@@ -385,25 +385,10 @@
     }
 
     & .card_text {
-      margin-top: 10px;
-      @include display-flex(flex-end, center);
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
 
       & .card_title {
         @include fonts(300, 14px, 16px, $accent);
         height: 32px;
-        //@include display-flex;
-        padding: 0 16px;
-        text-align: center;
-        display: inline-block;
-        overflow: hidden;
-
-        &::first-letter {
-          text-transform: uppercase;
-        }
-
       }
 
       & .card_price {
@@ -411,32 +396,7 @@
       }
 
       & .card_size {
-        text-transform: uppercase;
         @include fonts(300, 14px, 16px, $accent);
-      }
-
-      & .card_color {
-        @include display-flex;
-        gap: 5px;
-
-        & div {
-          width: 14px;
-          height: 14px;
-          border-radius: 7px;
-        }
-
-        & .white {
-          background: #FFFFFF;
-          border: 0.3px solid $accent;
-        }
-
-        & .grey {
-          background: #6F83A4;
-        }
-
-        & .beige {
-          background: #F1DDAA;
-        }
       }
     }
   }
