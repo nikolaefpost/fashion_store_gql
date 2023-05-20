@@ -6,14 +6,14 @@ import {recentlyWatchedSave} from "../../helpers/recentlyWatchedSave";
 import styles from "./catalog.module.scss";
 
 
-const ProductList = ({products}) => {
+const ProductList = ({isMobile, products}) => {
 
     const navigate = useNavigate();
     const handleTransition = (id) => {
         recentlyWatchedSave(id)
          navigate(`${id}`)
     }
-    const styleM ={width: "310px", height: "499px"}
+    const styleM = isMobile? {width: "165px", height: "342px"} : {width: "310px", height: "499px"} ;
 
     return (
         <div className={styles.body}>

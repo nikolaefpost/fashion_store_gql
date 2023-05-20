@@ -7,11 +7,11 @@ import {GET_CATEGORY_LOCAL, GET_PRODUCT_LOCAL} from "../../appolo/operations/pod
 import {filterCategory} from "../../appolo/operations/poducts/productStore";
 import {useLanguage} from "../../context/setting";
 import NavBlock from "../../componets/navBlock/NavBlock";
-
-import styles from "./catalog.module.scss";
 import {useMediaQuery} from "../../helpers/useMediaQuery";
 import MobilSidebar from "./mobile/MobilSidebar";
 import Header from "./Header";
+
+import styles from "./catalog.module.scss";
 
 
 
@@ -42,7 +42,7 @@ const Catalog = () => {
                     <MobilSidebar category={category?.categoryLocal} sort={filterCategory} current={currentCategory}/>
                 }
                 {product && <Header length={product.productList.length} isMobile={isMobile}/> }
-                <ProductList products={product?.productList? product?.productList: []}/>
+                <ProductList isMobile={isMobile} products={product?.productList? product?.productList: []}/>
 
             </div>
         </div>

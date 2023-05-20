@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from "./catalog.module.scss";
 import cn from "classnames";
-
 import {resetFilter} from "../../appolo/operations/poducts/productStore";
 import {useLanguage} from "../../context/setting";
+
+import styles from "./catalog.module.scss";
 
 const HeaderInfo = ({setOpenInfo, length, changePriseRange, currentColor, currentSize, inputMinMax, sortingOption}) => {
     const {text} = useLanguage();
@@ -20,14 +20,14 @@ const HeaderInfo = ({setOpenInfo, length, changePriseRange, currentColor, curren
             </div>
             {currentSize && <span className={styles.selected}>{currentSize}</span>}
             {currentColor && <div className={styles.selected_color}>
-                <div className={cn(styles.circle, styles[currentColor])}/>
+                <div className={cn(styles.circle, styles[currentColor], styles.white_border)}/>
             </div>}
             {changePriseRange && <>
                 <div className={styles.selected}>{text.from}:
-                    <span>{inputMinMax.min}</span> {text.currency}.
+                    <span> {inputMinMax.min}</span> {text.currency}.
                 </div>
                 <div className={styles.selected}> {text.to}:
-                    <span>{inputMinMax.max}</span> {text.currency}.
+                    <span> {inputMinMax.max}</span> {text.currency}.
                 </div>
             </>}
             {sortingOption && <span className={styles.selected}>{sortingOption.name}</span>}

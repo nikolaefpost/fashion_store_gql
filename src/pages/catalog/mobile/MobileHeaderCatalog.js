@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {AiOutlineRight} from "react-icons/ai";
-
-import styles from "./mobileCatalog.module.scss"
 import filters from "../../../assets/icon/filters.svg";
 import {useLanguage} from "../../../context/setting";
 import cn from "classnames";
@@ -10,6 +8,8 @@ import SetColor from "../filterParams/SetColor";
 import SetPrice from "../filterParams/SetPrice";
 import SortList from "../filterParams/SortList";
 import HeaderInfo from "../HeaderInfo";
+
+import styles from "./mobileCatalog.module.scss";
 
 const MobileHeaderCatalog = ({inputMinMax, changePriseRange, currentColor, currentSize, sortingOption, length}) => {
     const {text} = useLanguage();

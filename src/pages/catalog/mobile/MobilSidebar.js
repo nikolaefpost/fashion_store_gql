@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import cn from "classnames";
-import styles from "./mobileCatalog.module.scss";
 import {AiOutlineRight} from "react-icons/ai";
 import {useLanguage} from "../../../context/setting";
+
+import styles from "./mobileCatalog.module.scss";
 
 const MobilSidebar = ({category, sort, current}) => {
     const {text, lang} = useLanguage();

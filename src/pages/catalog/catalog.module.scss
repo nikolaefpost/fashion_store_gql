@@ -60,6 +60,8 @@
       }
     }
 
+    & .white_border{}
+
     & .white {
       background: #FFFFFF;
       border: 0.3px solid $accent;
@@ -78,7 +80,6 @@
 
       & .selected {
         margin-left: 5px;
-        border-bottom: .3px solid $accent;
         border-radius: 6px;
         padding: 4px;
         cursor: pointer;
@@ -91,11 +92,11 @@
       & .reset{
         color: $main;
         border: .3px solid $main;
+        margin: 0 16px;
       }
 
       & .selected_color {
         margin-left: 5px;
-        border-bottom: .3px solid $accent;
         border-radius: 6px;
         padding: 8px;
         display: inline;
@@ -190,9 +191,12 @@
         margin-bottom: 0;
       }
 
+      & .white_border{
+        border: .3px solid #FFFFFF;
+      }
+
 
       & .info {
-        @include display-flex;
         flex-wrap: wrap;
         gap: 6px;
 
@@ -203,23 +207,22 @@
         }
 
         & .selected {
-          margin-left: 5px;
           border-radius: 3px;
-          padding: 4px;
-          cursor: pointer;
           background-color: $main;
           color: #FFFFFF;
+        }
 
-          &::first-letter {
-            text-transform: uppercase;
-          }
+        & .reset{
+          color: $main;
+          border: .3px solid $main;
+          background-color: #FFFFFF;
+          margin: 0 16px;
         }
 
         & .selected_color {
-          margin-left: 5px;
           border-radius: 3px;
           padding: 5.5px;
-          display: inline;
+          background-color: $main;
         }
       }
 
@@ -271,9 +274,6 @@
 
         & .svg {
           position: absolute;
-          width: 14px;
-          height: 14px;
-          color: $main;
           margin-left: 0;
           margin-bottom: 0;
           right: 10px;
@@ -288,13 +288,9 @@
       }
 
       & .body {
-        grid-area: body;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-        grid-template-rows: repeat(360px);
-        gap: 30px 15px;
-
-
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(1fr);
+        gap: 5px;
       }
     }
   }
@@ -378,6 +374,69 @@
 
       & .beige {
         background: #F1DDAA;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px){
+
+    & .card_img {
+      height: calc(100% - 112px);
+    }
+
+    & .card_text {
+      margin-top: 10px;
+      @include display-flex(flex-end, center);
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+
+      & .card_title {
+        @include fonts(300, 14px, 16px, $accent);
+        height: 32px;
+        //@include display-flex;
+        padding: 0 16px;
+        text-align: center;
+        display: inline-block;
+        overflow: hidden;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
+
+      }
+
+      & .card_price {
+        @include fonts(700, 14px, 16px, $accent);
+      }
+
+      & .card_size {
+        text-transform: uppercase;
+        @include fonts(300, 14px, 16px, $accent);
+      }
+
+      & .card_color {
+        @include display-flex;
+        gap: 5px;
+
+        & div {
+          width: 14px;
+          height: 14px;
+          border-radius: 7px;
+        }
+
+        & .white {
+          background: #FFFFFF;
+          border: 0.3px solid $accent;
+        }
+
+        & .grey {
+          background: #6F83A4;
+        }
+
+        & .beige {
+          background: #F1DDAA;
+        }
       }
     }
   }
