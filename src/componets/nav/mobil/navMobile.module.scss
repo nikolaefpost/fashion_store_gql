@@ -52,14 +52,14 @@
     top: 74px;
     z-index: 100;
     background-color: #FFFFFF;
-    border-top: 1px solid $main;
+    border-top: .3px solid $main;
     padding: 0 20px;
 
     & .search_form{
       position: relative;
       z-index: 10;
       padding-bottom: 20px;
-      border-bottom: 1px solid $accent;
+      border-bottom: .3px solid $accent;
 
       & .search_icon{
         position: absolute;
@@ -77,7 +77,7 @@
 
     & .item_menu{
       height: 60px;
-      border-bottom: 1px solid $accent;
+      border-bottom: .3px solid $accent;
       @include display-flex;
       text-transform: uppercase;
       @include fonts(300, 16px, 19px, $accent);

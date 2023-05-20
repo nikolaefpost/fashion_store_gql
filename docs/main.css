@@ -1300,14 +1300,14 @@
   top: 74px;
   z-index: 100;
   background-color: #FFFFFF;
-  border-top: 1px solid #E0BEA2;
+  border-top: 0.3px solid #E0BEA2;
   padding: 0 20px;
 }
 .navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__search_form--x0zxP {
   position: relative;
   z-index: 10;
   padding-bottom: 20px;
-  border-bottom: 1px solid #252525;
+  border-bottom: 0.3px solid #252525;
 }
 .navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__search_form--x0zxP .navMobile-module__search_icon--TQhGw {
   position: absolute;
@@ -1322,7 +1322,7 @@
 }
 .navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__item_menu--bB64x {
   height: 60px;
-  border-bottom: 1px solid #252525;
+  border-bottom: 0.3px solid #252525;
   display: flex;
   justify-content: center;
   align-items: center;

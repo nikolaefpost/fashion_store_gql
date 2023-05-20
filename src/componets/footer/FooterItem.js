@@ -9,15 +9,19 @@ const FooterItem = ({item}) => {
     const isMobile = useMediaQuery(500);
     const [isOpen, setIsOpen] = useState(false)
 
+    const handleHideBlock = () => {
+        if (isMobile) setIsOpen(pre => !pre)
+    }
+
     useEffect(()=>{
         !isMobile? setIsOpen(true): setIsOpen(false)
     },[isMobile])
     return (
-        <div  className={styles.block}>
+        <div  className={styles.block} onClick={handleHideBlock}>
             <h3>{item.title}</h3>
             {isMobile && <span
                 className={cn(styles.svg, {[styles.active_svg]: isOpen})}
-                onClick={() => setIsOpen(pre => !pre)}
+
             >
                         <AiOutlineRight/>
                     </span>
