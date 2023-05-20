@@ -221,8 +221,9 @@
 
         & .selected_color {
           border-radius: 3px;
-          padding: 5px;
+          padding: 5.5px;
           background-color: $main;
+          box-sizing: border-box;
         }
       }
 
