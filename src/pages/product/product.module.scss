@@ -6,24 +6,8 @@
   width: 1440px;
   margin: 0 auto;
 
-  & .nav_block{
-    @include display-flex(flex-start);
-
-    & span{
-      @include fonts(300, 16px, 19px, $accent);
-      cursor: pointer;
-      display: block;
-
-      &::first-letter {
-        text-transform: uppercase;
-      }
-    }
-
-    & svg{
-      width: 14px;
-      height: 14px;
-      color: $main;
-      margin: 0 5px;
-    }
+  @media screen and (max-width: 500px){
+    padding: 74px 20px 50px;
+    width: 100%;
   }
 }

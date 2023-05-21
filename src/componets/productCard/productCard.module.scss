@@ -249,6 +249,130 @@
       }
     }
   }
+
+  @media screen and (max-width: 500px){
+    margin-top: 15px;
+
+    & .product_card {
+      @include display-flex(flex-start, center);
+      flex-direction: column;
+      gap: 30px;
+
+      & .img_block {
+        width: 100%;
+        height: 403px;
+        flex-direction: column;
+        gap: 5px;
+
+        & .list_img {
+          width: 100%;
+          height: 63px;
+          overflow-y: hidden;
+          overflow-x: auto;
+
+          & .shift_block {
+            gap: 5px;
+            @include display-flex;
+            flex-direction: row;
+            height: 63px;
+
+            & img {
+              width: 63px;
+              height: 63px;
+            }
+          }
+        }
+
+        & .main_img {
+          order: -1;
+          width: 100%;
+          height: calc(100% - 68px);;
+        }
+      }
+
+      & .text_block {
+        width: 100%;
+        margin-bottom: 20px;
+
+        & h3 {
+          @include fonts(300, 18px, 21px, $accent);
+        }
+
+        & .price {
+          margin-top: 15px;
+          @include fonts(700, 14px, 16px, $accent);
+        }
+
+        & .color_block {
+          margin-top: 15px;
+        }
+
+        & .color_text {
+          @include fonts(300, 12px, 14px, $main);
+        }
+
+        & .select {
+          margin-top: 15px;
+          padding: 12px 19px;
+          @include fonts(200, 14px, 16px, $accent);
+
+
+          & .svg {
+            width: 16px;
+            height: 16px;
+            top: 13px;
+          }
+        }
+
+        & .button_block {
+          margin-top: 15px;
+          gap: 15px;
+
+          & button {
+            height: 40px;
+
+
+            &:first-child {
+              @include fonts(300, 14px, 16px, #FFFFFF);
+            }
+
+            &:last-child {
+              @include fonts(300, 14px, 16px, $accent);
+
+              & svg {
+                width: 16px;
+                height: 16px;
+              }
+            }
+          }
+        }
+
+        & .description {
+          margin-top: 15px;
+
+          & h4 {
+            @include fonts(200, 14px, 16px, $accent);
+          }
+
+          & .description_element {
+            margin-top: 15px;
+
+            & .desc_content {
+              @include display-flex(space-between);
+
+              & h4 {
+                @include fonts(200, 14px, 16px, $accent);
+              }
+            }
+
+            & .hidden_text {
+              @include fonts(200, 12px, 14px, $accent);
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .whole_image{
@@ -260,7 +384,32 @@
 
   & .whole_image_block{
     margin-top: 30px;
-    @include display-flex(flex-start);
-    gap: 16px;
+
+    & .shift_block{
+      @include display-flex(flex-start);
+      gap: 15px;
+    }
+  }
+
+  @media screen and (max-width: 500px){
+    margin-top: 40px;
+
+    & h3{
+      @include fonts(300, 18px, 21px, $accent);
+    }
+
+    & .whole_image_block{
+      margin-top: 20px;
+      width: 100%;
+      overflow-x: auto;
+      position: relative;
+
+      & .shift_block{
+        position: absolute;
+        top: 0;
+        left: 0;
+        gap: 5px;
+      }
+    }
   }
 }

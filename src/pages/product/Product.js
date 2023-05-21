@@ -1,6 +1,5 @@
 import React from 'react';
 import {useNavigate, useParams} from "react-router-dom";
-import {AiOutlineRight} from "react-icons/ai";
 import ProductCard from "../../componets/productCard/ProductCard";
 import {getRecentlyWatched, recentlyWatchedSave} from "../../helpers/recentlyWatchedSave";
 import {handlerScrollUp} from "../../helpers/handlerScrollUp";
@@ -10,16 +9,17 @@ import {useQuery} from "@apollo/client";
 import {GET_PRODUCT_LOCAL} from "../../appolo/operations/poducts/productGrapfQgl";
 import {setProducts} from "../../appolo/operations/order/orderStore";
 import {useLanguage} from "../../context/setting";
+import NavBlock from "../../componets/navBlock/NavBlock";
+import {useMediaQuery} from "../../helpers/useMediaQuery";
 
 import styles from "./product.module.scss";
 
 
 
-const styleX = {width: "370px", height: "501px"}
-const styleL = {width: "274px", height: "401px"}
 
 
 const Product = () => {
+    const isMobile = useMediaQuery(500);
     const {text, lang} = useLanguage();
     let {cardId} = useParams();
     const {data: product} = useQuery(GET_PRODUCT_LOCAL);
@@ -41,21 +41,19 @@ const Product = () => {
         filterCategory(currentProduct?.category?.category)
     }
 
+    const styleX = isMobile ? {width: "165px", height: "326px"}: {width: "370px", height: "501px"}
+    const styleL = isMobile ? {width: "165px", height: "326px"}: {width: "274px", height: "401px"}
+
     handlerScrollUp();
     return (
         <div className={styles.content}>
-            <div className={styles.nav_block}>
-                <span onClick={() => navigate("/")}>{text.home}</span>
-                <AiOutlineRight/>
-                <span onClick={() => navigate("/card")}>{text.catalog}</span>
-                <AiOutlineRight/>
-                <span onClick={handleTransitionCategory}>
-                    {lang === "Eng"?
-                    currentProduct?.category?.category:currentProduct?.category?.category_ua}
-                </span>
-                <AiOutlineRight/>
-                <span>{lang === "Eng"? currentProduct?.name: currentProduct?.name_ua}</span>
-            </div>
+            <NavBlock
+                namePage={text.catalog}
+                currentCategory={lang === "Eng" ?
+                    currentProduct?.category?.category : currentProduct?.category?.category_ua}
+                handlerResetCategory={handleTransitionCategory}
+                currentProduct={lang === "Eng" ? currentProduct?.name : currentProduct?.name_ua}
+            />
             <ProductCard
                 product={currentProduct}
                 dataWhile={dataWhile}
@@ -67,7 +65,8 @@ const Product = () => {
             />
             {product?.productList.length &&
                 <>
-                    <OtherImage title={text.whole_image} handleTransition={handleTransition} style={styleX} data={dataWhile}/>
+                    <OtherImage title={text.whole_image} handleTransition={handleTransition} style={styleX}
+                                data={dataWhile}/>
                     <OtherImage title={text.complete_look} handleTransition={handleTransition} style={styleL}
                                 data={dataAdditional}/>
                     <OtherImage title={text.may_like} handleTransition={handleTransition} style={styleL}

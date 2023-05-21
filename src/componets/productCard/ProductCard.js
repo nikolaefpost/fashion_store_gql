@@ -14,7 +14,6 @@ import styles from "./productCard.module.scss";
 const ProductCard = ({product, setProduct, cardId}) => {
     const {text, lang} = useLanguage();
     const {data: user} = useQuery(GET_USER_LOCAL);
-    console.log(product, user)
     const [updateUser, { data }] = useMutation(UPDATE_FAVORITES);
     const [openSelect, setOpenSelect] = useState(false);
     const [sizeProduct, setSizeProduct] = useState();
