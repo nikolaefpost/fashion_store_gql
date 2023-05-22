@@ -122,6 +122,7 @@
 
           & .sign {
             cursor: pointer;
+
             & svg{
               color: $main;
               width: 18px;
@@ -135,7 +136,6 @@
         & .price_block {
           flex: 0 0 150px;
           @include display-flex;
-          @include fonts(300, 16px, 19px, $accent);
           gap: 30px;
 
           & .price {
@@ -167,6 +167,136 @@
         @include fonts(700, 16px, 19px, $accent);
       }
 
+    }
+  }
+
+  @media screen and (max-width: 500px){
+    padding: 74px 20px 50px;
+    width: 100%;
+
+    & .order_list {
+      margin-top: 15px;
+
+      & h3 {
+        @include fonts(300, 18px, 21px, $accent);
+      }
+
+      & .list {
+        margin-top: 15px;
+        gap: 5px;
+
+        & .list_item {
+          height: 115px;
+          padding-bottom: 5px;
+          @include display-flex(space-between, flex-end);
+          gap: 10px;
+
+
+          & .title_block {
+            @include display-flex(flex-start);
+            position: relative;
+            flex: 0 1 calc(100% - 257px);
+            gap: 0;
+
+            & .image {
+
+              & img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+
+            & .title {
+              position: absolute;
+              width: calc(100vw - 220px);
+              height: 50px;
+              top: 10px;
+              left: 105px;
+              padding-top: 18px;
+              @include fonts(300, 14px, 16px, $accent);
+              //@include display-flex(flex-start);
+
+              & p{
+                &:first-letter{
+                  text-transform: uppercase;
+                }
+              }
+
+
+
+              & span {
+                position: absolute;
+                top: 0;
+                left: 0;
+                @include fonts(300, 12px, 14px, $main);
+              }
+            }
+          }
+
+          & .color_block {
+            flex: 0 0 32px;
+            @include display-flex;
+            margin-bottom: 13px;
+
+            & .white {
+              border: 0.3px solid #252525;
+              background: #FFFFFF;
+            }
+
+            & .grey {
+              background: #6F83A4;
+              border: 0.3px solid #6F83A4;
+            }
+
+            & .beige {
+              background: #F1DDAA;
+              border: 0.3px solid #F1DDAA;
+
+            }
+          }
+
+          & .size_block {
+            flex: 0 0 40px;
+            @include fonts(300, 16px, 19px, $accent);
+            margin-bottom: 15px;
+          }
+
+          & .quantity_block {
+            flex: 0 0 70px;
+            height: 40px;
+            gap: 5px;
+            @include fonts(700, 14px, 16px, $accent);
+            margin-bottom: 5px;
+          }
+
+          & .price_block {
+            height: 100%;
+            padding: 7.5px 0;
+            margin-left: -15px;
+            flex: 0 0 75px;
+            @include display-flex(space-between, flex-end);
+            flex-direction: column;
+            gap: 0;
+
+            & .price {
+              @include fonts(700, 16px, 19px, $accent);
+            }
+          }
+        }
+      }
+
+      & .total{
+        margin-top: 30px;
+        text-align: right;
+        @include fonts(300, 16px, 19px, $accent);
+        font-feature-settings: 'pnum' on, 'lnum' on;
+
+        & span{
+          @include fonts(700, 16px, 19px, $accent);
+        }
+
+      }
     }
   }
 }

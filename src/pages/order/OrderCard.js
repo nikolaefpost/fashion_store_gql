@@ -6,8 +6,10 @@ import {decQuantityItem, deleteProduct, incQuantityItem} from "../../appolo/oper
 
 import styles from "./order.module.scss";
 import {useLanguage} from "../../context/setting";
+import {useMediaQuery} from "../../helpers/useMediaQuery";
 
 const OrderCard = ({orderElement, currentProduct}) => {
+    const isMobile = useMediaQuery(500);
     const {text, lang} = useLanguage();
    const decQuantity = () => {
      if(orderElement.quantity>1)  decQuantityItem(orderElement.product.id)
@@ -34,7 +36,7 @@ const OrderCard = ({orderElement, currentProduct}) => {
             <div className={styles.color_block}>
                 <div className={cn(styles.color_el, styles[orderElement.color])}/>
             </div>
-            <div className={styles.size_block}>{text.size}: {orderElement.size}</div>
+            <div className={styles.size_block}>{!isMobile && text.size} {orderElement.size}</div>
             <div className={styles.quantity_block}>
                 <span className={styles.sign} onClick={decQuantity}><AiOutlineMinus/></span>
                 {orderElement.quantity}
