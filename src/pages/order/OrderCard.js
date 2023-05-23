@@ -30,7 +30,9 @@ const OrderCard = ({orderElement, currentProduct}) => {
                 </div>
                 <div className={styles.title}>
                     <p>{lang === "Eng" ? currentProduct.name: currentProduct.name_ua}</p>
-                    <span>art {parseInt(currentProduct.id)}</span>
+                    {/*<span>art {parseInt(currentProduct.id)}</span>*/}
+                    <span>{window.screen.width}, {window.screen.height}</span>
+
                 </div>
             </div>
             <div className={styles.color_block}>
