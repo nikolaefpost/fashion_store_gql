@@ -29,7 +29,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        gap: 0 20px;
+        grid-gap: 0 20px;
 
         & .error {
           font-family: "Gill Sans", sans-serif;
@@ -58,7 +58,7 @@
       }
 
       & .delivery{
-        gap: 0;
+        grid-gap: 0;
       }
 
       .error_border {
@@ -131,6 +131,102 @@
 
       }
 
+    }
+  }
+
+  @media screen and (max-width: 500px){
+    margin-top: 50px;
+
+    & h3 {
+      @include fonts(300, 18px, 21px, $accent);
+    }
+
+    & .content {
+      margin-top: 15px;
+      @include display-flex(flex-start, center);
+      flex-direction: column;
+      gap: 5px;
+      padding-bottom: 60px;
+
+      & .left_side {
+        width: 100%;
+
+        & h4 {
+          margin-top: 0;
+          @include fonts(300, 14px, 16px, $accent);
+
+        }
+
+        & .personal_information{
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(1fr);
+          grid-gap: 0;
+          margin-bottom: 20px;
+        }
+
+        & .delivery{
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(auto 1fr 1fr);
+          grid-gap: 0;
+          margin-bottom: 20px;
+
+          & .methods {
+            margin-top: 15px;
+          }
+
+          & .error {
+            top: -12px;
+          }
+        }
+
+        .error_border {
+          border: 1px solid $error;
+        }
+
+        & .delivery_method {
+          flex-direction: column;
+          gap: 0;
+          margin-bottom: 15px;
+
+          & .methods {
+            width: 100%;
+          }
+        }
+      }
+
+      & .right_side {
+        width: 100%;
+        height: auto;
+
+        & a{
+          margin-top: 15px;
+          @include fonts(300, 14px, 16px, $main);
+        }
+
+        & div:nth-child(5){
+          margin-top: 20px;
+        }
+
+        & .info_field{
+
+          & span:first-child{
+            @include fonts(300, 14px, 16px, $accent);
+          }
+
+          & span:last-child{
+            margin-left: 10px;
+            @include fonts(700, 14px, 16px, $accent);
+          }
+        }
+        & button[type=submit]{
+          height: 40px;
+          @include fonts(300, 14px, 16px, #FFFFFF);
+        }
+
+        & p{
+          @include fonts(300, 12px, 14px, $accent);
+        }
+      }
     }
   }
 }

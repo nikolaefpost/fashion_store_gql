@@ -193,16 +193,12 @@
 
 
           & .title_block {
-            @include display-flex(flex-start);
             position: relative;
             flex: 0 1 calc(100% - 257px);
             gap: 0;
 
             & .image {
-
               & img {
-                width: 100%;
-                height: 100%;
                 object-fit: cover;
               }
             }
@@ -215,45 +211,15 @@
               left: 105px;
               padding-top: 18px;
               @include fonts(300, 14px, 16px, $accent);
-              //@include display-flex(flex-start);
-
-              & p{
-                &:first-letter{
-                  text-transform: uppercase;
-                }
-              }
-
-
 
               & span {
-                position: absolute;
-                top: 0;
-                left: 0;
                 @include fonts(300, 12px, 14px, $main);
               }
             }
           }
 
           & .color_block {
-            flex: 0 0 32px;
-            @include display-flex;
             margin-bottom: 13px;
-
-            & .white {
-              border: 0.3px solid #252525;
-              background: #FFFFFF;
-            }
-
-            & .grey {
-              background: #6F83A4;
-              border: 0.3px solid #6F83A4;
-            }
-
-            & .beige {
-              background: #F1DDAA;
-              border: 0.3px solid #F1DDAA;
-
-            }
           }
 
           & .size_block {
@@ -287,13 +253,11 @@
       }
 
       & .total{
-        margin-top: 30px;
-        text-align: right;
-        @include fonts(300, 16px, 19px, $accent);
-        font-feature-settings: 'pnum' on, 'lnum' on;
+        margin-top: 15px;
+        @include fonts(300, 14px, 16px, $accent);
 
         & span{
-          @include fonts(700, 16px, 19px, $accent);
+          @include fonts(700, 14px, 16px, $accent);
         }
 
       }

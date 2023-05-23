@@ -3,10 +3,10 @@ import cn from "classnames";
 import {RiDeleteBinLine} from "react-icons/ri"
 import {AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import {decQuantityItem, deleteProduct, incQuantityItem} from "../../appolo/operations/order/orderStore";
-
-import styles from "./order.module.scss";
 import {useLanguage} from "../../context/setting";
 import {useMediaQuery} from "../../helpers/useMediaQuery";
+
+import styles from "./order.module.scss";
 
 const OrderCard = ({orderElement, currentProduct}) => {
     const isMobile = useMediaQuery(500);
@@ -30,8 +30,8 @@ const OrderCard = ({orderElement, currentProduct}) => {
                 </div>
                 <div className={styles.title}>
                     <p>{lang === "Eng" ? currentProduct.name: currentProduct.name_ua}</p>
-                    {/*<span>art {parseInt(currentProduct.id)}</span>*/}
-                    <span>{window.screen.width}, {window.screen.height}</span>
+                    <span>art {parseInt(currentProduct.id)}</span>
+                    {/*<span>{window.screen.width}, {window.screen.height}</span>*/}
 
                 </div>
             </div>

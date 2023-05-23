@@ -63,6 +63,8 @@
   }
 
   @media screen and (max-width: 500px){
+    padding-top: 15px;
+
     & input {
       @include fonts(200, 14px, 16px, rgba(37, 37, 37, 0.5));
       height: 40px;
@@ -70,6 +72,10 @@
       &::placeholder {
         @include fonts(200, 14px, 16px, rgba(37, 37, 37, 0.5));
       }
+    }
+
+    & .error{
+      top: 4px;
     }
   }
 }
@@ -117,6 +123,21 @@
       top: 8.5px;
       left: 6px;
       opacity: 0;
+    }
+  }
+
+  @media screen and (max-width: 500px){
+    margin-top: 15px;
+
+    & .radio_label {
+      @include fonts(300, 14px, 16px, $accent);
+
+      &:before{
+        top: 3px;
+      }
+      &:after{
+        top: 9px;
+      }
     }
   }
 }

@@ -32,7 +32,6 @@ const Order = () => {
                 formDeliveryAddress={formDeliveryAddress}
                 formPaymentRadio={formPaymentRadio}
                 sum={sum}
-                // setPurchase={orderStore.setPurchase}
                 user={user}
             />
         </div>

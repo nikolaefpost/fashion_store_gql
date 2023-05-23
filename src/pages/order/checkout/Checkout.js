@@ -11,15 +11,13 @@ import {useMutation} from "@apollo/client";
 import {SET_PURCHASE} from "../../../appolo/operations/purchase/purchaseGrapfQgl";
 import {setPurchase} from "../../../appolo/operations/purchase/purchaseStore";
 import {deleteOrder} from "../../../appolo/operations/order/orderStore";
+import {useLanguage} from "../../../context/setting";
+import {useMediaQuery} from "../../../helpers/useMediaQuery";
 
 import styles from "./checkout.module.scss";
-import {useLanguage} from "../../../context/setting";
 
 const phoneRegExp = /^[+]?3?[\s]?8?[\s]?\(?0\d{2}?\)?[\s]?\d{3}[\s|-]?\d{2}[\s|-]?\d{2}$/
-
 const currentMaxBonus = 100;
-
-
 
 const Checkout = ({
                       formPersonalInfo,
@@ -29,6 +27,7 @@ const Checkout = ({
                       sum,
                       user
                   }) => {
+    const isMobile = useMediaQuery(500);
     const {text, lang} = useLanguage();
 
     const schema = yup
@@ -81,6 +80,9 @@ const Checkout = ({
         resolver: yupResolver(schema),
         values: user,
         shouldFocusError: true,
+        defaultValues: {
+            bonus: 0
+        }
 
     });
     const watchAllFields = watch();
@@ -92,7 +94,6 @@ const Checkout = ({
     });
 
     useEffect(()=>{
-        console.log(data)
       if (data?.addPurchase) {
           deleteOrder()
           navigate("/personal")
@@ -119,22 +120,39 @@ const Checkout = ({
                         />)}
                     </div>
                     <h4>{text.delivery_method}:</h4>
-                    <div className={styles.delivery_method}>
+                    {!isMobile && <div className={styles.delivery_method}>
                         <div className={styles.methods}><h4>{text.in_Ukraine}:</h4></div>
                         <div className={styles.methods}><h4>{text.inter_delivery}:</h4></div>
-                    </div>
+                    </div>}
                     <div className={cn(styles.delivery, {[styles.error_border]: errors.delivery})}>
                         {!!errors.delivery && <span className={styles.error}>{errors.delivery.message}</span>}
-                        {formDeliveryRadio.map(el => (
-                            <InputFormRadio
-                                key={el.id}
-                                field={el.field}
-                                value={lang === "Eng" ? el.value: el.value_ua}
-                                label={lang === "Eng" ? el.name: el.name_ua}
-                                register={register}
-                                id={el.id} name={el.field}
-                            />
-                        ))}
+                        {isMobile  && <div className={styles.methods}><h4>{text.in_Ukraine}:</h4></div>}
+                        {formDeliveryRadio.map((el, i) => {
+                            if (i<2) return (
+                                <InputFormRadio
+                                    key={el.id}
+                                    field={el.field}
+                                    value={lang === "Eng" ? el.value : el.value_ua}
+                                    label={lang === "Eng" ? el.name : el.name_ua}
+                                    register={register}
+                                    id={el.id} name={el.field}
+                                />
+                            )
+                        })}
+                        {isMobile  && <div className={styles.methods}><h4>{text.inter_delivery}:</h4></div>}
+                        {formDeliveryRadio.map((el, i) => {
+                            if (i>1) return (
+                                <InputFormRadio
+                                    key={el.id}
+                                    field={el.field}
+                                    value={lang === "Eng" ? el.value : el.value_ua}
+                                    label={lang === "Eng" ? el.name : el.name_ua}
+                                    register={register}
+                                    id={el.id} name={el.field}
+                                />
+                            )
+                        })}
+
                     </div>
                     <h4>{text.delivery_address}:</h4>
                     <div className={styles.delivery_method}>
@@ -151,7 +169,7 @@ const Checkout = ({
                             </div>
                         ))}
                     </div>
-                    <h4>{text.pay_method}:</h4>
+                    <h4>{isMobile? text.payment_method: text.pay_method}:</h4>
                     <div className={cn(styles.delivery, {[styles.error_border]: errors.payment})}>
                         {!!errors.payment && <span className={styles.error}>{errors.payment.message}</span>}
                         {formPaymentRadio.map(el => (
@@ -187,7 +205,7 @@ const Checkout = ({
                     </div>
                     <div className={styles.info_field}>
                         <span>{text.bonuses}:</span>
-                        <span>{watchAllFields?.bonus}</span>
+                        <span>{watchAllFields?.bonus? `-${watchAllFields?.bonus}`: 0}</span>
                     </div>
                     <div className={styles.info_field}>
                         <span>{text.total}:</span>

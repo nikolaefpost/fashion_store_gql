@@ -792,16 +792,11 @@
     gap: 10px;
   }
   .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__list--z9ir9 .order-module__list_item--pcrj0 .order-module__title_block--BvYjx {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
     position: relative;
     flex: 0 1 calc(100% - 257px);
     gap: 0;
   }
   .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__list--z9ir9 .order-module__list_item--pcrj0 .order-module__title_block--BvYjx .order-module__image--t6QOX img {
-    width: 100%;
-    height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
   }
@@ -817,36 +812,14 @@
     line-height: 16px;
     color: #252525;
   }
-  .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__list--z9ir9 .order-module__list_item--pcrj0 .order-module__title_block--BvYjx .order-module__title--CWZbn p:first-letter {
-    text-transform: uppercase;
-  }
   .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__list--z9ir9 .order-module__list_item--pcrj0 .order-module__title_block--BvYjx .order-module__title--CWZbn span {
-    position: absolute;
-    top: 0;
-    left: 0;
     font-weight: 300;
     font-size: 12px;
     line-height: 14px;
     color: #E0BEA2;
   }
   .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__list--z9ir9 .order-module__list_item--pcrj0 .order-module__color_block--M7P9z {
-    flex: 0 0 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 13px;
-  }
-  .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__list--z9ir9 .order-module__list_item--pcrj0 .order-module__color_block--M7P9z .order-module__white--gXTH0 {
-    border: 0.3px solid #252525;
-    background: #FFFFFF;
-  }
-  .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__list--z9ir9 .order-module__list_item--pcrj0 .order-module__color_block--M7P9z .order-module__grey--EOkkC {
-    background: #6F83A4;
-    border: 0.3px solid #6F83A4;
-  }
-  .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__list--z9ir9 .order-module__list_item--pcrj0 .order-module__color_block--M7P9z .order-module__beige--EhSBY {
-    background: #F1DDAA;
-    border: 0.3px solid #F1DDAA;
   }
   .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__list--z9ir9 .order-module__list_item--pcrj0 .order-module__size_block--G1sga {
     flex: 0 0 40px;
@@ -884,18 +857,16 @@
     color: #252525;
   }
   .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__total--ySPEC {
-    margin-top: 30px;
-    text-align: right;
+    margin-top: 15px;
     font-weight: 300;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 14px;
+    line-height: 16px;
     color: #252525;
-    font-feature-settings: "pnum" on, "lnum" on;
   }
   .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__total--ySPEC span {
     font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 14px;
+    line-height: 16px;
     color: #252525;
   }
 }
@@ -965,6 +936,9 @@
   height: 19px;
 }
 @media screen and (max-width: 500px) {
+  .inputForm-module__input_block--rzEJP {
+    padding-top: 15px;
+  }
   .inputForm-module__input_block--rzEJP input {
     font-weight: 200;
     font-size: 14px;
@@ -977,6 +951,9 @@
     font-size: 14px;
     line-height: 16px;
     color: rgba(37, 37, 37, 0.5);
+  }
+  .inputForm-module__input_block--rzEJP .inputForm-module__error--Z4GAu {
+    top: 4px;
   }
 }
 
@@ -1023,6 +1000,23 @@
   left: 6px;
   opacity: 0;
 }
+@media screen and (max-width: 500px) {
+  .inputForm-module__radio--sBkoR {
+    margin-top: 15px;
+  }
+  .inputForm-module__radio--sBkoR .inputForm-module__radio_label--bUzxk {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #252525;
+  }
+  .inputForm-module__radio--sBkoR .inputForm-module__radio_label--bUzxk:before {
+    top: 3px;
+  }
+  .inputForm-module__radio--sBkoR .inputForm-module__radio_label--bUzxk:after {
+    top: 9px;
+  }
+}
 /*!******************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/order/checkout/checkout.module.scss ***!
   \******************************************************************************************************************************************************************************************************************************************/
@@ -1060,7 +1054,6 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 0 20px;
-  gap: 0 20px;
 }
 .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__left_side--yOzqz .checkout-module__personal_information--ulVf8 .checkout-module__error--geLGV, .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__left_side--yOzqz .checkout-module__delivery--gF8aa .checkout-module__error--geLGV {
   font-family: "Gill Sans", sans-serif;
@@ -1086,7 +1079,7 @@
   height: 15px;
 }
 .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__left_side--yOzqz .checkout-module__delivery--gF8aa {
-  gap: 0;
+  grid-gap: 0;
 }
 .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__left_side--yOzqz .checkout-module__error_border--m8oDK {
   border: 1px solid #FFA4A4;
@@ -1160,6 +1153,105 @@
   font-size: 14px;
   line-height: 16px;
   color: #252525;
+}
+@media screen and (max-width: 500px) {
+  .checkout-module__checkout--AqH19 {
+    margin-top: 50px;
+  }
+  .checkout-module__checkout--AqH19 h3 {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    color: #252525;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    padding-bottom: 60px;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__left_side--yOzqz {
+    width: 100%;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__left_side--yOzqz h4 {
+    margin-top: 0;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #252525;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__left_side--yOzqz .checkout-module__personal_information--ulVf8 {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1fr);
+    grid-gap: 0;
+    margin-bottom: 20px;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__left_side--yOzqz .checkout-module__delivery--gF8aa {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto 1fr 1fr);
+    grid-gap: 0;
+    margin-bottom: 20px;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__left_side--yOzqz .checkout-module__delivery--gF8aa .checkout-module__methods--r12Z5 {
+    margin-top: 15px;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__left_side--yOzqz .checkout-module__delivery--gF8aa .checkout-module__error--geLGV {
+    top: -12px;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__left_side--yOzqz .checkout-module__error_border--m8oDK {
+    border: 1px solid #FFA4A4;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__left_side--yOzqz .checkout-module__delivery_method--Nb6d9 {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 15px;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__left_side--yOzqz .checkout-module__delivery_method--Nb6d9 .checkout-module__methods--r12Z5 {
+    width: 100%;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__right_side--L4c3m {
+    width: 100%;
+    height: auto;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__right_side--L4c3m a {
+    margin-top: 15px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #E0BEA2;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__right_side--L4c3m div:nth-child(5) {
+    margin-top: 20px;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__right_side--L4c3m .checkout-module__info_field--AAxwZ span:first-child {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #252525;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__right_side--L4c3m .checkout-module__info_field--AAxwZ span:last-child {
+    margin-left: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: #252525;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__right_side--L4c3m button[type=submit] {
+    height: 40px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+  }
+  .checkout-module__checkout--AqH19 .checkout-module__content--sD07j .checkout-module__right_side--L4c3m p {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 14px;
+    color: #252525;
+  }
 }
 /*!*********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/nav/desktop/navDesktop.module.scss ***!
