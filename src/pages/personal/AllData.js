@@ -6,9 +6,10 @@ import InputForm from "../../componets/inputForm/InputForm";
 import {useMutation, useReactiveVar} from "@apollo/client";
 import {currentUserVar} from "../../appolo/cashe/appVar";
 import {UPDATE_USER} from "../../appolo/operations/user/userGrapfQgl";
+import {useLanguage} from "../../context/setting";
 
 import styles from "./personalArea.module.scss";
-import {useLanguage} from "../../context/setting";
+
 
 const phoneRegExp = /^[+]?3?[\s]?8?[\s]?\(?0\d{2}?\)?[\s]?\d{3}[\s|-]?\d{2}[\s|-]?\d{2}$/
 

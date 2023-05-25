@@ -57,7 +57,6 @@ const MainAuth = ({handleTransition, form, setModal, setIsNewPassword}) => {
         shouldFocusError: true,
 
     });
-    console.log(currentUser)
 
     const onSubmit = handleSubmit(data => {
         authCreateUserFireBase(data.email, data.password, authUser)
@@ -65,6 +64,7 @@ const MainAuth = ({handleTransition, form, setModal, setIsNewPassword}) => {
 
 
     useEffect(() => {
+        console.log("checkUser", checkUser)
         if (!checkUser) return;
         if (checkUser.checkUserPassword) {
             setUserLocal()

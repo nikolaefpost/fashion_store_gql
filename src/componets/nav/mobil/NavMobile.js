@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {SlArrowDown} from "react-icons/sl";
-import styles from "./navMobile.module.scss";
 import {Link, NavLink, useHref} from "react-router-dom";
 import {FavoriteIcon, MenuIcon, OrderIcon} from "../../../assets/icon";
 import {useLanguage} from "../../../context/setting";
 import MobilMenu from "./MobilMenu";
 import CloseMenuIcon from "../../../assets/icon/CloseMenuIcon";
+
+import styles from "./navMobile.module.scss";
 
 
 const NavMobile = () => {
@@ -22,9 +23,9 @@ const NavMobile = () => {
     return (
         <div className={styles.nav} style={isHome ? mainStyle : {}}>
             <div className={styles.left_block}>
-                <div onClick={openMenu}>
+                <div onClick={openMenu} className={styles.menu_icon}>
                     {!isOpenedMenu ?
-                        <MenuIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/>:
+                        <MenuIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/> :
                         <CloseMenuIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/>
                     }
                 </div>
@@ -47,7 +48,7 @@ const NavMobile = () => {
                 <Link to="favorites"><FavoriteIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/></Link>
                 <Link to="order"><OrderIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/></Link>
             </div>
-            {isOpenedMenu && <MobilMenu closeMenu={closeMenu} />}
+            <MobilMenu closeMenu={closeMenu} open={isOpenedMenu}/>
         </div>
     );
 };

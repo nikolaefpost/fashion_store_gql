@@ -1,16 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import cn from "classnames";
 import {useNavigate} from "react-router-dom";
-import {AiOutlineRight} from "react-icons/ai";
 import HistoryOrders from "./HistoryOrders";
 import AllData from "./AllData";
 import {deleteUser } from "../../appolo/operations/user/userStore";
 import { useQuery } from "@apollo/client";
 import { GET_USER_LOCAL } from "../../appolo/operations/user/userGrapfQgl";
 import {formDeliveryAddress, formPersonalInfo} from "../../appolo/operations/user/userFormData";
+import {useLanguage} from "../../context/setting";
+import NavBlock from "../../componets/navBlock/NavBlock";
 
 import styles from "./personalArea.module.scss";
-import {useLanguage} from "../../context/setting";
+
 
 
 const PersonalArea = () => {
@@ -18,7 +19,7 @@ const PersonalArea = () => {
     const [purchases, setPurchases] = useState([])
     const {data: user, loading, error} = useQuery(GET_USER_LOCAL);
 
-    const [personal, setPersonal] = useState(true);
+    const [personal, setPersonal] = useState(false);
     const navigate = useNavigate();
     const handleExit = () => {
         deleteUser();
@@ -27,6 +28,7 @@ const PersonalArea = () => {
 
 
     useEffect(()=>{
+        console.log(user)
         if (user?.currentUser) setPurchases(user.currentUser.purchases)
     },[user])
 
@@ -35,11 +37,9 @@ const PersonalArea = () => {
 
     return (
         <div className={styles.personal}>
-            <div className={styles.nav_block}>
-                <span onClick={()=>navigate("/")}>{text.home}</span>
-                <AiOutlineRight/>
-                <span>{text.personal_area}</span>
-            </div>
+            <NavBlock
+                namePage={text.personal_area}
+            />
             <div className={styles.personal_nav}>
                 <button
                     className={cn(styles.personal_element, {[styles.active]: !personal})}

@@ -13,7 +13,13 @@
 
   & .left_block{
     @include display-flex;
-    gap: 22px;
+    gap: 8px;
+
+    & .menu_icon{
+      & svg{
+        margin-bottom: -4px;
+      }
+    }
 
     & .language{
 
@@ -41,7 +47,13 @@
 
   & .right_block{
     @include display-flex;
-    gap: 20px;
+    gap: 10px;
+
+    & svg{
+      width: 20px;
+      height: 20px;
+      margin-bottom: -4px;
+    }
   }
 
   & .mobile_menu{
@@ -54,6 +66,14 @@
     background-color: #FFFFFF;
     border-top: .3px solid $main;
     padding: 0 20px;
+
+    display: block;
+    transition: display 1s ease-out;
+
+    & .content{
+      transition: all .3s ease-out;
+      opacity: 1;
+    }
 
     & .search_form{
       position: relative;
@@ -124,6 +144,17 @@
         @include fonts(300, 14px, 16px, $accent);
       }
     }
+  }
+
+  & .hidden{
+    opacity: 0!important;
+    transition: all .3s ease-out!important;
+
+  }
+
+  & .not_display{
+    display: none;
+    transition: display 1s ease-out;
   }
 
 }

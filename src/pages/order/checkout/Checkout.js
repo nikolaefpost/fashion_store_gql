@@ -176,7 +176,7 @@ const Checkout = ({
                             <InputFormRadio
                                 key={el.id}
                                 field={el.field}
-                                value={el.value}
+                                value={lang === "Eng" ? el.value : el.value_ua}
                                 label={lang === "Eng" ? el.name: el.name_ua}
                                 register={register}
                                 id={el.id} name={el.field}
@@ -205,7 +205,7 @@ const Checkout = ({
                     </div>
                     <div className={styles.info_field}>
                         <span>{text.bonuses}:</span>
-                        <span>{watchAllFields?.bonus? `-${watchAllFields?.bonus}`: 0}</span>
+                        <span>{watchAllFields?.bonus && `-${watchAllFields?.bonus}`}</span>
                     </div>
                     <div className={styles.info_field}>
                         <span>{text.total}:</span>

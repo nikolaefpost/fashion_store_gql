@@ -1,7 +1,6 @@
 import React from 'react';
 import {useLanguage} from "../../../context/setting";
 import {Link, NavLink, useHref} from "react-router-dom";
-import {useMediaQuery} from "../../../helpers/useMediaQuery";
 import styles from "./navDesktop.module.scss";
 import {FavoriteIcon, MenuIcon, OrderIcon, SearchIcon} from "../../../assets/icon";
 import {SlArrowDown} from "react-icons/sl";
@@ -14,11 +13,6 @@ const NavDesktop = () => {
     const mainStyle = {
         color: "#FFFFFF"
     }
-
-    const isMobile = useMediaQuery(500);
-
-    console.log(isMobile)
-
 
     return (
         <nav className={styles.nav} style={isHome ? mainStyle : {}}>

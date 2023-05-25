@@ -17,7 +17,7 @@ const UserIdentificationMobil = ({closeMenu}) => {
     const { data } = useQuery(GET_USER,{
         variables: {
             email: getUserLocal(),
-            pollInterval: 500,
+            // pollInterval: 500,
         }
     });
 

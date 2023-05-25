@@ -86,8 +86,9 @@ export const authCreateUserFireBase = (email, password, checkDgraph) => {
             authErrorVar("")
             if (user.emailVerified) {
                 checkDgraph({variables: {email: user.email, token: user.accessToken}})
+                console.log({variables: {email: user.email, token: user.accessToken}})
                 userDataVar({email: user.email, token: user.accessToken, password})
-                console.log("authCreateUserFireBase", user)
+                // console.log("authCreateUserFireBase", user)
             } else {
                 authErrorVar(`${email} Follow this link to verify your email address`)
             }

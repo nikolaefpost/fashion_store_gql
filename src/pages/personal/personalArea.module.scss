@@ -6,32 +6,12 @@
   width: 1440px;
   margin: 0 auto;
 
-  & .nav_block {
-    @include display-flex(flex-start);
-
-    & span {
-      @include fonts(300, 16px, 19px, $accent);
-      cursor: pointer;
-      display: block;
-
-      &::first-letter {
-        text-transform: uppercase;
-      }
-    }
-
-    & svg {
-      width: 14px;
-      height: 14px;
-      color: $main;
-      margin: 0 5px;
-    }
-  }
 
   & .personal_nav {
     margin-top: 30px;
     height: 50px;
-    border-top: 1px solid $accent;
-    border-bottom: 1px solid $accent;
+    border-top: .3px solid $accent;
+    border-bottom: .3px solid $accent;
     @include display-flex;
 
     & .personal_element {
@@ -61,7 +41,7 @@
 
     & .formPersonalInfo {
       @include display-flex;
-      gap: 20px;
+      gap: 10px;
     }
 
     & button[type=submit] {
@@ -78,7 +58,45 @@
         filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
       }
     }
+  }
 
+  @media screen and (max-width: 500px){
+    padding: 74px 20px 50px;
+    width: 100%;
 
+    & .personal_nav {
+      margin-top: 15px;
+      height: 40px;
+
+      & .personal_element {
+        padding: 0 20px;
+        @include fonts(300, 14px, 16px, $accent);
+      }
+
+      & .active {
+        color: #FFFFFF;
+        background: $main;
+      }
+
+    }
+
+    & .all_data {
+      margin-bottom: 60px;
+
+      & h4 {
+        margin-top: 15px;
+        @include fonts(300, 14px, 16px, $accent);
+      }
+
+      & .formPersonalInfo {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      & button[type=submit] {
+        height: 40px;
+        @include fonts(300, 14px, 16px, #FFFFFF);
+      }
+    }
   }
 }

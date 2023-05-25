@@ -2,12 +2,15 @@ import React, {useState} from 'react';
 import cn from "classnames";
 import {AiOutlineRight} from "react-icons/ai";
 import PurchaseCard from "./PurchaseCard";
+import {useLanguage} from "../../context/setting";
+import {useMediaQuery} from "../../helpers/useMediaQuery";
 
 import styles from "./purchases.module.scss";
-import {useLanguage} from "../../context/setting";
+
+
 
 const Purchase = ({purchase}) => {
-
+    const isMobile = useMediaQuery(500);
     const {text} = useLanguage();
     const status =[text.in_processing, text.delivered, text.completed, text.canceled]
 
@@ -20,19 +23,22 @@ const Purchase = ({purchase}) => {
                     <span/>
                 </div>
                 <div className={styles.element_block}>
-                    <span>{text.status}:</span>
+                    <span>{text.status}: </span>
+                    {isMobile && <span>&nbsp;</span>}
                     <span>{status[purchase.status]}</span>
                 </div>
-                <div className={styles.element_block}>
-                    <span>{text.order_price}:</span>
+                {!isMobile && <div className={styles.element_block}>
+                    <span>{text.order_price}: </span>
                     <span>{purchase.total} {text.currency}</span>
-                </div>
-                <div className={styles.element_block}>
+                </div>}
+                    <div className={styles.element_block}>
                     <span>{text.bonus_amount}:</span>
+                        {isMobile && <span>&nbsp;</span>}
                     <span>{purchase.bonus? purchase.bonus: 0} {text.currency}</span>
-                </div>
+                    </div>
                 <div className={styles.element_block}>
-                    <span>{text.total_amount}:</span>
+                    <span>{text.total_amount}: </span>
+                    {isMobile && <span>&nbsp;</span>}
                     <span>{+purchase.total - +purchase.bonus} {text.currency}</span>
                 </div>
                 <span
@@ -40,7 +46,7 @@ const Purchase = ({purchase}) => {
                     onClick={() => setOpenDetail(prev => !prev)}
                 ><AiOutlineRight/></span>
             </div>
-            {openDetail && <PurchaseCard purchase={purchase}/>}
+            {openDetail && <PurchaseCard purchase={purchase} isMobile={isMobile}/>}
         </div>
     );
 };

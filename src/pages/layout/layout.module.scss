@@ -9,6 +9,7 @@
   & .content{
     min-height: calc(100% - 165px);
     position: relative;
+    z-index: 10;
   }
 
 }

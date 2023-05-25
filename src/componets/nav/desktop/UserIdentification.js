@@ -21,7 +21,6 @@ const UserIdentification = ({isHome}) => {
     });
 
     const isAuth = useReactiveVar(isAuthUserVar)
-    // const isRefetch = useReactiveVar(refetchVar)
     const [modal, setModal] = useState(false)
 
     const closeModal = (e) => {
@@ -32,15 +31,8 @@ const UserIdentification = ({isHome}) => {
 
     useEffect(()=>{
         currentUserVar(data?.getUser)
-        console.log(data)
     },[data])
 
-    // useEffect(()=>{
-    //     if (isRefetch === 0) return
-    //     console.log(isRefetch)
-    //     refetch({ email: getUserLocal() })
-    //     // location.reload()
-    // },[isRefetch])
 
     return (
         <div className={styles.user_block}>

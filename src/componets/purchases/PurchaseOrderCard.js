@@ -1,10 +1,11 @@
 import React from 'react';
 import cn from "classnames";
-
-import styles from "./purchases.module.scss";
 import {useLanguage} from "../../context/setting";
 
-const PurchaseOrderCard = ({order}) => {
+import styles from "./purchases.module.scss";
+
+
+const PurchaseOrderCard = ({order, isMobile}) => {
     const {text, lang} = useLanguage();
     return (
         <div key={order.product.id} className={styles.product_position}>
@@ -20,8 +21,8 @@ const PurchaseOrderCard = ({order}) => {
             <div className={styles.color_block}>
                 <div className={cn(styles.color_el, styles[order.color])}/>
             </div>
-            <div className={styles.size_block}>{text.size}: {order.size}</div>
-            <div className={styles.quantity_block}>{text.quantity}: {order.quantity}</div>
+            <div className={styles.size_block}>{!isMobile && text.size} {order.size}</div>
+            <div className={styles.quantity_block}>{!isMobile && text.quantity} {order.quantity}</div>
             <div className={styles.price_block}>
                 <div className={styles.price}>{order.product.price} {text.currency}</div>
             </div>

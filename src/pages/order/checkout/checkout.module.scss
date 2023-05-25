@@ -63,6 +63,7 @@
 
       .error_border {
         border: 1px solid $error;
+        border-radius: 6px;
       }
 
       & .delivery_method {
@@ -177,10 +178,6 @@
           & .error {
             top: -12px;
           }
-        }
-
-        .error_border {
-          border: 1px solid $error;
         }
 
         & .delivery_method {
