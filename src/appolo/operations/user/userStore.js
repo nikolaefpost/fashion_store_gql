@@ -111,6 +111,7 @@ export const getUserLocal = () => {
     if (currentUserVar()?.email) return currentUserVar()
     if (storage.getItem("currentUser")) {
         const current = JSON.parse(storage.getItem("currentUser"));
+        console.log(current)
         if (current.email) {
             isAuthUserVar(true);
         }
@@ -128,28 +129,40 @@ export const deleteUser = () => {
 export const googleAuthUser = (authUser) => {
 
     auth.onAuthStateChanged(maybeUser => {
-        if (maybeUser !== null) console.log(maybeUser)
-    })
-    signInWithPopup(auth, googleAuthProvider)
-        .then(credentials => {
-            authErrorVar("")
-            console.log({email: credentials.user.email, token: credentials.user.accessToken})
-            authUser({variables: {email: credentials.user.email, token: credentials.user.accessToken}})
+        if (maybeUser !== null) {
+            // console.log(maybeUser.accessToken)
+            console.log(storage.getItem("accessToken") === maybeUser.accessToken)
+            authUser({variables: {email: maybeUser.email, token: maybeUser.accessToken}})
                 .catch(e => authErrorVar(e))
-            userDataVar({email: credentials.user.email, token: credentials.user.accessToken})
-        })
-        .catch((error) => {
-            const errorMessage = error.message;
-            authErrorVar(errorMessage)
-            const errorCode = error.code;
-            console.log(errorCode)
-            // The email of the user's account used.
-            const email = error.customData.email;
-            console.log(email)
-            // The AuthCredential type that was used.
-            const credential = GoogleAuthProvider.credentialFromError(error);
-            console.log(credential)
-        });
+            userDataVar({email: maybeUser.email, token: maybeUser.accessToken})
+            storage.setItem("currentUser", JSON.stringify(userDataVar()));
+        }else {
+            signInWithPopup(auth, googleAuthProvider)
+                .then(credentials => {
+                    authErrorVar("")
+                    storage.setItem("accessToken", credentials.user.accessToken);
+                    console.log({email: credentials.user.email, token: credentials.user.accessToken})
+                    authUser({variables: {email: credentials.user.email, token: credentials.user.accessToken}})
+                        .catch(e => authErrorVar(e))
+                    userDataVar({email: credentials.user.email, token: credentials.user.accessToken})
+                })
+                .catch((error) => {
+                    const errorMessage = error.message;
+                    authErrorVar(errorMessage)
+                    const errorCode = error.code;
+                    console.log(errorCode)
+                    // The email of the user's account used.
+                    const email = error.customData.email;
+                    console.log(email)
+                    // The AuthCredential type that was used.
+                    const credential = GoogleAuthProvider.credentialFromError(error);
+                    console.log(credential)
+                });
+        }
+
+
+    })
+
 }
 
 export const handleSetRecoveryEmail = (email) => {

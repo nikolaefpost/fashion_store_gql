@@ -18,9 +18,10 @@ const GoogleAuth = ({setModal}) => {
     }
 
     useEffect(()=>{
+        console.log(checkUser)
         if (!checkUser) return
         if (!checkUser.checkUserPassword) {
-            const {email, token} = userDataVar()
+            const {email, token} = userDataVar();
             addUser({variables: {email, token}})
                 .then(()=>{
                     setUserLocal()

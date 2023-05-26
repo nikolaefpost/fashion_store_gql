@@ -24,7 +24,7 @@
     //height: 343px;
     background: #FFFFFF;
     z-index: 102;
-    padding: 50px 100px;
+    padding: 40px 35px;
 
     & .cross{
       position: absolute;
@@ -36,6 +36,10 @@
         width: 25px;
         height: 25px;
       }
+    }
+
+    @media screen and (max-width: 500px){
+      width: 100%;
     }
   }
 

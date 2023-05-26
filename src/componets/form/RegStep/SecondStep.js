@@ -38,7 +38,7 @@ const SecondStep = ({setModal}) => {
     return (
         <div className={styles.user_form}>
             <h3>{text.registration_step_2}</h3>
-            <div>{text.should_receive_letter} {email}. {text.follow_link_proceed}</div>
+            <div className={styles.second_step_text}>{text.should_receive_letter} {email}. {text.follow_link_proceed}</div>
             <button
                 type="button"
                 className={styles.submit}

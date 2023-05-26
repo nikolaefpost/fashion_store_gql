@@ -77,6 +77,19 @@
     & .error{
       top: 4px;
     }
+
+    & span{
+      position: absolute;
+      right: 20px;
+      top: 26px;
+      cursor: pointer;
+
+      & svg{
+        color: $main;
+        width: 19px;
+        height: 19px;
+      }
+    }
   }
 }
 

@@ -955,6 +955,17 @@
   .inputForm-module__input_block--rzEJP .inputForm-module__error--Z4GAu {
     top: 4px;
   }
+  .inputForm-module__input_block--rzEJP span {
+    position: absolute;
+    right: 20px;
+    top: 26px;
+    cursor: pointer;
+  }
+  .inputForm-module__input_block--rzEJP span svg {
+    color: #E0BEA2;
+    width: 19px;
+    height: 19px;
+  }
 }
 
 .inputForm-module__radio--sBkoR {
@@ -1356,7 +1367,7 @@
   width: 600px;
   background: #FFFFFF;
   z-index: 102;
-  padding: 50px 100px;
+  padding: 40px 35px;
 }
 .modal-module__modal--dL5Gi .modal-module__content--Wbspz .modal-module__cross--XhQU3 {
   position: absolute;
@@ -1367,6 +1378,11 @@
 .modal-module__modal--dL5Gi .modal-module__content--Wbspz .modal-module__cross--XhQU3 svg {
   width: 25px;
   height: 25px;
+}
+@media screen and (max-width: 500px) {
+  .modal-module__modal--dL5Gi .modal-module__content--Wbspz {
+    width: 100%;
+  }
 }
 
 .modal-module__is_open--GDy0_ {
@@ -1437,6 +1453,56 @@
   line-height: 19px;
   color: #252525;
 }
+.form-module__user_form--kV45d .form-module__second_step_text--wZK8y {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #252525;
+}
+@media screen and (max-width: 500px) {
+  .form-module__user_form--kV45d h3 {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    color: #252525;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .form-module__user_form--kV45d .form-module__help_block--Tx_qv {
+    margin-top: 15px;
+  }
+  .form-module__user_form--kV45d .form-module__help_block--Tx_qv .form-module__help_button--O4BBG {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #252525;
+  }
+  .form-module__user_form--kV45d .form-module__submit--RvMLz {
+    margin-top: 15px;
+    height: 40px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+  }
+  .form-module__user_form--kV45d .form-module__submit--RvMLz:hover {
+    filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
+  }
+  .form-module__user_form--kV45d .form-module__error--J6CNB {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FFA4A4;
+    bottom: 40px;
+    right: 0;
+  }
+  .form-module__user_form--kV45d .form-module__second_step_text--wZK8y {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #252525;
+  }
+}
 
 .form-module__other_auth--VRe_J {
   margin-top: 20px;
@@ -1448,10 +1514,21 @@
   color: #252525;
   font-family: Arial, sans-serif;
 }
+@media screen and (max-width: 500px) {
+  .form-module__other_auth--VRe_J {
+    margin-top: 15px;
+  }
+  .form-module__other_auth--VRe_J h5 {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #252525;
+  }
+}
 
 .form-module__google_button--APfFA {
   margin-top: 20px;
-  border: 1px solid #252525;
+  border: 0.5px solid #252525;
   background: #FFFFFF;
   width: 100%;
   height: 50px;
@@ -1467,6 +1544,16 @@
   width: 24px;
   height: 24px;
   margin-right: 12px;
+}
+@media screen and (max-width: 500px) {
+  .form-module__google_button--APfFA {
+    margin-top: 15px;
+    height: 40px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #3e77aa;
+  }
 }
 /*!******************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/nav/mobil/navMobile.module.scss ***!
