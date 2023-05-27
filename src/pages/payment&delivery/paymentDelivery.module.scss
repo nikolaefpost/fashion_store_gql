@@ -46,4 +46,55 @@
       flex: 2 2 52%;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    padding: 74px 20px 60px;
+
+    & h3 {
+      margin-top: 15px;
+      @include fonts(300, 18px, 21px, $accent);
+      padding-bottom: 0;
+    }
+
+    & h4{
+      @include fonts(300, 14px, 20px, $accent);
+    }
+
+    & .options{
+      margin-top: 15px;
+      @include display-flex(center, flex-start);
+      flex-direction: column;
+      gap: 0;
+
+      & .option_item{
+        width: 100%;
+        @include fonts(300, 14px, 20px, $accent);
+      }
+    }
+
+    & .checkout_process{
+      margin-top: 15px;
+      @include display-flex(flex-start, flex-start);
+      flex-direction: column;
+      gap: 15px;
+
+      & .steps{
+        @include display-flex;
+        gap: 25px;
+        @include fonts(300, 14px, 20px, $accent);
+      }
+
+      & .first_step{
+        flex: 2 2 100%;
+      }
+
+      & .second_step{
+        flex: 2 2 100%;
+      }
+
+      & .third_step{
+        flex: 2 2 100%;
+      }
+    }
+  }
 }

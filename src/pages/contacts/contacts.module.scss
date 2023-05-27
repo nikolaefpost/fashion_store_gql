@@ -4,7 +4,6 @@
 .content {
   padding: 95px 150px 100px;
 
-
   & h3 {
     margin-top: 30px;
     @include fonts(300, 20px, 23px, $accent);
@@ -39,8 +38,41 @@
           width: 25px;
         }
       }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 74px 20px 0;
+
+    & h3 {
+      margin-top: 15px;
+      @include fonts(300, 18px, 21px, $accent);
+    }
+
+    & .connect {
+      flex-wrap: wrap;
+      gap: 15px 4%;
+      margin: 15px 0 60px;
 
 
+      & .item {
+        width: 48%;
+
+        & h4 {
+          text-align: left;
+          @include fonts(300, 14px, 16px, $accent);
+        }
+
+        & p {
+          margin-top: 15px;
+          @include fonts(200, 14px, 16px, $accent);
+          word-wrap: break-word;
+        }
+
+        & a {
+          margin-top: 15px;
+        }
+      }
     }
   }
 }

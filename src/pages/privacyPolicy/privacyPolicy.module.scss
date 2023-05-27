@@ -13,4 +13,8 @@
       text-transform: uppercase;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    padding: 74px 20px 60px;
+  }
 }

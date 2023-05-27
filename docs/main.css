@@ -1435,6 +1435,7 @@
   font-size: 16px;
   line-height: 19px;
   color: #252525;
+  padding: 0;
 }
 .form-module__user_form--kV45d .form-module__error--J6CNB {
   font-family: "Gill Sans", sans-serif;
@@ -1473,7 +1474,7 @@
   }
   .form-module__user_form--kV45d .form-module__help_block--Tx_qv .form-module__help_button--O4BBG {
     font-weight: 300;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 16px;
     color: #252525;
   }
@@ -1497,6 +1498,12 @@
     right: 0;
   }
   .form-module__user_form--kV45d .form-module__second_step_text--wZK8y {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #252525;
+  }
+  .form-module__user_form--kV45d .form-module__info--Ywk_x {
     font-weight: 300;
     font-size: 14px;
     line-height: 16px;
@@ -2128,6 +2135,9 @@ span {
     font-size: 14px;
     line-height: 16px;
     color: #252525;
+  }
+  .subscriptBlock-module__subscription--fKn9j form {
+    padding: 15px 0 60px;
   }
   .subscriptBlock-module__subscription--fKn9j button {
     margin-top: 15px;
@@ -3058,6 +3068,44 @@ span {
 .exchangeReturn-module__content--iVihd .exchangeReturn-module__case--HlhP2 .exchangeReturn-module__case_item--Gv7w3 p {
   text-align: center;
 }
+@media screen and (max-width: 500px) {
+  .exchangeReturn-module__content--iVihd {
+    padding: 74px 20px 50px;
+  }
+  .exchangeReturn-module__content--iVihd h3 {
+    margin-top: 15px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    color: #252525;
+    padding-bottom: 5px;
+  }
+  .exchangeReturn-module__content--iVihd p {
+    margin-top: 10px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    color: #252525;
+  }
+  .exchangeReturn-module__content--iVihd .exchangeReturn-module__case--HlhP2 {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .exchangeReturn-module__content--iVihd .exchangeReturn-module__case--HlhP2 .exchangeReturn-module__case_item--Gv7w3 {
+    flex: 2 2 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+  }
+  .exchangeReturn-module__content--iVihd .exchangeReturn-module__case--HlhP2 .exchangeReturn-module__case_item--Gv7w3 p {
+    text-align: center;
+  }
+}
 /*!***************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/payment&delivery/paymentDelivery.module.scss ***!
   \***************************************************************************************************************************************************************************************************************************************************/
@@ -3110,11 +3158,77 @@ span {
 .paymentDelivery-module__content--YfB4G .paymentDelivery-module__checkout_process--KD1Xt .paymentDelivery-module__third_step--sa8vp {
   flex: 2 2 52%;
 }
+@media screen and (max-width: 500px) {
+  .paymentDelivery-module__content--YfB4G {
+    padding: 74px 20px 60px;
+  }
+  .paymentDelivery-module__content--YfB4G h3 {
+    margin-top: 15px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    color: #252525;
+    padding-bottom: 0;
+  }
+  .paymentDelivery-module__content--YfB4G h4 {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    color: #252525;
+  }
+  .paymentDelivery-module__content--YfB4G .paymentDelivery-module__options--KOqwf {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
+  }
+  .paymentDelivery-module__content--YfB4G .paymentDelivery-module__options--KOqwf .paymentDelivery-module__option_item--_fif4 {
+    width: 100%;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    color: #252525;
+  }
+  .paymentDelivery-module__content--YfB4G .paymentDelivery-module__checkout_process--KD1Xt {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .paymentDelivery-module__content--YfB4G .paymentDelivery-module__checkout_process--KD1Xt .paymentDelivery-module__steps--tsK_T {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    color: #252525;
+  }
+  .paymentDelivery-module__content--YfB4G .paymentDelivery-module__checkout_process--KD1Xt .paymentDelivery-module__first_step--eqv_R {
+    flex: 2 2 100%;
+  }
+  .paymentDelivery-module__content--YfB4G .paymentDelivery-module__checkout_process--KD1Xt .paymentDelivery-module__second_step--EiTkZ {
+    flex: 2 2 100%;
+  }
+  .paymentDelivery-module__content--YfB4G .paymentDelivery-module__checkout_process--KD1Xt .paymentDelivery-module__third_step--sa8vp {
+    flex: 2 2 100%;
+  }
+}
 /*!**************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/favorites/favorites.module.scss ***!
   \**************************************************************************************************************************************************************************************************************************************/
 .favorites-module__content--fFXWy {
   padding: 95px 150px 100px;
+}
+@media screen and (max-width: 500px) {
+  .favorites-module__content--fFXWy {
+    padding: 74px 20px 50px;
+  }
 }
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/contacts/contacts.module.scss ***!
@@ -3162,6 +3276,44 @@ span {
 .contacts-module__content--uXEG2 .contacts-module__connect--zM2Ka .contacts-module__item--NhdVT a img {
   width: 25px;
 }
+@media screen and (max-width: 500px) {
+  .contacts-module__content--uXEG2 {
+    padding: 74px 20px 0;
+  }
+  .contacts-module__content--uXEG2 h3 {
+    margin-top: 15px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    color: #252525;
+  }
+  .contacts-module__content--uXEG2 .contacts-module__connect--zM2Ka {
+    flex-wrap: wrap;
+    gap: 15px 4%;
+    margin: 15px 0 60px;
+  }
+  .contacts-module__content--uXEG2 .contacts-module__connect--zM2Ka .contacts-module__item--NhdVT {
+    width: 48%;
+  }
+  .contacts-module__content--uXEG2 .contacts-module__connect--zM2Ka .contacts-module__item--NhdVT h4 {
+    text-align: left;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #252525;
+  }
+  .contacts-module__content--uXEG2 .contacts-module__connect--zM2Ka .contacts-module__item--NhdVT p {
+    margin-top: 15px;
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 16px;
+    color: #252525;
+    word-wrap: break-word;
+  }
+  .contacts-module__content--uXEG2 .contacts-module__connect--zM2Ka .contacts-module__item--NhdVT a {
+    margin-top: 15px;
+  }
+}
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/aboutUs/aboutUs.module.scss ***!
   \**********************************************************************************************************************************************************************************************************************************/
@@ -3177,6 +3329,11 @@ span {
 }
 .aboutUs-module__content--ZOuFD h3::first-letter {
   text-transform: uppercase;
+}
+@media screen and (max-width: 500px) {
+  .aboutUs-module__content--ZOuFD {
+    padding: 74px 20px 50px;
+  }
 }
 /*!******************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/bonusSystem/bonusSystem.module.scss ***!
@@ -3194,6 +3351,11 @@ span {
 .bonusSystem-module__content--jqxqv h3::first-letter {
   text-transform: uppercase;
 }
+@media screen and (max-width: 500px) {
+  .bonusSystem-module__content--jqxqv {
+    padding: 74px 20px 50px;
+  }
+}
 /*!******************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/publicOffer/publicOffer.module.scss ***!
   \******************************************************************************************************************************************************************************************************************************************/
@@ -3210,6 +3372,11 @@ span {
 .publicOffer-module__content--M7DT2 h3::first-letter {
   text-transform: uppercase;
 }
+@media screen and (max-width: 500px) {
+  .publicOffer-module__content--M7DT2 {
+    padding: 74px 20px 60px;
+  }
+}
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/privacyPolicy/privacyPolicy.module.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************/
@@ -3225,4 +3392,9 @@ span {
 }
 .privacyPolicy-module__content--eAx4t h3::first-letter {
   text-transform: uppercase;
+}
+@media screen and (max-width: 500px) {
+  .privacyPolicy-module__content--eAx4t {
+    padding: 74px 20px 60px;
+  }
 }

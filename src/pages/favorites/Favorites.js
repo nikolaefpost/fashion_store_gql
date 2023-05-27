@@ -8,10 +8,13 @@ import {GET_USER_LOCAL} from "../../appolo/operations/user/userGrapfQgl";
 import {recentlyWatchedSave} from "../../helpers/recentlyWatchedSave";
 import OtherImage from "../product/OtherImage";
 import NavBlock from "../../componets/navBlock/NavBlock";
+import {useMediaQuery} from "../../helpers/useMediaQuery";
 
-const styleX = {width: "370px", height: "501px"}
+
 
 const Favorites = () => {
+    const isMobile = useMediaQuery(500);
+    const styleX = isMobile? {width: "165px", height: "326px"} : {width: "370px", height: "501px"};
     const {text} = useLanguage();
     const navigate = useNavigate();
     const {data: user} = useQuery(GET_USER_LOCAL);

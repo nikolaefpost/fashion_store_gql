@@ -30,4 +30,36 @@
       }
     }
   }
+
+  @media screen and (max-width: 500px) {
+    padding: 74px 20px 50px;
+
+    & h3 {
+      margin-top: 15px;
+      @include fonts(300, 18px, 21px, $accent);
+      padding-bottom: 5px;
+    }
+
+    & p{
+      margin-top: 10px;
+      @include fonts(300, 14px, 20px, $accent);
+    }
+
+    & .case{
+      margin-top: 15px;
+      @include display-flex(flex-start, center);
+      flex-direction: column;
+      gap: 15px;
+
+      & .case_item{
+        flex: 2 2 100%;
+        @include display-flex(flex-start, center);
+        flex-direction: column;
+
+        & p{
+          text-align: center;
+        }
+      }
+    }
+  }
 }

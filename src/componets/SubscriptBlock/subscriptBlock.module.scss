@@ -55,6 +55,10 @@
       @include fonts(200, 14px, 16px, $accent);
     }
 
+    & form{
+      padding: 15px 0 60px;
+    }
+
     & button{
       margin-top: 15px;
       height: 40px;

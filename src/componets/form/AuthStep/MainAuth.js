@@ -106,7 +106,7 @@ const MainAuth = ({handleTransition, form, setModal, setIsNewPassword}) => {
                     <button
                         className={styles.help_button}
                         onClick={handleTransition}
-                    >{text.not_account}?
+                    >{text.not_account}
                     </button>
                 </div>
                 {errorMessage !== "" && <div className={styles.error}>{errorMessage}</div>}
