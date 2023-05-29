@@ -13,7 +13,8 @@ const Home = () => {
 
     const isMobile = useMediaQuery(500);
     const height = window.innerHeight
-    const height1 = window.clientHeight
+    const height1 = document.body.clientHeight
+    console.log(height1)
 
     const news  = isMobile? [new1] :  [new1, new2, new3];
     const {text} = useLanguage();
