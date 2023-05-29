@@ -13,6 +13,7 @@ const Home = () => {
 
     const isMobile = useMediaQuery(500);
     const height = window.innerHeight
+    const height1 = window.clientHeight
 
     const news  = isMobile? [new1] :  [new1, new2, new3];
     const {text} = useLanguage();
@@ -27,7 +28,7 @@ const Home = () => {
                 ))}
             </div>
             <div className={styles.category}>
-                <h2>{text.categories}{height}</h2>
+                <h2>{text.categories}{height}{height1}</h2>
                 <HomeSlider />
             </div>
             <SubscriptBlock/>
