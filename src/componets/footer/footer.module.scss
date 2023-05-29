@@ -67,6 +67,42 @@
     @include fonts(200, 12px, 15px, $accent);
   }
 
+  @media screen and (max-width: 1000px){
+    width: 100%;
+    gap: 15px;
+    padding: 0 20px 47px 20px;
+
+    & .block{
+      width: auto;
+
+      & h3{
+        @include fonts(300, 18px, 21px, $accent);
+        margin-bottom: 0;
+      }
+
+      & a{
+        @include fonts(200, 14px, 16px, $accent);
+      }
+
+      & .social{
+        height: 27px;
+
+        & a {
+          height: 14px;
+        }
+      }
+
+      & .info{
+        width: 100%;
+        @include fonts(200, 14px, 16px, $accent);
+      }
+    }
+
+    & .rights{
+      @include fonts(200, 10px, 12px, $accent);
+    }
+  }
+
   @media screen and (max-width: 500px){
     @include display-flex(flex-start, center);
     flex-direction: column;
@@ -114,6 +150,7 @@
       & .info{
         margin-top: 5px;
         @include fonts(200, 14px, 16px, $accent);
+        text-align: center;
       }
     }
 
