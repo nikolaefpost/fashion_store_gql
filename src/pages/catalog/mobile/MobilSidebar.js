@@ -12,7 +12,7 @@ const MobilSidebar = ({category, sort, current}) => {
 
     const handleSetCategory = (cat) => {
         sort(cat);
-        setCurrentCategory(cat);
+        setCurrentCategory(lang === "Eng" ? cat.category : cat.category_ua);
     }
 
     useEffect(()=>{
@@ -29,7 +29,7 @@ const MobilSidebar = ({category, sort, current}) => {
                 {category && category.map(el => (
                     <li
                         key={el.category}
-                        onClick={() => handleSetCategory(lang === "Eng" ? el.category : el.category_ua)}
+                        onClick={() => handleSetCategory(el)}
                     >
                         {lang === "Eng" ? el.category : el.category_ua}
                     </li>

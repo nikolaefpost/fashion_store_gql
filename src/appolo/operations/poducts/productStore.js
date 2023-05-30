@@ -15,6 +15,7 @@ import {
 
 export const filterCategory = (category) => {
     categoryCurrentVar(category)
+    console.log(category)
     resetFilter()
 }
 
@@ -135,9 +136,13 @@ export const applyFilter = () => {
     let list = productItemsVar();
     const minMax = productMinMax();
     const inputMinMax = productInputMinMax();
+    const currentCategory = categoryCurrentVar();
 
-    if (categoryCurrentVar() !== "") {
-        list = list.filter(item => item.category.category === categoryCurrentVar())
+    if (categoryCurrentVar() !== null) {
+        list = list.filter(item => {
+            console.log(item.category.category, currentCategory)
+          return   item.category.category === currentCategory.category
+        })
     }
     if (productCurrentSizeVar() !== "") {
         list = list.filter(item => item.size.some(el => el === productCurrentSizeVar()))
@@ -165,8 +170,8 @@ export const resetFilter = () => {
     productSortingOption("");
 
 
-    if (currentCategory !== "") {
-        productChangeItemsVar(data.filter(item => item.category.category === currentCategory));
+    if (currentCategory !== null) {
+        productChangeItemsVar(data.filter(item => item.category.category === currentCategory.category));
     } else {
         productChangeItemsVar(data)
     }

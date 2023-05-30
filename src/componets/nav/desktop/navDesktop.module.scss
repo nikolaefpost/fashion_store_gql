@@ -72,7 +72,7 @@
       & button{
         border: none;
         background: transparent;
-        @include fonts(300, 16px, 19px, $main);
+        @include fonts(300, 18px, 21px, $main);
         text-transform: uppercase;
       }
     }
@@ -83,68 +83,29 @@
     width: calc(100% - 40px);
 
     & .left_block{
-      @include display-flex;
       gap: 12px;
 
       & img{
         margin-right: 0;
-        fill: $main;
       }
 
       & a{
-        text-decoration: none;
         @include fonts(300, 16px, 19px, $main);
-        text-transform: uppercase;
-      }
-
-      & .active{
-        color: $main;
       }
     }
 
     & .title{
-      text-decoration: none;
       @include fonts(300, 26px, 26px, $main);
-      text-transform: uppercase;
     }
 
     & .right_block{
-      @include display-flex;
       gap: 10px;
-
-      & a{
-        & svg{
-          margin-bottom: -3px;
-        }
-      }
-
-      & .user_block{
-        position: relative;
-
-        & .account{
-          color: $main;
-
-          & svg{
-            width: 25px;
-            height: 25px;
-            margin-bottom: -3px;
-            color: inherit;
-          }
-        }
-
-        & .color{
-          color: #FFFFFF;
-        }
-      }
 
       & .language{
         margin-right: 12px;
 
         & button{
-          border: none;
-          background: transparent;
           @include fonts(300, 16px, 19px, $main);
-          text-transform: uppercase;
         }
       }
     }

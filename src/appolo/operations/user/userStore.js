@@ -111,7 +111,7 @@ export const getUserLocal = () => {
     if (currentUserVar()?.email) return currentUserVar()
     if (storage.getItem("currentUser")) {
         const current = JSON.parse(storage.getItem("currentUser"));
-        console.log(current)
+        // console.log(current)
         if (current.email) {
             isAuthUserVar(true);
         }

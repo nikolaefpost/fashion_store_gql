@@ -3,8 +3,9 @@ import SetSize from "../filterParams/SetSize";
 import SetColor from "../filterParams/SetColor";
 import SetPrice from "../filterParams/SetPrice";
 import SortList from "../filterParams/SortList";
-import styles from "../catalog.module.scss";
 import HeaderInfo from "../HeaderInfo";
+
+import styles from "../catalog.module.scss";
 
 
 const DesktopHeaderCatalog = ({length, changePriseRange, currentColor, currentSize, inputMinMax, sortingOption}) => {

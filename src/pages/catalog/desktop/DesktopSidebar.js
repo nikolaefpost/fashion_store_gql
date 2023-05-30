@@ -13,7 +13,7 @@ const DesktopSidebar = ({category, sort}) => {
                 {category && category.map(item => (
                     <span
                         key={item.category}
-                        onClick={() => sort(lang === "Eng" ? item.category : item.category_ua)}
+                        onClick={() => sort(item)}
                     >{lang === "Eng" ? item.category : item.category_ua}</span>
                 ))}
             </div>

@@ -74,6 +74,7 @@
 
     & .block{
       width: auto;
+      @include display-flex;
 
       & h3{
         @include fonts(300, 18px, 21px, $accent);
@@ -95,6 +96,7 @@
       & .info{
         width: 100%;
         @include fonts(200, 14px, 16px, $accent);
+        text-align: center;
       }
     }
 
@@ -138,6 +140,7 @@
       }
       & a{
         @include fonts(200, 14px, 16px, $accent);
+        text-align: center;
       }
 
       & .social{

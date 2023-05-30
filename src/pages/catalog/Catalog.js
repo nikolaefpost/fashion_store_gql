@@ -17,11 +17,12 @@ import styles from "./catalog.module.scss";
 
 
 const Catalog = () => {
-    const {text} = useLanguage();
+    const {text, lang} = useLanguage();
     const isMobile = useMediaQuery(500);
+    const isTablet = useMediaQuery(1000);
     
     const handlerResetCategory  = () => {
-        filterCategory("")
+        filterCategory(null)
     }
 
     const { data: category } = useQuery(GET_CATEGORY_LOCAL);
@@ -33,7 +34,7 @@ const Catalog = () => {
         <div className={styles.content}>
             <NavBlock
                 namePage={text.catalog}
-                currentCategory={currentCategory}
+                currentCategory={lang === "Eng" ? currentCategory?.category : currentCategory?.category_ua}
                 handlerResetCategory={handlerResetCategory}
             />
             <div className={styles.product_grid}>
@@ -42,7 +43,7 @@ const Catalog = () => {
                     <MobilSidebar category={category?.categoryLocal} sort={filterCategory} current={currentCategory}/>
                 }
                 {product && <Header length={product.productList.length} isMobile={isMobile}/> }
-                <ProductList isMobile={isMobile} products={product?.productList? product?.productList: []}/>
+                <ProductList isMobile={isTablet} products={product?.productList? product?.productList: []}/>
 
             </div>
         </div>

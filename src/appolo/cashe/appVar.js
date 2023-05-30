@@ -17,7 +17,7 @@ export const productMaxPrice = makeVar(0);
 export const productSortingOption = makeVar("");
 
 export const categoryItemsVar = makeVar([]);
-export const categoryCurrentVar = makeVar("");
+export const categoryCurrentVar = makeVar(null);
 
 
 

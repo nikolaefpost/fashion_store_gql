@@ -12,9 +12,9 @@ import {useMediaQuery} from "../../helpers/useMediaQuery";
 const Home = () => {
 
     const isMobile = useMediaQuery(500);
-    const height = document.body.clientHeight
-    const width = document.body.clientWidth
-    console.log(width)
+    // const height = document.body.clientHeight
+    // const width = document.body.clientWidth
+    // console.log(width)
 
     const news  = isMobile? [new1] :  [new1, new2, new3];
     const {text} = useLanguage();
@@ -29,7 +29,7 @@ const Home = () => {
                 ))}
             </div>
             <div className={styles.category}>
-                <h2>{text.categories}{height}{width}</h2>
+                <h2>{text.categories}</h2>
                 <HomeSlider />
             </div>
             <SubscriptBlock/>

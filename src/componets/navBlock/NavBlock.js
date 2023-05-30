@@ -2,9 +2,10 @@ import React from 'react';
 import {AiOutlineRight} from "react-icons/ai";
 import {useNavigate} from "react-router-dom";
 import {useLanguage} from "../../context/setting";
+import cn from "classnames";
 
 import styles from "./navBlock.module.scss"
-import cn from "classnames";
+
 
 const NavBlock = ({namePage, currentCategory, handlerResetCategory, currentProduct}) => {
     const {text} = useLanguage();

@@ -3,10 +3,10 @@ import {AiOutlineDown} from "react-icons/ai";
 import {useOnClickOutside} from "../../../hooks/useOnclickOutside";
 import {observer} from "mobx-react-lite";
 import cn from "classnames";
-
-import styles from "../catalog.module.scss";
 import {setSortingOption, sortListByOption} from "../../../appolo/operations/poducts/productStore";
 import {useLanguage} from "../../../context/setting";
+
+import styles from "../catalog.module.scss";
 
 
 const SortList = () => {

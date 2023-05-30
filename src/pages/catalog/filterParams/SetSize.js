@@ -2,11 +2,11 @@ import React, {useRef, useState} from 'react';
 import {AiOutlineDown} from "react-icons/ai";
 import {observer} from "mobx-react-lite";
 import {useOnClickOutside} from "../../../hooks/useOnclickOutside";
-
-import styles from "../catalog.module.scss";
 import {applyFilter, setSize} from "../../../appolo/operations/poducts/productStore";
 import {useLanguage} from "../../../context/setting";
 import cn from "classnames";
+
+import styles from "../catalog.module.scss";
 
 const sizeList = ["XXL", "XXS", "XS", "S", "L"]
 
