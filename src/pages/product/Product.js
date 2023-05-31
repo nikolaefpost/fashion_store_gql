@@ -15,11 +15,9 @@ import {useMediaQuery} from "../../helpers/useMediaQuery";
 import styles from "./product.module.scss";
 
 
-
-
-
 const Product = () => {
-    const isMobile = useMediaQuery(500);
+    const isMobile = useMediaQuery(1000);
+    const isTablet = useMediaQuery(1000, 500);
     const {text, lang} = useLanguage();
     let {cardId} = useParams();
     const {data: product} = useQuery(GET_PRODUCT_LOCAL);
@@ -56,12 +54,9 @@ const Product = () => {
             />
             <ProductCard
                 product={currentProduct}
-                dataWhile={dataWhile}
-                dataAdditional={dataAdditional}
-                dataLike={dataLike}
-                dataRecentlyWatched={dataRecentlyWatched}
                 setProduct={setProducts}
                 cardId={cardId}
+                isTablet={isTablet}
             />
             {product?.productList.length &&
                 <>

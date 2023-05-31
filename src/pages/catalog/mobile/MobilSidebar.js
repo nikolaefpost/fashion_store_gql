@@ -16,7 +16,7 @@ const MobilSidebar = ({category, sort, current}) => {
     }
 
     useEffect(()=>{
-        if (current === "") setCurrentCategory(text.catalog)
+        if (current === null) setCurrentCategory(text.catalog)
     },[current])
     return (
         <div className={styles.sidebar} onClick={() => setOpenSelect(pre => !pre)}>

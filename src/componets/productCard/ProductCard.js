@@ -11,7 +11,7 @@ import styles from "./productCard.module.scss";
 
 
 
-const ProductCard = ({product, setProduct, cardId}) => {
+const ProductCard = ({product, setProduct, cardId, isTablet}) => {
     const {text, lang} = useLanguage();
     const {data: user} = useQuery(GET_USER_LOCAL);
     const [updateUser, { data }] = useMutation(UPDATE_FAVORITES);
@@ -87,7 +87,7 @@ const ProductCard = ({product, setProduct, cardId}) => {
                         <button onClick={()=>setOrder(product?.id)}>{text.add_cart}</button>
                         <button onClick={handleAddFavorites}><AiOutlineHeart/>{text.to_favorites}</button>
                     </div>
-                    <div className={styles.description}>
+                    {!isTablet && <div className={styles.description}>
                         <h4>{text.details}</h4>
                         <Description title={text.description}>
                             {lang === "Eng" ? product?.description_details : product?.description_details_ua}
@@ -102,9 +102,25 @@ const ProductCard = ({product, setProduct, cardId}) => {
                                 {descriptionCare.map(item => <li key={item}>- {item}</li>)}
                             </ul>}
                         </Description>
-                    </div>
+                    </div>}
                 </div>
             </div>
+            {isTablet && <div className={styles.description}>
+                <h4>{text.details}</h4>
+                <Description title={text.description}>
+                    {lang === "Eng" ? product?.description_details : product?.description_details_ua}
+                </Description>
+                <Description title={text.composition}>
+                    {descriptionComposition && <ul>
+                        {descriptionComposition.map(item => <li key={item}>{item}</li>)}
+                    </ul>}
+                </Description>
+                <Description title={text.care}>
+                    {descriptionCare && <ul>
+                        {descriptionCare.map(item => <li key={item}>- {item}</li>)}
+                    </ul>}
+                </Description>
+            </div>}
         </div>
     );
 };
