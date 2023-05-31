@@ -27,6 +27,7 @@ const Product = () => {
     const dataLike = product?.productList.slice(0, 4);
     const dataRecentlyWatched = saved.map(id => product?.productList.find(el => el.id === id));
     const currentProduct = getProduct(cardId);
+    console.log(dataRecentlyWatched)
 
     const navigate = useNavigate();
     const handleTransition = (id) => {
@@ -66,8 +67,8 @@ const Product = () => {
                                 data={dataAdditional}/>
                     <OtherImage title={text.may_like} handleTransition={handleTransition} style={styleL}
                                 data={dataLike}/>
-                    <OtherImage title={text.recently_viewed} handleTransition={handleTransition} style={styleL}
-                                data={dataRecentlyWatched}/>
+                    {dataRecentlyWatched.length > 0 && <OtherImage title={text.recently_viewed} handleTransition={handleTransition} style={styleL}
+                                 data={dataRecentlyWatched}/>}
                 </>}
         </div>
     );
