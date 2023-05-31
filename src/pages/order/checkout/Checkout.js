@@ -195,23 +195,29 @@ const Checkout = ({
                     />
                 </div>
                 <div className={styles.right_side}>
-                    <Link to="/personal" >{text.enter_account}</Link>
-                    <Link to="/payment&delivery" className={styles.text_transform}>{text.delivery_terms}</Link>
-                    <Link to="/exchange" className={styles.text_transform}>{text.terms_exchange}</Link>
-                    <Link to="/payment&delivery" className={styles.text_transform}>{text.payment_information}</Link>
-                    <div className={styles.info_field}>
-                        <span>{text.delivery}:</span>
-                        <span>{watchAllFields?.delivery}</span>
+                    <div className={styles.links}>
+                        <Link to="/personal" >{text.enter_account}</Link>
+                        <Link to="/payment&delivery" className={styles.text_transform}>{text.delivery_terms}</Link>
+                        <Link to="/exchange" className={styles.text_transform}>{text.terms_exchange}</Link>
+                        <Link to="/payment&delivery" className={styles.text_transform}>{text.payment_information}</Link>
                     </div>
-                    <div className={styles.info_field}>
-                        <span>{text.bonuses}:</span>
-                        <span>{watchAllFields?.bonus && `-${watchAllFields?.bonus}`}</span>
+                    <div className={styles.final}>
+                        <div className={styles.info_field}>
+                            <span>{text.delivery}:</span>
+                            <span>{watchAllFields?.delivery}</span>
+                        </div>
+                        <div className={styles.info_field}>
+                            <span>{text.bonuses}:</span>
+                            <span>{watchAllFields?.bonus && `-${watchAllFields?.bonus}`}</span>
+                        </div>
+                        <div className={styles.info_field}>
+                            <span>{text.total}:</span>
+                            <span>{watchAllFields?.bonus ? sum - watchAllFields?.bonus : sum} {text.currency}</span>
+                        </div>
+                        <button type="submit">{text.checkout}</button>
                     </div>
-                    <div className={styles.info_field}>
-                        <span>{text.total}:</span>
-                        <span>{watchAllFields?.bonus ? sum - watchAllFields?.bonus : sum} {text.currency}</span>
-                    </div>
-                    <button type="submit">{text.checkout}</button>
+
+
                     <p>{text.accept_terms} <u>{text.public_offer}</u> {text.i} <u>{text.privacy_policy}</u>
                     </p>
                 </div>

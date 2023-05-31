@@ -167,9 +167,91 @@
     }
   }
 
-  @media screen and (max-width: 1000px) and (min-width: 500px){
+  @media screen and (max-width: 1000px) and (min-width: 501px){
     padding: 74px 20px 50px;
     width: 100%;
+
+    & .order_list {
+      margin-top: 15px;
+
+      & h3 {
+        @include fonts(300, 18px, 21px, $accent);
+      }
+
+      & .list {
+        margin-top: 15px;
+
+        & .list_item {
+          gap: 10px;
+
+
+          & .title_block {
+            flex: 0 1 calc(100% - 312px);
+            gap: 0;
+
+            & .title {
+              @include fonts(300, 14px, 16px, $accent);
+
+              & span {
+                @include fonts(300, 12px, 14px, $main);
+              }
+            }
+          }
+
+          & .color_block {
+            flex: 0 0 32px;
+            @include display-flex;
+
+            & .color_el {
+
+              &:before {
+                top: -3.7px;
+                left: -3.7px;
+              }
+            }
+          }
+
+          & .size_block {
+            flex: 0 0 70px;
+            @include fonts(300, 14px, 16px, $accent);
+          }
+
+          & .quantity_block {
+            flex: 0 0 70px;
+            height: 40px;
+            @include display-flex(space-around);
+            gap: 0;
+
+            & .sign {
+
+              & svg{
+                width: 16px;
+                height: 16px;
+              }
+            }
+          }
+
+          & .price_block {
+            flex: 0 0 100px;
+            @include display-flex(space-between);
+            gap: 0;
+
+            & .price {
+              @include fonts(700, 14px, 16px, $accent);
+            }
+          }
+        }
+      }
+
+      & .total{
+        margin-top: 15px;
+        @include fonts(300, 14px, 16px, $accent);
+
+        & span{
+          @include fonts(700, 14px, 16px, $accent);
+        }
+      }
+    }
   }
 
   @media screen and (max-width: 500px){

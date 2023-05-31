@@ -27,7 +27,6 @@ const Product = () => {
     const dataLike = product?.productList.slice(0, 4);
     const dataRecentlyWatched = saved.map(id => product?.productList.find(el => el.id === id));
     const currentProduct = getProduct(cardId);
-    console.log(dataRecentlyWatched)
 
     const navigate = useNavigate();
     const handleTransition = (id) => {

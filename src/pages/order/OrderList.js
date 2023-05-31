@@ -1,8 +1,9 @@
 import React from 'react';
 import OrderCard from "./OrderCard";
+import {useLanguage} from "../../context/setting";
 
 import styles from "./order.module.scss"
-import {useLanguage} from "../../context/setting";
+
 
 const OrderList = ({order, products, total}) => {
     const {text} = useLanguage();
