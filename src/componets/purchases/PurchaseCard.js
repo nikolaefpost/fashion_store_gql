@@ -5,13 +5,13 @@ import {useLanguage} from "../../context/setting";
 import styles from "./purchases.module.scss";
 
 
-const PurchaseCard = ({purchase, isMobile}) => {
+const PurchaseCard = ({purchase}) => {
     const {text} = useLanguage();
     const {name, surname, email, telephone, delivery, payment} = purchase.deliveryInfo
     return (
         <div className={styles.purchase_card}>
             {purchase.orders.map(item=>(
-                <PurchaseOrderCard key={item.product.id} order={item} isMobile={isMobile} />
+                <PurchaseOrderCard key={item.product.id} order={item}  />
             ))}
             <div className={styles.info_block}>
                 <div>

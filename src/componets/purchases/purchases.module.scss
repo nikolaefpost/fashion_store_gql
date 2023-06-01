@@ -139,19 +139,6 @@
         flex: 0 0 140px;
         height: 50px;
         @include display-flex;
-        gap: 14px;
-
-        & .sign {
-          cursor: pointer;
-
-          & svg {
-            color: $main;
-            width: 18px;
-            height: 18px;
-            margin-bottom: -3px;
-          }
-
-        }
       }
 
       & .price_block {
@@ -188,6 +175,98 @@
         }
         & span:last-child{
           @include fonts(200, 16px, 19px, $accent);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1000px) and (min-width: 501px){
+
+    & .purchase {
+      flex-wrap: wrap;
+      padding-right: 20px;
+
+      & .element_block {
+        padding-right: 10px;
+
+        & span:last-child {
+          @include fonts(700, 14px, 16px, $accent);
+        }
+      }
+    }
+
+    & .purchase_card {
+      margin-top: 5px;
+
+      & .product_position {
+        padding-bottom: 10px;
+        gap: 10px;
+
+
+        & .title_block {
+          flex: 0 1 calc(100% - 312px);
+          gap: 0;
+
+          & .title {
+            @include fonts(300, 14px, 16px, $accent);
+
+            & span {
+              @include fonts(300, 12px, 14px, $main);
+            }
+          }
+        }
+
+        & .color_block {
+          flex: 0 0 32px;
+          @include display-flex;
+
+          & .color_el {
+
+            &:before {
+              top: -3.7px;
+              left: -3.7px;
+            }
+          }
+        }
+
+        & .size_block {
+          flex: 0 0 70px;
+          @include fonts(300, 14px, 16px, $accent);
+          text-align: center;
+        }
+
+        & .quantity_block {
+          flex: 0 0 70px;
+          height: auto;
+          @include display-flex;
+        }
+
+        & .price_block {
+          flex: 0 0 100px;
+          @include display-flex(space-between);
+          gap: 0;
+
+          & .price {
+            @include fonts(700, 14px, 16px, $accent);
+          }
+        }
+      }
+
+      & .info_block{
+        @include display-flex(flex-start);
+        gap: 10px 15px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+
+        & div{
+          display: inline;
+
+          & span:first-child{
+            @include fonts(300, 14px, 16px, $accent);
+          }
+          & span:last-child{
+            @include fonts(200, 14px, 16px, $accent);
+          }
         }
       }
     }

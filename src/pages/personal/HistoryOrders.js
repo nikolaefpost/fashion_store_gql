@@ -2,7 +2,6 @@ import React from 'react';
 import Purchase from "../../componets/purchases/Purchase";
 
 const HistoryOrders = ({purchases}) => {
-    console.log(purchases)
     return (
         <div>
             {purchases?.map(el => (

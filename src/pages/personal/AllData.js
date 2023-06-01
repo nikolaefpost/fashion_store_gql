@@ -7,8 +7,10 @@ import {useMutation, useReactiveVar} from "@apollo/client";
 import {currentUserVar} from "../../appolo/cashe/appVar";
 import {UPDATE_USER} from "../../appolo/operations/user/userGrapfQgl";
 import {useLanguage} from "../../context/setting";
+import cn from "classnames";
 
 import styles from "./personalArea.module.scss";
+
 
 
 const phoneRegExp = /^[+]?3?[\s]?8?[\s]?\(?0\d{2}?\)?[\s]?\d{3}[\s|-]?\d{2}[\s|-]?\d{2}$/
@@ -86,7 +88,7 @@ const AllData = ({ formPersonalInfo, formDeliveryAddress }) => {
     return (
         <form className={styles.all_data} onSubmit={onSubmit}>
             <h4>{text.personal_info}:</h4>
-            <div className={styles.formPersonalInfo}>
+            <div className={cn(styles.formPersonalInfo, styles.first_block)}>
                 {formPersonalInfo.map(item => <InputForm
                     key={item.field}
                     register={register}

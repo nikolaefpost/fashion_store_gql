@@ -19,8 +19,9 @@ const Purchase = ({purchase}) => {
         <div key={purchase.orderNumber} className={styles.history_purchase}>
             <div className={styles.purchase}>
                 <div className={styles.element_block}>
-                    <span>№ {+purchase.orderNumber} {text.from} {purchase.date}</span>
-                    <span/>
+                    <span>№ {+purchase.orderNumber} </span>
+                    {isMobile && <span>&nbsp;</span>}
+                    <span>{text.from} {purchase.date}</span>
                 </div>
                 <div className={styles.element_block}>
                     <span>{text.status}: </span>
