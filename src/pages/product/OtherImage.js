@@ -3,10 +3,10 @@ import ProductListCard from "../../componets/productCard/ProductListCard";
 
 import styles from "../../componets/productCard/productCard.module.scss";
 
-const OtherImage = ({title, handleTransition, style, data, isFavorite}) => {
+const OtherImage = ({title, handleTransition, style, data, isFavorite, margin}) => {
 
     return (
-        <div className={styles.whole_image}>
+        <div className={styles.whole_image} style={margin}>
             <h3>{title}</h3>
             <div className={styles.whole_image_block} style={{height: style.height}}>
                 <div className={styles.shift_block}>

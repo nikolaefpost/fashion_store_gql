@@ -12,9 +12,6 @@ import {useMediaQuery} from "../../helpers/useMediaQuery";
 const Home = () => {
 
     const isMobile = useMediaQuery(500);
-    // const height = document.body.clientHeight
-    // const width = document.body.clientWidth
-    // console.log(width)
 
     const news  = isMobile? [new1] :  [new1, new2, new3];
     const {text} = useLanguage();

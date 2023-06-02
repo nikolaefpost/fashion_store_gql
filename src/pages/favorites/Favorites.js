@@ -13,7 +13,7 @@ import {useMediaQuery} from "../../helpers/useMediaQuery";
 
 
 const Favorites = () => {
-    const isMobile = useMediaQuery(500);
+    const isMobile = useMediaQuery(1000);
     const styleX = isMobile? {width: "165px", height: "326px"} : {width: "370px", height: "501px"};
     const {text} = useLanguage();
     const navigate = useNavigate();
@@ -34,6 +34,7 @@ const Favorites = () => {
                     style={styleX}
                     data={user.currentUser.favorites}
                     isFavorite={true}
+                    margin={{marginTop: 15}}
                 />
             }
         </div>

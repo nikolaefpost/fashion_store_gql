@@ -43,7 +43,7 @@
   }
 
   @media screen and (max-width: 1000px){
-    width: 100%;
+    width: 70%;
     padding: 0 20px;
 
     & h2{
@@ -64,6 +64,10 @@
       height: 40px;
       @include fonts(300, 14px, 16px, #FFFFFF);
     }
-
   }
+
+  @media screen and (max-width: 500px){
+    width: 100%;
+  }
+
 }
