@@ -65,7 +65,7 @@ const NavDesktop = () => {
                     >{lang}</button>
                     <SlArrowDown/>
                 </div>
-                <SearchIcon color={isHome ? "#FFFFFF" : "#252525"}/>
+                <SearchIcon color={isHome ? "#FFFFFF" : "#252525"} size={23}/>
                 {/*<UserIcon color={isHome? "#FFFFFF":"#E0BEA2"} />*/}
                 <UserIdentification isHome={isHome}/>
                 <Link to="favorites"><FavoriteIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/></Link>

@@ -25,15 +25,20 @@ const Order = () => {
     return (
         <div className={styles.order}>
             <NavBlock namePage={text.cart}/>
-            <OrderList order={orderItems} total={sum} products={data}/>
-            <Checkout
-                formPersonalInfo={formPersonalInfo}
-                formDeliveryRadio={formDeliveryRadio}
-                formDeliveryAddress={formDeliveryAddress}
-                formPaymentRadio={formPaymentRadio}
-                sum={sum}
-                user={user}
-            />
+            {orderItems.length>0 ?<>
+                <OrderList order={orderItems} total={sum} products={data}/>
+                <Checkout
+                    formPersonalInfo={formPersonalInfo}
+                    formDeliveryRadio={formDeliveryRadio}
+                    formDeliveryAddress={formDeliveryAddress}
+                    formPaymentRadio={formPaymentRadio}
+                    sum={sum}
+                    user={user}
+                />
+            </>:
+                <div className={styles.no_items}>There are no items in the cart</div>
+            }
+
         </div>
     );
 };

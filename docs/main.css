@@ -728,7 +728,7 @@
   \******************************************************************************************************************************************************************************************************************************/
 .order-module__order--xjh7c {
   padding: 95px 150px 100px;
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 .order-module__order--xjh7c .order-module__order_list--VHtQa {
@@ -895,10 +895,22 @@
   line-height: 19px;
   color: #252525;
 }
+.order-module__order--xjh7c .order-module__no_items--dZkdE {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media screen and (max-width: 1000px) and (min-width: 501px) {
   .order-module__order--xjh7c {
     padding: 74px 20px 50px;
     width: 100%;
+  }
+  .order-module__order--xjh7c .order-module__no_items--dZkdE {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .order-module__order--xjh7c .order-module__order_list--VHtQa {
     margin-top: 15px;
@@ -1991,14 +2003,10 @@
 }
 .navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__search_form--x0zxP .navMobile-module__search_icon--TQhGw {
   position: absolute;
-  top: 29px;
+  top: 27px;
   right: 20px;
   z-index: 10;
   color: #252525;
-}
-.navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__search_form--x0zxP .navMobile-module__search_icon--TQhGw svg {
-  width: 30px;
-  height: 30px;
 }
 .navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__item_menu--bB64x {
   height: 60px;
@@ -2276,9 +2284,19 @@ span {
   height: 100vh;
 }
 .layout-module__outlet--eibyh .layout-module__content--IJeRL {
-  min-height: calc(100% - 165px);
+  min-height: calc(100% - 195px);
   position: relative;
   z-index: 10;
+}
+@media screen and (max-width: 1000px) and (min-width: 501px) {
+  .layout-module__outlet--eibyh .layout-module__content--IJeRL {
+    min-height: calc(100% - 147px);
+  }
+}
+@media screen and (max-width: 500px) {
+  .layout-module__outlet--eibyh .layout-module__content--IJeRL {
+    min-height: calc(100% - 295px);
+  }
 }
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/Error404/error404.module.scss ***!

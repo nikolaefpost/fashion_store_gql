@@ -3,7 +3,7 @@
 
 .order {
   padding: 95px 150px 100px;
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
 
   & .order_list {
@@ -167,9 +167,19 @@
     }
   }
 
+  & .no_items{
+    margin-top: 100px;
+    @include display-flex;
+  }
+
   @media screen and (max-width: 1000px) and (min-width: 501px){
     padding: 74px 20px 50px;
     width: 100%;
+
+    & .no_items{
+      margin-top: 60px;
+      @include display-flex;
+    }
 
     & .order_list {
       margin-top: 15px;
