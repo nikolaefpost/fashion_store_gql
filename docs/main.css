@@ -1627,6 +1627,9 @@
   color: #E0BEA2;
   text-transform: uppercase;
 }
+.navDesktop-module__nav--CQV1E .navDesktop-module__fashion--Zorwl {
+  font-family: Bodoni Moda, cursive;
+}
 .navDesktop-module__nav--CQV1E .navDesktop-module__right_block--aTn2M {
   display: flex;
   justify-content: center;
@@ -2257,7 +2260,7 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/layout/layout.module.scss ***!
   \********************************************************************************************************************************************************************************************************************************/
 body {
-  font-family: Philosopher, cursive;
+  font-family: Raleway, cursive;
   margin: 0;
 }
 

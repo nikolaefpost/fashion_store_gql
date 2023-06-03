@@ -6,6 +6,7 @@ import {FavoriteIcon, MenuIcon, OrderIcon, SearchIcon} from "../../../assets/ico
 import {SlArrowDown} from "react-icons/sl";
 import UserIdentification from "./UserIdentification";
 import {useMediaQuery} from "../../../helpers/useMediaQuery";
+import cn from "classnames";
 
 const NavDesktop = () => {
     const {text, lang, onChangeLang} = useLanguage();
@@ -51,7 +52,7 @@ const NavDesktop = () => {
             </div>
             <NavLink
                 to="/"
-                className={styles.title}
+                className={cn(styles.title, styles.fashion)}
                 style={isHome ? mainStyle : {}}
             >
                 fashion
