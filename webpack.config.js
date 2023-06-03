@@ -74,15 +74,22 @@ let conf = {
                 ],
             },
             {
-                // test: /^((?!\.module).)*(c|sa|sc)ss$/i,
-                test: /^((?!\.module).)*css$/i,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: "css-loader",
-                    },
-                ],
+                test: /\.woff2?$/i,
+                type: "assets/resource",
+                generator: {
+                    filename: "fonts/[name].[ext]"
+                }
             },
+            // {
+            //     // test: /^((?!\.module).)*(c|sa|sc)ss$/i,
+            //     test: /^((?!\.module).)*css$/i,
+            //     use: [
+            //         MiniCssExtractPlugin.loader,
+            //         {
+            //             loader: "css-loader",
+            //         },
+            //     ],
+            // },
             {
                 test: /\.(jpe?g|png|webp|gif|svg)$/i,
                 use: {
@@ -113,6 +120,7 @@ let conf = {
                     filename: "assets/image/[name][ext]"
                 }
             },
+
         ]
     },
 
