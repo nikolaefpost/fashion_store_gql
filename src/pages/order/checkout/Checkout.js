@@ -115,7 +115,7 @@ const Checkout = ({
                             register={register}
                             errors={errors}
                             field={item.field}
-                            name={item.name}
+                            name={lang === "Eng" ? item.name : item.name_ua}
                             inputType={item.type}
                         />)}
                     </div>
