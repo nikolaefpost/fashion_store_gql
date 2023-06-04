@@ -45,6 +45,10 @@
     text-transform: uppercase;
   }
 
+  & .fashion{
+    font-family: Bodoni Moda, cursive;
+  }
+
   & .right_block{
     @include display-flex;
     gap: 10px;

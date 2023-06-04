@@ -7,6 +7,7 @@ import MobilMenu from "./MobilMenu";
 import CloseMenuIcon from "../../../assets/icon/CloseMenuIcon";
 
 import styles from "./navMobile.module.scss";
+import cn from "classnames";
 
 
 const NavMobile = () => {
@@ -39,7 +40,7 @@ const NavMobile = () => {
             </div>
             <NavLink
                 to="/"
-                className={styles.title}
+                className={cn(styles.title, styles.fashion)}
                 style={isHome ? mainStyle : {}}
             >
                 fashion
