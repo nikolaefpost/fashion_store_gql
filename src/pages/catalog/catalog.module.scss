@@ -214,9 +214,6 @@
           margin-left: -65px;
         }
 
-
-
-
         & .selected {
           margin-left: 5px;
           border-radius: 6px;
@@ -226,7 +223,6 @@
           &::first-letter {
             text-transform: uppercase;
           }
-
         }
 
         & .reset{
@@ -533,6 +529,7 @@
       & .card_title {
         @include fonts(300, 14px, 16px, $accent);
         height: 32px;
+        padding: 0 5px;
       }
 
       & .card_price {

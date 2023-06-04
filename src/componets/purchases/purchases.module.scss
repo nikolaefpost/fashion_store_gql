@@ -341,6 +341,14 @@
 
         & .color_block {
           margin-bottom: 15px;
+
+          & .color_el {
+
+            &:before {
+              top: -3.7px;
+              left: -3.7px;
+            }
+          }
         }
 
         & .size_block {

@@ -1,9 +1,9 @@
 import React from 'react';
 import cn from "classnames";
 import {useLanguage} from "../../context/setting";
+import {useMediaQuery} from "../../helpers/useMediaQuery";
 
 import styles from "./purchases.module.scss";
-import {useMediaQuery} from "../../helpers/useMediaQuery";
 
 
 const PurchaseOrderCard = ({order}) => {

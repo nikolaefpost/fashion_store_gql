@@ -496,6 +496,7 @@
     line-height: 16px;
     color: #252525;
     height: 32px;
+    padding: 0 5px;
   }
   .catalog-module__product_card--bIRmW .catalog-module__card_text--Aqp6W .catalog-module__card_price--c1lMc {
     font-weight: 700;
@@ -1020,6 +1021,7 @@
     justify-content: space-between;
     align-items: flex-end;
     gap: 10px;
+    position: relative;
   }
   .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__list--z9ir9 .order-module__list_item--pcrj0 .order-module__title_block--BvYjx {
     position: relative;
@@ -1072,6 +1074,7 @@
     line-height: 16px;
     color: #252525;
     margin-bottom: 5px;
+    z-index: 10;
   }
   .order-module__order--xjh7c .order-module__order_list--VHtQa .order-module__list--z9ir9 .order-module__list_item--pcrj0 .order-module__price_block--bdWdW {
     height: 100%;
@@ -3497,6 +3500,10 @@ span {
   }
   .purchases-module__history_purchase--Zx5mm .purchases-module__purchase_card--dnT8Q .purchases-module__product_position--vYmUV .purchases-module__color_block--Lq2DE {
     margin-bottom: 15px;
+  }
+  .purchases-module__history_purchase--Zx5mm .purchases-module__purchase_card--dnT8Q .purchases-module__product_position--vYmUV .purchases-module__color_block--Lq2DE .purchases-module__color_el--CYQyd:before {
+    top: -3.7px;
+    left: -3.7px;
   }
   .purchases-module__history_purchase--Zx5mm .purchases-module__purchase_card--dnT8Q .purchases-module__product_position--vYmUV .purchases-module__size_block--99sMd {
     flex: 0 0 40px;
