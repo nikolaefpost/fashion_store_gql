@@ -33,7 +33,7 @@ export const createUserFireBase = (email, password) => {
         .then((userCredential) => {
             const user = userCredential.user;
             authErrorVar("")
-            userDataVar({email: user.email, token: user.accessToken, password})
+            userDataVar({email: user.email, token: user.uid, password})
             secondStepVar(true)
         })
         .catch((error) => {
@@ -60,7 +60,7 @@ export const authUserFireBase = (mutationDgraph) => {
             const user = userCredential.user;
             authErrorVar("")
             if (user.emailVerified) {
-                mutationDgraph({variables: {email: user.email, token: user.accessToken}})
+                mutationDgraph({variables: {email: user.email, token: user.uid}})
             } else {
                 authErrorVar(`${email} Follow this link to verify your email address`)
             }
@@ -85,9 +85,9 @@ export const authCreateUserFireBase = (email, password, checkDgraph) => {
             const user = userCredential.user;
             authErrorVar("")
             if (user.emailVerified) {
-                checkDgraph({variables: {email: user.email, token: user.accessToken}})
-                console.log({variables: {email: user.email, token: user.accessToken}})
-                userDataVar({email: user.email, token: user.accessToken, password})
+                checkDgraph({variables: {email: user.email, token: user.uid}})
+                console.log({variables: {email: user.email, token: user.uid}})
+                userDataVar({email: user.email, token: user.uid, password})
                 // console.log("authCreateUserFireBase", user)
             } else {
                 authErrorVar(`${email} Follow this link to verify your email address`)
@@ -108,7 +108,7 @@ export const authCreateUserDgraph = (addDgraph) => {
 }
 
 export const getUserLocal = () => {
-    if (currentUserVar()?.email) return currentUserVar()
+    if (currentUserVar()?.email) return currentUserVar().email
     if (storage.getItem("currentUser")) {
         const current = JSON.parse(storage.getItem("currentUser"));
         // console.log(current)
@@ -123,6 +123,7 @@ export const deleteUser = () => {
     userDataVar({});
     currentUserVar({});
     storage.setItem("currentUser", JSON.stringify({}));
+    // storage.setItem("uid", "");
     isAuthUserVar(false);
 }
 
@@ -130,21 +131,24 @@ export const googleAuthUser = (authUser) => {
 
     auth.onAuthStateChanged(maybeUser => {
         if (maybeUser !== null) {
-            // console.log(maybeUser.accessToken)
-            console.log(storage.getItem("accessToken") === maybeUser.accessToken)
-            authUser({variables: {email: maybeUser.email, token: maybeUser.accessToken}})
+            console.log(maybeUser)
+            console.log(storage.getItem("uid") === maybeUser.uid)
+            console.log("STORAGE", storage.getItem("uid"))
+            console.log("IN", maybeUser.uid)
+            authUser({variables: {email: maybeUser.email, token: maybeUser.uid}})
                 .catch(e => authErrorVar(e))
-            userDataVar({email: maybeUser.email, token: maybeUser.accessToken})
+            userDataVar({email: maybeUser.email, token: maybeUser.uid})
             storage.setItem("currentUser", JSON.stringify(userDataVar()));
         }else {
+            console.log(maybeUser)
             signInWithPopup(auth, googleAuthProvider)
                 .then(credentials => {
                     authErrorVar("")
-                    storage.setItem("accessToken", credentials.user.accessToken);
-                    console.log({email: credentials.user.email, token: credentials.user.accessToken})
-                    authUser({variables: {email: credentials.user.email, token: credentials.user.accessToken}})
+                    storage.setItem("uid", credentials.user.uid);
+                    console.log({email: credentials.user.email, token: credentials.user.uid})
+                    authUser({variables: {email: credentials.user.email, token: credentials.user.uid}})
                         .catch(e => authErrorVar(e))
-                    userDataVar({email: credentials.user.email, token: credentials.user.accessToken})
+                    userDataVar({email: credentials.user.email, token: credentials.user.uid})
                 })
                 .catch((error) => {
                     const errorMessage = error.message;

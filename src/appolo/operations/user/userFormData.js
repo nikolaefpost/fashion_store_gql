@@ -31,6 +31,7 @@ export const formPaymentRadio = [
         name_ua: "Повна передплата через Приват 24",
         id: "p1",
         value: "Privat24",
+        value_ua: "Privat24",
         children: [{src: privat24, style: "privat24"}]
     },
     {
@@ -39,12 +40,14 @@ export const formPaymentRadio = [
         name_ua: "Грошовим переказом Visa/MasterCard",
         id: "p2",
         value: "Remittance",
+        value_ua: "Денежный перевод",
         children: [{src: visa, style: "visa"}, {src: mastercard, style: "mastercard"}]
     },
     {field: "payment",
         name: "Cash on delivery at the NP branch",
         name_ua: "Післяплатою у відділенні НП",
         id: "p3",
-        value: "C.O.D"
+        value: "C.O.D",
+        value_ua: "наложенный платеж"
     },
 ]

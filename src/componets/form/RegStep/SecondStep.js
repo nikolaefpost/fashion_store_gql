@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {authUserFireBase, sendEmailVerificationFireBase, setUserLocal} from "../../../appolo/operations/user/userStore";
 import {useMutation, useReactiveVar} from "@apollo/client";
 import {ADD_USER} from "../../../appolo/operations/user/userGrapfQgl";
-import {userDataVar} from "../../../appolo/cashe/appVar";
+import {secondStepVar, userDataVar} from "../../../appolo/cashe/appVar";
 import {useLanguage} from "../../../context/setting";
 
 import styles from "../form.module.scss";
@@ -28,6 +28,7 @@ const SecondStep = ({setModal}) => {
     useEffect(() => {
         if (data?.addUser) {
             setUserLocal()
+            secondStepVar(false)
             setModal(false);
         }
     }, [data])
