@@ -9,10 +9,10 @@ import {UserIcon} from "../../../assets/icon";
 import Modal from "../../modal/Modal";
 import Form from "../../form/Form";
 import {useLanguage} from "../../../context/setting";
-
+import { motion } from "framer-motion";
 import styles from "./navMobile.module.scss";
 
-const UserIdentificationMobil = ({closeMenu}) => {
+const UserIdentificationMobil = ({closeMenu, open, variants}) => {
     const { text } = useLanguage();
     const { data } = useQuery(GET_USER,{
         variables: {
@@ -34,7 +34,12 @@ const UserIdentificationMobil = ({closeMenu}) => {
         currentUserVar(data?.getUser)
     },[data])
     return (
-        <div className={styles.item_menu} onClick={closeMenu}>
+        <motion.div
+            animate={open ? 'visible' : 'hidden'}
+            variants={variants}
+            transition={{ delay: .4, ease: 'easeOut' }}
+            className={styles.item_menu} onClick={closeMenu}
+        >
             {isAuth ?
                 <Link to="personal" >
                     <MdOutlineAccountBalanceWallet/>
@@ -48,7 +53,7 @@ const UserIdentificationMobil = ({closeMenu}) => {
             {modal && <Modal fn={closeModal}>
                 <Form setModal={setModal} />
             </Modal>}
-        </div>
+        </motion.div>
     );
 };
 

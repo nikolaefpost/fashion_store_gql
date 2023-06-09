@@ -5,10 +5,10 @@ import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
 import {BiSearch} from "react-icons/bi"
-
+import { motion } from "framer-motion";
 import styles from "./navMobile.module.scss"
 
-const SearchForm = () => {
+const SearchForm = ({open, variants}) => {
     const {text} = useLanguage();
     const schema = yup
         .object({
@@ -31,10 +31,15 @@ const SearchForm = () => {
         console.log(data)
     });
     return (
-        <form className={styles.search_form}>
+        <motion.form
+            animate={open ? 'visible' : 'hidden'}
+            variants={variants}
+            transition={{ delay: .3, ease: 'easeOut' }}
+            className={styles.search_form}
+        >
             <InputForm name={text.enter_request} register={register} errors={errors} field="request" search />
             <div className={styles.search_icon} onClick={onSubmit}><BiSearch size="20px"/></div>
-        </form>
+        </motion.form>
     );
 };
 

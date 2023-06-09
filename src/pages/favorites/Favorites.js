@@ -27,7 +27,7 @@ const Favorites = () => {
     return (
         <div className={styles.content}>
             <NavBlock namePage={text.favorites}/>
-            {user?.currentUser?.favorites &&
+            {user?.currentUser?.favorites?.length > 0 &&
                 <OtherImage
                     title={text.favorites}
                     handleTransition={handleTransition}

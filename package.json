@@ -39,6 +39,7 @@
     "@apollo/client": "^3.7.11",
     "@hookform/resolvers": "^2.9.11",
     "firebase": "^9.19.1",
+    "framer-motion": "^10.12.16",
     "graphql": "^16.6.0",
     "mobx": "^6.8.0",
     "mobx-react-lite": "^3.4.2",

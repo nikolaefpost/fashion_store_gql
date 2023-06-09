@@ -11,26 +11,33 @@
   //opacity: .9;
   z-index: 11;
 
-  & .left_block{
+  & .left_block {
     @include display-flex;
     gap: 8px;
 
-    & .menu_icon{
+
+    & .menu_icon {
+      background: transparent;
+      border: none;
+      @include display-flex;
+      color: $main;
+
       & svg{
-        margin-bottom: -4px;
+        fill: $main!important;
       }
+
     }
 
-    & .language{
+    & .language {
 
-      & button{
+      & button {
         border: none;
         background: transparent;
         @include fonts(300, 16px, 19px, $main);
         text-transform: uppercase;
       }
 
-      & svg{
+      & svg {
         width: 10px;
         height: 10px;
       }
@@ -39,34 +46,34 @@
     }
   }
 
-  & .title{
+  & .title {
     text-decoration: none;
     @include fonts(300, 26px, 26px, $main);
     text-transform: uppercase;
   }
 
-  & .fashion{
+  & .fashion {
     font-family: Bodoni Moda, cursive;
   }
 
-  & .right_block{
+  & .right_block {
     @include display-flex;
     gap: 10px;
 
-    & svg{
+    & svg {
       width: 20px;
       height: 20px;
       margin-bottom: -4px;
     }
   }
 
-  & .mobile_menu{
+  & .mobile_menu {
     position: absolute;
     width: 100%;
     height: calc(100vh - 74px);
     left: 0;
     top: 74px;
-    z-index: 100;
+    z-index: 101;
     background-color: #FFFFFF;
     border-top: .3px solid $main;
     padding: 0 20px;
@@ -74,18 +81,19 @@
     display: block;
     transition: display 1s ease-out;
 
-    & .content{
+
+    & .content {
       transition: all .3s ease-out;
       opacity: 1;
     }
 
-    & .search_form{
+    & .search_form {
       position: relative;
       z-index: 10;
       padding-bottom: 20px;
       border-bottom: .3px solid $accent;
 
-      & .search_icon{
+      & .search_icon {
         position: absolute;
         top: 27px;
         right: 20px;
@@ -94,7 +102,7 @@
       }
     }
 
-    & .item_menu{
+    & .item_menu {
       height: 60px;
       border-bottom: .3px solid $accent;
       @include display-flex;
@@ -103,12 +111,12 @@
       gap: 12px;
       text-decoration: none;
 
-      & a{
+      & a {
         text-decoration: none;
         @include fonts(300, 16px, 19px, $accent);
       }
 
-      & svg{
+      & svg {
         width: 20px;
         height: 20px;
         margin-bottom: -3px;
@@ -117,27 +125,27 @@
       }
     }
 
-    & .contact_info{
+    & .contact_info {
       position: absolute;
       bottom: 30px;
       width: 100%;
 
-      & .social{
+      & .social {
         @include display-flex;
         gap: 10px;
 
         & a {
-          & img{
+          & img {
             cursor: pointer;
 
-            &:hover{
+            &:hover {
               filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
             }
           }
         }
       }
 
-      & p{
+      & p {
         text-align: center;
         margin-top: 10px;
         @include fonts(300, 14px, 16px, $accent);
@@ -145,15 +153,15 @@
     }
   }
 
-  & .hidden{
-    opacity: 0!important;
-    transition: all .3s ease-out!important;
+  & .hidden {
+    //opacity: 0!important;
+    //transition: all .3s ease-out!important;
 
   }
 
-  & .not_display{
-    display: none;
-    transition: display 1s ease-out;
+  & .not_display {
+    //display: none;
+    //transition: display 1s ease-out;
   }
 
 }

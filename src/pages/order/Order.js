@@ -36,7 +36,7 @@ const Order = () => {
                     user={user}
                 />
             </>:
-                <div className={styles.no_items}>There are no items in the cart</div>
+                <div className={styles.no_items}>{text.no_items}</div>
             }
 
         </div>

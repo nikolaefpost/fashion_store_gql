@@ -1,35 +1,48 @@
-import React, {useState} from 'react';
+import React, {useRef} from 'react';
 import {SlArrowDown} from "react-icons/sl";
 import {Link, NavLink, useHref} from "react-router-dom";
-import {FavoriteIcon, MenuIcon, OrderIcon} from "../../../assets/icon";
+import {FavoriteIcon, OrderIcon} from "../../../assets/icon";
 import {useLanguage} from "../../../context/setting";
 import MobilMenu from "./MobilMenu";
-import CloseMenuIcon from "../../../assets/icon/CloseMenuIcon";
+import cn from "classnames";
+import {useCycle, motion} from "framer-motion";
+import {useDimensions} from "../../../helpers/use-dimensions";
+import {MenuToggle} from "./MenuToggle";
 
 import styles from "./navMobile.module.scss";
-import cn from "classnames";
-
 
 const NavMobile = () => {
+
+    const [isOpen, toggleOpen] = useCycle(false, true);
+    const containerRef = useRef(null);
+    const { height } = useDimensions(containerRef);
+
     const {lang, onChangeLang} = useLanguage();
     let isHome = useHref() === "#/";
 
-    const [isOpenedMenu, setIsOpenedMenu] = useState(false);
-    const openMenu = () => setIsOpenedMenu(pre => !pre)
-    const closeMenu = () => setIsOpenedMenu(false)
+    // const [isOpenedMenu, setIsOpenedMenu] = useState(false);
+    // const openMenu = () => setIsOpenedMenu(pre => !pre)
+    // const closeMenu = () => setIsOpenedMenu(false)
 
     const mainStyle = {
         color: "#FFFFFF"
     }
     return (
-        <div className={styles.nav} style={isHome ? mainStyle : {}}>
+        <motion.div
+            className={styles.nav} style={isHome ? mainStyle : {}}
+            initial={false}
+            animate={isOpen ? "open" : "closed"}
+            custom={height}
+            ref={containerRef}
+        >
             <div className={styles.left_block}>
-                <div onClick={openMenu} className={styles.menu_icon}>
-                    {!isOpenedMenu ?
-                        <MenuIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/> :
-                        <CloseMenuIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/>
-                    }
-                </div>
+                {/*<div onClick={openMenu} className={styles.menu_icon}>*/}
+                {/*    {!isOpenedMenu ?*/}
+                {/*        <MenuIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/> :*/}
+                {/*        <CloseMenuIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/>*/}
+                {/*    }*/}
+                {/*</div>*/}
+                <MenuToggle toggle={() => toggleOpen()} color={isHome ? "#FFFFFF" : "#E0BEA2"} />
                 <div className={styles.language}>
                     <button
                         onClick={onChangeLang}
@@ -49,8 +62,8 @@ const NavMobile = () => {
                 <Link to="favorites"><FavoriteIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/></Link>
                 <Link to="order"><OrderIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/></Link>
             </div>
-            <MobilMenu closeMenu={closeMenu} open={isOpenedMenu}/>
-        </div>
+            <MobilMenu toggleOpen={toggleOpen} open={isOpen}/>
+        </motion.div>
     );
 };
 

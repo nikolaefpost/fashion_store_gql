@@ -147,6 +147,7 @@ export const data = {
         not_request: "Request not entered",
         log_in_up: "log in / log up",
         filters: "Filters",
+        no_items: "There are no items in the cart",
     },
     ua: {
         catalog: 'каталог',
@@ -297,5 +298,6 @@ export const data = {
         not_request: "Запит не введено",
         log_in_up: "увійти / реєстрація",
         filters: "Фільтри",
+        no_items: "У кошику немає товарів",
     },
 };

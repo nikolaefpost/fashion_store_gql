@@ -1945,8 +1945,16 @@
   align-items: center;
   gap: 8px;
 }
+.navMobile-module__nav--Gidq_ .navMobile-module__left_block--oHUsW .navMobile-module__menu_icon--qKNwL {
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #E0BEA2;
+}
 .navMobile-module__nav--Gidq_ .navMobile-module__left_block--oHUsW .navMobile-module__menu_icon--qKNwL svg {
-  margin-bottom: -4px;
+  fill: #E0BEA2 !important;
 }
 .navMobile-module__nav--Gidq_ .navMobile-module__left_block--oHUsW .navMobile-module__language--YJ1Le button {
   border: none;
@@ -1989,7 +1997,7 @@
   height: calc(100vh - 74px);
   left: 0;
   top: 74px;
-  z-index: 100;
+  z-index: 101;
   background-color: #FFFFFF;
   border-top: 0.3px solid #E0BEA2;
   padding: 0 20px;
@@ -2065,14 +2073,6 @@
   font-size: 14px;
   line-height: 16px;
   color: #252525;
-}
-.navMobile-module__nav--Gidq_ .navMobile-module__hidden--iV7ow {
-  opacity: 0 !important;
-  transition: all 0.3s ease-out !important;
-}
-.navMobile-module__nav--Gidq_ .navMobile-module__not_display--pPLDT {
-  display: none;
-  transition: display 1s ease-out;
 }
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/componets/footer/footer.module.scss ***!
