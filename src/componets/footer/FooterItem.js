@@ -15,7 +15,7 @@ const variants = {
         }
     },
     closed: {
-        height: 25,
+        height: 26,
         transition: {
             y: { stiffness: 1000},
             delay: 1.3
@@ -51,11 +51,7 @@ const FooterItem = ({item}) => {
             onClick={handleHideBlock}
             animate={isOpen ? 'open' : 'closed'}
             variants={variants}
-            transition={{
-                // delay: .3,
-                ease: 'easeOut',
-                // delayChildren: .7
-            }}
+            transition={{ease: 'easeOut'}}
         >
             <h3>{item.title}</h3>
             {isMobile && <span

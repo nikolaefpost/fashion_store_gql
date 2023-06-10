@@ -2003,6 +2003,7 @@
   padding: 0 20px;
   display: block;
   transition: display 1s ease-out;
+  box-sizing: border-box;
 }
 .navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__content--YLIa0 {
   transition: all 0.3s ease-out;
@@ -2289,6 +2290,7 @@ span {
 .layout-module__outlet--eibyh {
   position: relative;
   height: 100vh;
+  overflow-x: hidden;
 }
 .layout-module__outlet--eibyh .layout-module__content--IJeRL {
   min-height: calc(100% - 195px);

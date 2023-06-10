@@ -80,6 +80,7 @@
 
     display: block;
     transition: display 1s ease-out;
+    box-sizing: border-box;
 
 
     & .content {
