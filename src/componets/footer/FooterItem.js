@@ -4,6 +4,35 @@ import {Link} from "react-router-dom";
 import {AiOutlineRight} from "react-icons/ai";
 import cn from "classnames";
 import {useMediaQuery} from "../../helpers/useMediaQuery";
+import { motion } from "framer-motion";
+
+const variants = {
+    open: {
+        height: 'auto',
+        transition: {
+            y: { stiffness: 1000, velocity: -100, mass: 5 },
+            delay: 0.3
+        }
+    },
+    closed: {
+        height: 25,
+        transition: {
+            y: { stiffness: 1000},
+            delay: 1.3
+        }
+    }
+};
+
+const childVariants = {
+    open: {
+        opacity: 1,
+        x: 0
+    },
+    closed: {
+        opacity: 0,
+        x: -250
+    }
+};
 
 const FooterItem = ({item}) => {
     const isMobile = useMediaQuery(500);
@@ -17,7 +46,17 @@ const FooterItem = ({item}) => {
         !isMobile? setIsOpen(true): setIsOpen(false)
     },[isMobile])
     return (
-        <div  className={styles.block} onClick={handleHideBlock}>
+        <motion.div
+            className={styles.block}
+            onClick={handleHideBlock}
+            animate={isOpen ? 'open' : 'closed'}
+            variants={variants}
+            transition={{
+                // delay: .3,
+                ease: 'easeOut',
+                // delayChildren: .7
+            }}
+        >
             <h3>{item.title}</h3>
             {isMobile && <span
                 className={cn(styles.svg, {[styles.active_svg]: isOpen})}
@@ -26,10 +65,19 @@ const FooterItem = ({item}) => {
                         <AiOutlineRight/>
                     </span>
             }
-            {isOpen && item.links.map(links => (
-                <Link key={links.href} to={links.href}>{links.name}</Link>
+            {item.links.map((links, i) => (
+                <motion.span
+                    key={links.href}
+                    animate={isOpen ? 'open' : 'closed'}
+                    variants={childVariants}
+                    transition={{ delay: .7+i*.2, ease: 'easeOut'}}
+                    className={styles.links}
+                >
+                    <Link key={links.href} to={links.href}>{links.name}</Link>
+            </motion.span>
+
             ))}
-        </div>
+        </motion.div>
     );
 };
 

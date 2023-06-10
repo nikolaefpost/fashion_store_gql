@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import styles from "./navMobile.module.scss";
 
 const ItemMenu = ({closeMenu, path, title, open, variants, delay}) => {
-    console.log(delay)
     return (
         <motion.div
             onClick={closeMenu}
