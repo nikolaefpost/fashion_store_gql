@@ -12,15 +12,15 @@ const OrderCard = ({orderElement, currentProduct}) => {
     const isMobile = useMediaQuery(500);
     const {text, lang} = useLanguage();
    const decQuantity = () => {
-     if(orderElement.quantity>1)  decQuantityItem(orderElement.product.id)
+     if(orderElement.quantity>1)  decQuantityItem(orderElement.id)
    }
 
     const incQuantity = () => {
-        incQuantityItem(orderElement.product.id)
+        incQuantityItem(orderElement.id)
     }
 
     const handleDeleteOrderElement = () => {
-        deleteProduct(orderElement.product.id)
+        deleteProduct(orderElement.id)
     }
     return (currentProduct?.id?
         <div  className={styles.list_item}>

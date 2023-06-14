@@ -8,25 +8,32 @@ export const getOrderStorage = () => {
     }
 }
 
+export const getNumberProducts = () => {
+    if (storage.getItem("orderList")) {
+        return JSON.parse(storage.getItem("orderList")).length;
+    }else return 0
+}
+
 export const setProducts = (product) => {
     let order = orderItemsVar()
-    if (order.some(pr => pr.product.id === product.product.id)) return;
+    // if (order.some(pr => pr.product.id === product.product.id)) return;
     orderItemsVar([...order, product])
     storage.setItem("orderList", JSON.stringify(orderItemsVar()));
 }
 
 export const decQuantityItem = (id) => {
-    orderItemsVar(orderItemsVar().map(el => el.product.id === id ? {...el, quantity: el.quantity - 1} : el));
+    orderItemsVar(orderItemsVar().map(el => el.id === id ? {...el, quantity: el.quantity - 1} : el));
     storage.setItem("orderList", JSON.stringify(orderItemsVar()));
 }
 
 export const incQuantityItem = (id) => {
-    orderItemsVar(orderItemsVar().map(el => el.product.id === id ? {...el, quantity: el.quantity + 1} : el));
+    console.log(id)
+    orderItemsVar(orderItemsVar().map(el => el.id === id ? {...el, quantity: el.quantity + 1} : el));
     storage.setItem("orderList", JSON.stringify(orderItemsVar()));
 }
 
 export const deleteProduct = (id) => {
-    orderItemsVar(orderItemsVar().filter(el => el.product.id !== id));
+    orderItemsVar(orderItemsVar().filter(el => el.id !== id));
     storage.setItem("orderList", JSON.stringify(orderItemsVar()));
 }
 

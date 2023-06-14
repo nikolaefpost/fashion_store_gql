@@ -13,7 +13,7 @@ const OrderList = ({order, products, total}) => {
             <div className={styles.list}>
                 {order.map((el) => (
                     <OrderCard
-                        key={el.product.id}
+                        key={el.id}
                         orderElement={el}
                         currentProduct={products ? products.productList.find(item => item.id === el.product.id) : {}}
                     />

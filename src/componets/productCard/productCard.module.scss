@@ -3,6 +3,19 @@
 
 .content {
   margin-top: 30px;
+  position: relative;
+
+  & .move_object{
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    @include fonts(300, 12px, 14px, #FFFFFF);
+    @include display-flex;
+    background: #3e77aa;
+    top: 50%;
+    left: 55%;
+  }
 
   & .product_card {
     @include display-flex(center, flex-start);

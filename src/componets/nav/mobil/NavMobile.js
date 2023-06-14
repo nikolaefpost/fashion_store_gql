@@ -10,9 +10,13 @@ import {useDimensions} from "../../../helpers/use-dimensions";
 import {MenuToggle} from "./MenuToggle";
 
 import styles from "./navMobile.module.scss";
+import {getOrderStorage} from "../../../appolo/operations/order/orderStore";
+import {useQuery} from "@apollo/client";
+import {GET_ORDERS_LOCAL} from "../../../appolo/operations/order/orderGrapfQgl";
 
 const NavMobile = () => {
-
+    getOrderStorage();
+    const {data} = useQuery(GET_ORDERS_LOCAL);
     const [isOpen, toggleOpen] = useCycle(false, true);
     const containerRef = useRef(null);
     const { height } = useDimensions(containerRef);
@@ -60,7 +64,10 @@ const NavMobile = () => {
             </NavLink>
             <div className={styles.right_block}>
                 <Link to="favorites"><FavoriteIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/></Link>
-                <Link to="order"><OrderIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/></Link>
+                <Link to="order" className={styles.order}>
+                    <OrderIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/>
+                    {data.orders.length>0 && <div className={styles.count}>{data.orders.length}</div>}
+                </Link>
             </div>
             <MobilMenu toggleOpen={toggleOpen} open={isOpen}/>
         </motion.div>

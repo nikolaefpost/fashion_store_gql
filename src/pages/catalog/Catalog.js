@@ -28,6 +28,7 @@ const Catalog = () => {
     const { data: category } = useQuery(GET_CATEGORY_LOCAL);
     const { data: product } = useQuery(GET_PRODUCT_LOCAL);
 
+
     const currentCategory = useReactiveVar(categoryCurrentVar);
 
     return (
@@ -35,6 +36,7 @@ const Catalog = () => {
             <NavBlock
                 namePage={text.catalog}
                 currentCategory={lang === "Eng" ? currentCategory?.category : currentCategory?.category_ua}
+                // currentCategory={currentCategory}
                 handlerResetCategory={handlerResetCategory}
             />
             <div className={styles.product_grid}>

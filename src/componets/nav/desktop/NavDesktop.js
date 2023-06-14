@@ -1,14 +1,20 @@
 import React from 'react';
 import {useLanguage} from "../../../context/setting";
 import {Link, NavLink, useHref} from "react-router-dom";
-import styles from "./navDesktop.module.scss";
 import {FavoriteIcon, MenuIcon, OrderIcon, SearchIcon} from "../../../assets/icon";
 import {SlArrowDown} from "react-icons/sl";
 import UserIdentification from "./UserIdentification";
 import {useMediaQuery} from "../../../helpers/useMediaQuery";
 import cn from "classnames";
+import {useQuery } from "@apollo/client";
+import {GET_ORDERS_LOCAL} from "../../../appolo/operations/order/orderGrapfQgl";
+
+import styles from "./navDesktop.module.scss";
+import {getOrderStorage} from "../../../appolo/operations/order/orderStore";
 
 const NavDesktop = () => {
+    getOrderStorage();
+    const {data} = useQuery(GET_ORDERS_LOCAL);
     const {text, lang, onChangeLang} = useLanguage();
     let isHome = useHref() === "#/";
     const isTablet = useMediaQuery(1000);
@@ -70,7 +76,10 @@ const NavDesktop = () => {
                 {/*<UserIcon color={isHome? "#FFFFFF":"#E0BEA2"} />*/}
                 <UserIdentification isHome={isHome}/>
                 <Link to="favorites"><FavoriteIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/></Link>
-                <Link to="order"><OrderIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/></Link>
+                <Link to="order" className={styles.order}>
+                    <OrderIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/>
+                    {data.orders.length>0 && <div className={styles.count}>{data.orders.length}</div>}
+                </Link>
 
             </div>
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import OrderList from "./OrderList";
 import Checkout from "./checkout/Checkout";
-import {getOrderStorage, getTotal} from "../../appolo/operations/order/orderStore";
-import {currentUserVar, orderItemsVar} from "../../appolo/cashe/appVar";
+import { getTotal} from "../../appolo/operations/order/orderStore";
+import {currentUserVar} from "../../appolo/cashe/appVar";
 import {useQuery, useReactiveVar} from "@apollo/client";
 import {GET_PRODUCT_LOCAL} from "../../appolo/operations/poducts/productGrapfQgl";
 import {formDeliveryAddress, formDeliveryRadio, formPaymentRadio, formPersonalInfo}
@@ -11,22 +11,21 @@ import {useLanguage} from "../../context/setting";
 import NavBlock from "../../componets/navBlock/NavBlock";
 
 import styles from "./order.module.scss";
+import {GET_ORDERS_LOCAL} from "../../appolo/operations/order/orderGrapfQgl";
 
 
 const Order = () => {
     const {text} = useLanguage();
     const {data} = useQuery(GET_PRODUCT_LOCAL);
-
-    getOrderStorage()
+    const {data: orders} = useQuery(GET_ORDERS_LOCAL);
     const sum = getTotal();
-    const orderItems = useReactiveVar(orderItemsVar);
     const user = useReactiveVar(currentUserVar)
 
     return (
         <div className={styles.order}>
             <NavBlock namePage={text.cart}/>
-            {orderItems.length>0 ?<>
-                <OrderList order={orderItems} total={sum} products={data}/>
+            {orders?.orders.length>0 ?<>
+                <OrderList order={orders.orders} total={sum} products={data}/>
                 <Checkout
                     formPersonalInfo={formPersonalInfo}
                     formDeliveryRadio={formDeliveryRadio}

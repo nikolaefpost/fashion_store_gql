@@ -29,6 +29,7 @@ export const GET_USER = gql`
         color
         quantity
         size
+        id
         product {
           name
           name_ua

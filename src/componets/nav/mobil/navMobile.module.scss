@@ -65,6 +65,23 @@
       height: 20px;
       margin-bottom: -4px;
     }
+
+    & .order{
+      position: relative;
+
+      & .count{
+        position: absolute;
+        top: -3px;
+        right: 0;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        //border: .3px solid $accent;
+        @include fonts(300, 10px, 12px, #FFFFFF);
+        @include display-flex;
+        background: #3e77aa;
+      }
+    }
   }
 
   & .mobile_menu {
@@ -128,7 +145,7 @@
 
     & .contact_info {
       position: absolute;
-      bottom: 30px;
+      bottom: 50px;
       width: 100%;
 
       & .social {

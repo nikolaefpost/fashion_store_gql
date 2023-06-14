@@ -80,6 +80,23 @@
         text-transform: uppercase;
       }
     }
+
+    & .order{
+      position: relative;
+
+      & .count{
+        position: absolute;
+        top: -3px;
+        right: 0;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        //border: .3px solid $accent;
+        @include fonts(300, 12px, 14px, #FFFFFF);
+        @include display-flex;
+        background: #3e77aa;
+      }
+    }
   }
 
   @media screen and (max-width: 1000px){

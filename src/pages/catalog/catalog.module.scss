@@ -165,7 +165,7 @@
     & .product_grid {
       margin-top: 10px;
       gap: 15px;
-      grid-template-columns: 100px calc(100vw - 100px);
+      grid-template-columns: 100px calc(100vw - 155px);
       grid-template-rows: auto auto;
 
       & .title {
@@ -438,6 +438,15 @@
 
 .product_card {
   position: relative;
+  transition: all .3s ease-out;
+  border: .3px solid transparent;
+
+  &:hover{
+    filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
+    border: .3px solid $main;
+    border-radius: 6px;
+    transition: all .3s ease-out;
+  }
 
   & .add_favorite {
     position: absolute;
@@ -461,6 +470,12 @@
     height: calc(100% - 139px);
     //padding: 12px;
     cursor: pointer;
+    transition: all .3s ease-out;
+
+    &:hover{
+      border-radius: 6px 6px 0 0;
+      transition: all .3s ease-out;
+    }
   }
 
   & .card_text {

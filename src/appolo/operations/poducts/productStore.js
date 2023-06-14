@@ -15,7 +15,6 @@ import {
 
 export const filterCategory = (category) => {
     categoryCurrentVar(category)
-    console.log(category)
     resetFilter()
 }
 
@@ -57,7 +56,6 @@ export const setMinPrice = (min) => {
 }
 
 export const setMaxPrice = (max) => {
-    console.log("setMaxPrice")
     productMinMax({...productMinMax(), max})
     productInputMinMax({...productInputMinMax(), max: Math.round(max * productRatio())})
 }
@@ -162,6 +160,7 @@ export const resetFilter = () => {
     const data = productItemsVar();
     const currentCategory = categoryCurrentVar();
 
+
     productCurrentSizeVar("");
     productCurrentColorVar("");
     productMinMax({min: 0, max: 184})
@@ -178,6 +177,5 @@ export const resetFilter = () => {
 }
 
 export const getProduct = (id) => {
-    console.log(productItemsVar())
     return productItemsVar()? productItemsVar().find(item=>item.id === id) : {}
 }

@@ -1,5 +1,5 @@
 import {ApolloClient, InMemoryCache} from "@apollo/client";
-import {categoryItemsVar, currentUserVar, productChangeItemsVar} from "./appVar";
+import {categoryItemsVar, currentUserVar, orderItemsVar, productChangeItemsVar} from "./appVar";
 
 export const cache = new InMemoryCache({
     typePolicies: {
@@ -19,7 +19,12 @@ export const cache = new InMemoryCache({
                     read() {
                         return currentUserVar();
                     }
-                }
+                },
+                orders :{
+                    read() {
+                        return orderItemsVar();
+                    }
+                },
             }
         }
     }

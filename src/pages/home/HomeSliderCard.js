@@ -22,8 +22,9 @@ const HomeSliderCard = ({card}) => {
     let title = lang === "Укр"? category_ua : category;
 
     const handleMoveCategory = () => {
-        navigate("/card");
-        filterCategory(category)
+        filterCategory({category, category_ua})
+        navigate("card");
+
     }
 
     return (
