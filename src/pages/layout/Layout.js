@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from "react-router-dom";
 import Nav from "../../componets/nav/Nav";
 import Footer from "../../componets/footer/Footer";
-import {useQuery} from "@apollo/client";
+import {useQuery } from "@apollo/client";
 import {categoryItemsVar, productChangeItemsVar, productItemsVar} from "../../appolo/cashe/appVar";
 import {GET_CATEGORY, GET_PRODUCTS} from "../../appolo/operations/poducts/productGrapfQgl";
 import {setMinMaxPrices} from "../../appolo/operations/poducts/productStore";

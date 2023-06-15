@@ -10,7 +10,7 @@ import {motion, AnimatePresence} from "framer-motion";
 import styles from "./productCard.module.scss";
 
 
-const ProductCard = ({product, setProduct, cardId, isTablet, isMobile}) => {
+const ProductCard = ({product, setProduct, cardId, isTablet, isMobile, lessTablet}) => {
     const [addProduct, setAddProduct] = useState(true)
     const {text, lang} = useLanguage();
     const {data: user} = useQuery(GET_USER_LOCAL);
@@ -108,6 +108,7 @@ const ProductCard = ({product, setProduct, cardId, isTablet, isMobile}) => {
                         sizeError={sizeError}
                         setSizeError={setSizeError}
                         size={product?.size}
+                        lessTablet={lessTablet}
                     />
                     <div className={styles.button_block}>
                         <button onClick={() => setOrder(product?.id)}>{text.add_cart}</button>
@@ -116,17 +117,39 @@ const ProductCard = ({product, setProduct, cardId, isTablet, isMobile}) => {
                     {!isTablet && <div className={styles.description}>
                         <h4>{text.details}</h4>
                         <Description title={text.description}>
-                            {lang === "Eng" ? product?.description_details : product?.description_details_ua}
+                            <AnimatePresence>
+                                <motion.div
+                                    initial={{opacity: 0}}
+                                    animate={{opacity: 1}}
+                                    exit={{opacity: 0}}
+                                >{lang === "Eng" ? product?.description_details : product?.description_details_ua}</motion.div>
+                            </AnimatePresence>
                         </Description>
                         <Description title={text.composition}>
-                            {descriptionComposition && <ul>
-                                {descriptionComposition.map(item => <li key={item}>{item}</li>)}
-                            </ul>}
+                            <AnimatePresence>
+                                {descriptionComposition && <ul>
+                                    {descriptionComposition.map((item, i) => <motion.li
+                                        key={item}
+                                        initial={{opacity: 0}}
+                                        animate={{opacity: 1}}
+                                        exit={{opacity: 0}}
+                                        transition={{delay: 0.1 + i * .1}}
+                                    >{item}</motion.li>)}
+                                </ul>}
+                            </AnimatePresence>
                         </Description>
                         <Description title={text.care}>
+                            <AnimatePresence>
                             {descriptionCare && <ul>
-                                {descriptionCare.map(item => <li key={item}>- {item}</li>)}
+                                {descriptionCare.map((item, i) => <motion.li
+                                    key={item}
+                                    initial={{opacity: 0}}
+                                    animate={{opacity: 1}}
+                                    exit={{opacity: 0}}
+                                    transition={{delay: 0.1 + i * .1}}
+                                >- {item}</motion.li>)}
                             </ul>}
+                                </AnimatePresence>
                         </Description>
                     </div>}
                 </div>

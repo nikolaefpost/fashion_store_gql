@@ -7,7 +7,7 @@ import cn from "classnames";
 import styles from "./navBlock.module.scss"
 
 
-const NavBlock = ({namePage, currentCategory, handlerResetCategory, currentProduct}) => {
+const NavBlock = ({namePage, currentCategory, handlerResetCategory, handleTransitionCategory, currentProduct}) => {
     const {text} = useLanguage();
     const navigate = useNavigate();
     const handleHome = () => {
@@ -21,7 +21,10 @@ const NavBlock = ({namePage, currentCategory, handlerResetCategory, currentProdu
                 <span onClick={handlerResetCategory}>{namePage}</span>
                 {currentCategory && <>
                     <AiOutlineRight/>
-                    <span className={cn(styles.nav_category, {[styles.color_accent]: currentProduct})}>{currentCategory}</span>
+                    <span
+                        className={cn(styles.nav_category, {[styles.color_accent]: currentProduct})}
+                        onClick={handleTransitionCategory}
+                    >{currentCategory}</span>
                 </>}
                 {currentProduct && <> <AiOutlineRight/> <span className={styles.nav_category}>{currentProduct}</span></>}
             </div>

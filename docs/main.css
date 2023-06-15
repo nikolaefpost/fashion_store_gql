@@ -2778,6 +2778,7 @@ span {
   line-height: 19px;
   color: #252525;
   cursor: pointer;
+  overflow-y: hidden;
 }
 .productCard-module__content--fJ44M .productCard-module__product_card--NZTBd .productCard-module__text_block--eknnl .productCard-module__select--vO4hw .productCard-module__error--_oIVU {
   font-family: "Gill Sans", sans-serif;
@@ -2791,6 +2792,7 @@ span {
 }
 .productCard-module__content--fJ44M .productCard-module__product_card--NZTBd .productCard-module__text_block--eknnl .productCard-module__select--vO4hw ul {
   padding: 0;
+  margin-bottom: 0;
 }
 .productCard-module__content--fJ44M .productCard-module__product_card--NZTBd .productCard-module__text_block--eknnl .productCard-module__select--vO4hw ul li {
   list-style-type: none;

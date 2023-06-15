@@ -35,13 +35,15 @@ const Product = () => {
         navigate(`/card/${id}`)
     }
 
-    const handleTransitionCategory = () => {
+    const handleTransitionCategory = (category) => {
+        console.log(category)
+        filterCategory(category)
         navigate("/card");
-        filterCategory(currentProduct?.category?.category)
+
     }
 
-    const styleX = lessTablet ? {width: "165px", height: "326px"}: {width: "370px", height: "501px"}
-    const styleL = lessTablet ? {width: "165px", height: "326px"}: {width: "274px", height: "401px"}
+    const styleX = lessTablet ? {width: "165px", height: "326px"} : {width: "370px", height: "501px"}
+    const styleL = lessTablet ? {width: "165px", height: "326px"} : {width: "274px", height: "401px"}
 
     handlerScrollUp();
     return (
@@ -50,7 +52,11 @@ const Product = () => {
                 namePage={text.catalog}
                 currentCategory={lang === "Eng" ?
                     currentProduct?.category?.category : currentProduct?.category?.category_ua}
-                handlerResetCategory={handleTransitionCategory}
+                handlerResetCategory={() => handleTransitionCategory(null)}
+                handleTransitionCategory={() => handleTransitionCategory({
+                        category: currentProduct?.category?.category,
+                        category_ua: currentProduct?.category?.category_ua
+                    })}
                 currentProduct={lang === "Eng" ? currentProduct?.name : currentProduct?.name_ua}
             />
             <ProductCard
@@ -59,6 +65,7 @@ const Product = () => {
                 cardId={cardId}
                 isTablet={isTablet}
                 isMobile={isMobile}
+                lessTablet={lessTablet}
             />
             {product?.productList.length &&
                 <>
@@ -68,8 +75,9 @@ const Product = () => {
                                 data={dataAdditional}/>
                     <OtherImage title={text.may_like} handleTransition={handleTransition} style={styleL}
                                 data={dataLike}/>
-                    {dataRecentlyWatched.length > 0 && <OtherImage title={text.recently_viewed} handleTransition={handleTransition} style={styleL}
-                                 data={dataRecentlyWatched}/>}
+                    {dataRecentlyWatched.length > 0 &&
+                        <OtherImage title={text.recently_viewed} handleTransition={handleTransition} style={styleL}
+                                    data={dataRecentlyWatched}/>}
                 </>}
         </div>
     );

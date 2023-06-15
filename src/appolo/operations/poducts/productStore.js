@@ -14,6 +14,7 @@ import {
 
 
 export const filterCategory = (category) => {
+    console.log(category)
     categoryCurrentVar(category)
     resetFilter()
 }
