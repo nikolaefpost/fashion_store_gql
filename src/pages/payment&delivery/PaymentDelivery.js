@@ -4,15 +4,17 @@ import cn from "classnames";
 import {useLanguage} from "../../context/setting";
 import NavBlock from "../../componets/navBlock/NavBlock";
 import {motion, AnimatePresence} from "framer-motion";
+import {handlerScrollUp} from "../../helpers/handlerScrollUp";
 
 import styles from "./paymentDelivery.module.scss";
+
 
 
 const PaymentDelivery = () => {
     const {text} = useLanguage();
     const canPayMethods = [text.nova_poshta, text.money_transfer, text.privat24];
     const deliveryOptions = [text.sending_nova_poshta, text.international_delivery, text.delivery_time]
-
+    handlerScrollUp();
     return (
         <AnimatePresence>
             <motion.div

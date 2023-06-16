@@ -36,7 +36,6 @@ const Product = () => {
     }
 
     const handleTransitionCategory = (category) => {
-        console.log(category)
         filterCategory(category)
         navigate("/card");
 

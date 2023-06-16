@@ -5,6 +5,7 @@ import NavBlock from "../../componets/navBlock/NavBlock";
 import {motion, AnimatePresence} from "framer-motion";
 
 import styles from "./exchangeReturn.module.scss";
+import {handlerScrollUp} from "../../helpers/handlerScrollUp";
 
 const ExchangeReturn = () => {
     const {text} = useLanguage();
@@ -17,7 +18,7 @@ const ExchangeReturn = () => {
         {icon: expenses, text: text.all_costs_exchange},
         {icon: cart, text: text.transfer_funds},
     ]
-
+    handlerScrollUp();
     return (
         <AnimatePresence>
             <motion.div

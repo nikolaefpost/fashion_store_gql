@@ -7,9 +7,11 @@ import {insta, telegram} from "../../assets/icon";
 import {motion, AnimatePresence} from "framer-motion";
 
 import styles from "./contacts.module.scss";
+import {handlerScrollUp} from "../../helpers/handlerScrollUp";
 
 const Contacts = () => {
     const {text} = useLanguage();
+    handlerScrollUp();
     return (
         <AnimatePresence>
             <motion.div
