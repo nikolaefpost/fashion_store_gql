@@ -117,39 +117,17 @@ const ProductCard = ({product, setProduct, cardId, isTablet, isMobile, lessTable
                     {!isTablet && <div className={styles.description}>
                         <h4>{text.details}</h4>
                         <Description title={text.description}>
-                            <AnimatePresence>
-                                <motion.div
-                                    initial={{opacity: 0}}
-                                    animate={{opacity: 1}}
-                                    exit={{opacity: 0}}
-                                >{lang === "Eng" ? product?.description_details : product?.description_details_ua}</motion.div>
-                            </AnimatePresence>
+                                <div>{lang === "Eng" ? product?.description_details : product?.description_details_ua}</div>
                         </Description>
                         <Description title={text.composition}>
-                            <AnimatePresence>
                                 {descriptionComposition && <ul>
-                                    {descriptionComposition.map((item, i) => <motion.li
-                                        key={item}
-                                        initial={{opacity: 0}}
-                                        animate={{opacity: 1}}
-                                        exit={{opacity: 0}}
-                                        transition={{delay: 0.1 + i * .1}}
-                                    >{item}</motion.li>)}
+                                    {descriptionComposition.map((item) => <li key={item}>{item}</li>)}
                                 </ul>}
-                            </AnimatePresence>
                         </Description>
                         <Description title={text.care}>
-                            <AnimatePresence>
                             {descriptionCare && <ul>
-                                {descriptionCare.map((item, i) => <motion.li
-                                    key={item}
-                                    initial={{opacity: 0}}
-                                    animate={{opacity: 1}}
-                                    exit={{opacity: 0}}
-                                    transition={{delay: 0.1 + i * .1}}
-                                >- {item}</motion.li>)}
+                                {descriptionCare.map((item) => <li key={item}>- {item}</li>)}
                             </ul>}
-                                </AnimatePresence>
                         </Description>
                     </div>}
                 </div>

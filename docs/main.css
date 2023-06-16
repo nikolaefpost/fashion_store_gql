@@ -2898,6 +2898,7 @@ span {
   font-size: 14px;
   line-height: 16px;
   color: #252525;
+  overflow-y: hidden;
 }
 .productCard-module__content--fJ44M .productCard-module__description--dLW2o .productCard-module__description_element--usV5_ .productCard-module__hidden_text--dxnzJ ul {
   padding: 0;

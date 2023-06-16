@@ -258,6 +258,7 @@
       & .hidden_text {
         margin-top: 10px;
         @include fonts(200, 14px, 16px, $accent);
+        overflow-y: hidden;
 
         & ul {
           padding: 0;

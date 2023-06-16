@@ -1,15 +1,25 @@
 import React from 'react';
 import {useLanguage} from "../../context/setting";
-import styles from "./bonusSystem.module.scss";
 import NavBlock from "../../componets/navBlock/NavBlock";
+import {motion, AnimatePresence} from "framer-motion";
+
+import styles from "./bonusSystem.module.scss";
 
 const BonusSystem = () => {
     const {text} = useLanguage();
     return (
-        <div className={styles.content}>
-            <NavBlock namePage={text.bonus_system}/>
-            <h3>{text.bonus_system}</h3>
-        </div>
+        <AnimatePresence>
+            <motion.div
+                className={styles.content}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ ease: "easeOut", duration: 1 }}
+            >
+                <NavBlock namePage={text.bonus_system}/>
+                <h3>{text.bonus_system}</h3>
+            </motion.div>
+        </AnimatePresence>
     );
 };
 
