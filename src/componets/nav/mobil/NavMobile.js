@@ -59,12 +59,13 @@ const NavMobile = () => {
                 to="/"
                 className={cn(styles.title, styles.fashion)}
                 style={isHome ? mainStyle : {}}
+                onClick={()=>toggleOpen(0)}
             >
                 fashion
             </NavLink>
             <div className={styles.right_block}>
-                <Link to="favorites"><FavoriteIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/></Link>
-                <Link to="order" className={styles.order}>
+                <Link to="favorites" onClick={()=>toggleOpen(0)}><FavoriteIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/></Link>
+                <Link to="order" className={styles.order} onClick={()=>toggleOpen(0)}>
                     <OrderIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/>
                     {data.orders.length>0 && <div className={styles.count}>{data.orders.length}</div>}
                 </Link>
