@@ -1,7 +1,6 @@
 import React, {createContext,  useContext, useEffect, useState} from "react";
 import {data} from "./languageData";
 
-
 const storage = window.localStorage;
 const SettingContext = createContext({});
 

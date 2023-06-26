@@ -22,7 +22,7 @@ const Layout = () => {
             <div className={style.outlet}>
                 <Nav/>
                 <div className={style.content}>
-                    {(loadCategory || loadProduct) && <h2>Loading ...</h2>}
+                    {(loadCategory || loadProduct) && <h2 className={style.loading}>Loading ...</h2>}
                     {(errorCategory || errorProduct) && <h2>Error! {errorCategory.message}</h2>}
                     <Outlet/>
                 </div>

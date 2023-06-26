@@ -69,7 +69,7 @@ const NavDesktop = () => {
                     <button
                         onClick={onChangeLang}
                         style={isHome ? mainStyle : {}}
-                    >{lang}</button>
+                    >{lang==="Eng"? "Укр": "Eng"}</button>
                     <SlArrowDown/>
                 </div>
                 <SearchIcon color={isHome ? "#FFFFFF" : "#252525"} size={23}/>

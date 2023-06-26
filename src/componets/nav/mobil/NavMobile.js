@@ -51,7 +51,7 @@ const NavMobile = () => {
                     <button
                         onClick={onChangeLang}
                         style={isHome ? mainStyle : {}}
-                    >{lang}</button>
+                    >{lang==="Eng"? "Укр": "Eng"}</button>
                     <SlArrowDown/>
                 </div>
             </div>

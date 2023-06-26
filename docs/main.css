@@ -2103,7 +2103,7 @@
 }
 .navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__contact_info--zXfQB {
   position: absolute;
-  bottom: 50px;
+  bottom: 70px;
   width: 100%;
 }
 .navMobile-module__nav--Gidq_ .navMobile-module__mobile_menu--Visq1 .navMobile-module__contact_info--zXfQB .navMobile-module__social--LAfM5 {
@@ -2359,6 +2359,13 @@ span {
 @media screen and (max-width: 500px) {
   .layout-module__outlet--eibyh .layout-module__content--IJeRL {
     min-height: calc(100% - 295px);
+  }
+  .layout-module__outlet--eibyh .layout-module__loading--qBJ2O {
+    position: absolute;
+    top: 45px;
+    z-index: 11;
+    width: 100%;
+    padding-left: 30px;
   }
 }
 /*!************************************************************************************************************************************************************************************************************************************!*\
