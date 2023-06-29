@@ -20,7 +20,7 @@ const HeaderInfo = ({setOpenInfo, length, changePriseRange, currentColor, curren
             </div>
             {currentSize && <span className={styles.selected}>{currentSize}</span>}
             {currentColor && <div className={styles.selected_color}>
-                <div className={cn(styles.circle, styles[currentColor], styles.white_border)}/>
+                <div className={cn(styles.circle_select, styles[currentColor], styles.white_border)}/>
             </div>}
             {changePriseRange && <>
                 <div className={styles.selected}>{text.from}:

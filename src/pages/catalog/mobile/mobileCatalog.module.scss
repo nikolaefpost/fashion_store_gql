@@ -100,4 +100,8 @@
       transition: all .3s ease-out
     }
   }
+
+  & .collapse_list{
+    overflow: hidden;
+  }
 }

@@ -10,6 +10,7 @@ import NavBlock from "../../componets/navBlock/NavBlock";
 import {useMediaQuery} from "../../helpers/useMediaQuery";
 import MobilSidebar from "./mobile/MobilSidebar";
 import Header from "./Header";
+import { motion } from "framer-motion";
 
 import styles from "./catalog.module.scss";
 
@@ -32,7 +33,15 @@ const Catalog = () => {
     const currentCategory = useReactiveVar(categoryCurrentVar);
 
     return (
-        <div className={styles.content}>
+        <motion.div
+            // layout
+            animate={{ opacity: 1 }}
+            transition={{
+                opacity: { ease: "linear" },
+                layout: { duration: 0.5 }
+            }}
+            // animate={{ opacity: 1 }}
+            className={styles.content}>
             <NavBlock
                 namePage={text.catalog}
                 currentCategory={lang === "Eng" ? currentCategory?.category : currentCategory?.category_ua}
@@ -48,7 +57,7 @@ const Catalog = () => {
                 <ProductList isMobile={isTablet} products={product?.productList? product?.productList: []}/>
 
             </div>
-        </div>
+        </motion.div>
     );
 };
 

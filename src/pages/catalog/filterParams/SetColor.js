@@ -6,9 +6,11 @@ import {useOnClickOutside} from "../../../hooks/useOnclickOutside";
 import {useQuery} from "@apollo/client";
 import {GET_COLOR} from "../../../appolo/operations/poducts/productGrapfQgl";
 import {applyFilter, setColor} from "../../../appolo/operations/poducts/productStore";
+import {motion, AnimatePresence} from "framer-motion";
+import {useLanguage} from "../../../context/setting";
 
 import styles from "../catalog.module.scss";
-import {useLanguage} from "../../../context/setting";
+
 
 const SetColor = () => {
     const {text} = useLanguage();
@@ -28,7 +30,12 @@ const SetColor = () => {
         <div className={styles.header_block} onClick={()=>setOpenColor(true)}>
             <span className={styles.header_title}>{text.color}</span>
             <span className={cn(styles.svg, {[styles.active_svg]: openColor})}><AiOutlineDown/></span>
-            {openColor && <div ref={colorRef} className={styles.modal_size}>
+            <AnimatePresence>
+            {openColor && <motion.div
+                initial={{height: 0, opacity: 0}}
+                animate={{height: 'auto', opacity: 1}}
+                exit={{height: 0, opacity: 0}}
+                ref={colorRef} className={styles.modal_size}>
                 {loading && <div>Loading ... </div>}
                 {data && data?.queryColor.map(el=>(
                     <div
@@ -38,7 +45,8 @@ const SetColor = () => {
                     />
                 ))}
 
-            </div>}
+            </motion.div>}
+                </AnimatePresence>
         </div>
     );
 };

@@ -8,6 +8,7 @@ import SetColor from "../filterParams/SetColor";
 import SetPrice from "../filterParams/SetPrice";
 import SortList from "../filterParams/SortList";
 import HeaderInfo from "../HeaderInfo";
+import {motion, AnimatePresence} from "framer-motion";
 
 import styles from "./mobileCatalog.module.scss";
 
@@ -27,12 +28,19 @@ const MobileHeaderCatalog = ({inputMinMax, changePriseRange, currentColor, curre
                 <img src={filters} alt="filters"/>
                 <span className={cn(styles.svg, {[styles.active_svg]: openSelect})}><AiOutlineRight/></span>
             </h3>
-            {openSelect && <div>
-                <SetSize/>
-                <SetColor/>
-                <SetPrice/>
-                <SortList/>
-            </div>}
+            <AnimatePresence>
+                {openSelect && <motion.div
+                    initial={{height: 0, opacity: 0}}
+                    animate={{height: 'auto', opacity: 1}}
+                    exit={{height: 0, opacity: 0}}
+                    className={styles.collapse_list}
+                >
+                    <SetSize/>
+                    <SetColor/>
+                    <SetPrice/>
+                    <SortList/>
+                </motion.div>}
+            </AnimatePresence>
 
             {openInfo && <HeaderInfo
                 length={length} setOpenInfo={setOpenInfo}
