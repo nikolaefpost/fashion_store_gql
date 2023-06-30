@@ -1,5 +1,5 @@
 import React from 'react';
-import {useMediaQuery} from "../../helpers/useMediaQuery";
+import {useMediaQuery} from "../../hooks/useMediaQuery";
 import NavDesktop from "./desktop/NavDesktop";
 import NavMobile from "./mobil/NavMobile";
 

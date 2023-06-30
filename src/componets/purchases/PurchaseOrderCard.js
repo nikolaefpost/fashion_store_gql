@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from "classnames";
 import {useLanguage} from "../../context/setting";
-import {useMediaQuery} from "../../helpers/useMediaQuery";
+import {useMediaQuery} from "../../hooks/useMediaQuery";
 
 import styles from "./purchases.module.scss";
 

@@ -7,7 +7,7 @@ import {GET_CATEGORY_LOCAL, GET_PRODUCT_LOCAL} from "../../appolo/operations/pod
 import {filterCategory} from "../../appolo/operations/poducts/productStore";
 import {useLanguage} from "../../context/setting";
 import NavBlock from "../../componets/navBlock/NavBlock";
-import {useMediaQuery} from "../../helpers/useMediaQuery";
+import {useMediaQuery} from "../../hooks/useMediaQuery";
 import MobilSidebar from "./mobile/MobilSidebar";
 import Header from "./Header";
 import { motion } from "framer-motion";

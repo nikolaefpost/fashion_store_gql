@@ -6,7 +6,7 @@ import {useLanguage} from "../../../context/setting";
 import MobilMenu from "./MobilMenu";
 import cn from "classnames";
 import {useCycle, motion} from "framer-motion";
-import {useDimensions} from "../../../helpers/use-dimensions";
+import {useDimensions} from "../../../hooks/use-dimensions";
 import {MenuToggle} from "./MenuToggle";
 
 import styles from "./navMobile.module.scss";

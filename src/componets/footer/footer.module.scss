@@ -1,36 +1,39 @@
 @import "../../style/mixins";
 @import "../../style/colors";
 
-.container{
+.container {
   position: relative;
   @include display-flex(center, flex-start);
   gap: 45px;
   padding: 0 150px 45px;
 
-  & .block{
+  & .block {
     background: #FFFFFF;
     width: 25%;
     @include display-flex(center, flex-start);
     flex-direction: column;
-    & .svg {}
 
-    & .active_svg {}
+    & .svg {
+    }
 
-    & h3{
+    & .active_svg {
+    }
+
+    & h3 {
       @include fonts(300, 20px, 23px, $accent);
       margin-bottom: 10px;
       text-transform: uppercase;
     }
 
-    & .links{
-      &  a{
+    & .links {
+      & a {
         margin-top: 10px;
         @include fonts(200, 16px, 19px, $accent);
         text-decoration: none;
         display: inline-block;
         transition: all 1s ease-out;
 
-        &:hover{
+        &:hover {
           text-decoration: underline;
           transform: scale(1.2);
           transition: all .4s ease-out;
@@ -42,7 +45,7 @@
       }
     }
 
-    & .social{
+    & .social {
       //margin-top: 10px;
       height: 29px;
 
@@ -51,48 +54,48 @@
         margin-right: 14px;
         height: 19px;
 
-        & img{
+        & img {
           cursor: pointer;
 
-          &:hover{
+          &:hover {
             filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
           }
         }
       }
     }
 
-    & .info{
+    & .info {
       margin-top: 10px;
       @include fonts(200, 16px, 19px, $accent);
     }
   }
 
-  & .rights{
+  & .rights {
     position: absolute;
     bottom: 12px;
     right: 24px;
     @include fonts(200, 12px, 15px, $accent);
   }
 
-  @media screen and (max-width: 1000px){
+  @media screen and (max-width: 1000px) {
     width: 100%;
     gap: 15px;
     padding: 0 20px 47px 20px;
 
-    & .block{
+    & .block {
       width: auto;
       @include display-flex;
 
-      & h3{
+      & h3 {
         @include fonts(300, 18px, 21px, $accent);
         margin-bottom: 0;
       }
 
-      & a{
+      & a {
         @include fonts(200, 14px, 16px, $accent);
       }
 
-      & .social{
+      & .social {
         height: 27px;
 
         & a {
@@ -100,30 +103,33 @@
         }
       }
 
-      & .info{
+      & .info {
         width: 100%;
         @include fonts(200, 14px, 16px, $accent);
         text-align: center;
       }
     }
 
-    & .rights{
+    & .rights {
       @include fonts(200, 10px, 12px, $accent);
     }
   }
 
-  @media screen and (max-width: 500px){
+  @media screen and (max-width: 500px) {
     @include display-flex(flex-start, center);
     flex-direction: column;
     gap: 20px;
     padding: 0 20px 47px 20px;
 
-    & .block{
+    & .block {
       width: 100%;
       @include display-flex(flex-start, center);
       border-bottom: 0.3px solid $accent;
       position: relative;
-      padding-bottom: 5px;
+
+      & .links:last-child {
+        margin-bottom: 5px;
+      }
 
       & .svg {
         width: 14px;
@@ -141,30 +147,32 @@
         transition: all .3s ease-out
       }
 
-      & h3{
+      & h3 {
         @include fonts(300, 18px, 21px, $accent);
         margin-bottom: 0;
       }
-      & a{
+
+      & a {
         @include fonts(200, 14px, 16px, $accent);
         text-align: center;
       }
 
-      & .social{
+      & .social {
         margin-top: 12px;
       }
 
-      &:last-child{
+      &:last-child {
         border: none;
       }
-      & .info{
+
+      & .info {
         margin-top: 5px;
         @include fonts(200, 14px, 16px, $accent);
         text-align: center;
       }
     }
 
-    & .rights{
+    & .rights {
       position: absolute;
       bottom: 12px;
       right: 0;

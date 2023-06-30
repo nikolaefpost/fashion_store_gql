@@ -8,7 +8,7 @@ import {GET_USER_LOCAL} from "../../appolo/operations/user/userGrapfQgl";
 import {recentlyWatchedSave} from "../../helpers/recentlyWatchedSave";
 import OtherImage from "../product/OtherImage";
 import NavBlock from "../../componets/navBlock/NavBlock";
-import {useMediaQuery} from "../../helpers/useMediaQuery";
+import {useMediaQuery} from "../../hooks/useMediaQuery";
 
 
 

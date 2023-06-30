@@ -10,9 +10,10 @@ import {GET_PRODUCT_LOCAL} from "../../appolo/operations/poducts/productGrapfQgl
 import {setProducts} from "../../appolo/operations/order/orderStore";
 import {useLanguage} from "../../context/setting";
 import NavBlock from "../../componets/navBlock/NavBlock";
-import {useMediaQuery} from "../../helpers/useMediaQuery";
+import {useMediaQuery} from "../../hooks/useMediaQuery";
 
 import styles from "./product.module.scss";
+import {useScrollUp} from "../../hooks/useScrollUp";
 
 
 const Product = () => {
@@ -45,8 +46,19 @@ const Product = () => {
     const styleL = lessTablet ? {width: "165px", height: "326px"} : {width: "274px", height: "401px"}
 
     handlerScrollUp();
+
+    const [refScroll, setScrollUp] = useScrollUp();
+    setScrollUp();
+
+    // const h2ref = useRef(null);
+    // h2ref.current?.scrollIntoView();
+
+    // useLayoutEffect(() => {
+    //     h2ref.current.scrollIntoView();
+    // }, []);
+
     return (
-        <div className={styles.content}>
+        <div className={styles.content} ref={refScroll}>
             <NavBlock
                 namePage={text.catalog}
                 currentCategory={lang === "Eng" ?

@@ -4,7 +4,7 @@ import {Link, NavLink, useHref} from "react-router-dom";
 import {FavoriteIcon, MenuIcon, OrderIcon, SearchIcon} from "../../../assets/icon";
 import {SlArrowDown} from "react-icons/sl";
 import UserIdentification from "./UserIdentification";
-import {useMediaQuery} from "../../../helpers/useMediaQuery";
+import {useMediaQuery} from "../../../hooks/useMediaQuery";
 import cn from "classnames";
 import {useQuery } from "@apollo/client";
 import {GET_ORDERS_LOCAL} from "../../../appolo/operations/order/orderGrapfQgl";

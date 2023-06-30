@@ -3,7 +3,7 @@ import cn from "classnames";
 import {AiOutlineRight} from "react-icons/ai";
 import PurchaseCard from "./PurchaseCard";
 import {useLanguage} from "../../context/setting";
-import {useMediaQuery} from "../../helpers/useMediaQuery";
+import {useMediaQuery} from "../../hooks/useMediaQuery";
 
 import styles from "./purchases.module.scss";
 

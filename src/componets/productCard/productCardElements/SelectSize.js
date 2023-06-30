@@ -48,6 +48,7 @@ const SelectSize = ({
             initial={false}
             // transition={{ease: 'easeOut'}}
         >
+            <div className={styles.select_padding}>
             {sizeProduct}
             <span className={cn(styles.svg, {[styles.active_svg]: openSelect})}><AiOutlineRight/></span>
             <AnimatePresence>
@@ -66,6 +67,7 @@ const SelectSize = ({
                 </ul>}
             </AnimatePresence>
             {sizeError && <div className={styles.error}>{text.select_size}!</div>}
+            </div>
         </motion.div>
 
     );

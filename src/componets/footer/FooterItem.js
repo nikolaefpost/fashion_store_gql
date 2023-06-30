@@ -3,7 +3,7 @@ import styles from "./footer.module.scss";
 import {Link} from "react-router-dom";
 import {AiOutlineRight} from "react-icons/ai";
 import cn from "classnames";
-import {useMediaQuery} from "../../helpers/useMediaQuery";
+import {useMediaQuery} from "../../hooks/useMediaQuery";
 import { motion } from "framer-motion";
 
 const variants = {

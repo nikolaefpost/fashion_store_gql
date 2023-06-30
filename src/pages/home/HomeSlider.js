@@ -6,7 +6,7 @@ import {useQuery} from "@apollo/client";
 import {GET_CATEGORY_LOCAL} from "../../appolo/operations/poducts/productGrapfQgl";
 
 import styles from "./home.module.scss";
-import {useMediaQuery} from "../../helpers/useMediaQuery";
+import {useMediaQuery} from "../../hooks/useMediaQuery";
 
 const HomeSlider = () => {
     const isMobile = useMediaQuery(500);

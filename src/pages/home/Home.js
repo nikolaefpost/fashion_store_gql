@@ -5,7 +5,7 @@ import {useLanguage} from "../../context/setting";
 import SubscriptBlock from "../../componets/SubscriptBlock/subscriptBlock";
 
 import styles from "./home.module.scss";
-import {useMediaQuery} from "../../helpers/useMediaQuery";
+import {useMediaQuery} from "../../hooks/useMediaQuery";
 
 
 

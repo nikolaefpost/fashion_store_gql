@@ -12,7 +12,7 @@ import {SET_PURCHASE} from "../../../appolo/operations/purchase/purchaseGrapfQgl
 import {setPurchase} from "../../../appolo/operations/purchase/purchaseStore";
 import {deleteOrder} from "../../../appolo/operations/order/orderStore";
 import {useLanguage} from "../../../context/setting";
-import {useMediaQuery} from "../../../helpers/useMediaQuery";
+import {useMediaQuery} from "../../../hooks/useMediaQuery";
 
 import styles from "./checkout.module.scss";
 

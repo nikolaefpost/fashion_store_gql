@@ -4,7 +4,7 @@ import {RiDeleteBinLine} from "react-icons/ri"
 import {AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import {decQuantityItem, deleteProduct, incQuantityItem} from "../../appolo/operations/order/orderStore";
 import {useLanguage} from "../../context/setting";
-import {useMediaQuery} from "../../helpers/useMediaQuery";
+import {useMediaQuery} from "../../hooks/useMediaQuery";
 
 import styles from "./order.module.scss";
 
