@@ -2,7 +2,6 @@ import React from 'react';
 import {useNavigate, useParams} from "react-router-dom";
 import ProductCard from "../../componets/productCard/ProductCard";
 import {getRecentlyWatched, recentlyWatchedSave} from "../../helpers/recentlyWatchedSave";
-import {handlerScrollUp} from "../../helpers/handlerScrollUp";
 import OtherImage from "./OtherImage";
 import {filterCategory, getProduct} from "../../appolo/operations/poducts/productStore";
 import {useQuery} from "@apollo/client";
@@ -11,9 +10,11 @@ import {setProducts} from "../../appolo/operations/order/orderStore";
 import {useLanguage} from "../../context/setting";
 import NavBlock from "../../componets/navBlock/NavBlock";
 import {useMediaQuery} from "../../hooks/useMediaQuery";
+import {useScrollUp} from "../../hooks/useScrollUp";
+
 
 import styles from "./product.module.scss";
-import {useScrollUp} from "../../hooks/useScrollUp";
+
 
 
 const Product = () => {
@@ -45,17 +46,11 @@ const Product = () => {
     const styleX = lessTablet ? {width: "165px", height: "326px"} : {width: "370px", height: "501px"}
     const styleL = lessTablet ? {width: "165px", height: "326px"} : {width: "274px", height: "401px"}
 
-    handlerScrollUp();
+    // handlerScrollUp();
 
     const [refScroll, setScrollUp] = useScrollUp();
     setScrollUp();
 
-    // const h2ref = useRef(null);
-    // h2ref.current?.scrollIntoView();
-
-    // useLayoutEffect(() => {
-    //     h2ref.current.scrollIntoView();
-    // }, []);
 
     return (
         <div className={styles.content} ref={refScroll}>

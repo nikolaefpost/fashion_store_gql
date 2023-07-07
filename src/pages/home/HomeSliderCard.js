@@ -3,6 +3,7 @@ import {coat_category, fur_coats, jackets, parkas} from "../../assets/img";
 import {useLanguage} from "../../context/setting";
 import {useNavigate} from "react-router-dom";
 import {filterCategory} from "../../appolo/operations/poducts/productStore";
+import PropTypes from "prop-types";
 
 import styles from "./home.module.scss";
 
@@ -15,7 +16,6 @@ const categoryImg = {
 
 const HomeSliderCard = ({card}) => {
     const navigate = useNavigate();
-
 
     const {lang} = useLanguage();
     const {category, category_ua} = card
@@ -34,5 +34,12 @@ const HomeSliderCard = ({card}) => {
         </div>
     );
 };
+
+HomeSliderCard.propTypes = {
+    card: PropTypes.shape({
+        category: PropTypes.string,
+        category_ua: PropTypes.string,
+    })
+}
 
 export default HomeSliderCard;

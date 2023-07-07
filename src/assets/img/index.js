@@ -13,19 +13,77 @@ import coat_1 from "./coat/coat_1.jpg";
 import coat_2 from "./coat/coat_2.jpg";
 import coat_3 from "./coat/coat_3.jpg";
 import coat_4 from "./coat/coat_4.jpg";
+import coat_1_1 from "./coat/coat_1_1.jpg";
+import coat_1_2 from "./coat/coat_1_2.jpg";
+import coat_1_3 from "./coat/coat_1_3.jpg";
+import coat_1_4 from "./coat/coat_1_4.jpg";
 import fur_coats_1 from "./fur_coats/fur_coats_1.jpg";
 import fur_coats_2 from "./fur_coats/fur_coats_2.jpg";
 import fur_coats_3 from "./fur_coats/fur_coats_3.jpg";
 import fur_coats_4 from "./fur_coats/fur_coats_4.jpg";
+import fur_coats_1_1 from "./fur_coats/fur_coats_1_1.jpg";
+import fur_coats_1_2 from "./fur_coats/fur_coats_1_2.jpg";
+import fur_coats_1_3 from "./fur_coats/fur_coats_1_3.jpg";
+import fur_coats_1_4 from "./fur_coats/fur_coats_1_4.jpg";
 import jackets_1 from "./jackets/jackets_1.jpg";
 import jackets_2 from "./jackets/jackets_2.jpg";
 import jackets_3 from "./jackets/jackets_3.jpg";
 import jackets_4 from "./jackets/jackets_4.jpg";
+import jackets_1_1 from "./jackets/jackets_1_1.jpg";
+import jackets_1_2 from "./jackets/jackets_1_2.jpg";
+import jackets_1_3 from "./jackets/jackets_1_3.jpg";
+import jackets_1_4 from "./jackets/jackets_1_4.jpg";
 import parkas_1 from "./parkas/parkas_1.jpg";
 import parkas_2 from "./parkas/parkas_2.jpg";
 import parkas_3 from "./parkas/parkas_3.jpg";
 import parkas_4 from "./parkas/parkas_4.jpg";
+import parkas_1_1 from "./parkas/parkas_1_1.jpg";
+import parkas_1_2 from "./parkas/parkas_1_2.jpg";
+import parkas_1_3 from "./parkas/parkas_1_3.jpg";
+import parkas_1_4 from "./parkas/parkas_1_4.jpg";
 
-export {new1, new2, new3, jackets, parkas, fur_coats, coat_category, product1, product2, product3, product4, coat_1, coat_2, coat_3, coat_4,
-
-fur_coats_1, fur_coats_2, fur_coats_3, fur_coats_4, jackets_1, jackets_2, jackets_3, jackets_4, parkas_1, parkas_2, parkas_3, parkas_4}
+export {
+    new1,
+    new2,
+    new3,
+    jackets,
+    parkas,
+    fur_coats,
+    coat_category,
+    product1,
+    product2,
+    product3,
+    product4,
+    coat_1,
+    coat_2,
+    coat_3,
+    coat_4,
+    coat_1_1,
+    coat_1_2,
+    coat_1_3,
+    coat_1_4,
+    fur_coats_1,
+    fur_coats_2,
+    fur_coats_3,
+    fur_coats_4,
+    fur_coats_1_1,
+    fur_coats_1_2,
+    fur_coats_1_3,
+    fur_coats_1_4,
+    jackets_1,
+    jackets_2,
+    jackets_3,
+    jackets_4,
+    parkas_1,
+    jackets_1_1,
+    jackets_1_2,
+    jackets_1_3,
+    jackets_1_4,
+    parkas_2,
+    parkas_3,
+    parkas_4,
+    parkas_1_1,
+    parkas_1_2,
+    parkas_1_3,
+    parkas_1_4
+}
