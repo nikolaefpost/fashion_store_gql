@@ -1,10 +1,9 @@
 import React from 'react';
 import {useLanguage} from "../../../context/setting";
 import {Link, NavLink, useHref} from "react-router-dom";
-import {FavoriteIcon, MenuIcon, OrderIcon, SearchIcon} from "../../../assets/icon";
+import {FavoriteIcon, OrderIcon, SearchIcon} from "../../../assets/icon";
 import {SlArrowDown} from "react-icons/sl";
 import UserIdentification from "./UserIdentification";
-import {useMediaQuery} from "../../../hooks/useMediaQuery";
 import cn from "classnames";
 import {useQuery } from "@apollo/client";
 import {GET_ORDERS_LOCAL} from "../../../appolo/operations/order/orderGrapfQgl";
@@ -17,7 +16,6 @@ const NavDesktop = () => {
     const {data} = useQuery(GET_ORDERS_LOCAL);
     const {text, lang, onChangeLang} = useLanguage();
     let isHome = useHref() === "#/";
-    const isTablet = useMediaQuery(1000);
 
     const mainStyle = {
         color: "#FFFFFF"
@@ -27,7 +25,6 @@ const NavDesktop = () => {
         <nav className={styles.nav} style={isHome ? mainStyle : {}}>
 
             <div className={styles.left_block}>
-                {!isTablet && <MenuIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/>}
                 <NavLink
                     to="new"
                     style={isHome ? mainStyle : {}}

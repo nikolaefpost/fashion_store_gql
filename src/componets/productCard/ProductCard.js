@@ -100,6 +100,7 @@ const ProductCard = ({product, setProduct, cardId, isTablet, isMobile, lessTable
                     <h3>{lang === "Eng" ? product?.name : product?.name_ua}</h3>
                     <div className={styles.price}>{product?.price} {text.currency}.</div>
                     <SelectColor colorProduct={colorProduct} setColorProduct={setColorProduct} color={product?.color}/>
+                    {}
                     <SelectSize
                         openSelect={openSelect}
                         setOpenSelect={setOpenSelect}

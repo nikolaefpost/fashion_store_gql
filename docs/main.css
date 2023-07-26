@@ -2356,7 +2356,7 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/pages/layout/layout.module.scss ***!
   \********************************************************************************************************************************************************************************************************************************/
 body {
-  font-family: Raleway, cursive;
+  font-family: "Raleway", sans-serif;
   margin: 0;
 }
 
@@ -2817,7 +2817,6 @@ span {
   line-height: 19px;
   color: #252525;
   cursor: pointer;
-  overflow-y: hidden;
 }
 .productCard-module__content--fJ44M .productCard-module__product_card--NZTBd .productCard-module__text_block--eknnl .productCard-module__select--vO4hw .productCard-module__error--_oIVU {
   font-family: "Gill Sans", sans-serif;
@@ -2835,6 +2834,10 @@ span {
 }
 .productCard-module__content--fJ44M .productCard-module__product_card--NZTBd .productCard-module__text_block--eknnl .productCard-module__select--vO4hw ul li {
   list-style-type: none;
+  padding: 2px 10px;
+}
+.productCard-module__content--fJ44M .productCard-module__product_card--NZTBd .productCard-module__text_block--eknnl .productCard-module__select--vO4hw ul li:hover {
+  background: #E0BEA2;
 }
 .productCard-module__content--fJ44M .productCard-module__product_card--NZTBd .productCard-module__text_block--eknnl .productCard-module__select--vO4hw ul:first-child {
   margin-top: 16px;

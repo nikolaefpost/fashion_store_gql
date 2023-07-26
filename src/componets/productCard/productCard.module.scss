@@ -135,11 +135,10 @@
         position: relative;
         margin-top: 20px;
         width: 100%;
-        //padding: 16px 19px ;
         border: 0.5px solid #252525;
         @include fonts(200, 16px, 19px, $accent);
         cursor: pointer;
-        overflow-y: hidden;
+        padding: 16px 19px ;
 
         & .error{
           font-family: "Gill Sans", sans-serif;
@@ -190,7 +189,7 @@
       }
 
       & .select_padding{
-        padding: 16px 19px ;
+        overflow-y: hidden;
       }
 
       & .error_select{
@@ -328,7 +327,7 @@
 
         & .select {
           margin-top: 20px;
-          //padding: 12px 19px;
+          padding: 12px 19px;
           @include fonts(200, 14px, 16px, $accent);
 
           & .error{
@@ -353,11 +352,6 @@
             top: 12px;
           }
         }
-
-        & .select_padding{
-          padding: 12px 19px ;
-        }
-
 
         & .button_block {
           margin-top: 43px;
@@ -477,7 +471,7 @@
 
         & .select {
           margin-top: 15px;
-          //padding: 12px 19px;
+          padding: 12px 19px;
           @include fonts(200, 14px, 16px, $accent);
 
 
@@ -486,10 +480,6 @@
             height: 16px;
             top: 13px;
           }
-        }
-
-        & .select_padding{
-          padding: 12px 19px ;
         }
 
         & .button_block {
