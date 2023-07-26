@@ -200,6 +200,11 @@
         margin-top: 20px;
         @include display-flex;
         gap: 20px;
+        position: relative;
+
+        & .hide_button{
+          visibility: hidden;
+        }
 
         & button {
           width: 50%;

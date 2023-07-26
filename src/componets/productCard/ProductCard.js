@@ -8,13 +8,15 @@ import {useMutation, useQuery} from "@apollo/client";
 import {GET_USER_LOCAL, UPDATE_FAVORITES} from "../../appolo/operations/user/userGrapfQgl";
 import {motion, AnimatePresence} from "framer-motion";
 import styles from "./productCard.module.scss";
+import cn from "classnames";
 
 
 const ProductCard = ({product, setProduct, cardId, isTablet, isMobile, lessTablet}) => {
     const [addProduct, setAddProduct] = useState(true)
     const {text, lang} = useLanguage();
     const {data: user} = useQuery(GET_USER_LOCAL);
-    const [updateUser, {data}] = useMutation(UPDATE_FAVORITES);
+
+    const [updateUser, {data: updateData}] = useMutation(UPDATE_FAVORITES);
     const [openSelect, setOpenSelect] = useState(false);
     const [sizeProduct, setSizeProduct] = useState();
     const [sizeError, setSizeError] = useState(false);
@@ -35,12 +37,20 @@ const ProductCard = ({product, setProduct, cardId, isTablet, isMobile, lessTable
 
 
     const handleAddFavorites = () => {
-        updateUser({
-            variables: {
-                favorites: [{id: product.id}],
-                email: {eq: user.currentUser.email}
-            }
-        })
+        // updateUser({
+        //     variables: {
+        //         favorites: [{id: product.id}],
+        //         email: {eq: user.currentUser.email}
+        //     }
+        // })
+        if (user) {
+            updateUser({
+                variables: {
+                    favorites: [{id: product.id}],
+                    email: {eq: user.currentUser.email}
+                }
+            })
+        }
     }
 
     useEffect(() => {
@@ -68,6 +78,12 @@ const ProductCard = ({product, setProduct, cardId, isTablet, isMobile, lessTable
     useEffect(() => {
         setAddProduct(true);
     }, [cardId])
+
+    useEffect(()=>{
+        if (updateData?.updateUser) {
+            location.reload()
+        }
+    },[updateData])
 
     const descriptionComposition = lang === "Eng" ? product?.description_composition : product?.description_composition_ua
     const descriptionCare = lang === "Eng" ? product?.description_care : product?.description_care_ua
@@ -113,7 +129,7 @@ const ProductCard = ({product, setProduct, cardId, isTablet, isMobile, lessTable
                     />
                     <div className={styles.button_block}>
                         <button onClick={() => setOrder(product?.id)}>{text.add_cart}</button>
-                        <button onClick={handleAddFavorites}><AiOutlineHeart/>{text.to_favorites}</button>
+                        <button className={cn({[styles.hide_button]: !user})} onClick={handleAddFavorites}><AiOutlineHeart/>{text.to_favorites}</button>
                     </div>
                     {!isTablet && <div className={styles.description}>
                         <h4>{text.details}</h4>

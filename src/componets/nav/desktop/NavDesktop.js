@@ -5,17 +5,19 @@ import {FavoriteIcon, OrderIcon, SearchIcon} from "../../../assets/icon";
 import {SlArrowDown} from "react-icons/sl";
 import UserIdentification from "./UserIdentification";
 import cn from "classnames";
-import {useQuery } from "@apollo/client";
+import {useQuery, useReactiveVar} from "@apollo/client";
 import {GET_ORDERS_LOCAL} from "../../../appolo/operations/order/orderGrapfQgl";
 
 import styles from "./navDesktop.module.scss";
 import {getOrderStorage} from "../../../appolo/operations/order/orderStore";
+import {isAuthUserVar} from "../../../appolo/cashe/appVar";
 
 const NavDesktop = () => {
     getOrderStorage();
     const {data} = useQuery(GET_ORDERS_LOCAL);
     const {text, lang, onChangeLang} = useLanguage();
     let isHome = useHref() === "#/";
+    const isAuth = useReactiveVar(isAuthUserVar)
 
     const mainStyle = {
         color: "#FFFFFF"
@@ -71,8 +73,8 @@ const NavDesktop = () => {
                 </div>
                 <SearchIcon color={isHome ? "#FFFFFF" : "#252525"} size={23}/>
                 {/*<UserIcon color={isHome? "#FFFFFF":"#E0BEA2"} />*/}
-                <UserIdentification isHome={isHome}/>
-                <Link to="favorites"><FavoriteIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/></Link>
+                <UserIdentification isHome={isHome} isAuth={isAuth}/>
+                {isAuth && <Link to="favorites"><FavoriteIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/></Link>}
                 <Link to="order" className={styles.order}>
                     <OrderIcon color={isHome ? "#FFFFFF" : "#E0BEA2"}/>
                     {data.orders.length>0 && <div className={styles.count}>{data.orders.length}</div>}

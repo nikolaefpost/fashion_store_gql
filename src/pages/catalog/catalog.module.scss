@@ -494,10 +494,24 @@
     background-color: $main;
     border-radius: 0 0 0 50%;
     @include display-flex;
+    cursor: pointer;
 
     & svg {
       color: #FFFFFF;
     }
+  }
+
+  & .favorite_mess{
+    position: absolute;
+    top: -32px;
+    right: 20px;
+    @include fonts(200, 12px, 14px, $error);
+    text-align: right;
+    border-radius:  12px 12px 0 12px;
+    border: .3px solid $error;
+    padding: 6px 9px;
+    z-index: 10;
+    background: #FFFFFF;
   }
 
 
@@ -591,6 +605,13 @@
       & .card_size {
         @include fonts(300, 14px, 16px, $accent);
       }
+    }
+
+    & .favorite_mess{
+      top: 20px;
+      right: 20px;
+      border-radius:  12px  0 12px 12px;
+
     }
   }
 }

@@ -148,6 +148,7 @@ export const data = {
         log_in_up: "log in / log up",
         filters: "Filters",
         no_items: "There are no items in the cart",
+        to_add_favorites: "to add to favorites, register or log in to your account",
     },
     ua: {
         catalog: 'каталог',
@@ -299,5 +300,6 @@ export const data = {
         log_in_up: "увійти / реєстрація",
         filters: "Фільтри",
         no_items: "У кошику немає товарів",
+        to_add_favorites: "для додавання до вибраного зареєструйтесь або увійдіть до облікового запису",
     },
 };

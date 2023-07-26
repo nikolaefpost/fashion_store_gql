@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {RiDeleteBinLine} from "react-icons/ri"
 import {useLanguage} from "../../context/setting";
 import {heartOutline} from "../../assets/icon";
@@ -11,6 +11,7 @@ import styles from "../../pages/catalog/catalog.module.scss";
 
 
 const ProductListCard = ({data, handleTransition, style, isFavorite}) => {
+    const [favoriteMess, setFavoriteMess] = useState('');
     const {lang, text} = useLanguage();
     const [updateUser, { data: updateData }] = useMutation(UPDATE_FAVORITES);
     const [deleteUser, { data: deleteData }] = useMutation(DELETE_FAVORITES);
@@ -24,6 +25,9 @@ const ProductListCard = ({data, handleTransition, style, isFavorite}) => {
                     email: {eq: user.email}
                 }
             })
+        }else {
+            setFavoriteMess(text.to_add_favorites)
+            setTimeout(()=>setFavoriteMess(''), 2000)
         }
 
     }
@@ -56,6 +60,7 @@ const ProductListCard = ({data, handleTransition, style, isFavorite}) => {
             // onClick={() => handleTransition(data.id)}
             className={styles.product_card}
         >
+            {favoriteMess.length > 0 && <div className={styles.favorite_mess}>{favoriteMess}</div>}
             <div className={styles.add_favorite} onClick={!isFavorite? handleAddFavorites : handleDeleteFavorites}>
                 {!isFavorite ? <img src={heartOutline} alt='heart'/>:
                     <RiDeleteBinLine/>}
